@@ -98,6 +98,13 @@ body{
 	font-size:50px;
 	color:#0f173a;
 }
+.sub-title-block{
+	padding: 10px 0;
+	font-size:20px;
+	text-align:center;
+	text-transform:uppercase;
+	color:#60BA46;
+}
 .erorr-man{
 	padding: 40px 0 20px;
 }
