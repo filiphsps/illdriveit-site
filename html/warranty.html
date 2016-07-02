@@ -7,8 +7,9 @@
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">		
+		<link rel="stylesheet" href="css/jquery-ui.min.css">		
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/rangeSlider-flat.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/rangeSlider-flat.css"> -->
 
 	</head>
 	<body>
@@ -264,7 +265,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="vinnumber">
+		<section id="vinnumber" class="block1 action-block">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-1">&nbsp;</div>
@@ -281,18 +282,17 @@
 						</h2>
 					</div>
 						<div class="col-md-12 vinnum"><figure><img src="images/vin.png" alt="" class="img-responsive"></figure></div>
-						<div class="col-md-12 input"><input type="text" placeholder="ENTER VIN NUMBER"></div>
+						<div class="col-md-12 input"><input type="text" required placeholder="ENTER VIN NUMBER"></div>
 						<div class="col-md-12 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
 						</div>
-						
 				</div>
 			</div>
 		</section>
-		<section id="mileage">
+		<section id="mileage" class="hide action-block block2">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -301,18 +301,18 @@
 							HOW MANY MILES DOES YOUR TL HAVE?
 						</h2>
 					</div>
-					
 						<div class="col-md-2 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
 						</div>
+						
 						<div class="col-md-8 roundinput">
 							<input type="text" placeholder="MILEAGE"> 
 						</div>
 						<div class="col-md-2 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -321,7 +321,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="zipcode">
+		<section id="zipcode" class="hide action-block block3">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -331,7 +331,7 @@
 					</div>
 					
 						<div class="col-md-2 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -340,7 +340,7 @@
 							<input type="text" placeholder="ZIP CODE"> 
 						</div>
 						<div class="col-md-2 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -349,7 +349,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="listing">
+		<section id="listing" class="hide action-block block4">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -368,9 +368,11 @@
 							</div>
 							<div class="col-md-6 procesbar">
 								<div class="col-md-12 noy">
-									<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-									 <input type="range" min="-20" max="20" data-rangeSlider>
-									 <output></output>
+									<div class="range-values">
+										<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>	
+									</div>
+									<div id="input-range1" class="input-range"></div>
+									<output></output>
 									<h5>NUMBER OF YEARS</h5>
 								</div>
 								<div class="col-md-12 nom">
@@ -395,14 +397,14 @@
 							
 						</div>
 						<div class="col-md-2 pull-left back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
 						</div>
 						
 						<div class="col-md-2 pull-right next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -411,7 +413,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="decision">
+		<section id="decision" class="hide action-block block5">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -422,7 +424,7 @@
 					</div>
 					
 						<div class="col-md-2 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -446,7 +448,7 @@
 							
 						</div>
 						<div class="col-md-2 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next visible-true">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -455,7 +457,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="forcefield">
+		<section id="forcefield" class="hide action-block block6">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -465,7 +467,7 @@
 					</div>
 					
 						<div class="col-md-2 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -475,7 +477,7 @@
 							<input type="text" placeholder="YOUR LAST NAME"> 
 						</div>
 						<div class="col-md-2 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -484,7 +486,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="address">
+		<section id="address" class="hide action-block block7">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -493,7 +495,7 @@
 						</h2>
 					</div>					
 					<div class="col-md-2 back">
-						<a href="#" class="img-circle">
+						<a  class="img-circle button-back">
 							<img src="images/back.png">
 							<span>Back</span>
 						</a>
@@ -506,7 +508,7 @@
 						<input type="text" class="zipcode" placeholder="ZIP">
 					</div>
 					<div class="col-md-2 next">
-						<a href="#" class="img-circle">
+						<a  class="img-circle button-next">
 							<img src="images/next.png">
 							<span>Next</span>
 						</a>
@@ -515,7 +517,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="forcefield">
+		<section id="forcefield" class="hide action-block block8">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -525,7 +527,7 @@
 					</div>
 					
 						<div class="col-md-2 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -535,7 +537,7 @@
 							<input type="text" placeholder="EMAIL ADDRESS"> 
 						</div>
 						<div class="col-md-2 next">
-							<a href="#" class="img-circle">
+							<a  class="img-circle button-next">
 								<img src="images/next.png">
 								<span>Next</span>
 							</a>
@@ -544,7 +546,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="address">
+		<section id="address"  class="hide action-block block9">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -553,7 +555,7 @@
 						</h2>
 					</div>					
 					<div class="col-md-2 back">
-						<a href="#" class="img-circle">
+						<a  class="img-circle button-back">
 							<img src="images/back.png">
 							<span>Back</span>
 						</a>
@@ -566,7 +568,7 @@
 						<input type="text" class="zipcode" placeholder="CCV #">
 					</div>
 					<div class="col-md-2 next submit">
-						<a href="#" class="img-circle">
+						<a  class="img-circle button-next">
 							<img src="images/logo.png">
 							<span>SUBMIT</span>
 						</a>
@@ -575,7 +577,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="thankyou">
+		<!-- <section id="thankyou" class="hide action-block block10">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -586,17 +588,17 @@
 						
 						<div class="col-md-12 col-sm-12 roundinput">
 							<div class="boderbox">
-								<a href="#" class="img-circle">
+								<a  class="img-circle">
 									<span>YES</span>
 								</a>
-								<a href="#" class="img-circle">
+								<a  class="img-circle">
 									<span>NO</span>
 								</a>
 							</div>
 						</div>
 						
 						<div class="col-md-12 back">
-							<a href="#" class="img-circle">
+							<a  class="img-circle">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -604,8 +606,8 @@
 						
 				</div>
 			</div>
-		</section>
-		<section id="mbpi">
+		</section> -->
+		<section id="mbpi" class="hide action-block block11">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -615,7 +617,7 @@
 					</div>
 						
 					<div class="col-md-2 back">
-						<a href="#" class="img-circle">
+						<a  class="img-circle">
 							<img src="images/back.png">
 							<span>Back</span>
 						</a>
@@ -624,7 +626,7 @@
 					<img src="images/mbpi.jpg" class="img-responsive center-block" alt="" >						
 					</div>
 					<div class="col-md-2 next">
-						<a href="#" class="img-circle">
+						<a  class="img-circle button-next visible-true">
 							<img src="images/next.png">
 							<span>Next</span>
 						</a>
@@ -634,7 +636,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="mbpi">
+		<section id="mbpi" class="hide action-block block12">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -656,123 +658,10 @@
 			</div>
 		</section>		
 		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/rangeSlider.js"></script>
-		<script>
-    (function () {
-
-        var selector = '[data-rangeSlider]',
-                elements = document.querySelectorAll(selector);
-
-        // Example functionality to demonstrate a value feedback
-        function valueOutput(element) {
-            var value = element.value,
-                    output = element.parentNode.getElementsByTagName('output')[0];
-            output.innerHTML = value;
-        }
-
-        for (var i = elements.length - 1; i >= 0; i--) {
-            valueOutput(elements[i]);
-        }
-
-        Array.prototype.slice.call(document.querySelectorAll('input[type="range"]')).forEach(function (el) {
-            el.addEventListener('input', function (e) {
-                valueOutput(e.target);
-            }, false);
-        });
-
-
-        // Example functionality to demonstrate disabled functionality
-        var toggleBtnDisable = document.querySelector('#js-example-disabled button[data-behaviour="toggle"]');
-        toggleBtnDisable.addEventListener('click', function (e) {
-            var inputRange = toggleBtnDisable.parentNode.querySelector('input[type="range"]');
-            console.log(inputRange);
-            if (inputRange.disabled) {
-                inputRange.disabled = false;
-            }
-            else {
-                inputRange.disabled = true;
-            }
-            inputRange.rangeSlider.update();
-        }, false);
-
-        // Example functionality to demonstrate programmatic value changes
-        var changeValBtn = document.querySelector('#js-example-change-value button');
-        changeValBtn.addEventListener('click', function (e) {
-            var inputRange = changeValBtn.parentNode.querySelector('input[type="range"]'),
-                    value = changeValBtn.parentNode.querySelector('input[type="number"]').value;
-
-            inputRange.value = value;
-            inputRange.dispatchEvent(new Event('change'));
-        }, false);
-
-        // Example functionality to demonstrate programmatic buffer set
-        var stBufferBtn = document.querySelector('#js-example-buffer-set button');
-        stBufferBtn.addEventListener('click', function (e) {
-            var inputRange = stBufferBtn.parentNode.querySelector('input[type="range"]'),
-                    value = stBufferBtn.parentNode.querySelector('input[type="number"]').value;
-
-            inputRange.rangeSlider.update({buffer: value});
-        }, false);
-
-        // Example functionality to demonstrate destroy functionality
-        var destroyBtn = document.querySelector('#js-example-destroy button[data-behaviour="destroy"]');
-        destroyBtn.addEventListener('click', function (e) {
-            var inputRange = destroyBtn.parentNode.querySelector('input[type="range"]');
-            console.log(inputRange);
-            inputRange.rangeSlider.destroy();
-        }, false);
-
-        var initBtn = document.querySelector('#js-example-destroy button[data-behaviour="initialize"]');
-
-        initBtn.addEventListener('click', function (e) {
-            var inputRange = initBtn.parentNode.querySelector('input[type="range"]');
-            rangeSlider.create(inputRange, {});
-        }, false);
-
-        //update range
-        var updateBtn1 = document.querySelector('#js-example-update-range button');
-        updateBtn1.addEventListener('click', function (e) {
-            var inputRange = updateBtn1.parentNode.querySelector('input[type="range"]');
-            inputRange.rangeSlider.update({min: 0, max: 20, step: 0.5, value: 1.5, buffer: 70});
-        }, false);
-
-
-        var toggleBtn = document.querySelector('#js-example-hidden button[data-behaviour="toggle"]');
-        toggleBtn.addEventListener('click', function (e) {
-            var container = e.target.previousElementSibling;
-            if (container.style.cssText.match(/display[\s:]{1,3}none/)) {
-                container.style.cssText = '';
-            } else {
-                container.style.cssText = 'display: none;';
-            }
-        }, false);
-
-        // Basic rangeSlider initialization
-        rangeSlider.create(elements, {
-
-            // Callback function
-            onInit: function () {
-            },
-
-            // Callback function
-            onSlideStart: function (value, percent, position) {
-                console.info('onSlideStart', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            },
-
-            // Callback function
-            onSlide: function (value, percent, position) {
-                console.log('onSlide', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            },
-
-            // Callback function
-            onSlideEnd: function (value, percent, position) {
-                console.warn('onSlideEnd', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            }
-        });
-
-    })();
-</script>
+		<script src="js/script.js"></script>
+		
 				
 	</body>
 </html>

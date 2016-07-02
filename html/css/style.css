@@ -1553,3 +1553,30 @@ header .container-fluid {
 	text-align: center;
 }
 }
+.hide{
+	display: block !important;
+}
+.hide-button:not(.visible-true){
+	visibility: hidden;
+	pointer-events:none;
+}
+.input-range{
+	height: 20px;
+	background: #000;
+	border:none;
+	border-radius: 3px;
+	margin: 18px 0;
+}
+.input-range span{
+	width: 35px !important;
+	height: 35px !important;
+	border-radius: 50%;
+	display: block;
+	outline: none;
+	background: #61B445;
+}
+.range-values{
+	display: block;
+	height: 52px;
+	position: relative;
+}
