@@ -43,7 +43,7 @@ $(document).ready(function(){
 			drive.warrantyRequest.vin = block.find('input[name=vin]').val();
 			block_index = 2;
 		}else if(block.hasClass('block2')){
-			drive.warrantyRequest.mileage = block.find('input[name=mileage]').val();
+			drive.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val());
 			block_index = 3;
 		}else if(block.hasClass('block3')){
 			drive.warrantyRequest.zip = block.find('input[name=zip]').val();
@@ -120,10 +120,10 @@ $(document).ready(function(){
 		if(block.hasClass('block_error4')){
 			
 			$.ajax({
-				url:'http://stest.te.ua/verifyzip.php',
-				type: "GET",
-				data:'email='+block.find('input[name=email]').val()+'&vin='+drive.warrantyRequest.vin,
-				dataType : "jsonp",
+                		url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
+				type: "POST",
+				data:JSON.stingify({email:block.find('input[name=email]').val(), vin:drive.warrantyRequest.vin}),
+				dataType : "json",
 				success:function(data){
 					block.next('.block_error').show();
 					$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
@@ -159,12 +159,14 @@ function get_plans(vin,mil){
 /* 98001 1000 5FRYD4H43GB017942  */
 function get_zip(vin,mil,zip){
 	open_load();
-	console.log('ajax');
+	var data = {zip:zip, mileage:mil, vin:vin};
+	console.log('ajax ', data);
 	$.ajax({
-		url:'http://stest.te.ua/verifyzip.php',
-		type: "GET",
-		data:'zip='+zip+'&mileage='+mil+'&vin='+vin,
-		dataType : "jsonp",
+	        url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
+		type: "POST",
+		data: JSON.stringify(data),
+		contentType: "application/json",
+		dataType : "json",
 		success:function(data){
 			console.log(data);
 			
