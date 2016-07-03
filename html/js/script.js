@@ -120,10 +120,10 @@ $(document).ready(function(){
 		if(block.hasClass('block_error4')){
 			
 			$.ajax({
-				url:'http://stest.te.ua/verifyzip.php',
-				type: "GET",
-				data:'email='+block.find('input[name=email]').val()+'&vin='+drive.warrantyRequest.vin,
-				dataType : "jsonp",
+				url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
+				type: "POST",
+				data:{'email':JSON.stringify(block.find('input[name=email]').val()), 'vin':JSON.stringify(drive.warrantyRequest.vin)},
+				dataType : "json",
 				success:function(data){
 					block.next('.block_error').show();
 					$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
@@ -161,10 +161,10 @@ function get_zip(vin,mil,zip){
 	open_load();
 	console.log('ajax');
 	$.ajax({
-		url:'http://stest.te.ua/verifyzip.php',
-		type: "GET",
-		data:'zip='+zip+'&mileage='+mil+'&vin='+vin,
-		dataType : "jsonp",
+		url:'https://high-quality.tech/illdriveit/warranty/verifyzip', //'http://stest.te.ua/verifyzip.php',
+		type: "POST",
+		data:{'zip':JSON.stringify(zip), 'mileage':JSON.stringify(mil),'vin':JSON.stringify(vin)},
+		dataType : "json",
 		success:function(data){
 			console.log(data);
 			
