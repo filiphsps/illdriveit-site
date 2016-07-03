@@ -8,29 +8,65 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">		
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/rangeSlider-flat.css">
-
+		<!--[if lt IE 9]><script src="flashcanvas.js"></script><![endif]-->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.signaturepad.js"></script>
+		<script src="js/json2.min.js"></script>
 	</head>
 	<body>
 		<section id="thank">
-			<div class="allert-wrapper">
-				<p class="title-block center">
-                    PERFECT! CAN WE HAVE 
-                    YOUR AUTOGRAPH?
+			<form action="" class="sigPad">
+				<div class="allert-wrapper">
+					<p class="title-block center">
+	                    PERFECT! CAN WE HAVE 
+	                    YOUR AUTOGRAPH?
 
-				</p>
-				<p class="sub-title-block">
-					WE NEED YOUR SIGNATURE TO MAKE SURE TO
-					MAKE SURE YOU'RE OKAY WITH US
-					INSPECTING YOUR CAR!
-				</p>              
-			</div>
+					</p>
+					<p class="sub-title-block">
+						WE NEED YOUR SIGNATURE TO MAKE SURE TO
+						MAKE SURE YOU'RE OKAY WITH US
+						INSPECTING YOUR CAR!
+					</p>              
+					<div class="sig">
+						<canvas class="pad" width="600px" height="400px"></canvas>
+						<input type="hidden" name="output" class="output">
+					</div>
+					<div class="controls">
+						<div class="back">
+							<a  class="img-circle button-back">
+								<img src="images/back.png">
+								<span>Back</span>
+							</a>
+						</div>
+						<div class="button-clear clearButton">
+							<a  class="img-circle">
+								<span>Clear</span>
+							</a>
+						</div>
+						<div class="next">
+							<a  class="img-circle button-next">
+								<img src="images/next.png">
+								<span>Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</form>
 		</section>
-	
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/rangeSlider.js"></script>
-
+		<!-- <form method="post" action="" class="sigPad">
+			<ul class="sigNav">
+				<li class="clearButton"><a href="#clear">Clear</a></li>
+			</ul>
+			<div class="sig sigWrapper">
+				<canvas class="pad" width="198" height="55"></canvas>
+				<input type="hidden" name="output" class="output">
+			</div>
+		</form> -->
+		<script>
+		$(document).ready(function(){
+			$('.sigPad').signaturePad({drawOnly:true});
+		});
+		</script>
 				
 	</body>
 </html>

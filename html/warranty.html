@@ -7,9 +7,7 @@
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">		
-		<link rel="stylesheet" href="css/jquery-ui.min.css">		
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<!-- <link rel="stylesheet" type="text/css" href="css/rangeSlider-flat.css"> -->
 
 	</head>
 	<body>
@@ -282,7 +280,7 @@
 						</h2>
 					</div>
 						<div class="col-md-12 vinnum"><figure><img src="images/vin.png" alt="" class="img-responsive"></figure></div>
-						<div class="col-md-12 input"><input type="text" required placeholder="ENTER VIN NUMBER"></div>
+						<div class="col-md-12 input"><input type="text" name="vin" required placeholder="ENTER VIN NUMBER" ></div>
 						<div class="col-md-12 next">
 							<a  class="img-circle button-next">
 								<img src="images/next.png">
@@ -309,7 +307,7 @@
 						</div>
 						
 						<div class="col-md-8 roundinput">
-							<input type="text" placeholder="MILEAGE"> 
+							<input type="text" name="mileage" placeholder="MILEAGE"> 
 						</div>
 						<div class="col-md-2 next">
 							<a  class="img-circle button-next">
@@ -337,7 +335,7 @@
 							</a>
 						</div>
 						<div class="col-md-8 roundinput">
-							<input type="text" placeholder="ZIP CODE"> 
+							<input type="text" name="zip" placeholder="ZIP CODE"> 
 						</div>
 						<div class="col-md-2 next">
 							<a  class="img-circle button-next">
@@ -360,39 +358,43 @@
 						
 						<div class="container">
 							<div class="col-md-3 text-center leftcontent">
-								<h3><span class="yearsdat">3</span><br>
+								<h3><span class="yearsdat listing_year">3</span><br>
 									<span class="years">YEARS</span></h3>
 									<hr>
-								<h3><span class="milagetxt">75K</span><br>
+								<h3><span class="milagetxt listing_mileage">75K</span><br>
 									<span class="milagetit">MILES</span></h3>
 							</div>
 							<div class="col-md-6 procesbar">
 								<div class="col-md-12 noy">
 									<div class="range-values">
-										<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>	
+										
 									</div>
 									<div id="input-range1" class="input-range"></div>
 									<output></output>
 									<h5>NUMBER OF YEARS</h5>
 								</div>
 								<div class="col-md-12 nom">
-									<span>60k</span><span>70k</span><span>100k</span>
-									<input type="range" min="-20" max="20" data-rangeSlider>
+									<div class="range-values">
+										
+									</div>
+									<div id="input-range2" class="input-range"></div>
 									<h5>NUMBER OF MILES</h5>
 								</div>
 								<div class="col-md-12 mp">
-									<span>$0</span><span>$39</span><span>$79</span>
-									<input type="range" min="-20" max="20" data-rangeSlider>
+									<div class="range-values">
+										
+									</div>
+									<div id="input-range3" class="input-range"></div>
 									<h5>MONTHLY PAYMENT</h5>
 								</div>
 							</div>
 							<div class="col-md-3 text-center leftcontent rightcontent">
-								<h3><span class="yearsdat">$155</span><br>
+								<h3><span class="yearsdat listing_downpayment">$155</span><br>
 									<span class="years">DOWN<br>PAYMENT</span><br>
 									<span class="plusesign">+</span><br>
-									<span class="milagetxt">$78</span><br>
+									<span class="milagetxt listing_monthlyprice">$78</span><br>
 									<span class="milagetit">PER MONTH<br>
-									(FOR 18 MONTHS)</span></h3>
+									(FOR <span class="listing_numberofmonths">18</span> MONTHS)</span></h3>
 							</div>
 							
 						</div>
@@ -431,17 +433,17 @@
 						</div>
 						<div class="col-md-8">
 							<h3>
-								<span class="topcontent">3 <span>YEARS</span> OR</span><br>
-								<span class="bottomcontent">75,000 <span>MILES</span></span>
+								<span class="topcontent"><b class="listing_year">3</b> <span>YEARS</span> OR</span><br>
+								<span class="bottomcontent"><b class="listing_mileage_full">75,000</b> <span>MILES</span></span>
 							</h3>
 							<hr>
 							<div class="col-md-12 pymtsec">
-								<div class="payment"><div class="pricerate">$155</div><div class="pymtcontent">DOWN PAYMENT</div></div><br>
-								<div class="payment"><div class="pricerate"><span>+</span>$78</div><div class="pymtcontent">PER MONTH*</div></div>
+								<div class="payment"><div class="pricerate listing_downpayment">$155</div><div class="pymtcontent">DOWN PAYMENT</div></div><br>
+								<div class="payment"><div class="pricerate"><span>+</span><b class="listing_monthlyprice">$78</b></div><div class="pymtcontent">PER MONTH*</div></div>
 							</div>
 							<div class="col-md-12 pymtsec">
 								<h4>
-									*18 PAYMENTS</br>
+									*<span class="listing_numberofmonths">18</span> PAYMENTS</br>
 									@ 0% INTEREST
 								</h4>
 							</div>
@@ -473,8 +475,8 @@
 							</a>
 						</div>
 						<div class="col-md-8 roundinput">
-							<input type="text" placeholder="YOUR FIRST NAME"> 
-							<input type="text" placeholder="YOUR LAST NAME"> 
+							<input type="text" name="first_name" placeholder="YOUR FIRST NAME"> 
+							<input type="text" name="last_name" placeholder="YOUR LAST NAME"> 
 						</div>
 						<div class="col-md-2 next">
 							<a  class="img-circle button-next">
@@ -501,11 +503,11 @@
 						</a>
 					</div>
 					<div class="col-md-8 roundinput">
-						<input type="text" placeholder="YOUR STREET ADDRESS"> 
-						<input type="text" placeholder="ADDRESS CONTINUED"> 
-						<input type="text" class="city" placeholder="CITY">
-						<input type="text" class="state" placeholder="STATE">
-						<input type="text" class="zipcode" placeholder="ZIP">
+						<input type="text" name="address1" placeholder="YOUR STREET ADDRESS"> 
+						<input type="text" name="address2" placeholder="ADDRESS CONTINUED"> 
+						<input type="text" name="city" class="city" placeholder="CITY">
+						<input type="text" name="state" class="state" placeholder="STATE">
+						<input type="text" name="zip" class="zipcode" placeholder="ZIP">
 					</div>
 					<div class="col-md-2 next">
 						<a  class="img-circle button-next">
@@ -533,8 +535,8 @@
 							</a>
 						</div>
 						<div class="col-md-8 roundinput">
-							<input type="text" placeholder="PHONE NUMBER"> 
-							<input type="text" placeholder="EMAIL ADDRESS"> 
+							<input type="text" name="phone" placeholder="PHONE NUMBER"> 
+							<input type="text" name="email" placeholder="EMAIL ADDRESS"> 
 						</div>
 						<div class="col-md-2 next">
 							<a  class="img-circle button-next">
@@ -561,11 +563,11 @@
 						</a>
 					</div>
 					<div class="col-md-8 roundinput billing">
-						<h3>$155.00</h3>
-						<input type="text" placeholder="ENTER CARD NUMBER"> 
-						<input type="text" class="city" placeholder="EXP MONTH">
-						<input type="text" class="state" placeholder="EXP YEAR">
-						<input type="text" class="zipcode" placeholder="CCV #">
+						<h3 class="listing_downpayment">$155.00</h3>
+						<input type="text" name="cart_number" placeholder="ENTER CARD NUMBER"> 
+						<input type="text" name="cart_month" class="city" placeholder="EXP MONTH">
+						<input type="text" name="cart_year" class="state" placeholder="EXP YEAR">
+						<input type="text" name="cart_ccv" class="zipcode" placeholder="CCV #">
 					</div>
 					<div class="col-md-2 next submit">
 						<a  class="img-circle button-next">
@@ -576,6 +578,45 @@
 						
 				</div>
 			</div>
+		</section>
+		<section id="thank" class="hide action-block block10">
+			<form action="" class="sigPad">
+				<div class="allert-wrapper">
+					<p class="title-block center">
+	                    PERFECT! CAN WE HAVE 
+	                    YOUR AUTOGRAPH?
+
+					</p>
+					<p class="sub-title-block">
+						WE NEED YOUR SIGNATURE TO MAKE SURE TO
+						MAKE SURE YOU'RE OKAY WITH US
+						INSPECTING YOUR CAR!
+					</p>              
+					<div class="sig">
+						<canvas class="pad" width="600px" height="400px"></canvas>
+						<input type="hidden" name="output" class="output">
+					</div>
+					<div class="controls">
+						<div class="back">
+							<a  class="img-circle button-back">
+								<img src="images/back.png">
+								<span>Back</span>
+							</a>
+						</div>
+						<div class="button-clear clearButton">
+							<a  class="img-circle">
+								<span>Clear</span>
+							</a>
+						</div>
+						<div class="next">
+							<a  class="img-circle button-next">
+								<img src="images/next.png">
+								<span>Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</form>
 		</section>
 		<!-- <section id="thankyou" class="hide action-block block10">
 			<div class="container-fluid">
@@ -598,7 +639,7 @@
 						</div>
 						
 						<div class="col-md-12 back">
-							<a  class="img-circle">
+							<a  class="img-circle button-back">
 								<img src="images/back.png">
 								<span>Back</span>
 							</a>
@@ -656,10 +697,120 @@
 						
 				</div>
 			</div>
-		</section>		
+		</section>
+		<div class="load hide">
+			<img src="images/load.gif" alt="">
+		</div>
+		<section id="thank" class="hide block_error block_error1">
+			<div class="allert-wrapper">
+				<p class="title-block center">
+					OH NO! ONLY VEHICLES UNDER 3 YEARS OLD
+					ARE ELIGIBLE FOR THE FORCEFIELD
+				</p>
+				<div class="center">
+                    <div class="erorr-man">
+                        <img src="images/notify-man.png" alt="">
+                    </div>
+				</div>
+
+				<div class="back-notify">
+					<a>
+						
+                        <div>
+                            <img src="images/back.png">
+                        </div>
+                        <span>Back</span>
+
+					</a>
+				</div>
+                <div class="about-us-bottom">
+                    <a>
+                        <p>
+                            WE ARE WORKING ON A WARRANTY FOR <br class="space">
+                            CARS OVER 3 YEARS AND 36K MILES <br class="space">
+                            CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!
+                        </p>                    
+                    </a>
+
+                </div>
+                <div class="notify-button">
+                    <a>
+                    <div>
+                        <img src="images/notify.png">
+                    </div>
+
+                        <span>
+                            NOTIFY <br>
+                            ME
+                        </span>
+                    </a>
+                </div>                
+			</div>
+		</section>
+		<section id="thank" class="hide block_error block_error2">
+			<div class="allert-wrapper">
+				<p class="title-block center">
+                    PLEASE ENTER YOUR EMAIL BELOW AND <br class="space">
+                    WE WILL NOTIFY YOU THE SECOND YOUR <br class="space">
+                    FORCEFIELD IS READY!
+				</p>
+				<div class="center">
+                        <div class="input-block notify">
+                            <input type="text" placeholder="EMAIL ADDRESS" name="email"> 
+                        </div>
+				</div>
+
+				<div class="back-notify">
+					<a href="#">
+						
+                        <div>
+                            <img src="images/back.png">
+                        </div>
+                        <span>Back</span>
+
+					</a>
+				</div>
+                <div class="notify-button">
+                    <a>
+                    <div>
+                        <img src="images/notify.png">
+                    </div>
+
+                        <span>
+                            NOTIFY <br>
+                            ME
+                        </span>
+                    </a>
+                </div>                
+			</div>
+		</section>
+		<section id="thank" class="hide block_error block_error2">
+			<div class="allert-wrapper">
+				<p class="title-block center">
+					THANKS! BE ON THE LOOKOUT FOR <br class="space">
+					AN EMAIL FROM US!
+				</p>
+				<div class="center car-icon">
+					<div>
+						<img class="img-border"  src="images/warranty-image.png">
+					</div>
+				</div>
+
+				<div class="back-notify">
+					<a >
+						<img src="images/back.png"><br>
+						<span>Back</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<!--[if lt IE 9]><script src="js/flashcanvas.js"></script><![endif]-->
+		<script src="js/flashcanvas.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.signaturepad.js"></script>
+		<script src="js/json2.min.js"></script>
 		<script src="js/script.js"></script>
 		
 				
