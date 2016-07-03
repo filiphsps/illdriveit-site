@@ -655,6 +655,10 @@ a.img-circle>img{
 	float: left;
 	height: 220px;
 }
+.force-inner .text-center {
+	margin: 40px 0 0 0;
+	min-height: 180px;
+}
 @media(max-width:1024px){
 	.row.force-inner div{
 		width: 25%;
@@ -672,6 +676,10 @@ a.img-circle>img{
 	}	
 }
 @media(max-width:768px){
+	.force-inner .text-center {
+		margin: 20px 0 0 0;
+		height: auto;
+	}
 	.row.force-inner div{
 		width: 50%;
 	}
@@ -685,12 +693,11 @@ a.img-circle>img{
 	    margin: 0 auto;
 	    // overflow: hidden;
 	}	
+	.row.force-inner div {
+	    height: 180px;
+	}	
 }
-.force-inner .text-center {
-	margin: 40px 0 0 0;
-	min-height: 220px;
-	height: auto;
-}
+
 .force-inner .text-center img {
 	margin: 0 auto;
 -moz-transition:-moz-transform 0.5s ease-in; 
@@ -703,6 +710,9 @@ a.img-circle>img{
 -webkit-transform:scale(1.2);
 -o-transform:scale(1.2);
 }
+
+
+
 #benefits .benefit img {
 -moz-transition:-moz-transform 0.5s ease-in; 
 -webkit-transition:-webkit-transform 0.5s ease-in; 
@@ -732,6 +742,7 @@ a.img-circle>img{
   /*   overflow: hidden; */
 }
 
+
 #benefits {
 	float: left;
 	width: 100%;
@@ -739,6 +750,8 @@ a.img-circle>img{
 }
 #benefits .benefit {
 	margin-bottom: 80px;
+	float: left;
+	width: 33.3%;
 }
 #benefits .benefit h2 {
 	color: #60B646;
@@ -751,6 +764,78 @@ a.img-circle>img{
 }
 #benefits .benefit figure {
 	min-height: 180px;
+}
+
+
+
+@media(max-width:1100px){
+	#benefits .benefit h2 {
+	    color: #60B646;
+	    font-size: 20px;
+	    cursor: pointer;
+	    margin: 0;
+	    line-height: 1.4;
+	}
+}
+@media(max-width:980px){
+	.beni-fix{
+		width: 26%;
+	}
+	#benefits .benefit {
+		margin-bottom: 40px;
+		width: 50%;
+	}
+	#benefits .benefit figure {
+	    height: 180px;
+	    width: 40%;
+	    margin: 0 auto;
+	    display: table-cell;
+	    vertical-align: middle;
+	    text-align: center;
+	}
+	#benefits .benefit figure.beni-fix{
+		width: 26%;
+	}
+
+}
+@media(max-width:640px){
+	#benefits .benefit figure{
+	position: relative;
+    width: 140px;
+	display: block;
+    /* display: table-cell; */
+
+	}
+	#benefits .benefit figure.beni-fix {
+		width: 80px;
+	}
+	#benefits .benefit img {
+	    margin: 0 auto;
+	    width: 100%;
+	      position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+}
+@media(max-width:480px){
+	#benefits .benefit h2 {
+	    font-size: 18px;
+	}
+	#benefits .benefit figure {
+	    width: 110px;
+	}	
+	#benefits .benefit figure.beni-fix {
+	    width: 60px;
+	}
+	#benefits .benefit {
+	    width: 50%;
+	}	
+}
+@media(max-width:400px){
+	#benefits .benefit h2 {
+    	font-size: 14px;
+	}
 }
 .border {
 	border-top: solid 5px #000;
@@ -770,6 +855,7 @@ a.img-circle>img{
 	margin-top: 40px;
 	margin-bottom: 110px;
 }
+
 .vinnum {
 	margin-bottom: 50px;
 }
@@ -1173,13 +1259,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
-#forcefield h2 {
-	font-size: 50px;
-	text-align: center;
-	margin-top: 40px;
-	color: #000;
-	margin-bottom: 110px;
-}
+
 #forcefield .roundinput input {
 	margin: 0 auto;
 	display: flex;
@@ -2063,26 +2143,7 @@ strong {
   width: 60%;
   text-align:center;
 }
-h1 {
-  font-size: 70px;
-  text-transform: uppercase;
-  line-height: 76px;
-  margin-bottom: 18px;
-  color:#0E173A;
-}
-h2 {
-  color: #5fbb46;
-  font-size: 41px;
-  text-transform: uppercase;
-  line-height: 46px;
-  margin-bottom: 32px;
-}
-p {
-  font-size: 30px;
-  line-height: 38px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
+
 .borderimage {
   border: 19px solid #60b846;
   border-radius: 50%;
@@ -2402,7 +2463,7 @@ h5 {
 	.borderimage {  max-width: 138px; border-width: 10px;}
 	.borderimage.mobileonly { margin-bottom: 17px;  margin-top: 15px;}
 	p {  font-size: 15px; line-height: 24px;}
-	h2 { font-size: 19px;  margin-bottom: 5px; line-height:24px;}	
+
 	.fullcontent h2 { font-size: 18px;  line-height: 34px;  margin-bottom: 24px;  margin-top: 9px;}
 	h4, h5 {  font-size: 16px;}
 	h3 { font-size: 20px; margin-bottom:20px; margin-top:0;}
@@ -2429,4 +2490,56 @@ h5 {
 	.homepagemobile img{margin-top:-11px;}
 	.mobiledesc { font-size: 11px;  margin-top: -9px;}
 	.showhover .hovertxt { font-size: 14px;  line-height: 18px;}
+}
+
+@media(max-width:800px){
+	.input .full-width-fill{
+		padding: 10px;	
+	}	
+}
+@media(max-width:767px){
+	#covers h1 {
+    width: 100%;
+    float: left;
+	padding: 6px 0 12px;
+	}
+	.mobile-center{
+		text-align: center;
+	    font-size: 25px!important;
+	    padding: 6px 0 10px;
+	    line-height: 1.2;
+	}
+}
+@media(max-width:768px){
+	#vinnumber h2,
+	#mileage h2 {
+		font-size: 25px;
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		line-height: 1.4;
+	}
+	.input .full-width-fill{
+		padding: 10px;	
+	}			
+}
+
+@media(max-width:640px){
+	#vinnumber h2,
+	#mileage h2 {
+		font-size: 20px;
+	}		
+}
+@media(max-width:480px){
+	.input .full-width-fill{
+		padding: 5px;
+		border: 5px solid #000;
+		font-size: 20px;
+		letter-spacing: 1px;
+
+	}	
+	#warranty h1,
+	#warranty h2 {
+		line-height:1.4;
+	}	
 }
