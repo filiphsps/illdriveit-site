@@ -1730,7 +1730,7 @@ header .container-fluid {
 }
 
 .action-block{
-	display: block !important;
+	/*display: block !important;*/
 }
 .hide-button:not(.visible-true){
 	visibility: hidden;
