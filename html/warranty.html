@@ -618,7 +618,7 @@
 				</div>
 			</form>
 		</section>
-		<!-- <section id="thankyou" class="hide action-block block10">
+		<section id="thankyou" class="hide action-block block11">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -629,10 +629,10 @@
 						
 						<div class="col-md-12 col-sm-12 roundinput">
 							<div class="boderbox">
-								<a  class="img-circle">
+								<a  class="img-circle add-card">
 									<span>YES</span>
 								</a>
-								<a  class="img-circle">
+								<a  class="img-circle button-next visible-true">
 									<span>NO</span>
 								</a>
 							</div>
@@ -647,8 +647,41 @@
 						
 				</div>
 			</div>
-		</section> -->
-		<section id="mbpi" class="hide action-block block11">
+			<section id="address"  class="hide sub-action-block">
+				<div class="container-fluid">
+					<div class="row">					
+						<div class="col-md-12">
+							<h2>
+								NO PROBLEM! WHAT CARD WOULD YOU LIKE<br>
+								TO PUT ON FILE FOR YOUR MONTHLY<br>
+								PAYMENTS STARTING <span class="date_next_month">MAY 21, 2016</span>?
+							</h2>
+						</div>					
+						<div class="col-md-2 back">
+							<a  class="img-circle button-back">
+								<img src="images/back.png">
+								<span>Back</span>
+							</a>
+						</div>
+						<div class="col-md-8 roundinput billing">
+							<h3 class="listing_downpayment listing_monthlyprice">$155.00</h3>
+							<input type="text" name="cart_number" placeholder="ENTER CARD NUMBER"> 
+							<input type="text" name="cart_month" class="city" placeholder="EXP MONTH">
+							<input type="text" name="cart_year" class="state" placeholder="EXP YEAR">
+							<input type="text" name="cart_ccv" class="zipcode" placeholder="CCV #">
+						</div>
+						<div class="col-md-2 next submit">
+							<a  class="img-circle button-add-card">
+								<img src="images/logo.png">
+								<span>SUBMIT</span>
+							</a>
+						</div>
+							
+					</div>
+				</div>
+			</section>
+		</section>
+		<section id="mbpi" class="hide action-block block12">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -664,7 +697,7 @@
 						</a>
 					</div>
 					<div class="col-md-8  ">
-					<img src="images/mbpi.jpg" class="img-responsive center-block" alt="" >						
+					<iframe pdf="data:application/pdf;base64," src="" class="img-responsive center-block"></iframe>
 					</div>
 					<div class="col-md-2 next">
 						<a  class="img-circle button-next visible-true">
@@ -677,7 +710,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="mbpi" class="hide action-block block12">
+		<section id="mbpi" class="hide action-block block13">
 			<div class="container-fluid">
 				<div class="row">					
 					<div class="col-md-12">
@@ -713,7 +746,17 @@
                     </div>
 				</div>
 
-				<div class="back-notify">
+			<div class="alert-footer center clear">
+				<div class="hide-link-about">
+                    <a>
+                        <p>
+                            WE ARE WORKING ON A WARRANTY FOR <br class="space">
+                            CARS OVER 3 YEARS AND 36K MILES <br class="space">
+                            CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!
+                        </p>                    
+                    </a>                	
+                </div>
+				<div class="back-notify left">
 					<a>
 						
                         <div>
@@ -726,14 +769,14 @@
                 <div class="about-us-bottom">
                     <a>
                         <p>
-                            WE ARE WORKING ON A WARRANTY FOR <br class="space">
-                            CARS OVER 3 YEARS AND 36K MILES <br class="space">
+                            WE ARE WORKING ON A WARRANTY FOR <br class='space'>
+                            CARS OVER 3 YEARS AND 36K MILES <br class='space'>
                             CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!
                         </p>                    
                     </a>
 
-                </div>
-                <div class="notify-button">
+                </div>				
+                <div class="notify-button right">
                     <a>
                     <div>
                         <img src="images/notify.png">
@@ -744,7 +787,11 @@
                             ME
                         </span>
                     </a>
-                </div>                
+                </div>  				
+			</div>				
+	
+
+              
 			</div>
 		</section>
 		<section id="thank" class="hide block_error block_error2">
@@ -760,8 +807,9 @@
                         </div>
 				</div>
 
-				<div class="back-notify">
-					<a href="#">
+			<div class="alert-footer clear">
+				<div class="back-notify left">
+					<a>
 						
                         <div>
                             <img src="images/back.png">
@@ -770,7 +818,7 @@
 
 					</a>
 				</div>
-                <div class="notify-button">
+                <div class="notify-button right">
                     <a>
                     <div>
                         <img src="images/notify.png">
@@ -781,7 +829,10 @@
                             ME
                         </span>
                     </a>
-                </div>                
+                </div>  				
+			</div>				
+
+              
 			</div>
 		</section>
 		<section id="thank" class="hide block_error block_error2">
@@ -795,13 +846,18 @@
 						<img class="img-border"  src="images/warranty-image.png">
 					</div>
 				</div>
+				<div class="alert-footer clear">
+					<div class="back-notify left">
+						<a>
+							
+	                        <div>
+	                            <img src="images/back.png">
+	                        </div>
+	                        <span>Back</span>
 
-				<div class="back-notify">
-					<a >
-						<img src="images/back.png"><br>
-						<span>Back</span>
-					</a>
-				</div>
+						</a>
+					</div>				
+				</div>				
 			</div>
 		</section>
 		<!--[if lt IE 9]><script src="js/flashcanvas.js"></script><![endif]-->

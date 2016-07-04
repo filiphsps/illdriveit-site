@@ -1606,8 +1606,9 @@ header .container-fluid {
 	text-align: center;
 }
 }
-.hide{
-	/*display: block !important;*/
+
+.action-block{
+	display: block !important;
 }
 .hide-button:not(.visible-true){
 	visibility: hidden;
@@ -1731,6 +1732,12 @@ header .container-fluid {
 }
 .load{
 	text-align: center;
+}
+.block12 iframe{
+	width: 650px;
+	height: 450px;
+	max-width: 100%;
+	border: 10px solid #60BA46;
 }
 
 @media(max-width:640px){
