@@ -301,7 +301,7 @@ body{
 	float:left;	
 }
 .welcom h2 {
-	font-size: 26x;
+	font-size: 26px;
 	line-height: 35px;
 	color: #5fbb46;
 	width: 100%;
@@ -690,8 +690,7 @@ a.img-circle>img{
 	.row.force-inner figure {
 	    height: 130px;
 	    width: 70%;
-	    margin: 0 auto;
-	    // overflow: hidden;
+
 	}	
 	.row.force-inner div {
 	    height: 180px;
@@ -787,6 +786,7 @@ a.img-circle>img{
 	}
 	#benefits .benefit figure {
 	    height: 180px;
+	        min-height: 180px;
 	    width: 40%;
 	    margin: 0 auto;
 	    display: table-cell;
@@ -823,6 +823,8 @@ a.img-circle>img{
 	    font-size: 18px;
 	}
 	#benefits .benefit figure {
+		min-height: 90px;
+		height: 90px;
 	    width: 110px;
 	}	
 	#benefits .benefit figure.beni-fix {
@@ -963,19 +965,9 @@ a.img-circle>img{
 	text-align: center;
 	font-size: 65px;
 	font-weight: bold;
-} {
-	margin: 0 auto;
-	display: flex;
-	border-radius: 50%;
-	border: solid 23px #000;
-	height: 350px;
-	width: 350px;
-	text-align: center;
-	font-size: 65px;
-	font-weight: bold;
-}
+} 
 #mileage .back a, #mileage .next a {
-	margin-top: 300px;
+	margin-top: 10px;
 }
 
 
@@ -1317,7 +1309,7 @@ input[type=range]:focus::-ms-fill-upper {
 	margin-bottom: 50px;
 }
 #thankyou .roundinput a:hover{
-	color#000;
+	color:#000;
 }
 #thankyou .roundinput a span {
 	margin-top: 19px;
