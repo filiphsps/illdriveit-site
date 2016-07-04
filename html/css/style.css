@@ -896,6 +896,15 @@ a.img-circle>img{
 	-o-transition: -o-transform 0.5s ease-in;
 	cursor: pointer;
 }
+@media(max-width:480px){
+	.next a{
+		height: 110px;
+		width: 110px;
+	}
+	.next a img {
+		margin-top: 5px;
+	}	
+}
 .next  a img:hover {
 	-moz-transform: scale(1.2);
 	-webkit-transform: scale(1.2);
@@ -923,6 +932,7 @@ a.img-circle>img{
 	margin-top: 70px;
 	margin-bottom: 50px;
 }
+
 .back a img {
 	margin-bottom: 8px;
 	margin-top: 14px;
@@ -935,6 +945,15 @@ a.img-circle>img{
 	-webkit-transition: -webkit-transform 0.5s ease-in;
 	-o-transition: -o-transform 0.5s ease-in;
 	cursor: pointer;
+}
+@media(max-width:480px){
+	.back a {
+		height: 110px;
+		width: 110px;
+	}
+	.back a img {
+		margin-top: 5px;
+	}	
 }
 .back  a img:hover {
 	-moz-transform: scale(1.2);
@@ -991,7 +1010,7 @@ a.img-circle>img{
 	font-weight: bold;
 }
 #zipcode .back a, #zipcode .next a {
-	margin-top: 300px;
+	margin-top: 10px;
 }
 
 #listing h2 {
@@ -1635,12 +1654,9 @@ header .container-fluid {
 	font-weight: bold;
 }
 #decision .back a, #zipcode .back a, #mbpi .back a, #mbpi .next a, #thankyou .back a, #thankyou .next a, #zipcode .next a, #mileage .back a, #mileage .next a, #address .back a, #address .next a, #forcefield .back a, #forcefield .next a {
-	margin-top: 100px;
+	margin-top: 15px;
 }
- #decision .next a{
-	 margin-top:270px;
-	 
- }
+
 .procesbar .noy span {
 	width: 22%;
 	float: left;
