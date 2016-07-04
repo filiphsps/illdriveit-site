@@ -6,10 +6,10 @@
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);		
   		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
 		//curl_setopt($curl, CURLOPT_POST, true);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, '{"vin":"'.$_GET['vin'].'","email":"'.$_GET['email'].'"}');
+		curl_setopt($curl, CURLOPT_POSTFIELDS, '{"vin":"'.$_POST['vin'].'","email":"'.$_POST['email'].'"}');
 		$out = curl_exec($curl);
-		//echo $_GET['callback'].'('.$out.')';
-		echo '{"vin":"'.$_GET['vin'].'","email":"'.$_GET['email'].'"}';
+		echo $_POST['callback'].'('.$out.')';
+		// echo '{"vin":"'.$_POST['vin'].'","email":"'.$_POST['email'].'"}';
 		curl_close($curl);
 	}
 	/*$result = file_get_contents('http://api.local/rest/users', null, stream_context_create(array(
