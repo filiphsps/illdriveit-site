@@ -1378,9 +1378,6 @@ input[type=range]:focus::-ms-fill-upper {
 	font-weight: normal;
 	margin:10px auto 10px auto;
 }
-#address .back a, #address .next a {
-	margin-top: 270px;
-}
 
 #address .roundinput input::-webkit-input-placeholder {
    color: #000;
@@ -1425,7 +1422,7 @@ input[type=range]:focus::-ms-fill-upper {
 	height: 200px;
 	width: 200px;
 	border: 11px solid #0E173A;
-	margin-top: 150px;
+	margin-top: 15px;
 }
 #address .next.submit a img {
 	max-width: 100px;
@@ -1574,7 +1571,7 @@ header .container-fluid {
 	margin-top: 100px;
 }
 #address .back a, #address .next a {
-	margin-top: 130px;
+	margin-top: 15px;
 }
 #decision .back a {
 	margin-top: 30px;
@@ -2504,6 +2501,13 @@ h5 {
 	.input .full-width-fill{
 		padding: 10px;	
 	}	
+	#address .roundinput.billing input {
+	    font-size: 20px;
+	    width: 100%;
+	    padding: 10px;
+	    margin: 0 auto 10px;
+	}
+
 }
 @media(max-width:767px){
 	#covers h1 {
