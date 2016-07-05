@@ -218,7 +218,7 @@ function ajax(f,obj){
 		case 'verifyzip':
 			console.log('zip ajax');
 			$.ajax({
-	        	url:'http://stest.te.ua/verifyzip.php',
+	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
 				type: "GET",
 				data: obj,
 				contentType: "application/json",
@@ -243,7 +243,7 @@ function ajax(f,obj){
 		break;
 		case 'payment':
 			$.ajax({
-			    url:'http://stest.te.ua/purchase.php',
+			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
@@ -262,7 +262,7 @@ function ajax(f,obj){
 		break;
 		case 'emailtonotify':
 			$.ajax({
-                url:'http://stest.te.ua/emailtonotify.php',
+                url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
 				dataType : "jsonp",
