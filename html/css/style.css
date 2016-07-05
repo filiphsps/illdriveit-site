@@ -2637,3 +2637,22 @@ h5 {
 		line-height:1.4;
 	}
 }
+
+
+.hide{
+	/*display: block !important;*/
+}
+.inline-block{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 20px;
+}
+.align-center{
+	text-align: center;
+}
+.disabled{
+	pointer-events:none;
+}
+.hide{
+	display: none;
+}

@@ -57,7 +57,7 @@ $(document).ready(function(){
 			drive.warrantyRequest.address2 = block.find('input[name=address2]').val();
 			drive.warrantyRequest.city = block.find('input[name=city]').val();
 			drive.warrantyRequest.state = block.find('input[name=state]').val();
-			//drive.warrantyRequest.zip = block.find('input[name=zip]').val();
+			drive.warrantyRequest.zip = block.find('input[name=zip]').val();
 		}else if(block.hasClass('block8')){
 			drive.warrantyRequest.phone = block.find('input[name=phone]').val();
 			drive.warrantyRequest.email = block.find('input[name=email]').val();
