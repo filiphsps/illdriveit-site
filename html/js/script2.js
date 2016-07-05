@@ -51,7 +51,7 @@ $(document).ready(function(){
 			console.log(str);
 			ajax('verifyzip',str);
 		}else if(block.hasClass('block11')){
-			var str = 'data='+JSON.stringify(drive_data);
+			var str = JSON.stringify(drive_data);
 			console.log(str);
 			ajax('payment',str);
 		}
@@ -247,6 +247,7 @@ function ajax(f,obj){
 				type: "POST",
 				data: obj,
 				dataType : "json",
+				contentType: "application/json",
 				complete:function(data){
 					console.log(data);
 
