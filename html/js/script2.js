@@ -31,7 +31,7 @@ $(document).ready(function(){
 			block = block.next('.action-block');
 			parse_data(block);
 			block.hide();
-			var str = 'data='+JSON.stringify(drive_data);
+			var str = JSON.stringify(drive_data);
 			console.log(str);
 			ajax('payment',str);
 		}else if(block.hasClass('block4')){
@@ -47,7 +47,7 @@ $(document).ready(function(){
 		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
 		parse_data(block);
 		if(block.hasClass('block3')){
-			var str = 'data={"zip":"'+drive_data.warrantyRequest.zip+'","mileage":'+drive_data.warrantyRequest.mileage+',"vin":"'+drive_data.warrantyRequest.vin+'"}';
+			var str = JSON.stringify({zip:drive_data.warrantyRequest.zip, mileage:drive_data.warrantyRequest.mileage, vin:drive_data.warrantyRequest.vin});
 			console.log(str);
 			ajax('verifyzip',str);
 		}else if(block.hasClass('block11')){
@@ -94,7 +94,7 @@ $(document).ready(function(){
 		var block = $(this).parents('.error-block');
 		next_block(block,block.next('.error-block'));
 		if(block.hasClass('e-block2')){
-			var str = 'data={"vin":"'+drive_data.warrantyRequest.vin+'","email": "'+drive_data.warrantyRequest.notifyemail+'"}';
+			var str = JSON.stringify({vin:drive_data.warrantyRequest.vin, email:drive_data.warrantyRequest.notifyemail});
 			console.log(str);
 			ajax('emailtonotify',str);
 		}
@@ -200,7 +200,7 @@ function ajax(f,obj){
 				url:'https://high-quality.tech/illdriveit/warranty/plans',
 				type: "GET",
 				data: obj,
-				dataType : "jsonp",
+				dataType : "json",
 				success:function(data){
 					console.log(data);
 					$('.load').hide();
@@ -219,10 +219,10 @@ function ajax(f,obj){
 			console.log('zip ajax');
 			$.ajax({
 	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
-				type: "GET",
+				type: "POST",
 				data: obj,
 				contentType: "application/json",
-				dataType : "jsonp",
+				dataType : "json",
 				complete:function(data){
 					data = data.responseJSON;
 					console.log(data);
@@ -265,7 +265,7 @@ function ajax(f,obj){
                 url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
-				dataType : "jsonp",
+				dataType : "json",
 				success:function(data){
 					console.log(data);
 				}
