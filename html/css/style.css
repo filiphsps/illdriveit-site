@@ -1463,7 +1463,9 @@ input[type=range]:focus::-ms-fill-upper {
 	margin-top: 15px;
 }
 #address .next.submit a img {
-	max-width: 100px;
+    margin-bottom: 0px;
+    max-width: 100px;
+    margin-top: 10px;
 }
 #address .next.submit a span {
 	font-size: 30px;
@@ -1857,7 +1859,17 @@ input[type=range]:focus::-ms-fill-upper {
 	margin: 0 auto;
 	width: 600px;
 }
-
+body #new-submit input{
+	border: solid 8px #11163c!important;
+}
+#address .roundinput.billing input.half-size-one{
+	width: 39%;
+    margin: 0 0 0 84px;
+}
+#address .roundinput.billing input.half-size-two{
+	width: 39%;
+    margin: 0 84px 20px 0;
+}
 .controls .back{
 	position: relative;
 	display: block;
@@ -1868,17 +1880,18 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .controls .button-clear{
 	display: inline-block;
-	width: 124px;
+	width: 146px;
 	cursor: pointer;
 }
 .controls .button-clear a{
 	border:7px solid #0E173A;
 	text-decoration: none;
 	font-size: 25px;
-	width: 124px;
-	height: 124px;
+	width: 146px;
+	height: 146px;
 	font-weight: 800;
 	color: #0E173A;
+	text-transform:uppercase;
 }
 .controls .next{
 	float: right;
