@@ -598,6 +598,7 @@
 
 	</div>
 </section>
+<!-- <section id="address"  class="action-block block9"> -->
 <section id="address"  class="hide action-block block9">
 	<div class="container-fluid">
 		<div class="row">
@@ -611,10 +612,22 @@
 
 			<div class="col-md-8 auto-center clear roundinput billing">
 				<h3 class="listing_downpayment">$155.00</h3>
-				<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
-				<input type="text" name="card_month" class="city input-number" placeholder="EXP MONTH" maxlength="2">
-				<input type="text" name="card_year" class="state input-number" placeholder="EXP YEAR" maxlength="4">
-				<input type="text" name="card_cvv" class="zipcode input-number" placeholder="CVV #" maxlength="3">
+				<div id="new-submit" class="submit-block">
+					<div class="clear">
+						<input placeholder="FIRST NAME" type="text" class="left half-size-one">
+						<input placeholder="LAST NAME" type="text" class="right half-size-two">
+					</div>
+					<div class="claear">
+						<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
+					</div>
+					<div class="clear">
+						<input type="text" name="card_month" class="city input-number left" placeholder="EXP MONTH" maxlength="2">
+						<input type="text" name="card_year" class="state input-number" placeholder="EXP YEAR" maxlength="4">
+						<input type="text" name="card_cvv" class="zipcode input-number right" placeholder="CVV #" maxlength="3">						
+					</div>					
+				</div>
+
+
 			</div>
 
 			<div class="clear">
