@@ -1966,9 +1966,10 @@ body #new-submit input{
 }
 
 /*homepagegraphic   clean*/
+
 .bullet {
 /* 	border: 8px solid #61b646; */
-	border: 8px solid hsl(106, 44%, 49%);	
+	border: 8px solid #5fbb46;	
 	border-radius: 50%;
 	box-sizing: border-box;
 	height: 150px;
