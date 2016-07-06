@@ -31,7 +31,12 @@ body{
 .right{
 	float: right;
 }
-
+.border-decorate{
+    width: 700px;
+    margin: 255px auto 10px;
+    height: 8px;
+    background: #0e163c;
+}
 .clear:before,
 .clear:after {
 	content: "";
