@@ -1,230 +1,365 @@
-var plans = {},slider1_values,slider2_values,slider3_values,slider1_index,slider2_index,slider3_index,block_index=1;
-var notify_email;
-var drive = {paymentOption:{}};
-var error = false;
+/** GENERAL VARIABLES **/
+
+// 5FRYD4H43GB017942
+var 
+drive_data = {},
+slider = [{},{},{}],
+plans = {};
+
+/**/
 $(document).ready(function(){
-	$('.button-next').addClass('hide-button');
+	/** BEGINS **/
+	$("input[name=card_number]").mask("9999-9999-9999-9999",{placeholder:'XXXX-XXXX-XXXX-XXXX'});
+	$('.input-number').keyup(function(){
+		$(this).val($(this).val().replace (/[^0-9]/g, ''));
+	});
 	$('.sigPad').signaturePad({
 		drawOnly:true,
 		bgColour:'transparent',
-		penWidth:4,
+		penWidth:6,
 		lineTop:200,
 		onDrawEnd:function(){
-			$('.sigPad .button-next').removeClass('hide-button');
-			setTimeout(function(){
-				drive.signature = btoa($('.sigPad .output').val());
-			},100);
+			setTimeout(function(){check_input($('.sigPad').parents('.action-block'))},0);
 		}
 	});
-	$('.sigPad .button-clear').click(function(){
-		$('.sigPad .button-next').addClass('hide-button');
-	})
-
-	$('.action-block input').change(function(){
+	/** Actions **/
+	$('.next-action-block').click(function(){
 		var block = $(this).parents('.action-block');
-		$.each(block.find('input'),function(){
-			if($(this).val()=='') $(this).addClass('input-error');
-			else $(this).removeClass('input-error');
-		});
-		if(block.find('.input-error').length>0){
-			block.find('.button-next').addClass('hide-button');
-		}else{
-			block.find('.button-next').removeClass('hide-button');
+		next_block(block);
+
+		if(block.hasClass('block10') && drive_data.paymentOption.number_of_months==0){
+			block = block.next('.action-block');
+			parse_data(block);
+			block.hide();
+			var str = 'data='+JSON.stringify(drive_data);
+			console.log(str);
+			ajax('payment',str);
+		}else if(block.hasClass('block4')){
+			$(".input-range" ).slider("disable");
+		}else if(block.hasClass('block10')){
+			block.find('.button-clear').addClass('hide-button');
+			block.find('.sig').addClass('disabled');
 		}
 	});
-	$('.button-next').click(function(){
+	$('.next-custom-block').click(function(){
 		var block = $(this).parents('.action-block');
 		block.find('input').prop('disabled', true);
-
-		if(block.hasClass('block1')){
-			drive.warrantyRequest = {};
-			drive.warrantyRequest.vin = block.find('input[name=vin]').val();
-		}else if(block.hasClass('block2')){
-			drive.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val());
-			block_index = 3;
-		}else if(block.hasClass('block3')){
-			drive.warrantyRequest.zip = block.find('input[name=zip]').val();
-
-			get_zip(drive.warrantyRequest.vin,drive.warrantyRequest.mileage,drive.warrantyRequest.zip);
-			return false;
-		}else if(block.hasClass('block4')){
-			$( ".input-range" ).slider( "disable" );
-		}else if(block.hasClass('block6')){
-			drive.warrantyRequest.first_name = block.find('input[name=first_name]').val();
-			drive.warrantyRequest.last_name = block.find('input[name=last_name]').val();
-		}else if(block.hasClass('block7')){
-			drive.warrantyRequest.address1 = block.find('input[name=address1]').val();
-			drive.warrantyRequest.address2 = block.find('input[name=address2]').val();
-			drive.warrantyRequest.city = block.find('input[name=city]').val();
-			drive.warrantyRequest.state = block.find('input[name=state]').val();
-			drive.warrantyRequest.zip = block.find('input[name=zip]').val();
-		}else if(block.hasClass('block8')){
-			drive.warrantyRequest.phone = block.find('input[name=phone]').val();
-			drive.warrantyRequest.email = block.find('input[name=email]').val();
-		}else if(block.hasClass('block9')){
-			drive.paymentOption.downpaymentCard = {
-				cardholder_name: "Test Tester",
-				account_number: block.find('input[name=cart_number]').val(),
-				expiration_month: block.find('input[name=cart_month]').val(),
-				expiration_year: block.find('input[name=cart_year]').val(),
-				cvv: block.find('input[name=cart_ccv]').val()
-			}
-			block_index = 10;
-		}else if(block.hasClass('block10')){
-			$('.sigPad .pad').css('pointer-events','none');
-			$('.sigPad .button-clear').addClass('hide-button');
+		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
+		parse_data(block);
+		if(block.hasClass('block3')){
+			var str = 'data={"zip":"'+drive_data.warrantyRequest.zip+'","mileage":'+drive_data.warrantyRequest.mileage+',"vin":"'+drive_data.warrantyRequest.vin+'"}';
+			console.log(str);
+			ajax('verifyzip',str);
 		}else if(block.hasClass('block11')){
-			drive.paymentOption.financeCard = drive.paymentOption.downpaymentCard;
-			get_payment();
-			return false;
+			var str = 'data='+JSON.stringify(drive_data);
+			console.log(str);
+			ajax('payment',str);
 		}
-		
-		block.next('.action-block').show();
-		$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
 	});
-	$('.button-back').click(function(){
+	$('.open-card-form').click(function(){
 		var block = $(this).parents('.action-block');
-		block.slideUp(400).find('input').prop('disabled', false).val('');
-		block.find('.button-next').addClass('hide-button');
+		block.find('.new-card-from').show();
+		block.find('.choose-panel').hide();
+		down(100);
+	});
+	/** Action back **/
+	$('.back-action-block').click(function(){
+		var block = $(this).parents('.action-block').prev('.action-block');
 
-		block.nextAll('.action-block').slideUp(400).find('input').prop('disabled', false).val('');
-		block.nextAll('.action-block').find('.button-next').addClass('hide-button');
+		block.find('input').prop('disabled', false).val('');
+		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
 
-		block.prev('.action-block').find('input').prop('disabled', false).val('');
-		block.prev('.action-block').find('.button-next').addClass('hide-button');
+		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false).val('');
+		block.nextAll('.action-block').find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
 
-		if(block.prev('.action-block').hasClass('block4')){
-			$( ".input-range" ).slider( "enable" );
-		}else if(block.prev('.action-block').hasClass('block4')){
-			$('.sigPad').css('pointer-events','auto');
-		}
-		block.nextAll('.action-block').each(function(){
-			if($(this).hasClass('block4')){
+		block.prev('.action-block').nextAll('.action-block').each(function(){
+			console.log($(this).attr('class'));
+			if($(this).hasClass('block3')){
 				$( ".input-range" ).slider( "enable" );
 			}else if($(this).hasClass('block10')){
-				$('.sigPad').css('pointer-events','auto');
-				$('.sigPad .button-clear').removeClass('hide-button');
+				$('.sigPad').signaturePad().clearCanvas();
+				$(this).find('.button-clear').removeClass('hide-button');
+				$(this).find('.sig').removeClass('disabled');
 			}
 		});
 	});
-	$('.back-notify').click(function(){
-		$('.block_error').slideUp(400);
-		$('.block'+block_index).find('input').prop('disabled', false);
+	$('.back-error-block').click(function(){
+		$('.error-block').slideUp(400);
+		$('.error-block input').prop('disabled', false).val('');
+		var block = $('.block3');
+		block.find('input').prop('disabled', false).val('');
+		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
 	});
-	$('.notify-button').click(function(){
-		var block = $(this).parents('.block_error');
-		block.find('input').prop('disabled', true);
-		
-		if(block.hasClass('block_error4')){
-			
+	$('.next-error-block').click(function(){
+		var block = $(this).parents('.error-block');
+		next_block(block,block.next('.error-block'));
+		if(block.hasClass('e-block2')){
+			var str = 'data={"vin":"'+drive_data.warrantyRequest.vin+'","email": "'+drive_data.warrantyRequest.notifyemail+'"}';
+			console.log(str);
+			ajax('emailtonotify',str);
+		}
+	});
+	$('.button-clear').click(function(){
+		var block = $(this).parents('.action-block');
+		block.find('.next-action-block').addClass('hide-button');
+	});
+	/* check inputs */
+	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
+	$('.action-block input').keyup(function(){ check_input($(this).parents('.action-block')); });
+
+});
+
+function down(speed){
+	$('body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
+}
+function check_input(block){
+	$.each(block.find('input:not([notrequired])'),function(){
+		if(!$(this).val()) $(this).addClass('input-error');
+		else $(this).removeClass('input-error');
+	});
+	if(block.find('.input-error').length>0){
+		block.find('.next-action-block , .next-custom-block').addClass('hide-button');
+	}else{
+		block.find('.next-action-block , .next-custom-block').removeClass('hide-button').removeClass('hide');
+	}
+}
+function parse_data(block){
+	if(block.hasClass('block1')){
+		drive_data.warrantyRequest = {
+			vin:block.find('input[name=vin]').val()
+		};
+	}else if(block.hasClass('block2')){
+		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val());
+	}else if(block.hasClass('block3')){
+		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+	}else if(block.hasClass('block4')){
+		var listing = plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]][slider[2].values[slider[2].index]];
+		drive_data.planId = listing.planId;
+		drive_data.quoteResponseId = listing.planRequestId,
+		drive_data.customerPrice = listing.cost;
+		drive_data.paymentOption = {
+									downpayment:listing.downpayment	,
+									number_of_months:listing.numberOfMonths
+									};
+
+		$('.listing_year').text(listing.year);
+		$('.listing_mileage').text(listing.mileage);
+		$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
+		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
+		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
+		$('.listing_numberofmonths').text(listing.numberOfMonths);
+
+	}else if(block.hasClass('block6')){
+		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
+		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
+	}else if(block.hasClass('block7')){
+		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
+		drive_data.warrantyRequest.address2 = block.find('input[name=address2]').val();
+		drive_data.warrantyRequest.city = block.find('input[name=city]').val();
+		drive_data.warrantyRequest.state = block.find('input[name=state]').val();
+		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+	}else if(block.hasClass('block8')){
+		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val();
+		drive_data.warrantyRequest.email = block.find('input[name=email]').val();
+	}else if(block.hasClass('block9')){
+		drive_data.paymentOption.downpaymentCard = {
+			cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
+			account_number: block.find('input[name=card_number]').val(),
+			expiration_month: block.find('input[name=card_month]').val(),
+			expiration_year: block.find('input[name=card_year]').val(),
+			cvv: block.find('input[name=card_cvv]').val()
+		}
+	}else if(block.hasClass('block10')){
+		drive_data.signature = btoa(block.find('input[name=output]').val());
+	}else if(block.hasClass('block11')){
+		if(block.find('input[name=card_number]').val()==''){
+			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
+		}else{
+			drive_data.paymentOption.financeCard = {
+				cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
+				account_number: block.find('input[name=card_number]').val(),
+				expiration_month: block.find('input[name=card_month]').val(),
+				expiration_year: block.find('input[name=card_year]').val(),
+				cvv: block.find('input[name=card_cvv]').val()
+			}
+		}
+	}else if(block.hasClass('e-block2')){
+		drive_data.warrantyRequest.notifyemail = block.find('input[name=email]').val();
+	}
+}
+
+function ajax(f,obj){
+	if(f!='emailtonotify'){
+		$('.load').show();
+		down(300);
+	}
+
+	switch(f){
+		case 'plans':
+			$.ajax({
+				url:'https://high-quality.tech/illdriveit/warranty/plans',
+				type: "GET",
+				data: obj,
+				dataType : "jsonp",
+				success:function(data){
+					console.log(data);
+					$('.load').hide();
+
+					if(data.result=='error'){
+						open_error(data.error);
+					}else{
+						update_calculate(data);
+						$('.block4').show();
+						down(1000);
+					}
+				}
+			});	
+		break;
+		case 'verifyzip':
+			console.log('zip ajax');
+			$.ajax({
+	        	url:'http://stest.te.ua/verifyzip.php',
+				type: "GET",
+				data: obj,
+				contentType: "application/json",
+				dataType : "jsonp",
+				complete:function(data){
+					data = data.responseJSON;
+					console.log(data);
+
+					if(!data.zipValid){
+						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!");	
+					}else if(!data.mileageValid && !data.yearValid){
+						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
+					}else if(!data.yearValid){
+						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD');
+					}else if(!data.mileageValid){
+						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD');
+					}else{
+						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
+					}
+				}
+			});
+		break;
+		case 'payment':
+			$.ajax({
+			    url:'http://stest.te.ua/purchase.php',
+				type: "POST",
+				data: obj,
+				dataType : "json",
+				complete:function(data){
+					console.log(data);
+					$('.load').hide();
+					down(1000);
+
+					var res = JSON.parse(data.responseText);
+					if(res.Success){
+						$('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
+						$('.block12').show();
+					}else{
+						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
+					}
+				}
+			});
+		break;
+		case 'emailtonotify':
 			$.ajax({
                 url:'http://stest.te.ua/emailtonotify.php',
 				type: "POST",
-				data:{email:block.find('input[name=email]').val(), vin:drive.warrantyRequest.vin},
-				dataType : "jsopn",
+				data:obj,
+				dataType : "jsonp",
 				success:function(data){
-					block.next('.block_error').show();
-					$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
+					console.log(data);
 				}
 			});	
-			return false;
-		}
-		block.next('.block_error').show();
-		$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
-	});
-	$('.add-card').click(function(){
-		var m = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-		var d = new Date();
-		d.setMonth(d.getMonth()+1);
-		$('.date_next_month').text(m[d.getUTCMonth()].toUpperCase()+' '+d.getDate()+', '+d.getFullYear());
-		$(this).parents('.action-block').find('.sub-action-block').show();
-		$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
-	});
-	$('.button-add-card').click(function(){
-		var block = $(this).parents('.action-block');
-		block.find('input').prop('disabled', true);
+		break;
+	}
+}
+function open_error(massage,notify){
+	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!";
+	$('.load').hide();
+	$('.e-block1').show();
+	$('.e-block1 .title-block').text(massage);
+	$('.e-block1 .notify-button').removeClass('hide-button');
+	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((notify==undefined?str:notify));
+	$('.e-block2 input').prop('disabled', false).val('');
+	down(1000);
+}
+function next_block(block,next){
+	block.find('input').prop('disabled', true);
+	block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
 
-		drive.paymentOption.financeCard = {
-			account_number: block.find('input[name=cart_number]').val(),
-			expiration_month: block.find('input[name=cart_month]').val(),
-			expiration_year: block.find('input[name=cart_year]').val(),
-			cvv: block.find('input[name=cart_ccv]').val()
-		}
-		get_payment();
-	});
-});
-/* 5FRYD4H43GB017942 1000 */
-function get_plans(vin,mil){
-	console.log('ajax');
-	$.ajax({
-		url:'https://high-quality.tech/illdriveit/warranty/plans',
-		type: "GET",
-		data: 'vin='+vin+'&mileage='+mil,
-		dataType : "jsonp",
-		success:function(data){
-			console.log(data);
-			if(data.result=='error'){
-				open_error(data.error);
-			}else{
-				update_calculate(data);
-				$('.load').hide();
-				$('.block4').show();
-				$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
-			}
-		}
-	});	
+	parse_data(block);
+
+	if(next == undefined) block.next('.action-block').show();
+	else next.show();
+
+	down(1000);
 }
-/* 98001 1000 5FRYD4H43GB017942  */
-function get_zip(vin,mil,zip){
-	open_load();
-	var data = {zip:zip, mileage:mil, vin:vin};
-	console.log('ajax ', data);
-	$.ajax({
-	        url:'http://stest.te.ua/verifyzip.php',
-		type: "GET",
-		data: data,
-		contentType: "application/json",
-		dataType : "jsonp",
-		success:function(data){
-			console.log(data);
+function update_calculate(json){
+	$('.ui-slider').slider("destroy");
+	for(var i = 0; i<json.plans.length; i++){
+		var year = Math.round(json.plans[i].coverageMonths/12);
+		var mileage = json.plans[i].coverageMiles/1000+'k';
+
+		if(!plans[year]) plans[year] = {};
+		if(!plans[year][mileage]) plans[year][mileage] = {};
 			
-			if(!data.zipValid){
-				open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!",true);	
-			/*}else if(!data.mileageValid && !data.yearValid){
-				open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
-			}else if(!data.yearValid){
-				open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD');*/
-			}else if(!data.mileageValid){
-				open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD');
-			}else{
-				get_plans(drive.warrantyRequest.vin,drive.warrantyRequest.mileage);
-			}
-		}
-	});	
-}
-function get_payment(){
-	open_load();
-	console.log('drive='+JSON.stringify(drive));
-	$.ajax({
-	    url:'http://stest.te.ua/purchase.php',
-		type: "POST",
-		data: 'drive='+JSON.stringify(drive),
-		dataType : "json",
-		complete:function(data){
-			var res = JSON.parse(data.responseText);
-			if(res.Success){
-				$('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
-				$('.load').hide();
-				$('.block12').show();
-				$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
-			}
+		for(var j = 0; j<json.plans[i].financeOptions.length; j++){
+			var monthlyPrice = '$'+Math.round(json.plans[i].financeOptions[j].monthlyPrice);
+			plans[year][mileage][monthlyPrice] = {'cost':json.plans[i].cost,"year":year,'mileage':mileage,'downpayment':json.plans[i].financeOptions[j].downpayment,'monthlyPrice':json.plans[i].financeOptions[j].monthlyPrice,'numberOfMonths':json.plans[i].financeOptions[j].numberOfMonths,'planId':json.plans[i].planId,'planRequestId':json.planRequestId};
+		}	
+	}
+	slider[0].index = 0;
+	slider[1].index = 0;
+	slider[2].index = 0;
+	slider[0].values = get_keys(plans);
+	slider[1].values = get_keys(plans[slider[0].values[0]]);
+	slider[2].values = get_keys(plans[slider[0].values[0]][slider[1].values[0]]);
+	
+	update_range_values('#input-range1',slider[0].values);
+	update_range_values('#input-range2',slider[1].values);
+	update_range_values('#input-range3',slider[2].values);
+	parse_data($('.block4'));
+
+	$( "#input-range1" ).slider({
+		slide:function(e,u){
+			select_range_values($(this).prev('.range-values'),u.value);
+
+			slider[0].index = calc_index(u.value,slider[0].values.length);
+			slider[1].values = get_keys(plans[slider[0].values[slider[0].index]]);
+			update_range_values('#input-range2',slider[1].values);
+			$( "#input-range2" ).slider( "value",0);
+
+			slider[1].index = 0;
+			slider[2].values = get_keys(plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]]);
+			update_range_values('#input-range3',slider[2].values);
+			$( "#input-range3" ).slider( "value",0);
+
+			parse_data($('.block4'));
 		}
 	});
-}
-function obj_length(obj){
-	var i = 0;
-	for(var key in obj) i++;
-	return i;
+	$( "#input-range2" ).slider({
+		slide:function(e,u){
+			select_range_values($(this).prev('.range-values'),u.value);
+
+			slider[1].index =  calc_index(u.value,slider[1].values.length);
+			slider[2].values = get_keys(plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]]);
+			update_range_values('#input-range3',slider[2].values);	
+			$( "#input-range3" ).slider( "value",0);
+
+			parse_data($('.block4'));
+		}
+	});
+	$( "#input-range3" ).slider({
+		slide:function(e,u){
+			select_range_values($(this).prev('.range-values'),u.value);
+
+			slider[2].index =  calc_index(u.value,slider[2].values.length);
+
+			parse_data($('.block4'));
+		}
+	});
 }
 function update_range_values(slider,arr){
 	if(arr != undefined){
@@ -242,11 +377,7 @@ function update_range_values(slider,arr){
 		});
 	});
 }
-function select_range_values(range,value){
-	var index = get_index(value,range.find('span').length)+1;
-	range.find('span:nth-child('+index+')').addClass('selected').siblings().removeClass('selected');
-}
-function get_index(value,count_items){
+function calc_index(value,count_items){
 	var rng = 100/(count_items-1);
 	return ~~((value+(rng/2))/rng);
 }
@@ -255,100 +386,14 @@ function get_keys(obj){
 	for(var key in obj) arr.push(key);
 	return arr;
 }
-function update_listing(){
-	$('.block4 .button-next').removeClass('hide-button');
-
-	var listing = plans[slider1_values[slider1_index]][slider2_values[slider2_index]][slider3_values[slider3_index]];
-	$('.listing_year').text(listing.year);
-	$('.listing_mileage').text(listing.mileage);
-	$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
-	$('.listing_downpayment').text('$'+listing.downpayment);
-	$('.listing_monthlyprice').text('$'+listing.monthlyPrice);
-	$('.listing_numberofmonths').text(listing.numberOfMonths);
-
-	drive.planId = listing.planId;
-	drive.quoteResponseId = listing.planRequestId,
-	drive.customerPrice = listing.cost;
-	drive.paymentOption.downpayment = listing.downpayment;
-	drive.paymentOption.number_of_months = listing.numberOfMonths;
+function select_range_values(range,value){
+	var index = calc_index(value,range.find('span').length)+1;
+	range.find('span:nth-child('+index+')').addClass('selected').siblings().removeClass('selected');
 }
-function update_calculate(json){
-	$('.ui-slider').slider("destroy");
-	for(var i = 0; i<json.plans.length; i++){
-		var year = Math.round(json.plans[i].coverageMonths/12);
-		var mileage = json.plans[i].coverageMiles/1000+'k';
-
-		if(!plans[year]) plans[year] = {};
-		if(!plans[year][mileage]) plans[year][mileage] = {};
-			
-		for(var j = 0; j<json.plans[i].financeOptions.length; j++){
-			var monthlyPrice = '$'+Math.round(json.plans[i].financeOptions[j].monthlyPrice);
-			plans[year][mileage][monthlyPrice] = {'cost':json.plans[i].cost,"year":year,'mileage':mileage,'downpayment':json.plans[i].financeOptions[j].downpayment,'monthlyPrice':json.plans[i].financeOptions[j].monthlyPrice,'numberOfMonths':json.plans[i].financeOptions[j].numberOfMonths,'planId':json.plans[i].planId,'planRequestId':json.planRequestId};
-		}	
-	}
-	slider1_index = 0;
-	slider1_values = get_keys(plans);
-	slider2_index = 0;
-	slider2_values = get_keys(plans[slider1_values[0]]);
-	slider3_index = 0;
-	slider3_values = get_keys(plans[slider1_values[0]][slider2_values[0]]);
-	update_range_values('#input-range1',slider1_values);
-	update_range_values('#input-range2',slider2_values);
-	update_range_values('#input-range3',slider3_values);
-	update_listing();
-
-	$( "#input-range1" ).slider({
-		slide:function(e,u){
-			select_range_values($(this).prev('.range-values'),u.value);
-
-			slider1_index = get_index(u.value,slider1_values.length);
-			slider2_values = get_keys(plans[slider1_values[slider1_index]]);
-			update_range_values('#input-range2',slider2_values);
-			$( "#input-range2" ).slider( "value",0);
-
-			slider2_index = 0;
-			slider3_values = get_keys(plans[slider1_values[slider1_index]][slider2_values[slider2_index]]);
-			update_range_values('#input-range3',slider3_values);
-			$( "#input-range3" ).slider( "value",0);
-
-			update_listing();
-		}
-	});
-	$( "#input-range2" ).slider({
-		slide:function(e,u){
-			select_range_values($(this).prev('.range-values'),u.value);
-			slider2_index =  get_index(u.value,slider2_values.length);
-			slider3_values = get_keys(plans[slider1_values[slider1_index]][slider2_values[slider2_index]]);
-			update_range_values('#input-range3',slider3_values);	
-			$( "#input-range3" ).slider( "value",0);
-
-			update_listing();
-		}
-	});
-	$( "#input-range3" ).slider({
-		slide:function(e,u){
-			select_range_values($(this).prev('.range-values'),u.value);
-			slider3_index =  get_index(u.value,slider3_values.length);
-
-			update_listing();
-		}
-	});
-}
-function open_load(){
-	$('.load').show();
-	$('body').animate({scrollTop: $(document).height()-$(window).height()}, 300);
-}
-function open_error(massage,notify){
-	$('.load').hide();
-	$('.block_error1').show();
-	$('.block_error1 .title-block').text(massage);
-	if(notify==true){
-		$('.block_error1 .notify-button').removeClass('hide-button');
-		$('.block_error1 .about-us-bottom p, .block_error1 .hide-link-about p').html("WE ARE WORKING HARD TO ADD IT TO <br class='space'> OUR PROGRAM. CLICK HERE TO BE <br class='space'> NOTIFIED WHEN IT'S READY!");
-		$('.block_error2 input').prop('disabled', false).val('');
+function get_cent(num){
+	if(!((num ^ 0)===num)){
+		return num.toFixed(2);
 	}else{
-		$('.block_error1 .notify-button').addClass('hide-button');
-		$('.block_error1 .about-us-bottom p, .block_error1 .hide-link-about p').html("WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!");
+		return num;
 	}
-	$('body').animate({scrollTop: $(document).height()-$(window).height()}, 1000);
 }
