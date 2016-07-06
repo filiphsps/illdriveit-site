@@ -1971,7 +1971,7 @@ body #new-submit input{
 
 /*homepagegraphic   clean*/
 .bullet {
-	border: 8px solid rgb(95,187,70);
+	border: 8px solid #61b646;
 	border-radius: 50%;
 	box-sizing: border-box;
 	height: 150px;
