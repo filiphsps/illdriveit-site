@@ -536,7 +536,7 @@
 		<div class="row">
 			<div class="col-md-8 auto-center clear roundinput">
 				<input type="text" name="address1" placeholder="YOUR STREET ADDRESS">
-				<input type="text" name="address2" placeholder="ADDRESS CONTINUED">
+				<input type="text" name="address2" placeholder="ADDRESS CONTINUED" notrequired>
 				<input type="text" name="city" class="city" placeholder="CITY">
 				<input type="text" name="state" class="state" placeholder="STATE">
 				<input type="text" name="zip" class="zipcode input-number" placeholder="ZIP">
@@ -614,8 +614,8 @@
 				<h3 class="listing_downpayment">$155.00</h3>
 				<div id="new-submit" class="submit-block">
 					<div class="clear">
-						<input placeholder="FIRST NAME" type="text" class="left half-size-one">
-						<input placeholder="LAST NAME" type="text" class="right half-size-two">
+						<input placeholder="FIRST NAME" name="first_name" type="text" class="left half-size-one">
+						<input placeholder="LAST NAME" name="last_name" type="text" class="right half-size-two">
 					</div>
 					<div class="claear">
 						<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
@@ -702,10 +702,10 @@
 
                 <div class="col-md-12 col-sm-12 roundinput choose-panel">
                     <div class="boderbox fix">
-                        <a  class="img-circle open-card-form">
+                        <a  class="img-circle  next-custom-block visible-true">
                             <span>YES</span>
                         </a>
-                        <a  class="img-circle next-custom-block visible-true">
+                        <a  class="img-circle open-card-form">
                             <span>NO</span>
                         </a>
                     </div>
@@ -713,6 +713,10 @@
                 <div id="address" class="new-card-from hide">
 					<div class="col-md-8 auto-center clear roundinput billing">
 						<h3 class="listing_downpayment">$155.00</h3>
+						<div class="clear">
+							<input placeholder="FIRST NAME" name="first_name" type="text" class="left half-size-one">
+							<input placeholder="LAST NAME" name="last_name" type="text" class="right half-size-two">
+						</div>
 						<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
 						<input type="text" name="card_month" class="city input-number" placeholder="EXP MONTH" maxlength="2">
 						<input type="text" name="card_year" class="state input-number" placeholder="EXP YEAR" maxlength="4">
@@ -910,6 +914,49 @@
 			</div>
 		</div>
 
+	</div>
+</section>
+<section id="thank" class="hide error-block e-block4">
+
+	<div class="allert-wrapper">
+		<p class="title-block center">
+			OH NO! WE HAVE TROUBLE WITH YOUR CARD
+		</p>
+		<div class="center">
+			<div class="erorr-man">
+				<img src="images/notify-man.png" alt="">
+			</div>
+		</div>
+
+		<div class="alert-footer center clear">
+			<div class="hide-link-about">
+				<a>
+					<p>
+						CHECK HAVE YOU ENTERED<br class="space">
+						THE CORRECT INFORMATION
+					</p>
+				</a>
+			</div>
+			<div class="back-notify left back-error-block">
+				<a>
+
+					<div>
+						<img src="images/back.png">
+					</div>
+					<span>Back</span>
+
+				</a>
+			</div>
+			<div class="about-us-bottom">
+				<a>
+					<p>
+						CHECK HAVE YOU ENTERED<br class="space">
+						THE CORRECT INFORMATION
+					</p>
+				</a>
+
+			</div>
+		</div>
 	</div>
 </section>
 <!--[if lt IE 9]><script src="js/flashcanvas.js"></script><![endif]-->

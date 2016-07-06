@@ -110,10 +110,10 @@ $(document).ready(function(){
 });
 
 function down(speed){
-	$('body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
+	$('html,body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
 }
 function check_input(block){
-	$.each(block.find('input'),function(){
+	$.each(block.find('input:not([notrequired])'),function(){
 		if(!$(this).val()) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
@@ -145,8 +145,8 @@ function parse_data(block){
 		$('.listing_year').text(listing.year);
 		$('.listing_mileage').text(listing.mileage);
 		$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
-		$('.listing_downpayment').text('$'+listing.downpayment);
-		$('.listing_monthlyprice').text('$'+listing.monthlyPrice);
+		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
+		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
 
 	}else if(block.hasClass('block6')){
@@ -163,7 +163,7 @@ function parse_data(block){
 		drive_data.warrantyRequest.email = block.find('input[name=email]').val();
 	}else if(block.hasClass('block9')){
 		drive_data.paymentOption.downpaymentCard = {
-			cardholder_name: "Test Tester",
+			cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
 			account_number: block.find('input[name=card_number]').val(),
 			expiration_month: block.find('input[name=card_month]').val(),
 			expiration_year: block.find('input[name=card_year]').val(),
@@ -176,7 +176,7 @@ function parse_data(block){
 			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
 		}else{
 			drive_data.paymentOption.financeCard = {
-				cardholder_name: "Test Tester",
+				cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
 				account_number: block.find('input[name=card_number]').val(),
 				expiration_month: block.find('input[name=card_month]').val(),
 				expiration_year: block.find('input[name=card_year]').val(),
@@ -228,7 +228,7 @@ function ajax(f,obj){
 					console.log(data);
 
 					if(!data.zipValid){
-						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!",true);	
+						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);	
 					}else if(!data.mileageValid && !data.yearValid){
 						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
 					}else if(!data.yearValid){
@@ -250,13 +250,15 @@ function ajax(f,obj){
 				contentType: "application/json",
 				complete:function(data){
 					console.log(data);
+					$('.load').hide();
+					down(1000);
 
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
 						$('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
-						$('.load').hide();
 						$('.block12').show();
-						down(1000);
+					}else{
+						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
 					}
 				}
 			});
@@ -274,18 +276,15 @@ function ajax(f,obj){
 		break;
 	}
 }
-function open_error(massage,notify){
+function open_error(massage,massage2,notify){
+	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
-	if(notify==true){
-		$('.e-block1 .notify-button').removeClass('hide-button');
-		$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html("WE ARE WORKING HARD TO ADD IT TO <br class='space'> OUR PROGRAM. CLICK HERE TO BE <br class='space'> NOTIFIED WHEN IT'S READY!");
-		$('.e-block2 input').prop('disabled', false).val('');
-	}else{
-		$('.e-block1 .notify-button').addClass('hide-button');
-		$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html("WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!");
-	}
+	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2==undefined?str:massage2));
+	$('.e-block2 input').prop('disabled', false).val('');
+	if(notify) $('.e-block1 .notify-button').removeClass('hide-button');
+	else $('.e-block1 .notify-button').addClass('hide-button');
 	down(1000);
 }
 function next_block(block,next){
@@ -392,4 +391,12 @@ function get_keys(obj){
 function select_range_values(range,value){
 	var index = calc_index(value,range.find('span').length)+1;
 	range.find('span:nth-child('+index+')').addClass('selected').siblings().removeClass('selected');
+}
+
+function get_cent(num){
+	if(!((num ^ 0)===num)){
+		return num.toFixed(2);
+	}else{
+		return num;
+	}
 }
