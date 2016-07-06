@@ -1969,7 +1969,8 @@ body #new-submit input{
 
 .bullet {
 /* 	border: 8px solid #61b646; */
-	border: 8px solid #5fbb46;	
+/* 	border: 8px solid #5fbb46;	 */
+	border: 8px solid hsl(107, 46%, 50%);	
 	border-radius: 50%;
 	box-sizing: border-box;
 	height: 150px;
