@@ -110,7 +110,7 @@ $(document).ready(function(){
 });
 
 function down(speed){
-	$('body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
+	$('html,body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
@@ -228,7 +228,7 @@ function ajax(f,obj){
 					console.log(data);
 
 					if(!data.zipValid){
-						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!");	
+						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);	
 					}else if(!data.mileageValid && !data.yearValid){
 						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
 					}else if(!data.yearValid){
@@ -275,14 +275,15 @@ function ajax(f,obj){
 		break;
 	}
 }
-function open_error(massage,notify){
+function open_error(massage,massage2,notify){
 	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
-	$('.e-block1 .notify-button').removeClass('hide-button');
-	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((notify==undefined?str:notify));
+	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2==undefined?str:massage2));
 	$('.e-block2 input').prop('disabled', false).val('');
+	if(notify) $('.e-block1 .notify-button').removeClass('hide-button');
+	else $('.e-block1 .notify-button').addClass('hide-button');
 	down(1000);
 }
 function next_block(block,next){
