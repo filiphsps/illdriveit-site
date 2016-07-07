@@ -133,7 +133,7 @@ body{
 }
 .allert-wrapper .title-block{
 	font-size:50px;
-	color:#0f173a;
+	color:#10153C;
 }
 @media(max-width:640px){
 	.allert-wrapper .title-block{
@@ -664,7 +664,6 @@ a.img-circle>img{
 #forcefield h2 {
 	text-align:center;
 	font-size: 40px;
-	color:#60B646;
 }
 #forcefield h2 a{
 	color:#60B646;
@@ -1076,8 +1075,10 @@ a.img-circle>img{
 	margin-top: 70px;
 }
 .procesbar h5 {
-	text-align: center;
-	font-size: 22px;
+    margin: 0 0 35px;
+    text-align: center;
+    line-height: 1;
+    font-size: 22px;
 }
 .procesbar .noy span {
 	width: 23%;
@@ -1263,14 +1264,14 @@ input[type=range]:focus::-ms-fill-upper {
 	color:#60BA46;
 }
 #decision h3 .topcontent {
-	color: #000;
+	color: #10153c ;
 	width: 100%;
 	text-indent: -120px;
 	float: left;
 	text-align: center;
 }
 #decision h3 .bottomcontent {
-	color: #000;
+	color: #10153c ;
 	width: 100%;
 	text-indent: 120px;
 	float: left;
@@ -1315,7 +1316,7 @@ input[type=range]:focus::-ms-fill-upper {
 	display: inline-block;
 }
 #decision .pymtsec .payment .pricerate span{
-	color:#000;
+	color:#10153c;
 }
 
 
@@ -1401,7 +1402,6 @@ input[type=range]:focus::-ms-fill-upper {
 	text-align: center;
 	margin-top: 40px;
 	margin-bottom: 50px;
-	color:#000;
 }
 #address .roundinput input {
 	margin: 0 auto;
@@ -1817,18 +1817,18 @@ input[type=range]:focus::-ms-fill-upper {
 	border-radius: 0 3px 3px 0;
 	z-index: 1;
 }
-.input-range span{
-	width: 30px !important;
-	height: 30px;
-	border-radius: 50%;
-	border: none;
-	display: block;
-	position: absolute;
-	outline: none;
-	background: #61B445;
-	top: -5px;
-	margin-left: -15px;
-	z-index: 2;
+.input-range span {
+    width: 40px !important;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: block;
+    position: absolute;
+    outline: none;
+    background: #61B445;
+    top: -10px;
+    margin-left: -15px;
+    z-index: 2;
 }
 .range-values{
 	display: block;
