@@ -1,7 +1,7 @@
 /** GENERAL VARIABLES **/
 
 // 5FRYD4H43GB017942
-var 
+var
 drive_data = {},
 slider = [{},{},{}],
 plans = {};
@@ -213,7 +213,7 @@ function ajax(f,obj){
 						down(1000);
 					}
 				}
-			});	
+			});
 		break;
 		case 'verifyzip':
 			console.log('zip ajax');
@@ -228,7 +228,7 @@ function ajax(f,obj){
 					console.log(data);
 
 					if(!data.zipValid){
-						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);	
+						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
 					}else if(!data.mileageValid && !data.yearValid){
 						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
 					}else if(!data.yearValid){
@@ -271,7 +271,7 @@ function ajax(f,obj){
 				success:function(data){
 					console.log(data);
 				}
-			});	
+			});
 		break;
 	}
 }
@@ -301,15 +301,23 @@ function update_calculate(json){
 	$('.ui-slider').slider("destroy");
 	for(var i = 0; i<json.plans.length; i++){
 		var year = Math.round(json.plans[i].coverageMonths/12);
-		var mileage = json.plans[i].coverageMiles/1000+'k';
+		var mileage = json.plans[i].coverageMiles/1000+'K';
 
 		if(!plans[year]) plans[year] = {};
 		if(!plans[year][mileage]) plans[year][mileage] = {};
-			
+
 		for(var j = 0; j<json.plans[i].financeOptions.length; j++){
 			var monthlyPrice = '$'+Math.round(json.plans[i].financeOptions[j].monthlyPrice);
-			plans[year][mileage][monthlyPrice] = {'cost':json.plans[i].cost,"year":year,'mileage':mileage,'downpayment':json.plans[i].financeOptions[j].downpayment,'monthlyPrice':json.plans[i].financeOptions[j].monthlyPrice,'numberOfMonths':json.plans[i].financeOptions[j].numberOfMonths,'planId':json.plans[i].planId,'planRequestId':json.planRequestId};
-		}	
+			plans[year][mileage][monthlyPrice] = {
+				'cost':json.plans[i].cost,
+				"year":year,
+				'mileage':mileage,
+				'downpayment':json.plans[i].financeOptions[j].downpayment,
+				'monthlyPrice':json.plans[i].financeOptions[j].monthlyPrice,
+				'numberOfMonths':json.plans[i].financeOptions[j].numberOfMonths,
+				'planId':json.plans[i].planId,'planRequestId':json.planRequestId
+			};
+		}
 	}
 	slider[0].index = 0;
 	slider[1].index = 0;
@@ -317,7 +325,7 @@ function update_calculate(json){
 	slider[0].values = get_keys(plans);
 	slider[1].values = get_keys(plans[slider[0].values[0]]);
 	slider[2].values = get_keys(plans[slider[0].values[0]][slider[1].values[0]]);
-	
+
 	update_range_values('#input-range1',slider[0].values);
 	update_range_values('#input-range2',slider[1].values);
 	update_range_values('#input-range3',slider[2].values);
@@ -346,7 +354,7 @@ function update_calculate(json){
 
 			slider[1].index =  calc_index(u.value,slider[1].values.length);
 			slider[2].values = get_keys(plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]]);
-			update_range_values('#input-range3',slider[2].values);	
+			update_range_values('#input-range3',slider[2].values);
 			$( "#input-range3" ).slider( "value",0);
 
 			parse_data($('.block4'));
