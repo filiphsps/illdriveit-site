@@ -119,7 +119,8 @@ function down(speed){
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
-		if(!$(this).val()) $(this).addClass('input-error');
+		//
+		if(!$(this).val() || !(($(this).attr('minlength') && $(this).val().length>=$(this).attr('minlength')) || !$(this).attr('minlength')) ) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
 	if(block.find('.input-error').length>0){
