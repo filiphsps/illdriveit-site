@@ -159,6 +159,7 @@ function parse_data(block){
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
 		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
+		$('.listing_first_name').text(drive_data.warrantyRequest.first_name);
 	}else if(block.hasClass('block7')){
 		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
 		drive_data.warrantyRequest.address2 = block.find('input[name=address2]').val();
