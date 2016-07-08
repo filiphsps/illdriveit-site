@@ -17,6 +17,9 @@ body{
 	font-family: "Century Gothic";
 	color:#10153c;
 }
+.fix-mage-benefit{
+	width: 304px;
+}
 *:focus{
 	outline:none!important;
 }
