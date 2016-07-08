@@ -535,10 +535,10 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8 auto-center clear roundinput">
-				<input type="text" name="address1" placeholder="YOUR STREET ADDRESS">
-				<input type="text" name="address2" placeholder="ADDRESS CONTINUED" notrequired>
+				<input type="text" name="address1" placeholder="YOUR STREET ADDRESS" maxlength="50">
+				<input type="text" name="address2" placeholder="ADDRESS CONTINUED" maxlength="50" notrequired>
 				<input type="text" name="city" class="city" placeholder="CITY">
-				<input type="text" name="state" class="state" placeholder="STATE">
+				<input type="text" name="state" class="state" placeholder="STATE" minlength="2" maxlength="2">
 				<input type="text" name="zip" class="zipcode input-number" minlength="5" maxlength="5" placeholder="ZIP">
 			</div>
 			<div class="clear">
