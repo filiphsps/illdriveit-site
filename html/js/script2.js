@@ -107,10 +107,7 @@ $(document).ready(function(){
 	});
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
-	$('.action-block input').keyup(function(e){
-		console.log(e.keyCode);
-		check_input($(this).parents('.action-block')); 
-	});
+	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 
 });
 
@@ -155,6 +152,7 @@ function parse_data(block){
 		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
 		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
+		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
 
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
