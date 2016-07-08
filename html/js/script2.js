@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 		block.prev('.action-block').nextAll('.action-block').each(function(){
 			console.log($(this).attr('class'));
-			if($(this).hasClass('block3')){
+			if($(this).hasClass('block4')){
 				$( ".input-range" ).slider( "enable" );
 			}else if($(this).hasClass('block10')){
 				$('.sigPad').signaturePad().clearCanvas();
@@ -107,10 +107,7 @@ $(document).ready(function(){
 	});
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
-	$('.action-block input').keyup(function(e){
-		console.log(e.keyCode);
-		check_input($(this).parents('.action-block')); 
-	});
+	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 
 });
 
@@ -119,7 +116,6 @@ function down(speed){
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
-		//
 		if(!$(this).val() || !(($(this).attr('minlength') && $(this).val().length>=$(this).attr('minlength')) || !$(this).attr('minlength')) ) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
@@ -155,10 +151,12 @@ function parse_data(block){
 		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
 		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
+		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
 
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
 		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
+		$('.listing_first_name').text(drive_data.warrantyRequest.first_name);
 	}else if(block.hasClass('block7')){
 		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
 		drive_data.warrantyRequest.address2 = block.find('input[name=address2]').val();
@@ -196,12 +194,9 @@ function parse_data(block){
 }
 
 function ajax(f,obj){
-	switch(f){
-		case 'plans':
-		case 'payment':
-			$('.load').show();
-			down(300);
-		break;
+	if(f=='verifyzip' || f=="payment"){
+		$('.load').show();
+		down(300);
 	}
 
 	switch(f){
