@@ -9,9 +9,11 @@ plans = {};
 /**/
 $(document).ready(function(){
 	/** BEGINS **/
-	$("input[name=card_number]").mask("9999-9999-9999-9999",{placeholder:'XXXX-XXXX-XXXX-XXXX'});
+	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
+	$("input[name=mileage]").mask("000,000",{reverse: true});
 	$('.input-number').keyup(function(){
-		$(this).val($(this).val().replace (/[^0-9]/g, ''));
+		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
+			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 	});
 	$('.sigPad').signaturePad({
 		drawOnly:true,
@@ -105,7 +107,10 @@ $(document).ready(function(){
 	});
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
-	$('.action-block input').keyup(function(){ check_input($(this).parents('.action-block')); });
+	$('.action-block input').keyup(function(e){
+		console.log(e.keyCode);
+		check_input($(this).parents('.action-block')); 
+	});
 
 });
 
@@ -129,7 +134,7 @@ function parse_data(block){
 			vin:block.find('input[name=vin]').val()
 		};
 	}else if(block.hasClass('block2')){
-		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val());
+		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val().replace(/[^0-9]/g,''));
 	}else if(block.hasClass('block3')){
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
 	}else if(block.hasClass('block4')){
