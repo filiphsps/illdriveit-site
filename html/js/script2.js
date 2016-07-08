@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 		block.prev('.action-block').nextAll('.action-block').each(function(){
 			console.log($(this).attr('class'));
-			if($(this).hasClass('block3')){
+			if($(this).hasClass('block4')){
 				$( ".input-range" ).slider( "enable" );
 			}else if($(this).hasClass('block10')){
 				$('.sigPad').signaturePad().clearCanvas();
@@ -116,7 +116,6 @@ function down(speed){
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
-		//
 		if(!$(this).val() || !(($(this).attr('minlength') && $(this).val().length>=$(this).attr('minlength')) || !$(this).attr('minlength')) ) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
@@ -195,9 +194,11 @@ function parse_data(block){
 }
 
 function ajax(f,obj){
+	console.log('ajax');
 	switch(f){
 		case 'plans':
 		case 'payment':
+			console.log('load');
 			$('.load').show();
 			down(300);
 		break;
