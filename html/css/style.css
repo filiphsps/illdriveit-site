@@ -17,8 +17,10 @@ body{
 	font-family: "Century Gothic";
 	color:#10153c;
 }
-.fix-mage-benefit{
-	width: 304px;
+.fix-mage-benefit {
+    width: 307px;
+    position: relative;
+    top: -2px;
 }
 *:focus{
 	outline:none!important;

@@ -133,6 +133,7 @@ function parse_data(block){
 		drive_data.warrantyRequest = {
 			vin:block.find('input[name=vin]').val()
 		};
+		ajax('vehiclename','vin='+drive_data.warrantyRequest.vin);
 	}else if(block.hasClass('block2')){
 		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val().replace(/[^0-9]/g,''));
 	}else if(block.hasClass('block3')){
@@ -194,9 +195,12 @@ function parse_data(block){
 }
 
 function ajax(f,obj){
-	if(f!='emailtonotify'){
-		$('.load').show();
-		down(300);
+	switch(f){
+		case 'plans':
+		case 'payment':
+			$('.load').show();
+			down(300);
+		break;
 	}
 
 	switch(f){
@@ -265,6 +269,22 @@ function ajax(f,obj){
 					}else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
 					}
+				}
+			});
+		break;
+		case 'vehiclename':
+			$.ajax({
+			    url:'https://high-quality.tech/illdriveit/warranty/vehiclename',
+				type: "GET",
+				data: obj,
+				dataType : "jsonp",
+				complete:function(data){
+					console.log(data);
+					$('.load').hide();
+
+					var res = data.responseJSON;
+					$('.listing_car_name').text(res.name);
+					$('.listing_car_model').text(res.model);
 				}
 			});
 		break;
