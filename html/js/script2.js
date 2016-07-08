@@ -194,14 +194,9 @@ function parse_data(block){
 }
 
 function ajax(f,obj){
-	console.log('ajax');
-	switch(f){
-		case 'plans':
-		case 'payment':
-			console.log('load');
-			$('.load').show();
-			down(300);
-		break;
+	if(f=='verifyzip' || f=="payment"){
+		$('.load').show();
+		down(300);
 	}
 
 	switch(f){
