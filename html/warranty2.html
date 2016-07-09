@@ -524,7 +524,8 @@
 
 	</div>
 </section>
-<section id="address" class="hide action-block block7">
+<section id="address" class="action-block block7">
+<!-- <section id="address" class="hide action-block block7"> -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -534,12 +535,22 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8 auto-center clear roundinput">
-				<input type="text" name="address1" placeholder="YOUR STREET ADDRESS" maxlength="50" class="fix-margin-auto">
+			<div class="col-md-8 auto-center clear ">
+				<div class="form-info">
+					<input type="text" name="address1" placeholder="YOUR STREET ADDRESS" maxlength="50" class="form-info-street">
+					<input type="text" name="address2" placeholder="ADDRESS CONTINUED" maxlength="50" class="form-info-address" notrequired>
+					<div class="colum-field clear">
+						<input type="text" name="city" class="city" placeholder="CITY">
+						<input type="text" name="state" class="state" placeholder="STATE" minlength="2" maxlength="2">
+						<input type="text" name="zip" class="zipcode input-number" minlength="5" maxlength="5" placeholder="ZIP">						
+					</div>
+
+				</div>
+<!-- 				<input type="text" name="address1" placeholder="YOUR STREET ADDRESS" maxlength="50" class="fix-margin-auto">
 				<input type="text" name="address2" placeholder="ADDRESS CONTINUED" maxlength="50" notrequired>
 				<input type="text" name="city" class="city" placeholder="CITY">
 				<input type="text" name="state" class="state" placeholder="STATE" minlength="2" maxlength="2">
-				<input type="text" name="zip" class="zipcode input-number" minlength="5" maxlength="5" placeholder="ZIP">
+				<input type="text" name="zip" class="zipcode input-number" minlength="5" maxlength="5" placeholder="ZIP"> -->
 			</div>
 			<div class="clear">
 				<div class="col-md-2 back left back-action-block">
