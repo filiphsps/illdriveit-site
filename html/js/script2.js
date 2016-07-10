@@ -17,7 +17,7 @@ $(document).ready(function(){
 	});
 	$('.sigPad').signaturePad({
 		drawOnly:true,
-		bgColour:'transparent',
+		bgColour:'white',
 		penWidth:6,
 		lineTop:200,
 		onDrawEnd:function(){
@@ -175,7 +175,9 @@ function parse_data(block){
 			cvv: block.find('input[name=card_cvv]').val()
 		}
 	}else if(block.hasClass('block10')){
-		drive_data.signature = btoa(block.find('input[name=output]').val());
+		let sigapi = $('.sigPad').signaturePad();
+		let base64ImgWithPrefix = sigapi.getSignatureImage();
+		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
 	}else if(block.hasClass('block11')){
 		if(block.find('input[name=card_number]').val()==''){
 			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
