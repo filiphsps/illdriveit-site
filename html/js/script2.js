@@ -261,7 +261,9 @@ function ajax(f,obj){
 
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
-						$('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
+						let contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
+						$('.block12 iframe').attr('src',contractURI);
+						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
 						$('.block12').show();
 					}else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
