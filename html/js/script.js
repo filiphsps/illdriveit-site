@@ -262,7 +262,7 @@ function ajax(f,obj){
 
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
-						let contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
+						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
 						$('.block12 iframe').attr('src',contractURI);
 						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
 						$('.block12').show();
