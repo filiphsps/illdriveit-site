@@ -175,8 +175,8 @@ function parse_data(block){
 			cvv: block.find('input[name=card_cvv]').val()
 		}
 	}else if(block.hasClass('block10')){
-		let sigapi = $('.sigPad').signaturePad();
-		let base64ImgWithPrefix = sigapi.getSignatureImage();
+		var sigapi = $('.sigPad').signaturePad();
+		var base64ImgWithPrefix = sigapi.getSignatureImage();
 		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
 	}else if(block.hasClass('block11')){
 		if(block.find('input[name=card_number]').val()==''){
