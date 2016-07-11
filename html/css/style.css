@@ -1486,36 +1486,86 @@ input[type=range]:focus::-ms-fill-upper {
 	color:#10153C;
 }
 
-#address .roundinput input::-webkit-input-placeholder {
+#address input::-webkit-input-placeholder {
 	color: #10153C;
 }
 
-#address .roundinput input:-moz-placeholder { /* Firefox 18- */
+#address input:-moz-placeholder { /* Firefox 18- */
 	color: #10153C;
 }
 
-#address .roundinput input::-moz-placeholder {  /* Firefox 19+ */
+#address input::-moz-placeholder {  /* Firefox 19+ */
 	color: #10153C;
 }
 
-#address .roundinput input:-ms-input-placeholder {
+#address input:-ms-input-placeholder {
 	color: #10153C;
 }
-#address .roundinput .city {
-	width: 30%;
-	float: left;
-	margin-left: 10%;
+#address .billing h3 {
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: 80px;
 }
-#address .roundinput .state {
-	float: left;
-	width: 20%;
-	margin-left: 3%;
+#new-submit{
+	width: 650px;
+	margin: 0 auto;
 }
-#address .roundinput .zipcode {
-	float: left;
-	width: 24%;
-	margin-left: 3%;
+#new-submit input{
+	display: block;
+    border: solid 8px #10153C;
+    height: auto;
+    width: 100%;
+    font-size:30px;
+    text-align: center;
+    font-weight: normal;
+    margin: 10px auto 20px;
+    color: #10153C;
 }
+#new-submit input.half-size-one,
+#new-submit input.half-size-two{
+	width:312px;
+}
+#new-submit .card-info-block input{
+	width: 203px;
+	margin: 10px 0 20px 20px;
+}
+#new-submit .card-info-block input:first-child{
+	margin: 10px 0 20px 0;
+}
+@media(max-width:650px){
+	#address .billing h3 {
+	    text-align: center;
+	    font-size: 60px;
+	    margin-bottom: 30px;
+	}	
+	#new-submit{
+		width: 90%;
+		margin: 0 auto;
+	}
+	#new-submit input.half-size-one,
+	#new-submit input.half-size-two{
+		width:100%;
+	}
+	#new-submit .card-info-block input{
+		width: 100%;
+		margin: 10px 0 20px 0;
+	}	
+}
+// #address .roundinput .city {
+// 	width: 30%;
+// 	float: left;
+// 	margin-left: 10%;
+// }
+// #address .roundinput .state {
+// 	float: left;
+// 	width: 20%;
+// 	margin-left: 3%;
+// }
+// #address .roundinput .zipcode {
+// 	float: left;
+// 	width: 24%;
+// 	margin-left: 3%;
+// }
 #address .roundinput.billing input {
 	font-size: 30px;
 }
@@ -1929,14 +1979,14 @@ input[type=range]:focus::-ms-fill-upper {
 	width: 600px;
 }
 
-#address .roundinput.billing input.half-size-one{
-	width: 39%;
-    margin: 0 0 0 84px;
-}
-#address .roundinput.billing input.half-size-two{
-	width: 39%;
-    margin: 0 84px 20px 0;
-}
+// #address .roundinput.billing input.half-size-one{
+// 	width: 39%;
+//     margin: 0 0 0 84px;
+// }
+// #address .roundinput.billing input.half-size-two{
+// 	width: 39%;
+//     margin: 0 84px 20px 0;
+// }
 .controls .back{
 	position: relative;
 	display: block;
