@@ -17,7 +17,7 @@ $(document).ready(function(){
 	});
 	$('.sigPad').signaturePad({
 		drawOnly:true,
-		bgColour:'transparent',
+		bgColour:'white',
 		penWidth:6,
 		lineTop:200,
 		onDrawEnd:function(){
@@ -175,7 +175,9 @@ function parse_data(block){
 			cvv: block.find('input[name=card_cvv]').val()
 		}
 	}else if(block.hasClass('block10')){
-		drive_data.signature = btoa(block.find('input[name=output]').val());
+		var sigapi = $('.sigPad').signaturePad();
+		var base64ImgWithPrefix = sigapi.getSignatureImage();
+		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
 	}else if(block.hasClass('block11')){
 		if(block.find('input[name=card_number]').val()==''){
 			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
@@ -235,11 +237,11 @@ function ajax(f,obj){
 					if(!data.zipValid){
 						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
 					}else if(!data.mileageValid && !data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD');
+						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD');
+						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.mileageValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD');
+						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
 					}
@@ -259,7 +261,9 @@ function ajax(f,obj){
 
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
-						$('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
+						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
+						$('.block12 iframe').attr('src',contractURI);
+						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
 						$('.block12').show();
 					}else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
