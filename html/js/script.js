@@ -265,15 +265,57 @@ function ajax(f,obj){
 				complete:function(data){
 					console.log(data);
 					$('.load').hide();
-					down(1000);
 
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
-						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
+						$('#signaturebuttons').html('');
+						//TODO: Checkmark '.completed'
+						var signablePoints = [];
+						for (var n = 0; n < res.SignablePoints.length; n++) {
+							if(res.SignablePoints[n].Name == 'BuyerSignature' && res.SignablePoints[n].IsRequired && res.SignablePoints[n].FieldMappingType == 'Signature')
+								signablePoints.push(res.SignablePoints[n]);
+						}
+						for (var n = 0; n < signablePoints.length; n++) {
+							console.log('append');
+							$('#signaturebuttons').append(
+								'<div data-sign-point="' + n + '" class="eachsignature">' +
+									'<span class="checkicon"></span>' +
+									'<h5>Signature</h5>' +
+									'<h6>' + (n+1) + '</h6>' +
+								'</div>'
+							);
+						}
+
+						$('.eachsignature').on('click', function (e) {
+							console.log(signablePoints[$(this).data('sign-point')]);
+							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * 915) + signablePoints[$(this).data('sign-point')].YCoordinate;
+							$('#iframe-wrapper').scrollTop(y);
+
+							down(0);
+							$('#sign-btn').remove();
+							$('#iframe-wrapper').parent().append('<a id="sign-btn" class="img-cicle open-card-form" style="position:fixed;bottom:5px;z-index:9999;left:0;right:0;text-align:center;background:#fff;width:250px;margin:0 auto;font-size:24px;border:10px solid #0e173a"><span>SIGN</span></a>');
+
+							var id = $(this).data('sign-point');
+							$('#sign-btn').on('click', function() {
+								$('#signaturebuttons').children().eq(id).addClass('completed');
+								$('#sign-btn').remove();
+
+								var url = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1);
+								$('.block12 iframe').attr('src', url);
+								$('#iframe-wrapper').scrollTop(y);
+
+								if($('#signaturebuttons').children().not('.completed').length < 1) {
+									$('#iframe-wrapper').css('height', '500px');
+									$('#ac_force').removeClass('disabled');
+								}
+							});
+						});
+
+						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0';
 						pdfUrl = contractURI;
-						$('.block12 iframe').attr('src',contractURI);
-						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
+						$('.block12 iframe').attr('src', contractURI);
 						$('.block12').show();
+						down(1000);
 					}else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
 					}
