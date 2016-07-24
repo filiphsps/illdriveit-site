@@ -288,6 +288,7 @@ function ajax(f,obj){
 						}
 
 						$('.eachsignature').on('click', function (e) {
+							$('#sign-btn').remove();
 							if($(this).hasClass('completed'))
 								return;
 
@@ -300,16 +301,30 @@ function ajax(f,obj){
 							var id = $(this).data('sign-point');
 							$('#sign-btn').on('click', function() {
 								$('#signaturebuttons').children().eq(id).addClass('completed');
-								$('#sign-btn').remove();
 								$('#contract-viewer').html('');
 
+								var x = 0;
 								renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1), function() {
 									$('#contract-viewer').scrollTop(y);
-									//TODO: next btn
+									if(x)
+										return;
+									x = 1;
+
+									$('#contract-viewer').append('<a id="sign-btn" class="next-btn img-cicle open-card-form"><span>NEXT</span></a>');
+
+									if($('#signaturebuttons').children().not('.completed').length < 1) {
+										$('#sign-btn').remove();
+										return;
+									}
+
+									$('.next-btn').on('click', function() {
+										$('#sign-btn').remove();
+										$('#signaturebuttons').children().eq(id+1).click();
+									});
 								});
 
 								if($('#signaturebuttons').children().not('.completed').length < 1) {
-									$('#iframe-wrapper').css('height', '500px');
+									$('#sign-btn').remove();
 									$('#ac_force').removeClass('disabled');
 								}
 							});
