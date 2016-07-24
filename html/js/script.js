@@ -265,12 +265,13 @@ function ajax(f,obj){
 				complete:function(data){
 					console.log(data);
 					$('.load').hide();
-
+					
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
 						$('#signaturebuttons').html('');
 						//TODO: Checkmark '.completed'
-						var signablePoints = [];
+						var signablePoints = [],
+							pdfPageHeight = 0;
 						for (var n = 0; n < res.SignablePoints.length; n++) {
 							if(res.SignablePoints[n].Name == 'BuyerSignature' && res.SignablePoints[n].IsRequired && res.SignablePoints[n].FieldMappingType == 'Signature')
 								signablePoints.push(res.SignablePoints[n]);
@@ -287,22 +288,25 @@ function ajax(f,obj){
 						}
 
 						$('.eachsignature').on('click', function (e) {
-							console.log(signablePoints[$(this).data('sign-point')]);
-							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * 915) + signablePoints[$(this).data('sign-point')].YCoordinate;
-							$('#iframe-wrapper').scrollTop(y);
+							if($(this).hasClass('completed'))
+								return;
 
-							down(0);
+							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * pdfPageHeight) + (signablePoints[$(this).data('sign-point')].YCoordinate / 3);
+							$('#contract-viewer').scrollTop(y);
+
 							$('#sign-btn').remove();
-							$('#iframe-wrapper').parent().append('<a id="sign-btn" class="img-cicle open-card-form" style="position:fixed;bottom:5px;z-index:9999;left:0;right:0;text-align:center;background:#fff;width:250px;margin:0 auto;font-size:24px;border:10px solid #0e173a"><span>SIGN</span></a>');
+							$('#contract-viewer').append('<a id="sign-btn" class="img-cicle open-card-form"><span>SIGN</span></a>');
 
 							var id = $(this).data('sign-point');
 							$('#sign-btn').on('click', function() {
 								$('#signaturebuttons').children().eq(id).addClass('completed');
 								$('#sign-btn').remove();
+								$('#contract-viewer').html('');
 
-								var url = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1);
-								$('.block12 iframe').attr('src', url);
-								$('#iframe-wrapper').scrollTop(y);
+								renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1), function() {
+									$('#contract-viewer').scrollTop(y);
+									//TODO: next btn
+								});
 
 								if($('#signaturebuttons').children().not('.completed').length < 1) {
 									$('#iframe-wrapper').css('height', '500px');
@@ -310,10 +314,37 @@ function ajax(f,obj){
 								}
 							});
 						});
+						
+						var renderPdf = function (contractURI, cb) {
+							PDFJS.getDocument(contractURI).then(function(pdf) {
+								console.log(pdf.numPages);
+								for(var n = 0; n < pdf.numPages; n++) {
+									pdf.getPage(n+1).then(function(page) {
+										var scale = 1;
+										var viewport = page.getViewport(scale);
 
-						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0';
-						pdfUrl = contractURI;
-						$('.block12 iframe').attr('src', contractURI);
+										// Prepare canvas using PDF page dimensions.
+										var canvas = $('<canvas/>').appendTo('#contract-viewer').get(0);
+										var context = canvas.getContext('2d');
+										canvas.height = viewport.height;
+										pdfPageHeight = viewport.height;
+										canvas.width = viewport.width;
+
+										// Render PDF page into canvas context.
+										var renderContext = {
+											canvasContext: context,
+											viewport: viewport
+										};
+										page.render(renderContext);
+
+										if(cb)
+											cb();
+									});
+								}
+							});
+						}
+						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0');
+
 						$('.block12').show();
 						down(1000);
 					}else{
@@ -352,7 +383,7 @@ function ajax(f,obj){
 	}
 }
 function open_error(massage,massage2,notify){
-	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!";
+	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT�S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
