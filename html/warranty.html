@@ -981,7 +981,7 @@
 			<div class="col-md-12 multiplesignatures">
 				<h3 class="noonmobile">CLICK THE BUTTONS BELOW TO SIGN THE CONTRACT</h3>
 				<h3 class="onlineonmobile" style="display:none;">CLICK THE BUTTONS BELOW TO</br> SIGN THE CONTRACT</h3>
-				<div class="signaturebuttons"></div>
+				<div id='signaturebuttons' class="signaturebuttons"></div>
 			</div>
 			<div class="col-md-2 back back-action-block">
 				<a  class="img-circle">
@@ -990,9 +990,34 @@
 				</a>
 			</div>
 			<div class="col-md-8  ">
-				<div id="iframe-wrapper" style="position:relative;height:915px;overflow:hidden;overflow-y:scroll;max-width:750px">
-					<iframe src="" frameborder="0" class="img-responsive center-block" style="height:15000px;position:absolute;top:0"></iframe>
-				</div>
+				<style>
+					#sign-btn {
+						position: absolute;
+						bottom: 20px;
+						z-index: 9999;
+						left: 0;
+						right: 0;
+						text-align: center;
+						background: #fff;
+						width: 250px;
+						margin: 0 auto;
+						font-size: 24px;
+						border: 10px solid #0e173a;
+						padding: 5px 0;
+					}
+					#contract-viewer {
+						width: 100%;
+						max-width: calc(100vw - 30px);
+						height: 500px;
+						overflow: scroll;
+						overflow-y: scroll;
+						text-align: center;
+						border: 10px solid;
+					} #contract-viewer canvas {
+						display: inline;
+					}
+				</style>
+				<div id="contract-viewer"></div>
 			</div>
 			<div class="col-md-2 next">
 				<a id="ac_force" class="img-circle submit next next-action-block visible-true disabled">
@@ -1000,6 +1025,8 @@
 					<span>ACTIVATE</br>FORCEFIELD</span>
 				</a>
 			</div>
+
+
 		</div>
 	</div>
 </div>	
@@ -1217,7 +1244,7 @@
 <script src="js/jquery.signaturepad.js"></script>
 <script src="js/json2.min.js"></script>
 <script src="js/script.js"></script>
-
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 
 </body>
 </html>
