@@ -228,5 +228,21 @@
 		</section> -->
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+		$(document).ready(function(){
+	$('.stripemenu').on('click', function(){
+		$(this).next('ul').slideToggle();
+	});
+	
+	var clickHandler = "click";
+	if('ontouchstart' in document.documentElement){
+		clickHandler = "touchstart";
+	}
+	$(".hovereffect").bind(clickHandler,function(){
+		$(this).toggleClass('showhover');
+	});
+	
+});
+		</script>
 	</body>
 </html>

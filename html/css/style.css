@@ -42,7 +42,7 @@ body{
 }
 .border-decorate{
     width: 700px;
-    margin: 255px auto 10px;
+    margin: 210px auto 10px;
     height: 8px;
     background: #0e163c;
 }
@@ -332,6 +332,8 @@ body{
 .logo {
 	width: 105px;
 	height: auto;
+	position:relative;
+	z-index:9999;
 }
 .navbar-nav>li>a {
 	color: #0E173A;
@@ -364,7 +366,7 @@ body{
 #home .container-fluid, #warranty .container-fluid{
 	max-width: 1300px;
 	width: 100%;
-	margin-top: 70px;
+	margin-top: 0;
 	position: relative;
 }
 .container-fluid{
@@ -955,11 +957,11 @@ a.img-circle>img{
 	font-size: 50px;
 	text-align: center;
 	margin-top: 40px;
-	margin-bottom: 110px;
+	margin-bottom: 30px;
 }
 
 .vinnum {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 .input input {
 	width: 100%;
@@ -1136,14 +1138,15 @@ a.img-circle>img{
 }
 
 #listing h2 {
-	font-size: 50px;
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 110px;
+  font-size: 50px;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  text-align: center;
 }
 
 #listing .back a, #listing .next a {
-	margin-top: 70px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .procesbar h5 {
     margin: 0 0 35px;
@@ -1166,6 +1169,10 @@ a.img-circle>img{
 	color: #61B445;
 	font-family: CenturyGothicBold;
 
+}
+#listing .col-md-6.procesbar {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
 }
 @media(max-width:1024px){
 	.procesbar span {
@@ -1205,7 +1212,10 @@ a.img-circle>img{
 .leftcontent hr {
 	border-top: 10px solid #60BA46;
 }
-
+#listing.block4 .clear {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
 
 .rightcontent span.yearsdat, .rightcontent span.milagetxt {
 	color: #61B445;
@@ -1309,12 +1319,11 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
 	background: #000;
 }
-
 #decision h2 {
-	font-size: 50px;
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 110px;
+  font-size: 46px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
 }
 @media(max-width:1024px){
 	#decision h2 {
@@ -1322,9 +1331,9 @@ input[type=range]:focus::-ms-fill-upper {
 	}
 }
 #decision h3 {
-	font-size: 91px;
+	font-size: 78px;
 	font-weight: bold;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	text-align: center;
 	float: left;
 	width: 100%;
@@ -1356,9 +1365,9 @@ input[type=range]:focus::-ms-fill-upper {
 	border-top: 8px solid #000;
 }
 #decision .pymtsec {
-	font-size: 81px;
+	font-size: 75px;
 	font-weight: bold;
-	margin-bottom: 30px;
+	margin-bottom: 24px;
 	text-align: center;
 	float: left;
 	width: 100%;
@@ -1369,15 +1378,15 @@ input[type=range]:focus::-ms-fill-upper {
 	font-family: CenturyGothicBold;
 }
 #decision .pymtsec .payment .pymtcontent {
-	font-size: 40px;
-	width: 190px;
-	float: left;
-	font-weight: bold;
-	font-family: CenturyGothicBold;
-	text-align: left;
-	line-height: 31px;
-	margin-left: 10px;
-	margin-top: 28px;
+  float: left;
+  font-family: CenturyGothicBold;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 31px;
+  margin-left: 10px;
+  margin-top: 24px;
+  text-align: left;
+  width: 190px;
 }
 #decision .pymtsec .payment {
 	max-width: 600px;
@@ -1572,7 +1581,7 @@ input[type=range]:focus::-ms-fill-upper {
 #address .roundinput.billing h3 {
 	text-align: center;
 	font-size: 100px;
-	margin-bottom: 80px;
+	margin-bottom: 20px;
 }
 
 #address .next.submit a {
@@ -1580,6 +1589,7 @@ input[type=range]:focus::-ms-fill-upper {
 	width: 200px;
 	border: 11px solid #0E173A;
 	margin-top: 15px;
+	float:right;
 }
 #address .next.submit a img {
     margin-bottom: 0px;
@@ -2688,7 +2698,7 @@ h5 {
 	.homepagemobile h2 {font-size: 23px;}
 	.homepagemobile h1 { font-size: 38px;}
 	.homepagemobile img{margin-top:-11px;}
-	.mobiledesc { font-size: 11px;  margin-top: -9px;}
+	.mobiledesc { font-size: 11px;  margin-top: -8px;  line-height: 11px;}
 	.showhover .hovertxt { font-size: 14px;  line-height: 18px;}
 }
 .all-done{
@@ -2828,4 +2838,1235 @@ h5 {
 }
 .hide{
 	display: none;
+}
+.row.force-inner figure div {
+  float: none !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+/* new responsive rules */
+	@media (max-width:1300px){
+		#forcefield h1 { font-size: 40px;  text-align: center;}
+		#forcefield h2 { font-size: 33px;  text-align: center;}
+		#covers h1, .border h1{font-size:45px;}
+		.row.force-inner h3{font-size:23px;}
+		#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, 
+		#thankyou h2, #mbpi h2{font-size:42px;}
+		#thankyou h2{margin-bottom:60px;}
+		.input input{font-size:52px;}
+		#mileage .roundinput input, #zipcode .roundinput input { font-size: 50px;  height: 310px;  width: 310px;}
+		.leftcontent span.yearsdat, .leftcontent span.milagetxt {font-size: 80px;}
+		.rightcontent span.yearsdat, .rightcontent span.milagetxt {font-size: 62px;}
+		.rightcontent span.years, .rightcontent span.milagetit {  font-size: 24px;}
+		.procesbar h5{font-size:21px;}
+		.procesbar span{font-size:32px;}
+		#decision h3{font-size:75px;}
+		.border-decorate{margin-top:215px;}
+		#decision .pymtsec{font-size:70px;}
+		#decision .pymtsec .payment .pymtcontent { font-size: 33px;  margin-top: 19px;}
+		#decision .pymtsec h4{font-size:32px;}
+		#forcefield .roundinput input, #address .form-info .form-info-street, #address .form-info .form-info-address, #address .form-info input,
+		.input-block.notify input{font-size:34px;}
+		#address .billing h3{font-size:86px;}
+		#thankyou .roundinput .boderbox a { width: 230px;  height: 230px;}
+		#thankyou .roundinput .boderbox a span{font-size:65px;}
+		#address .roundinput.billing h3{font-size:76px;}
+	}
+	@media (max-width:1099px){
+		.big-icon-border{height:325px;}
+		#warranty h1{font-size:52px;}
+		#warranty h2{font-size:32px;}
+		#warranty p{font-size:25px;}
+		#covers h1, .border h1 { font-size: 40px;  margin-top: 12px;}
+		#forcefield h1 {font-size: 35px;}
+		#forcefield h2{font-size:29px;}
+		.row.force-inner h3 { font-size: 21px;}
+		.input input { font-size: 40px;}
+		#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, 
+		#thankyou h2, #mbpi h2 { font-size: 35px;  margin-bottom: 80px;}
+		#decision h3 { font-size: 64px;}
+		.border-decorate { margin-top: 186px;}
+		#decision .pymtsec {font-size: 64px;}
+		#decision .pymtsec .payment .pymtcontent { font-size: 30px; margin-top: 15px;}
+		#mileage .roundinput input, #zipcode .roundinput input { font-size: 45px;  height: 280px;  width: 280px;}
+		.next a img, .back a img{max-width:42px;}
+		.next a span, .back a span{font-size:20px;}
+		.controls .button-clear a{font-size:23px;}
+		#forcefield .roundinput input, #address .form-info .form-info-street, #address .form-info .form-info-address, #address .form-info input, .input-block.notify input { font-size: 30px;}
+		#address .billing h3 { font-size: 72px;}
+		.roundinput .boderbox.fix { display: table;  width: auto;}
+		#thankyou .roundinput .boderbox a span {font-size: 54px;}
+		#address .roundinput.billing h3 {font-size: 62px;}
+		.input-block.notify input{margin-top:30px !important;}
+		#thank .img-border{width:400px !important; height:auto !important;}
+		#thank .center.car-icon { padding-top: 5px !important;}
+	}
+	@media (max-width:991px){
+		.navbar-nav > li > a{font-size:17px;}
+		#home .container-fluid, #warranty .container-fluid{margin-top:40px;}
+		#warranty h1 { font-size: 45px;  line-height: 50px;}
+		#warranty h2 { font-size: 29px;  line-height: 35px;  margin-bottom: 20px;  margin-top: 10px;}
+		#warranty a span{font-size:20px;}
+		#forcefield .col-md-8.pull-left {width: 100% !important;}
+		#covers h1, .border h1 { font-size: 34px;  margin-top: 6px;}
+		#forcefield h1 { font-size: 32px;  line-height: 38px;}
+		#forcefield h2 { font-size: 27px;  margin-bottom: 30px;  margin-top: 10px;}
+		.hidemobile { display: none;}
+		.row.force-inner div { margin-bottom: 10px;  width: 33.33% !important;}
+		.row.force-inner figure {display:table !important; margin-left:auto !important; margin-right:auto !important;}
+		.row.force-inner figure div {  display: table-cell; float: none !important;  height: auto !important;  margin: 0 !important;  text-align: center;  vertical-align: middle !important;  width: 100% !important;}
+		.row.force-inner figure img { max-height: 95px;  max-width: 150px;}
+		.row.force-inner h3 { font-size: 19px;}
+		#forcefield h1 { font-size: 26px;  line-height: 36px;}
+		#forcefield h2 { font-size: 25px;  margin-bottom: 15px;  margin-top: 10px;}
+		#benefits .benefit img { max-height: 100px;  max-width: 210px;}
+		#benefits .benefit figure { display: table;  height: 135px !important;  margin: 0 auto;  min-height: 135px;  text-align: center;  vertical-align: middle;  width: 40%;}
+		#vinnumber { margin-left: auto;  margin-right: auto;  width: 96%;}
+		#vinnumber .col-md-10.border .col-md-2, #vinnumber .col-md-10.border .col-md-5 { float: left;}
+		#vinnumber .col-md-10.border > div{display:table; margin-left:auto; margin-right:auto;}
+		#vinnumber .col-md-10.border .col-md-5 { margin-top: 18px;}
+		#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 { font-size: 34px;  margin-bottom: 50px;}
+		.input input {font-size: 30px;  letter-spacing: 14px;}
+		.next a img, .back a img {max-width: 38px;}
+		.next a, .back a{width:130px; height:132px; margin-top:28px !important;}
+		#decision h3 { font-size: 55px;}
+		.border-decorate {margin-top: 155px;}
+		#decision .pymtsec { font-size: 55px;}
+		#decision .pymtsec .payment .pymtcontent { font-size: 22px;  margin-top: 11px;}
+		#address .next.submit a img{max-width:75px;}
+		#address .next.submit a span{font-size:24px;}
+		#address .next.submit a { height: 170px;  width: 170px;}
+		.controls .button-clear { margin-top: 28px;  width: 130px;}
+		.controls .button-clear a {font-size: 22px;  height: 130px;  width: 130px;}
+		#thankyou .roundinput .boderbox a { height: 200px;  margin-top: 10px;  width: 200px;}
+		#thankyou .roundinput .boderbox a span {font-size: 46px;}
+		#address .roundinput.billing h3 {font-size: 56px;}
+	}
+	@media (max-width:767px){
+		#warranty h1 { font-size: 39px;  line-height: 50px;  margin-top: 0;}
+		#warranty h2{font-size:22px;}
+		#warranty p { font-size: 18px;  margin-bottom: 24px;}
+		.rightimg .img-responsive.img-circle { max-width: 300px;}
+		.col-md-8 {  padding-left: 0 !important; padding-right: 0 !important;}
+		#forcefield h1 { font-size: 26px;  letter-spacing: 2px;  line-height: 36px;}
+		#forcefield h2{font-size:20px;}
+		.row.force-inner figure img { max-height: 66px;  max-width: 100px;}
+		.row.force-inner h3 { font-size: 16px;}
+		#forcefield .col-md-12 h1 { font-size: 23px !important;  line-height: 30px !important;}
+		#benefits .benefit figure{width:50%; margin-bottom:20px;}
+		#benefits .row .benefit:first-child figure { width: 40%;}
+		#benefits{margin-top:0 !important;}
+		.border img.img-responsive { width: 85px;}
+		.border h1 { font-size: 23px !important;  margin-top: 3px;}
+		.border { border-bottom: 8px solid #000;  border-top: 8px solid #000;  padding: 12px 0;}
+		#vinnumber .col-md-12 { padding-left: 0;  padding-right: 0;}
+		#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 { font-size: 27px;  margin-bottom: 40px;  line-height: 32px;}
+		.input .full-width-fill { border: 8px solid #000;  font-size: 26px;  letter-spacing: 7px;}
+		#mileage .roundinput input, #zipcode .roundinput input { border: 15px solid #11163c ;}
+		#listing .container { position: relative; padding-top:82px;}
+		#listing .col-md-3.leftcontent.rightcontent { left: 50%;  margin-left: -194px;  padding-left: 0;  padding-right: 0;  position: absolute;  top: 0;  width: 410px;}		
+		.leftcontent.rightcontent h3 > br, .mobileleftyear > br, .mobilerightyear > br {display: none;}
+		.mobileleftyear, .mobilerightyear { float: left;}
+		.rightcontent span.yearsdat, .rightcontent span.milagetxt { float: left;  font-size: 37px;}
+		#listing .plusesign { float: left;  font-size: 44px;  margin-left: 14px;  margin-right: 14px;}
+		.rightcontent span.years, .rightcontent span.milagetit {float:left; font-size: 15px;  font-weight: bold;  line-height: 17px;  max-width: 113px;  padding-left: 10px;  padding-top: 5px;  text-align: left;}
+		.img-responsive.ondesktop, #vinnumber .vinnum .img-responsive.ondesktop { display: none !important;}
+		.img-responsive.onmobile { display: block !important;}
+		.yearsandmiles { display: table;  margin-left: auto;  margin-right: auto;  padding-left: 0;  padding-right: 0;  width: auto;}
+		.yearsandmiles h3:first-child { border-right: 2px solid #0e173a;  line-height: 30px;  margin-right: 16px;  padding-right: 10px;}
+		.yearsandmiles hr, .yearsandmiles br{ display: none !important;}
+		.yearsandmiles span { font-size: 33px !important;  font-family:CenturyGothicBold;  margin-right: 6px;}
+		.yearsandmiles h3 { float: left !important; line-height:30px;}
+		.border-decorate{width:94% !important; height:9px; margin-top:138px;}
+		#decision h3 {font-size: 44px;}
+		#decision .pymtsec { font-size: 49px;}
+		#decision .pymtsec .payment{padding-left:115px;}
+		#decision .pymtsec .payment .pymtcontent { font-size: 20px;  line-height: 22px;  margin-top: 14px;}
+		#decision .pymtsec h4 { font-size: 25px;}
+		#forcefield h2 { font-size: 34px;  line-height: 50px;}
+		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state { border-left: 0 none;  border-right: 0 none;  border-top: 0 none;  float: none;  font-size: 33px !important;  margin: 0 auto 10px;  width: 72%;}
+		#forcefield .roundinput {margin-bottom: 25px;  margin-top: 15px;}
+		.next a img, .back a img { margin-top: 5px !important;}
+		.next a, .back a { height: 120px;  margin-top: 28px !important;  width: 120px;}
+		.next a span, .back a span {font-size: 18px;}
+		#address .form-info .form-info-street, #address .form-info .form-info-address{margin-bottom:25px; border:4px solid #10153c !important; border-left:0 !important; border-right:0 !important; border-top:0 !important;}
+		#forcefield .roundinput input, #address .form-info .form-info-street, #address .form-info .form-info-address, #address .form-info input, .input-block.notify input {font-size: 33px;}
+		#address h2 { font-size: 36px !important;  line-height: 44px !important;}
+		#address .form-info input{border:4px solid #10153c !important; border-top:0 !important; border-left:0 !important; border-right:0 !important;}
+		.colum-field .state { float: left;  margin-left: 5% !important;  width: 33% !important; margin-bottom:25px !important;}
+		.colum-field .city {float: left !important; width: 62% !important;}
+		.colum-field .zipcode { display: table !important;  float: none !important;  margin-left: auto !important;  margin-right: auto !important;  width: 62% !important;}
+		#forcefield .blue-title > br {display: none;}
+		#address .billing h3 { font-size: 90px;  margin-bottom: 40px;  margin-top: 0;}
+		#new-submit input{border:4px solid #10153c; border-right:0 !important; border-left:0 !important; border-top:0 !important;}
+		#address .next.submit a img { max-width: 50px;}
+		#address .next.submit a span {font-size: 18px;}
+		#address .next.submit a { border: 10px solid #0e173a;  height: 123px;  width: 123px;}
+		.allert-wrapper{padding-top:25px;}
+		#thank p.title-block { font-size: 28px !important;  line-height: 35px !important;}
+	}
+	@media (max-width:640px){
+		.back-notify img { max-width: 40px;}
+		.notify-button span{font-size:16px;}
+		.notify-button img { margin-top: 5px;  max-width: 27px;}
+		#thankyou .roundinput .boderbox a { float: left;  height: 150px;  margin-left: 10px !important;  margin-right: 10px !important;  width: 150px;}
+		#thankyou .roundinput .boderbox a span { font-size: 40px;  margin-top: 23px;}
+		#thankyou h2.blue-title br {display: none;}
+		.controls .back a, .controls .next a {height: 100px; width: 100px;}
+		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state{font-size:30px !important;}
+		#address { margin-left: auto;  margin-right: auto;  width: 86% !important;}
+		#address .card-info-block input:last-child { margin-right: 0 !important;}
+		#address .card-info-block input { font-size: 20px !important;  margin-right: 5% !important;  width: 30% !important;}
+		#address input.half-size-one { margin-right: 4% !important;}
+		#address input.half-size-one, #address input.half-size-two { float: left;  width: 48%;  font-size: 27px;}
+		#forcefield .roundinput input, #address .form-info .form-info-street, #address .form-info .form-info-address, #address .form-info input, .input-block.notify input { font-size: 28px;}
+		#thankyou .roundinput .city, #thankyou .roundinput .state {  float: left !important;  font-size: 20px !important;  margin-right: 5% !important;  width: 30% !important;}
+		#thankyou .roundinput .zipcode {  float: left !important;  font-size: 20px !important;  width: 30% !important;}
+		#thankyou .roundinput input[name="first_name"], #thankyou .roundinput input[name="last_name"] {  box-sizing: border-box !important;  float: left !important;  font-size: 27px !important;  width: 48%;}
+		#thankyou .roundinput input[name="first_name"] { margin-right: 4% !important;}
+		#thank .input-block.notify input { border-left: 0 none;  border-right: 0 none;  border-top: 0 none;  border-bottom: 4px solid #10153c;}
+	}
+	@media (max-width:479px){
+		.rightimg .img-responsive.img-circle { max-width: 260px;}
+		h1.text-left { font-size: 18px !important;  text-align: left;}
+		h1.text-right { font-size: 18px !important;  text-align: right;}
+		.nomobile { display: none !important;}
+		.img-responsive.img-circle.onlymobile { border: 12px solid #60b846;  margin-bottom: 20px;  margin-left: auto;  margin-right: auto;  max-width: 180px;}
+		#warranty h1{font-size:26px; margin-bottom:0;}
+		#warranty h2 { font-size: 16px;  margin-top: 0;}
+		#home .container-fluid, #warranty .container-fluid {margin-top: 15px;}
+		#warranty p { font-size: 16px;  margin-bottom: 24px;  line-height: 25px;}
+		#warranty a img{max-width:38px;}
+		#warranty a{width:120px; height:120px; padding-top:8px;}
+		#warranty a span {font-size: 17px;}
+		#forcefield h2 { font-size: 14px;  line-height: 27px; margin-top:5px; margin-bottom:5px;}
+		#forcefield h1 { font-size: 18px;  letter-spacing: 1px;  line-height: 30px;  margin-top: 0;}
+		#forcefield .force-inner { display: table;  margin-left: auto;  margin-right: auto;  width: 100%; margin-bottom:25px;}
+		.row.force-inner figure { height: 85px;}
+		.row.force-inner div { height: 100px;  min-height: 100px;}
+		.row.force-inner h3 { font-size: 10px;  font-weight: normal;}
+		#forcefield .col-md-12 h1 { font-size: 15px !important;  line-height: 25px !important;}
+		.row.force-inner figure img { max-height: 40px !important;  max-width: 65px !important;}
+		.container-fluid{padding-left:7px !important; padding-right:7px !important;}
+		#benefits .benefit {  min-height: 150px;  padding: 0 10px !important;  width: 50%;  margin-bottom: 25px;}
+		#benefits .benefit figure { display: table;  height: 70px !important;  margin: 0 auto;  min-height: 70px;  text-align: center;  width: 40%;}
+		#benefits .row .benefit:nth-child(3) figure, #benefits .row .benefit:nth-child(2) figure{ width: 72%;}
+		#benefits .benefit h2 br {display: none;}
+		#benefits .benefit h2 {font-size: 13px;}
+		.row { margin-left: 0;  margin-right: 0;}
+		#vinnumber .border .col-md-2 { padding-left: 0;  padding-right: 0;}
+		#vinnumber .col-md-10.border .col-md-5 {  margin-top: 6px;}
+		.border h1 {  font-size: 16px !important;  margin-top: 0;}
+		.border img.img-responsive {  width: 40px;}
+		.border { border-bottom: 6px solid #10153c;  border-top: 6px solid #10153c;  padding: 7px 0;}
+		.input .full-width-fill { border: 6px solid #10153c;  font-size: 17px;  letter-spacing: 6px;}
+		.next a img, .back a img { max-width: 30px;}
+		.next a, .back a {margin-bottom:5px;  border: 6px solid #0e173a;  height: 87px;  margin-top: 15px !important;  padding-top: 8px;  width: 87px;}
+		.next a span, .back a span { font-size: 15px;}
+		#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 { font-size: 19px;  line-height: 28px;  margin-bottom: 40px;}
+		h2.blue-title br { display: none;}
+		.next a img, .back a img{margin-bottom:4px;}
+		.navbar-header { margin-left: 0 !important;  margin-right: 0 !important;}
+		#benefits .benefit img { max-height: 57px;  max-width: 100px !important;  width: auto;}
+		#mileage .roundinput input, #zipcode .roundinput input { border: 12px solid #11163c !important;  font-size: 33px;  height: 270px;  width: 270px;}
+		#listing .col-md-3.leftcontent.rightcontent { left: auto;  margin-left: auto;  margin-right: auto;  position: relative;  top: auto;  width: auto;}
+		#listing .plusesign {float: left;  font-size: 30px;  margin-left: 5px;  margin-right: 5px;}
+		.rightcontent span.years, .rightcontent span.milagetit { float: left;  font-size: 9px;  font-weight: normal;  line-height: 12px;  max-width: 82px;  padding-left: 5px;  padding-top: 0;		text-align: left;}
+		.rightcontent span.yearsdat, .rightcontent span.milagetxt { float: left;  font-size: 25px;}
+		#listing .container { padding-top: 55px;}
+		.yearsandmiles span { font-size: 22px !important;}
+		.procesbar h5 { font-size: 17px;}
+		#decision h3 { font-size: 34px;  margin-bottom: 10px !important;}
+		.border-decorate { height: 6px;  margin-top: 90px;  width: 94% !important;}
+		#decision .pymtsec .payment { padding-left: 42px;}
+		#decision .pymtsec { font-size: 21px;}
+		#decision .pymtsec .payment .pymtcontent { font-size: 13px;  line-height: 17px;  margin-top: 4px;  max-width: 96px;}
+		#decision .pymtsec h4 { font-size: 16px;  margin-bottom: 0;}
+		#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2 , #thank.block10 p.title-block
+		#thankyou.block10 h2{ font-size: 22px !important;  margin-top: 25px;}
+		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state { font-size: 27px !important;}
+		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state{width:90%;}
+		#forcefield.block6 .roundinput { margin-bottom: 55px;}
+		.form-info{width:100%;}
+		#forcefield .roundinput input, #address .form-info .form-info-street, #address .form-info .form-info-address, #address .form-info input, .input-block.notify input { font-size: 23px;  margin-bottom: 17px;}
+		#address .billing h3{font-size:48px;}
+		#new-submit{width:100%;}
+		#address.block9 .container-fluid { padding-left: 0 !important;  padding-right: 0 !important;}
+		#address input.half-size-one, #address input.half-size-two{font-size:20px;}
+		#address .card-info-block input{font-size:14px;}
+		#new-submit input{font-size:24px;}
+		.controls .button-clear{display:none !important;}
+		#thankyou .roundinput .boderbox a span { font-size: 30px;  margin-top: 27px;}
+		#thankyou .roundinput .boderbox a { border:8px solid #60ba55; height: 120px;  margin-left: 5px !important;  margin-right: 5px !important;  width: 120px;  padding-top: 0;}
+		#address .roundinput.billing h3 {  font-size: 50px;}
+		#thankyou .roundinput input[name="first_name"], #thankyou .roundinput input[name="last_name"]{font-size:18px !important;}
+		#thankyou .roundinput input[name="card_number"] { font-size: 21px !important;}
+		#thankyou .roundinput .city, #thankyou .roundinput .state,  #thankyou .roundinput .zipcode  { font-size: 11px !important;  padding-left: 6px !important;  padding-right: 6px !important;}
+		#thank.e-block1 p.title-block, #thank.e-block2 p.title-block, #thank.e-block3 p.title-block, #thank.e-block4 p.title-block{ font-size: 23px !important;  line-height: 30px !important;}
+		#thank.e-block3 .car-icon img { border: 12px solid #61b646;  margin-bottom: 30px;  max-width: 230px;}
+		#thank.block10 .allert-wrapper { padding-bottom: 0 !important;}
+		.procesbar span { font-size: 20px;}
+		.range-values{height:43px;}
+		.input-range span{height:25px !important; width:25px !important;}
+		#thank p.title-block { font-size: 21px !important;}
+		#thank.block10.hide { display: none;}
+		#thank.block10 { display: table;}
+		#decision h3 .bottomcontent { text-indent: 12px;}
+		#decision h3 .topcontent { text-indent: -45px;}
+	}
+	
+/* end new responsive rules */
+.letter {
+  font-size: 37px;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+  width: 100%;
+  margin-top:25px;
+}
+.letter.first-letter{
+	margin-top:0;
+}
+#coveredcomponents h6 {
+  font-size: 15px;
+  line-height: 16px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+section#coveredcomponents {
+  padding-bottom: 20px;
+}
+input#txtList {
+  border: 5px solid #10153c;
+  color: #000;
+  display: table;
+  font-size: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 29px;
+  min-width: 420px;
+  padding: 2px 5px;
+  text-align: center;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+.results.viewresults {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 490px;
+  overflow: auto;
+  width: 700px;
+}
+.viewresults .col-md-4 {
+  width: 100% !important;
+}
+
+.viewresults h6::before {
+  color: #60b746;
+  content:"\e013";
+  float: right;
+  font-family: "Glyphicons Halflings";
+  font-size: 28px;
+  font-weight: normal;
+  margin-left: 24px;
+}
+.viewresults h6 {
+  font-size: 21px !important;
+  line-height: 30px !important;
+  padding-right: 15px;
+  text-align: right;
+  text-transform: uppercase;
+}
+.searchcontainer{
+	position:relative;
+}
+.searchagain {
+  border: 10px solid #10153c;
+  border-radius: 50%;
+  bottom: -20px;
+  font-size: 18px;
+  height: 135px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 32px;
+  position: absolute;
+  right: 9%;
+  text-align: center;
+  width: 135px;
+  cursor: pointer;
+}
+.backtosearch > img {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 43px;
+}
+.backtosearch {
+  border: 10px solid #5fbb46;
+  border-radius: 50%;
+  bottom: -20px;
+  color: #5fbb46;
+  cursor: pointer;
+  font-size: 22px;
+  height: 135px;
+  left: 9%;
+  padding-top: 22px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 135px;
+}
+input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#txtList::-moz-placeholder,input#txtList:-ms-input-placeholder  {
+   color: #000;
+   opacity:1;
+}
+#coveredcomponents h1 {
+  margin-top: -101px;
+}
+.results.viewresults{
+	min-height:170px;
+}
+
+
+
+@media (max-width:1240px){
+	.results.viewresults{width:600px;}
+	.viewresults h6 { font-size: 18px !important;  line-height: 28px !important;}
+	.backtosearch{left:3%;}
+	.searchagain{right:3%;}
+}
+@media (max-width:960px){
+	.results.viewresults { width: 460px;}
+	.viewresults h6 {  font-size: 13px !important;  line-height: 28px !important;  padding-right: 0;}
+	.viewresults h6::before { font-size: 19px;  margin-left: 15px;}
+	.searchagain { border: 6px solid #000;  font-size: 15px;  height: 110px;  padding-left: 5px;  padding-right: 5px;  padding-top: 29px;  right: 2%;  width: 110px;}
+	.backtosearch {  border: 6px solid #5fbb46;  font-size: 15px;  height: 110px;  left: 2%;  padding-top: 22px;  width: 110px;}
+	.backtosearch > img {  max-width: 31px;  margin-bottom: 5px;}
+}
+
+@media (max-width:767px){
+	#coveredcomponents .col-md-12 { padding-left: 0 !important;  padding-right: 0 !important;}
+	#coveredcomponents h1 { margin-top: -6px;}
+	.searchagain{right:4%;}
+	.backtosearch{left:4%;}
+	.results.viewresults { width: 96%; margin-bottom:105px;}
+}
+@media (max-width:480px){ 
+	#coveredcomponents h1{font-size:22px;}
+	input#txtList{width:90%; min-width:200px; font-size:28px;}
+	.viewresults h6::before {  position: absolute;  right: 0;  top: 0;}
+	#coveredcomponents h6 {position:relative;  padding-right: 27px;}
+	.results.viewresults{max-height:300px; margin-bottom:120px !important;}
+	.viewresults h6 { font-size: 13px !important;  line-height: 20px !important;  padding-right: 0;  margin-top: 3px !important;  margin-bottom: 3px !important;}
+	.viewresults h6::before{font-size:16px;}
+}
+/* covered components */
+
+
+
+
+/*Start rules 21.07.2016*/
+.onlymobile {
+  display: none;
+}
+.green-text {
+  color: #60b646;
+}
+.row.force-inner figure {
+  display: table;
+  height: 120px;
+  width: 100%;
+}
+.row.force-inner div {
+  display: table-cell;
+  vertical-align: middle;
+  width: 14.2%;
+}
+.text-center figure div img {
+  display: table;
+  height: auto;
+  max-height: 90px;
+  max-width: 70%;
+  width: auto;
+}
+.row.force-inner h3 {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.bigger-paragraph {
+  font-size: 21px;
+  line-height: 38px;
+  text-align: center;
+  text-transform: uppercase;
+}
+#benefits .benefit {
+  width: 25%;
+}
+#benefits .benefit figure {
+  display: table;
+  height: 120px;
+  min-height: unset;
+  width: 100%;
+}
+.benefit figure div {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+#benefits .benefit h2 {
+  color: #10153c;
+  font-size: 24px;
+  line-height: 32px;
+}
+.block9 .col-md-8 + .clear {
+  display: table;
+  width: 100%;
+}
+.col-md-8.auto-center.clear.billing {
+  display: table;
+  margin-bottom: -190px;
+}
+#address.block9 .next.submit a {
+  border: 10px solid #0e173a;
+  float: unset;
+  height: 145px;
+  margin-top: 70px;
+  width: 145px;
+}
+.agreeterm {
+  display: table !important;
+  float: left;
+  margin-left: -30px !important;
+  margin-right: 20px !important;
+  margin-top: 6px !important;
+  width: auto !important;
+}
+.agreediv {
+  color: #10153c;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+.agreediv a{
+  color: #10153c;
+  font-weight:bold;
+  cursor:pointer;
+}
+#address.block9 {
+  margin-bottom: 20px;
+}
+.block11 .back {
+  float: left;
+}
+.block11 .next {
+  float: right;
+}
+.sig .pad {
+  height: 208%;
+}
+.sig {
+  border: 10px solid #000;
+  height: 250px;
+  overflow: hidden;
+}
+.sig.current::before {
+  border-bottom: 9px solid #60ba46;
+  bottom: 40px;
+  color: #888;
+  content: "SIGN HERE";
+  display: table;
+  font-size: 75px;
+  left: 50%;
+  letter-spacing: 3px;
+  margin-left: -205px;
+  position: absolute;
+  text-align: center;
+  width: 410px;
+  z-index: 99999;
+}
+.sig:hover::before{
+	display:none;
+}
+.block10 .allert-wrapper {
+  padding-top: 0;
+  width: 100%;
+}
+.title-signature {
+  font-size: 50px;
+  margin-top: 70px;
+  text-align: center;
+}
+.block10 .col-md-8 {
+  display: table;
+  margin-bottom: -210px;
+}
+.small-sign-text {
+  display: table;
+  font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
+  width: 85%;
+  color:#10153c;
+}
+.small-sign-text a{
+	color:#10153c;
+	font-weight:bold;
+	cursor:pointer;
+}
+.green-text a {
+  font-family: CenturyGothicBold;
+}
+.benefit b {
+  font-family: CenturyGothicBold;
+}
+.text-center:nth-child(7) figure div img {
+  max-height: 115px;
+}
+#mileage .roundinput input,#mileage .roundinput input {
+  font-family: CenturyGothicBold;
+}
+.block5 .col-md-8 + .clear {
+  display: table;
+  margin-top: -160px;
+  width: 100%;
+}
+.block5 .col-md-8 {
+  display: table;
+}
+#forcefield.block6 h2 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  line-height: 65px;
+  text-align: center;
+}
+.block12 a.next.submit {
+  border: 11px solid #0e173a;
+  float: right;
+  height: 200px;
+  margin-top: 250px !important;
+  width: 200px;
+}
+.next a.next.submit span {
+  font-size: 18px;
+  line-height: 20px;
+}
+.next .img-circle.submit.next img {
+  margin-top: 10px;
+  max-width: 90px;
+}
+#forcefield .roundinput input {
+  margin: 40px auto;
+}
+#zipcode .roundinput input {
+  font-family: CenturyGothicBold;
+}
+.block1 input::-webkit-input-placeholder {
+   color: #7E8196;
+   opacity: 1; 
+}
+.block1 input:-moz-placeholder { /* Firefox 18- */
+   color: #7E8196; 
+   opacity: 1;  
+}
+.block1 input::-moz-placeholder {  /* Firefox 19+ */
+   color: #7E8196;
+   opacity: 1;   
+}
+.block1 input:-ms-input-placeholder {  
+   color: #7E8196;
+   opacity: 1;  
+}
+
+::-webkit-input-placeholder {
+   color: #10153C;
+   opacity: 1; 
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #10153C; 
+   opacity: 1;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #10153C;
+   opacity: 1;   
+}
+:-ms-input-placeholder {  
+   color: #10153C;
+   opacity: 1;  
+}
+.blue-title strong {
+  font-family: CenturyGothicBold;
+}
+.new-card-from.hide {
+  position: relative;
+  z-index: 9999;
+}
+.block11 .card-info-block input:nth-child(2) {
+  margin: 10px 30px !important;
+}
+.block11 .card-info-block input {
+  float: left;
+  margin: 10px 0 !important;
+  width: 203px !important;
+}
+.block11 .clear.card-info-block {
+  display: table;
+  margin: 0 auto;
+}
+input {
+  background: transparent;
+}
+.section-screen-height {
+  clear: both !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+#covers {
+  margin: 0 0 30px;
+}
+.vertical-align-screen-height{
+	display:table-cell;
+	vertical-align:middle;
+}
+.display-table{display:table;}
+.benefit-mobile,.ontablet-icons{display:none !important;}
+#benefits .benefit img {
+  height: auto;
+  width: auto;
+}
+nav.navbar{margin-bottom:0;}
+#vinnumber .vinnum .img-responsive.ondesktop {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+#listing.block4 .vertical-align-screen-height .container-fluid > .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#listing.block4 .leftcontent.rightcontent {
+  padding-right: 0 !important;
+}
+#listing.block4 .leftcontent.yearsandmiles {
+  padding-left: 0;
+}
+#forcefield.block6 .col-md-8.roundinput {
+  margin-bottom: 135px;
+}
+#address.block7 .col-md-8.auto-center {
+  margin-bottom: 55px;
+}
+#forcefield.block8 .col-md-8.auto-center {
+  margin-bottom: 180px;
+}
+a {
+  cursor: pointer;
+}
+.terms-content {
+  margin: 0 auto -120px;
+  text-align: center;
+  width: 70%;
+}
+.terms-content p {
+  font-size: 13px !important;
+  line-height: unset !important;
+}
+.title-termsconditions {
+  color: #10153c;
+  font-size: 34px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+#warranty a {
+  margin-bottom: 20px;
+}
+.plus-onlymobile{display:none !important;}
+#mbpi.block12 h2.blue-title { margin-bottom: 0 !important;}
+#mbpi.block12 .multiplesignatures h3 {
+  color: #54bb46;
+  font-size: 30px;
+  text-align: center;
+}
+#mbpi.block12 .multiplesignatures h3 {
+  color: #54bb46;
+  font-size: 30px;
+  text-align: center;
+}
+.signaturebuttons {
+  display: table;
+  margin-bottom: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.eachsignature {
+  border: 10px solid #10153c;
+  border-radius: 50%;
+  float: left;
+  height: 135px;
+  margin-right: 20px;
+  width: 135px;
+}
+.eachsignature h5 {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 36px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.eachsignature > h6 {
+  font-family: "CenturyGothicBold";
+  font-size: 33px;
+  margin-top: 0;
+  text-align: center;
+}
+.checkicon::before {
+  color: #60b746;
+  content:"\e013";
+  display: table;
+  font-family: "Glyphicons Halflings";
+  font-size: 30px;
+  font-weight: normal;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+.eachsignature .checkicon {
+  display: none;
+}
+.eachsignature.completed .checkicon {
+  display: block !important;
+}
+.eachsignature.completed > h5 {
+  margin-top: 0;
+}
+label.agreetermslabel {
+  border: 5px solid #10153c;
+  cursor: pointer;
+  display: table !important;
+  float: left !important;
+  height: 38px;
+  margin-right: 12px;
+  width: 38px;
+  position:relative;
+}
+input#agreeterms:checked + label:before, input#agreeterms2:checked + label:before {
+	content: "\e013";
+	font-family: "Glyphicons Halflings";
+	font-size: 17px;
+}
+.startingrecursive {
+  color: #60ba46;
+  font-size: 50px !important;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#thankyou.block11 .agreediv {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  width: 80%;
+}
+.agreediv > a {
+  border: 0 none !important;
+  color: #10153c !important;
+  display: initial !important;
+  float: none !important;
+  font-size: 16px !important;
+  height: auto !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+.contactpage a.talk span {
+  font-size: 25px !important;
+  line-height: 31px !important;
+  padding-top: 6px !important;
+}
+.locationspage h5 { color:#5fbb46 !important;}
+.trainingpage a.img-circle span {line-height: 20px !important;}
+
+@media (min-width:768px){
+	#thankyou.block11 h2.blue-title { margin-bottom: 21px !important;  margin-top: 120px !important;}
+	#thankyou.block11{height:auto !important;}
+	.desktop2rows {  display: table;  margin-left: auto;  margin-right: auto;  width: 80%;}
+	.desktop2rows > input:first-child {  float: left;  width: 48% !important;}
+	.desktop2rows > input:last-child {  float: left !important;  margin-left: 4% !important;  width: 48% !important;}
+}
+@media (max-width:1200px){
+	#warranty .col-md-4.col-sm-12.col-xs-12.pull-right.rightimg.nomobile {max-width: 30%;}
+	#warranty .col-md-8.col-sm-12.col-xs-12 {float: left;max-width: 70%;}
+	.row.force-inner div {height: 200px;margin-bottom: 0;width: 14.2% !important;}
+	.row.force-inner figure img {max-height: 85px;max-width: 90%;}
+	.row.force-inner h3 {font-size: 18px;letter-spacing: 0;}
+	.bigger-paragraph {font-size: 19px;line-height: 27px;}
+	#warranty p {font-size: 21px;line-height: 32px;}
+	#warranty h1 {font-size: 40px;line-height: 40px;}
+	#warranty h2 {font-size: 26px;line-height: unset;}
+	#benefits .benefit h2 {font-size: 19px;line-height: 27px;}
+	#benefits .benefit img {max-height: 85px;max-width: 90%;}
+	#forcefield h1.text-right.mobile-center {text-align: right;}
+	#listing .col-md-6 {float: left;width: 50%;}
+	#listing .col-md-3 {float: left;width: 25%;}
+	#forcefield.block6 h2 {font-size: 35px;letter-spacing: 2px;line-height: 45px;}
+	#forcefield .roundinput input {width: 60%;}
+	.form-info {width: 60%;}
+	#address .form-info .colum-field input {float: left;margin: 0;width: 31%;}
+	#address .form-info .colum-field input:nth-child(2) {margin: 0 3.5%;}
+	#new-submit {width: 60%;}
+	#new-submit input.half-size-one, #new-submit input.half-size-two {width: 48%;}
+	#new-submit .card-info-block input {margin: 10px 0 20px;width: 31%;}
+	#new-submit .card-info-block input:nth-child(2) {margin: 10px 3.5%;}
+	.title-signature {font-size: 35px;line-height: 40px;margin-top: 40px;padding: 0 5%;text-align: center;}
+	#thank .col-md-8 {max-width: 70%;}
+	#thankyou .col-md-8 {max-width: 60%;}
+	#address .roundinput input {width: 100%;}
+	.block11 .card-info-block input {width: 31% !important;}
+	.block11 .card-info-block input:nth-child(2) {margin: 10px 3.5% !important;}
+	#mbpi .col-md-8 {float: left;width: 60%;}
+	#mbpi .col-md-2 {float: left;width: 20%;}
+	.block12 a.next.submit {height: 132px;width: 132px;}
+	.next .img-circle.submit.next img {margin-top: 0;max-width: 45px;}
+	.next a.next.submit span {font-size: 15px;line-height: 19px;}
+	#mbpi.block12 a.img-circle{margin-top: 250px !important;}	
+}
+@media (max-width:960px){
+	.ontablet-icons{display:table !important;}
+	.display-none-tablet{display:none !important;}
+	.row.force-inner div {width: 25% !important;}
+	#benefits .benefit h2 {font-size: 15px;line-height: 24px;}
+	#benefits .benefit img {max-height: 70px;max-width: 80%;}
+	.leftcontent span.yearsdat, .leftcontent span.milagetxt {font-size: 55px;}
+	.rightcontent span.yearsdat, .rightcontent span.milagetxt {font-size: 50px;}
+	.range-values {height: 35px;}
+	#forcefield .roundinput input {display: table;float: none;margin: 20px auto;}
+	#forcefield.block6 h2 {font-size: 27px;line-height: 38px;}
+	body input[type="text"] {font-size: 25px !important;}
+	.col-md-8.auto-center.clear.billing {margin-bottom: 0;}
+	#new-submit {width: 80%;}
+	#forcefield .roundinput input {width: 80%;}
+	.block10 .col-md-8 {margin-bottom: 0;}
+	#thankyou .col-md-8 {max-width: 80%;}
+	.agreeterm {margin-left: 0 !important;margin-top: 6px !important;}
+	.agreediv {text-align: left;}
+	.title-signature {font-size: 27px;line-height: 35px;margin-top: 30px;}
+	#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 {font-size: 27px;line-height: 33px;margin-bottom: 40px;}
+	.container {width: 100%;}
+	.form-info {width: 80%;}
+	
+	.terms-content {margin: 0 auto;text-align: center; width: 100%;}
+	.title-termsconditions {font-size: 25px;}
+}
+@media (max-width:768px){
+	#warranty .col-md-8.col-sm-12.col-xs-12 {max-width: 100%;}
+	.nomobile {display: none !important;}
+	.onlymobile {display: table;margin: 0 auto;max-width: 300px;}
+	#forcefield h1.text-right.mobile-center {text-align: center;}
+	#warranty a {margin-bottom: 20px;}
+	#forcefield h2 {font-size: 21px;line-height: unset;}
+	.row.force-inner div {width: 33.3% !important;}
+	.bigger-paragraph {font-size: 16px;line-height: 22px;}
+	#benefits .benefit {width: 50%;}
+	#benefits .benefit h2 {font-size: 19px;line-height: 27px;}
+	#listing .col-md-3 {display: table;float: none;margin: 0 auto;position: relative !important;text-align: center;width: auto;}
+	#listing .col-md-6 {float: left;width: 100%;}
+	.block5 .col-md-8 + .clear {margin-top: 0;}
+	#address h2 {display: table;float: none;font-size: 27px !important;line-height: unset !important;margin: 0 auto 40px !important;text-align: center;}
+	.benefit-mobile{display:table !important;}
+	.benefit-desktop{display:none !important;}
+	#benefits .benefit figure {height: 85px !important;}
+	#address {width: 100% !important;}
+	#address .form-info .colum-field input {margin: 0 0 25px !important;width: 100% !important;}
+	#new-submit input.half-size-one, #new-submit input.half-size-two {width: 100%;}
+	#new-submit .card-info-block input {margin: 0 0 25px !important;width: 100% !important;}
+	#address.block9 .next.submit a {height: 123px;width: 123px;}
+	#thank p.title-block {font-size: 21px !important;line-height: 30px !important;}
+	.sig.current::before {font-size: 35px;margin-left: -125px;width: 250px;}
+	#thank .col-md-8 {max-width: 90%;}
+	.sig {margin: 30px auto;}
+	#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 {font-size: 22px;line-height: 30px;margin-bottom: 30px;}
+	#thankyou .roundinput input[name="first_name"], #thankyou .roundinput input[name="last_name"] {width: 100%;}
+	#thankyou .roundinput .city, #thankyou .roundinput .state {margin: 0 0 20px !important;width: 100% !important;}
+	#thankyou .roundinput .zipcode {width: 100% !important;}
+	#mbpi .col-md-2 {width: 100%;}
+	#mbpi .col-md-8 {float: none;margin: 0 auto;width: 90%;}
+	#mbpi.block12 a.img-circle {margin: 20px auto !important;float:none !important;}
+	.next .img-circle.submit.next img {margin-top: 0;max-width: 28px;}
+	.block12 iframe {height: 300px;overflow-y: scroll;}
+	body .block11 .card-info-block input {margin: 0 0 20px !important;width: 100% !important;}
+	.block11 .card-info-block input:nth-child(2) {margin: 0 0 20px !important;}
+	
+	.title-termsconditions {font-size: 23px;}
+	
+	body .plus-onlydesktop h3 span.yearsdat,body .plus-onlydesktop h3 span.milagetxt {font-size: 37px !important;}
+}
+@media (max-width:480px){
+	.homepagemobile h2{margin-top:0 !important;}
+	#forcefield #covers .text-right.mobile-center { text-align: right;}
+	#warranty a { border: 6px solid #0e173a;  padding-top: 8px !important;}
+	.logo {width: 65px;}
+	.navbar-toggle {top: 6px;}
+	.navbar {margin-bottom: 0;}
+	.navbar-brand {padding: 5px 15px;}
+	#warranty h1 {font-size: 24px;line-height: unset;}
+	#warranty h2 {font-size: 17px;}
+	.img-responsive.img-circle.onlymobile { border: 6px solid #60b846;  margin-bottom: 10px;  max-height: 110px;}
+	#warranty p {font-size: 14px;line-height: unset;}
+	#warranty a {height: 90px;padding-top: 0;width: 90px;}
+	#warranty a span {font-size: 12px;}
+	#warranty a img {max-width: 28px;}
+	#forcefield h1 {font-size: 18px;letter-spacing: 1px;line-height: unset;margin-top: 0;}
+	#covers h1 {padding: 6px 0;}
+	#covers {margin: 0 0 15px;}
+	#forcefield h2 {font-size: 14px;line-height: unset;margin: 0;}
+	.row.force-inner h3 {font-size: 14px;}
+	.row.force-inner div {height: 73px;min-height: unset;}
+	.row.force-inner div:first-child,.row.force-inner div:nth-child(2),.row.force-inner div:nth-child(3) {margin-top: 0;}
+	.row.force-inner figure {height: 65px;}
+	.row.force-inner figure img {max-height: 33px !important;max-width: 54px !important;}
+	.bigger-paragraph {font-size: 11px;line-height: unset;}
+	#benefits .benefit img { max-height: 40px !important;  max-width: 78px !important;}
+	#benefits .benefit h2 {font-size: 13px; line-height: 16px;}
+	#benefits .benefit figure {height: 55px !important;}
+	#benefits .benefit {margin-bottom: 15px;min-height: 104px;}
+	#vinnumber img.onmobile {margin: 0 auto;max-width: 75%;}
+	#vinnumber h2, #mileage h2, #zipcode h2, #listing h2, #decision h2, #address h2, .allert-wrapper .title-block, #thankyou h2, #mbpi h2 {font-size: 23px;line-height: unset;margin-bottom: 20px;}
+	body input[type="text"] {font-size: 23px !important;}
+	#listing h2 {margin-top: 0;}
+	#listing .container {padding-top: 0;}
+	.input-range {height: 10px;margin: 4px 0 5px;}
+	.rightcontent span.yearsdat, .rightcontent span.milagetxt {font-size: 17px;}
+	.range-values {height: 20px;}
+	.next a, .back a {height: 80px;padding-top: 6px;width: 80px;}
+	.next a img, .back a img {max-width: 25px;}
+	#decision h3 {font-size: 28px;}
+	.border-decorate {height: 3px;margin-top: 70px;}
+	#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2, #thank.block10 p.title-block #thankyou.block10 h2 {font-size: 18px !important;line-height: unset !important;}
+	#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state {font-size: 18px !important;}
+	#address h2 {font-size: 18px !important;margin: 0 auto 20px !important;}
+	#address .billing h3 {font-size: 60px;margin-bottom: 20px;}
+	#address .card-info-block input {font-size: 15px !important;}
+	#address.block9 .next.submit a {border-width: 6px;height: 80px;width: 80px;}
+	#address .next.submit a img {max-width: 26px;}
+	.agreediv {font-size: 10px;}
+	#new-submit input {margin: 0 auto 10px;}
+	#new-submit .card-info-block input {margin: 0 0 10px !important;}
+	.block12 iframe {height: 200px;margin: 0 auto !important;width: 260px !important;}
+	.block12 a.next.submit {border-width: 6px;height: 95px;width: 95px;}
+	.next a.next.submit span {font-size: 12px;line-height: 14px;}
+	.block13 .img-responsive {max-height: 125px;}
+	#thank.e-block1 p.title-block, #thank.e-block2 p.title-block, #thank.e-block3 p.title-block, #thank.e-block4 p.title-block {font-size: 18px !important;line-height: unset !important;}
+	.hide-link-about p {font-size: 18px;}
+	.e-block1 .erorr-man img {height: auto;max-height: 120px;width: auto;}
+	.back-notify, .notify-button {border-width: 5px;height: 70px;width: 70px;}
+	.back-notify img {max-height: 25px;max-width: 25px;}
+	.notify-button img {margin-top: 5px;max-width: 15px;}
+	.notify-button span {font-size: 11px;}
+	.back-notify span {font-size: 14px;}
+	.back-notify {padding-top: 7px;}
+	#mileage .roundinput input, #zipcode .roundinput input { font-size: 39px !important;  margin-bottom: 70px;  margin-top: 70px;}
+	#forcefield .col-md-12 > h2 { clear: both !important;  float: left;  margin-top: 9px !important;  width: 100% !important;}
+	#benefits, #vinnumber{height:auto !important;}
+	#vinnumber .vinnum-title {  margin-top: 0;}
+	.vinnum-title-mobile {  color: #10153c;  display: block !important;  font-size: 23px;  margin-bottom: 0;  margin-top: 0;  text-align: center;}
+	.back a { border: 6px solid #5fba46;}
+	#zipcode .roundinput .input-number { margin-bottom: 87px;  margin-top: 87px;}
+	.procesbar span { font-size: 13px;}
+	.procesbar h5 { font-size: 15px;}
+	.mobilesingle { color: #61b546;  display: block;  font-size: 19px;}
+	.mobilesingle br{display:none;}
+	#decision.block5 h2 {font-size: 30px;}
+	#forcefield.block6 h2 span {display: table;font-size: 30px;text-align: center;width: 100%;}
+	#address.block7 h2 .bigger-onmobile{display: table;font-size: 28px;text-align: center;width: 100%; line-height:35px !important;}
+	#forcefield.block8 input {font-size: 28px !important;}
+	#address.block9 .fontsize-onmobile {display: table;font-size: 25px !important;text-align: center;width: 100%;}
+	#thank.block10 p span{font-size:24px !important;}
+	#mbpi.block12 p span{font-size:24px !important;}
+	#mbpi.block13 p .span1font-mobile{font-size:35px !important;}
+	#mbpi.block13 p .span2font-mobile{font-size:25px !important;}
+	#thankyou.block11 .fontsize-onmob-thank{font-size:25px !important;}
+	#new-submit input.half-size-one, #new-submit input.half-size-two {width: 48%;}
+	#new-submit .card-info-block input:nth-child(2) {margin: 0 3.5% !important;}
+	#new-submit .card-info-block input {width: 31% !important;}
+	#new-submit input[name="card_number"] {font-size: 22px !important;}
+	.sig {height: 150px;}
+	.sig.current::before {bottom: 15px;}
+	.small-sign-text {font-size: 12px;width: 100%;}
+	.block10 .col-md-8 {margin-bottom: -10px;}
+	#thank.block10 .clear .col-md-2 a, #thank.block10 .clear .col-md-3 a {height: 60px !important;width: 60px !important;}
+	#thank.block10 .clear .col-md-2, #thank.block10 .clear .col-md-3 {padding: 0 !important;}
+	#thank.block10 .clear .col-md-2 a img, #thank.block10 .clear .col-md-3 a img {margin: 0 auto !important;max-width: 17px;}
+	#thankyou .roundinput input[name="first_name"], #thankyou .roundinput input[name="last_name"] {width: 48%;}
+	#thankyou.block11 h2 {margin-bottom: 70px !important;margin-top: 0 !important;}
+	#thankyou .roundinput .boderbox a {height: 129px;width: 127px;}
+	#thankyou .roundinput .boderbox a span {margin-top: 34px;}
+	
+	body #mbpi.block12 .col-md-2.next { display: table !important;  float: left !important;  margin-bottom: 0 !important;  margin-left: auto;  margin-right: auto;  order: unset !important;  width: auto !important;}
+	body #mbpi.block12 .col-md-8 { margin-bottom: 10px !important;  order: unset !important; }
+	body #mbpi.block12 .col-md-2.back-action-block {  bottom: 24px !important;  display: table !important;  float: left !important;  order: unset !important;  position: absolute;  width: auto !important;}
+	body #mbpi.block12 .container-fluid .row {display: flex;flex-direction: column;}
+	.sig canvas {transform: none !important;}
+	#thankyou #address .card-info-block input:nth-child(2) {margin: 0 3.5% !important;}
+	#thankyou #address .card-info-block input {font-size: 13px !important;padding: 10px 0 !important;width: 31% !important;}
+	#thankyou #address .col-md-8 > input {padding-left: 0 !important;padding-right: 0 !important;}
+	#address .roundinput.billing h3 {margin-bottom: 25px;}
+	#address .roundinput.billing h3 + div{color:#60BA55 !important;text-align:center;}
+	#forcefield.block6 input {font-size: 32px !important;}
+	
+	.allert-wrapper .back.left {position: relative;}
+	.title-termsconditions {font-size: 20px;}
+	.plus-onlymobile {display: table !important;margin-bottom: 20px !important;}
+	.plus-onlydesktop{display:none !important;}
+	#listing.block4 h2 span {display: none;}
+	
+	#warranty{height:auto !important;}
+	#forcefield.forcefield1{height:auto !important;}
+	
+	#decision .pymtsec .payment {float: none;margin: 0 auto;padding-left: 0;text-align: center;width: auto;}
+	#address .form-info .colum-field input:nth-child(1), #address .form-info .colum-field input:nth-child(2){width: 48% !important;}
+	#address .form-info .colum-field input:nth-child(3) {width:100% !important;}
+	#address .form-info .colum-field input:nth-child(1){margin-right:4% !important;}
+	#address.block7 .form-info input {font-size: 25px !important;}
+	#address input.half-size-one, #address input.half-size-two {font-size: 20px !important;}
+	.block12 iframe {border:none;border-top:3px solid #60ba46;border-bottom:3px solid #60ba46;}
+	.terms-content {max-height: 326px;  overflow: auto;}
+	.mobilemonths b{display:none !important;}
+	.noonmobile{display:none;}
+	.onlineonmobile{display:block !important;}
+	#mbpi.block12 .row { position: relative;}
+	#mbpi.block12 .multiplesignatures h3 { font-size: 19px;  line-height: 30px;  margin-top: 4px; margin-bottom:3px !important;}
+	.eachsignature h5 { font-size: 10px;  margin-bottom: 2px;  margin-top: 24px;  text-align: center;  text-transform: uppercase;}
+	.eachsignature { border: 4px solid #10153c;  border-radius: 50%;  float: left;  height: 69px;  margin-right: 2px;  width: 69px;}
+	.eachsignature > h6{font-size:12px !important;}
+	.block12 iframe{border:0 !important;}
+	body #mbpi.block12 .col-md-8 { border: 8px solid #60ba46; display: block !important; margin-bottom: 0 !important;  max-width: 94% !important;  order: unset !important;  overflow: auto !important;  width: 100% !important;}
+	.checkicon::before{font-size:15px !important;}
+	#mbpi.block13 .all-done.onlineonmobile {  font-size: 35px !important;  line-height: 35px !important; margin-top:60px !important;}
+	.all-done.onlineonmobile > span { color: #61b546;  display: block;  font-size: 25px !important;  margin-top: 7px;}
+	.onlineonmobile.secondall-done { font-size: 25px !important;  line-height: 35px !important;}
+	.block13 .img-responsive { max-height: 180px;}
+	label.agreetermslabel{display:none !important;}
+	#mbpi.block12{height:auto !important;}
+	.contactpage h1 { font-size: 30px !important;  padding-left: 20px;  padding-right: 20px; line-height:35px !important;}
+	.contactpage h2 { font-size: 17px !important;  margin-bottom: 30px !important;  margin-top: 12px !important;}
+	.contactpage p.text-center, .trainingpage p.text-center,.inspectionspage p.text-center { font-size: 15px !important;  line-height: 25px !important;}
+	.contactpage a.talk {  border: 8px solid #60b846 !important;  height: 110px !important;  width: 110px !important;  margin-top: 49px !important;}
+	.contactpage a.talk span {  display: table !important;  float: none !important;  font-size: 18px !important;  line-height: 22px !important;  margin-left: auto;  margin-right: auto;  max-width: 60px;  padding-top: 15px !important;}
+	.locationspage h1, .inspectionspage h1 { font-size: 30px !important;  line-height: 35px !important;}
+	.locationspage h2, .inspectionspage h2 { font-size: 17px !important;  margin-bottom: 10px !important;}
+	.locationspage .col-md-6 img { max-width: 94% !important;}
+	.locationspage h3 {  font-size: 20px !important;  margin-bottom: 20px !important;}
+	.locationspage .col-md-6 { width: 50% !important;}
+	.locationspage h4, .locationspage h5 { font-size: 16px !important;}
+	.locationspage h5 { margin-top: 0 !important; color:#5fbb46 !important;}
+	.locationspage .img-circle,.trainingpage .img-circle.img-responsive, .inspectionspage .img-circle.img-responsive{ border-width: 10px !important;  margin-bottom: 30px !important;  margin-top: 20px !important;  max-width: 183px !important;}
+	.trainingpage h1 { font-size: 30px !important;  line-height: 35px !important;}
+	.trainingpage a.img-circle img {  margin-bottom: 0 !important;  margin-top: 0 !important;  max-width: 47px !important;}
+	.trainingpage a.img-circle span {  font-size: 15px !important;  line-height: 15px !important;}
+	.inspectionspage p.text-center{padding-left:10px; padding-right:10px;}
+}
+.mobilemonths b{font-weight:normal !important;}
+input{-webkit-appearance:none !important;}
+#thankyou.block11 #address .col-md-8.billing { position: relative;  z-index: 9999;}
+#mbpi.block13 .row div:first-child h2.all-done.noonmobile { margin-top: 110px !important;}
+@media (min-width:380px) and (max-width:480px){
+	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 35px !important;}
+	.rightcontent span.years, .rightcontent span.milagetit { font-size: 13px !important;  line-height: 15px !important;  padding-top: 5px !important;}
+	#listing.block4 h2.blue-title {font-size: 30px !important; margin-top:25px !important;}
+	.procesbar span {font-size: 25px !important;  line-height: 8px !important;}
+	.range-values span.selected {top: 0 !important;}
+	.input-range{margin-top:10px !important;}
+	body .yearsandmiles span { font-size: 30px !important;}
+	.rightcontent span.years, .rightcontent span.milagetit { font-size: 17px !important;  font-family: "CenturyGothicBold"; line-height:16px !important; padding-top:4px !important;}
+	.mobilemonths { font-size: 12px !important;}
+	#listing.block4 .leftcontent.yearsandmiles { margin-bottom: 20px !important;}
+	#decision h3 {font-size: 43px !important;}
+	.border-decorate { height: 8px !important; margin-top: 120px !important;}
+	#decision h3 .topcontent { text-indent: -112px !important;}
+	#decision h3 .bottomcontent { margin-top: 5px !important;  text-indent: 18px !important;}
+	#decision.block5 h2 { line-height: 35px !important;  margin-bottom: 28px !important;  margin-top: 35px !important;}
+	.mobilesingle { color: #10153c !important;  font-size: 30px !important; line-height: 35px !important;}
+	#decision .pymtsec {font-size: 48px !important;}
+	#decision .pymtsec .payment .pymtcontent { font-size: 24px !important;   line-height: 21px !important;  margin-top: 14px !important;  max-width: 96px !important;}
+	.pymtcontent > span { color: #61b445 !important;}
+	.paymentinfosec1 br{display:none !important;}
+	.col-md-12.pymtsec.paymentinfosec {  bottom: -106px !important;  position: absolute !important;}
+	#decision .pymtsec h4 { font-size: 18px !important;  margin-bottom: 0 !important;  letter-spacing: 2px !important;}
+	.col-md-12.pymtsec.paymentinfosec1 div:last-child{margin-top:-20px !important;}
+	#decision .pymtsec{margin-bottom:35px !important;}
+	#forcefield.block6 h2.blue-title { line-height:35px !important; font-size: 30px !important; margin-top: 35px !important;}
+	#forcefield.block6 .roundinput input::-webkit-input-placeholder,#address.block7 input::-webkit-input-placeholder, #forcefield.block8 input::-webkit-input-placeholder, #address.block9 input::-webkit-input-placeholder, #thankyou.block11 #address input::-webkit-input-placeholder{color:#80807f !important;}
+	#forcefield.block6 .roundinput input::-moz-placeholder,#address.block7 input::-moz-placeholder, #forcefield.block8 input::-moz-placeholder, #address.block9 input::-moz-placeholder, #thankyou.block11 #address input::-moz-placeholder {color:#80807f !important;}
+	#forcefield.block6 .roundinput input:-moz-placeholder , #address.block7 input:-moz-placeholder, #forcefield.block8 input:-moz-placeholder, #address.block9 input:-moz-placeholder, #thankyou.block11 #address input:-moz-placeholder  {color:#80807f !important;}
+	#forcefield.block6 .roundinput input:-ms-input-placeholder , #address.block7 input:-ms-input-placeholder, #forcefield.block8 input:-ms-input-placeholder, #address.block9 input:-ms-input-placeholder, #thankyou.block11 #address input:-ms-input-placeholder  {color:#80807f !important;}
+	#forcefield.block6 .roundinput input:first-child { margin-bottom: 62px !important;  margin-top: 25px !important;}
+	#forcefield.block6 .col-md-8.roundinput { margin-bottom: 88px;}
+	#address.block7 h2 { margin-top: 38px !important;}
+	#address.block7 .form-info input {font-size: 27px !important;}
+	#address .form-info .colum-field input:nth-child(1) {  width: 60% !important;}
+	#address .form-info .colum-field input:nth-child(2) { width: 36% !important;}
+	#forcefield.block8 h2.blue-title { font-size: 28px !important;  margin-bottom: 15px;  margin-top: 35px !important; line-height:35px !important;}
+	#forcefield.block8 input { font-size: 32px !important;}
+	#forcefield.block8 .roundinput input:last-child { font-size: 24px !important;}
+	#forcefield.block8 .roundinput input:first-child { margin-bottom: px !important;}
+	#forcefield.block8 .col-md-8.auto-center { margin-bottom: 88px !important;}
+	#address .billing h3 { font-size: 75px !important;  margin-bottom: 35px !important;  margin-top: 13px !important;}
+	#address input.half-size-one, #address input.half-size-two { font-size: 25px !important;}
+	#new-submit input[name="card_number"] { font-size: 28px !important; text-align:center;}
+	#address .card-info-block input { font-size: 18px !important;}
+	#address.block9 .agreediv { margin-bottom: 8px !important; margin-top:15px;}
+	#address.block9 h2.blue-title { font-size: 30px !important;  margin-top: 38px !important; line-height:35px !important;}
+	#new-submit { width: 92% !important;}
+	.agreeterm { margin-left: 26px !important;  margin-right: 9px !important; display:none !important;}
+	.agreediv{text-align:center;}
+	#address.block7 .col-md-8.auto-center {  margin-bottom: 48px !important;}
+	#thank p.title-block { font-size: 24px !important;  line-height: 35px !important;}
+	.sig.current::before{font-size:41px !important; border-bottom:10px solid #60ba46 !important;}
+	.small-sign-text{font-size:13px !important;}
+	#thank.block10 .clear .col-md-2 a, #thank.block10 .clear .col-md-3 a { height: 80px !important;  width: 80px !important;}
+	#thank.block10 .clear .col-md-2 a img, #thank.block10 .clear .col-md-3 a img { margin: 5px auto !important;  max-width: 25px;}
+	#thankyou.block11 h2.blue-title { font-size: 25px !important;  line-height: 35px !important;  margin-top: 40px !important;}
+	#thankyou .roundinput .boderbox a span { margin-top: 24px !important; font-size:45px !important;}
+	#thankyou.block11 .back { display: table !important;  float: none !important;  margin-left: auto !important;  margin-right: auto !important;}
+	#thankyou .roundinput .boderbox a{margin-left:10px !important; margin-right:10px !important;}
+	.block12 a.next.submit { height: 135px !important;  width: 135px !important;}
+	.next .img-circle.submit.next img {  margin-top: 6px !important;  max-width: 42px !important;}
+	.next a.next.submit span { font-size: 16px !important;  line-height: 19px !important;}
+	#mbpi.block12 h2.blue-title { font-size: 24px !important;  line-height: 35px !important;}
+	.block12 iframe { height: 200px;  margin: 0 auto !important;    width: 360px !important;    overflow: auto !important;    max-width: 360px !important;}
+	#thankyou.block11 h2.blue-title{margin-bottom: 0 !important;}
+	#address .billing h3{font-size:50px !important; margin-bottom:15px !important;}
+	.startingrecursive { font-size: 21px !important;  margin-bottom: 15px;}
+	#thankyou.block11 #address input[name="first_name"], #thankyou.block11 #address input[name="last_name"] { font-size: 24px !important;}
+	#thankyou.block11 #address input[name="card_number"] { font-size: 29px !important;}
+	#thankyou #address .card-info-block input{font-size:17px !important;}
+	#thankyou.block11 .agreediv { display: none;}
+	.agreediv > a{font-size:10px !important;}
+	#thankyou.block11 #address { min-height: 710px;}
+	#thankyou.block11 { height:auto !important;}
+	#thankyou.block11 #address .back{float:left !important;}
+	.mobilechoosebtns { min-height: 710px; padding-top:45px !important;}
+	#thankyou.block11 #address { padding-top: 50px !important;}
+	#thankyou.block11 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
+}
+@media (max-width:380px){
+	#mileage .roundinput input, #zipcode .roundinput input { margin-bottom: 32px !important;  margin-top: 32px !important;}
+	#mileage .roundinput input, #zipcode .roundinput input{width:250px !important; height:250px !important;}
+	#forcefield.block6 input { font-size: 26px !important;}
+	#address.block7 .form-info input { font-size: 23px !important;}
+	#forcefield.block8 input { font-size: 25px !important;}
+	.agreediv > a{font-size:10px !important;}	
+	.mobilechoosebtns { min-height: 640px; padding-top:45px !important;}
+	#thankyou.block11 #address { padding-top: 50px !important;}
+	#thankyou.block11 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
+	body .locationspage .img-circle,body .trainingpage .img-circle.img-responsive, body .inspectionspage .img-circle.img-responsive { border-width: 10px !important;  margin-bottom: 16px !important;  margin-top: 10px !important;  max-width: 160px !important;}
+	#warranty p{margin-bottom:15px !important;}
+	.contactpage a.talk{margin-top:0 !important;}
+	.contactpage h2{margin-bottom:18px !important;}
+	#warranty h2{margin-bottom:8px;}
+	.eachsignature { border: 2px solid #10153c !important;  height: 61px !important;  margin-right: 1px !important;  width: 61px !important;}
+	.eachsignature h5{font-size:9px !important;}
+	.contactpage h2 { margin-bottom: 5px !important; margin-top:4px !important;}
 }

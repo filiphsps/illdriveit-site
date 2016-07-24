@@ -6,6 +6,7 @@ drive_data = {},
 slider = [{},{},{}],
 plans = {};
 
+var pdfUrl;
 /**/
 $(document).ready(function(){
 	/** BEGINS **/
@@ -108,6 +109,12 @@ $(document).ready(function(){
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
+
+	$('#sign1').click(function(){
+		var contractUri = pdfUrl + '#page=5';
+		$('.block12 iframe').attr('src',contractUri);
+		$('.block12').show();
+	});
 
 });
 
@@ -263,6 +270,7 @@ function ajax(f,obj){
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
 						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
+						pdfUrl = contractURI;
 						$('.block12 iframe').attr('src',contractURI);
 						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
 						$('.block12').show();
