@@ -981,33 +981,7 @@
 			<div class="col-md-12 multiplesignatures">
 				<h3 class="noonmobile">CLICK THE BUTTONS BELOW TO SIGN THE CONTRACT</h3>
 				<h3 class="onlineonmobile" style="display:none;">CLICK THE BUTTONS BELOW TO</br> SIGN THE CONTRACT</h3>
-				<div class="signaturebuttons">
-					<div class="eachsignature completed">
-						<span class="checkicon"></span>
-						<h5>Signature</h5>
-						<h6>1</h6>
-					</div>
-					<div class="eachsignature">
-						<span class="checkicon"></span>
-						<h5>Signature</h5>
-						<h6>2</h6>
-					</div>
-					<div class="eachsignature">
-						<span class="checkicon"></span>
-						<h5>Signature</h5>
-						<h6>3</h6>
-					</div>
-					<div class="eachsignature">
-						<span class="checkicon"></span>
-						<h5>Signature</h5>
-						<h6>4</h6>
-					</div>
-					<div class="eachsignature">
-						<span class="checkicon"></span>
-						<h5>Signature</h5>
-						<h6>5</h6>
-					</div>
-				</div>
+				<div class="signaturebuttons"></div>
 			</div>
 			<div class="col-md-2 back back-action-block">
 				<a  class="img-circle">
@@ -1016,16 +990,16 @@
 				</a>
 			</div>
 			<div class="col-md-8  ">
-				<iframe src="" frameborder="0" class="img-responsive center-block"></iframe>
+				<div id="iframe-wrapper" style="position:relative;height:915px;overflow:hidden;overflow-y:scroll;max-width:750px">
+					<iframe src="" frameborder="0" class="img-responsive center-block" style="height:15000px;position:absolute;top:0"></iframe>
+				</div>
 			</div>
 			<div class="col-md-2 next">
-				<a  class="img-circle submit next next-action-block visible-true">
+				<a id="ac_force" class="img-circle submit next next-action-block visible-true disabled">
 					<img src="images/logo.png">
 					<span>ACTIVATE</br>FORCEFIELD</span>
 				</a>
 			</div>
-
-
 		</div>
 	</div>
 </div>	
