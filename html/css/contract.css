@@ -7,6 +7,7 @@
     margin: 0 auto;
     width: 825px;
     max-width: 100%;
+    position: relative;
 }
 .contract article {
     padding: 15px;
@@ -17,17 +18,23 @@
 .contract h1 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 28px !important;
+    font-weight: 700;
 }
 .contract h2 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 16px !important;
+    font-weight: 700;
 }
 .contract h3 {
     margin: 25px 0 0 0;
     text-transform: uppercase;
     font-size: 16px;
+    font-weight: 700;
+}
+.contract u {
+    font-size: 16px !important;
 }
 .contract u {
     font-weight: 700;
@@ -62,11 +69,11 @@
 }
 .contract .nextmarker {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     padding: 10px;
-    margin: 0 0 0 255px;
-    transform: translateY(-25px);
+    margin: 0 0 0 205px;
+    transform: translateY(-15px);
     border: 5px solid #60BA48;
     border-radius: 100%;
     color: #60BA48;

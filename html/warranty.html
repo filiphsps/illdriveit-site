@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<link rel="stylesheet" type="text/css" href="css/contract.css">
 </head>
 <body>
 <header>
@@ -991,31 +991,13 @@
 			</div>
 			<div class="col-md-8  ">
 				<style>
-					#sign-btn {
-						position: absolute;
-						bottom: 20px;
-						z-index: 9999;
-						left: 0;
-						right: 0;
-						text-align: center;
-						background: #fff;
-						width: 250px;
-						margin: 0 auto;
-						font-size: 24px;
-						border: 10px solid #0e173a;
-						padding: 5px 0;
-					}
 					#contract-viewer {
 						width: 100%;
 						max-width: calc(100vw - 30px);
 						height: 500px;
 						max-height: 50vh;
-						overflow: scroll;
+						overflow: hidden;
 						overflow-y: scroll;
-						text-align: center;
-						border: 10px solid;
-					} #contract-viewer canvas {
-						display: inline;
 					}
 				</style>
 				<div id="contract-viewer"></div>
@@ -1245,7 +1227,8 @@
 <script src="js/jquery.signaturepad.js"></script>
 <script src="js/json2.min.js"></script>
 <script src="js/script.js"></script>
-<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+<script src="js/contract-manager.js"></script>
 
 </body>
 </html>

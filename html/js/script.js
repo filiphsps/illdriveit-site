@@ -1,10 +1,18 @@
 //Disable console.log
-console.log = function() {};
+//console.log = function() {};
 
 var	drive_data = {},
 	slider = [{},{},{}],
 	plans = {},
 	pdfUrl;
+
+var user = {
+	'first_name': null,
+	'last_name': null,
+
+	'zip_code': null,
+	'monthly': 0
+}
 
 $(document).ready(function(){
 	/** BEGINS **/
@@ -50,11 +58,21 @@ $(document).ready(function(){
 		parse_data(block);
 		if(block.hasClass('block3')){
 			var str = JSON.stringify({zip:drive_data.warrantyRequest.zip, mileage:drive_data.warrantyRequest.mileage, vin:drive_data.warrantyRequest.vin});
-			console.log(str);
 			ajax('verifyzip',str);
-		}else if(block.hasClass('block11')){
+
+		} else if(block.hasClass('block11')){
+			
+			//Save to user's data
+			user['zip_code'] = drive_data.warrantyRequest.zip;
+			user['first_name'] = drive_data.warrantyRequest.first_name;
+			user['last_name'] = drive_data.warrantyRequest.last_name;
+			user['email'] = drive_data.warrantyRequest.email;
+			user['phone'] = drive_data.warrantyRequest.phone;
+			user['address'] = drive_data.warrantyRequest.address1;
+			user['address2'] = drive_data.warrantyRequest.address2;
+			user['state'] = drive_data.warrantyRequest.state.toUpperCase();
+
 			var str = JSON.stringify(drive_data);
-			console.log(str);
 			ajax('payment',str);
 		}
 	});
@@ -160,6 +178,8 @@ function parse_data(block){
 		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
 		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
+
+		user.monthly = get_cent(listing.monthlyPrice);
 
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
@@ -269,109 +289,68 @@ function ajax(f,obj){
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
 						$('#signaturebuttons').html('');
-						var signablePoints = [],
-							pdfPageHeight = 0;
-						
-						//Only show the proper sign positions
-						for (var n = 0; n < res.SignablePoints.length; n++) {
-							if(res.SignablePoints[n].Name == 'BuyerSignature' && res.SignablePoints[n].IsRequired && res.SignablePoints[n].FieldMappingType == 'Signature')
-								signablePoints.push(res.SignablePoints[n]);
-						}
 
-						//Append sign buttons
-						for (var n = 0; n < signablePoints.length; n++) {
+						//Render MBPI
+						ContractManager.RequestContract('MBPI', '#contract-viewer', user, function () {
+
+							//Generate buttons
 							$('#signaturebuttons').append(
-								'<div data-sign-point="' + n + '" class="eachsignature">' +
+								'<div class="eachsignature">' +
 									'<span class="checkicon"></span>' +
-									'<h5>Signature</h5>' +
-									'<h6>' + (n+1) + '</h6>' +
+									'<h5>Start<br/>here</h5>' +
 								'</div>'
 							);
-						}
+							$('#signaturebuttons').append(
+								'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+									'<span class="checkicon"></span>' +
+									'<h5>' + user.state + '<br/>Disclosure</h5>' +
+								'</div>'
+							);
+							if(user.monthly)
+								$('#signaturebuttons').append(
+									'<div class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Financing<br/>Agreement</h5>' +
+									'</div>'
+								);
 
-						$('.eachsignature').on('click', function (e) {
-							$('#contract-viewer').off('click');
-							if($(this).hasClass('completed'))
-								return;
-							
-							//(PageNr - 1) * PageHeight + (SignY / 3), seems to work the best
-							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * pdfPageHeight) + (signablePoints[$(this).data('sign-point')].YCoordinate / 3),
-								id = $(this).data('sign-point');
-							
-							//Render pdf with sign button
-							renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id) + '&ShowSign=true', function() {
-								$('#contract-viewer').scrollTop(y + (id == 1 ? 300 : 0));
+							$('.eachsignature').on('click', function (e) {
+								if($(this).hasClass('completed'))
+									return;
+								
+								$(this).addClass('current');
+								$('.signmarker').removeClass('hidden');
 
-								$('#contract-viewer').off('click');
-								//Sign button
-								$('#contract-viewer').on('click', function() {
-									$('#contract-viewer').off('click');
-									$('#signaturebuttons').children().eq(id).addClass('completed');
-
-									//Render pdf with next button
-									renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1) + '&ShowNext=true', function() {
-										$('#contract-viewer').scrollTop(y);
-
-										//Next button
-										$('#contract-viewer').on('click', function() {
-											$('#contract-viewer').off('click');
-											$('#signaturebuttons').children().eq(id+1).click();
-										});
-
-										//Handle completion of all signing
-										if($('#signaturebuttons').children().not('.completed').length < 1) {
-											$('#contract-viewer').off('click');
-											renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=9999');
-											$('#ac_force').removeClass('disabled');
-
-											//TODO: Handle completion;
-											//	"https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=9999'
-											//	^ Is the contract in it's completed form
-										}
+								//Jump to sign point
+								if($(this).data('uri'))
+									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function () {
+										$('.signmarker').removeClass('hidden');
+										location.hash = '#l';
+										location.hash = '#signmarker';
+										down(0);
 									});
-								});
+								else {
+									location.hash = '#l';
+									location.hash = '#signmarker';
+									down(0);
+								}
+							});
+
+							//Handle signmarker click
+							$('.signmarker').on('click', function (e) {
+								$('.eachsignature.current').removeClass('current')
+									.addClass('completed');
+
+								$('.signmarker').addClass('hidden');
+								$('.nextmarker').removeClass('hidden');
+							});
+
+							//Handle nextmarker click
+							$('.nextmarker').on('click', function (e) {
+								$('.eachsignature:not(".completed"):first').click();
 							});
 						});
 						
-						//renderpdf (string, function)
-						//Renders the pdf into #contract-viewer from string
-						var renderPdf = function (contractURI, cb) {
-							$('#contract-viewer').html('');
-							PDFJS.getDocument(contractURI).then(function(pdf) {
-								var allrun = false;
-
-								for(var n = 0; n < pdf.numPages; n++) {
-									if((n+1) == pdf.numPages)
-										allrun = true;
-									
-									pdf.getPage(n+1).then(function(page) {
-										var scale = 1;
-										var viewport = page.getViewport(scale);
-
-										// Prepare canvas using PDF page dimensions.
-										var canvas = $('<canvas/>').appendTo('#contract-viewer').get(0);
-										var context = canvas.getContext('2d');
-										canvas.height = viewport.height;
-										pdfPageHeight = viewport.height;
-										canvas.width = viewport.width;
-
-										// Render PDF page into canvas context.
-										var renderContext = {
-											canvasContext: context,
-											viewport: viewport
-										};
-										page.render(renderContext);
-
-										if(cb && allrun)
-											cb();
-									});
-								}
-							});
-						}
-
-						//Render the pdf
-						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0');
-
 						//Show the view
 						$('.block12').show();
 

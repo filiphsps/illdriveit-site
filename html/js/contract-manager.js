@@ -12,7 +12,8 @@ var ContractManager = {
         //Request file from /contracts/{uri}
         $.ajax({
             type: 'GET',
-            url: '/contracts/' + uri + '.html',
+            url: 'contracts/' + uri + '.html',
+            cache: false
         }).done(function (contract) {
 
             //Loop through data and replace the strings in contract
