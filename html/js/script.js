@@ -304,7 +304,7 @@ function ajax(f,obj){
 								$('#contract-viewer').html('');
 
 								var x = 0;
-								renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1), function() {
+								renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1) + '&ShowSign=true', function() {
 									$('#contract-viewer').scrollTop(y);
 									if(x)
 										return;
@@ -358,7 +358,7 @@ function ajax(f,obj){
 								}
 							});
 						}
-						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0');
+						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0&ShowSign=true');
 
 						$('.block12').show();
 						down(1000);
