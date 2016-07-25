@@ -1,13 +1,11 @@
-/** GENERAL VARIABLES **/
+//Disable console.log
+console.log = function() {};
 
-// 5FRYD4H43GB017942
-var
-drive_data = {},
-slider = [{},{},{}],
-plans = {};
+var	drive_data = {},
+	slider = [{},{},{}],
+	plans = {},
+	pdfUrl;
 
-var pdfUrl;
-/**/
 $(document).ready(function(){
 	/** BEGINS **/
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
@@ -25,6 +23,7 @@ $(document).ready(function(){
 			setTimeout(function(){check_input($('.sigPad').parents('.action-block'))},0);
 		}
 	});
+
 	/** Actions **/
 	$('.next-action-block').click(function(){
 		var block = $(this).parents('.action-block');
@@ -65,6 +64,7 @@ $(document).ready(function(){
 		block.find('.choose-panel').hide();
 		down(100);
 	});
+
 	/** Action back **/
 	$('.back-action-block').click(function(){
 		var block = $(this).parents('.action-block').prev('.action-block');
@@ -106,6 +106,7 @@ $(document).ready(function(){
 		var block = $(this).parents('.action-block');
 		block.find('.next-action-block').addClass('hide-button');
 	});
+
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
@@ -230,7 +231,6 @@ function ajax(f,obj){
 			});
 		break;
 		case 'verifyzip':
-			console.log('zip ajax');
 			$.ajax({
 	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
 				type: "POST",
@@ -262,22 +262,24 @@ function ajax(f,obj){
 				data: obj,
 				dataType : "json",
 				contentType: "application/json",
-				complete:function(data){
-					console.log(data);
+				complete: function(data){
 					$('.load').hide();
 					
+					//TODO: Move into separate function?
 					var res = JSON.parse(data.responseText);
 					if(res.Success){
 						$('#signaturebuttons').html('');
-						//TODO: Checkmark '.completed'
 						var signablePoints = [],
 							pdfPageHeight = 0;
+						
+						//Only show the proper sign positions
 						for (var n = 0; n < res.SignablePoints.length; n++) {
 							if(res.SignablePoints[n].Name == 'BuyerSignature' && res.SignablePoints[n].IsRequired && res.SignablePoints[n].FieldMappingType == 'Signature')
 								signablePoints.push(res.SignablePoints[n]);
 						}
+
+						//Append sign buttons
 						for (var n = 0; n < signablePoints.length; n++) {
-							console.log('append');
 							$('#signaturebuttons').append(
 								'<div data-sign-point="' + n + '" class="eachsignature">' +
 									'<span class="checkicon"></span>' +
@@ -290,50 +292,57 @@ function ajax(f,obj){
 						$('.eachsignature').on('click', function (e) {
 							if($(this).hasClass('completed'))
 								return;
-
-							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * pdfPageHeight) + (signablePoints[$(this).data('sign-point')].YCoordinate / 3);
-							console.log(signablePoints[$(this).data('sign-point')]);
-
-							var id = $(this).data('sign-point');
-							var n = 0;
+							
+							//(PageNr - 1) * PageHeight + (SignY / 3), seems to work the best
+							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * pdfPageHeight) + (signablePoints[$(this).data('sign-point')].YCoordinate / 3),
+								id = $(this).data('sign-point');
+							
+							//Render pdf with sign button
 							renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id) + '&ShowSign=true', function() {
-								$('#contract-viewer').scrollTop(y);
-								if(n)
-									return;
-								n = 1;
+								$('#contract-viewer').scrollTop(y + (id == 1 ? 300 : 0));
 
 								$('#contract-viewer').off('click');
+								//Sign button
 								$('#contract-viewer').on('click', function() {
 									$('#contract-viewer').off('click');
 									$('#signaturebuttons').children().eq(id).addClass('completed');
 
-									var x = 0;
+									//Render pdf with next button
 									renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1) + '&ShowNext=true', function() {
 										$('#contract-viewer').scrollTop(y);
-										if(x)
-											return;
-										x = 1;
 
+										//Next button
 										$('#contract-viewer').on('click', function() {
 											$('#contract-viewer').off('click');
 											$('#signaturebuttons').children().eq(id+1).click();
 										});
 
+										//Handle completion of all signing
 										if($('#signaturebuttons').children().not('.completed').length < 1) {
 											$('#contract-viewer').off('click');
 											renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=9999');
 											$('#ac_force').removeClass('disabled');
+
+											//TODO: Handle completion;
+											//	"https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=9999'
+											//	^ Is the contract in it's completed form
 										}
 									});
 								});
 							});
 						});
 						
+						//renderpdf (string, function)
+						//Renders the pdf into #contract-viewer from string
 						var renderPdf = function (contractURI, cb) {
 							$('#contract-viewer').html('');
 							PDFJS.getDocument(contractURI).then(function(pdf) {
-								console.log(pdf.numPages);
+								var allrun = false;
+
 								for(var n = 0; n < pdf.numPages; n++) {
+									if((n+1) == pdf.numPages)
+										allrun = true;
+									
 									pdf.getPage(n+1).then(function(page) {
 										var scale = 1;
 										var viewport = page.getViewport(scale);
@@ -352,15 +361,20 @@ function ajax(f,obj){
 										};
 										page.render(renderContext);
 
-										if(cb)
+										if(cb && allrun)
 											cb();
 									});
 								}
 							});
 						}
-						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0&ShowSign=true');
 
+						//Render the pdf
+						renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=0');
+
+						//Show the view
 						$('.block12').show();
+
+						//Scroll down
 						down(1000);
 					}else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
