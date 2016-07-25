@@ -307,13 +307,26 @@ function ajax(f,obj){
 										'<h5>' + user.state + '<br/>Disclosure</h5>' +
 									'</div>'
 								);
-							if(user.monthly)
+							if(user.monthly) {
 								$('#signaturebuttons').append(
-									'<div class="eachsignature">' +
+									'<div data-uri="FINC_AGR" class="eachsignature">' +
 										'<span class="checkicon"></span>' +
 										'<h5>Financing<br/>Agreement</h5>' +
 									'</div>'
 								);
+								$('#signaturebuttons').append(
+									'<div data-uri="DWN_PAY_APP" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Down<br/>Payment<br/>Approval</h5>' +
+									'</div>'
+								);
+								$('#signaturebuttons').append(
+									'<div data-uri="MON_PAY_APP" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Monthly<br/>Payment<br/>Approval</h5>' +
+									'</div>'
+								);
+							}
 
 							$('.eachsignature').on('click', function (e) {
 								if($(this).hasClass('completed'))
