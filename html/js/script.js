@@ -300,12 +300,13 @@ function ajax(f,obj){
 									'<h5>Start<br/>here</h5>' +
 								'</div>'
 							);
-							$('#signaturebuttons').append(
-								'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
-									'<span class="checkicon"></span>' +
-									'<h5>' + user.state + '<br/>Disclosure</h5>' +
-								'</div>'
-							);
+							if(user.state)
+								$('#signaturebuttons').append(
+									'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>' + user.state + '<br/>Disclosure</h5>' +
+									'</div>'
+								);
 							if(user.monthly)
 								$('#signaturebuttons').append(
 									'<div class="eachsignature">' +
@@ -319,7 +320,6 @@ function ajax(f,obj){
 									return;
 								
 								$(this).addClass('current');
-								$('.signmarker').removeClass('hidden');
 
 								//Jump to sign point
 								if($(this).data('uri'))
@@ -347,7 +347,13 @@ function ajax(f,obj){
 
 							//Handle nextmarker click
 							$('#contract-viewer').on('click', '.nextmarker', function (e) {
+								$('.nextmarker').addClass('hidden');
 								$('.eachsignature:not(".completed"):first').click();
+
+								//Handle completion of all signing
+								if($('#signaturebuttons').children().not('.completed').length < 1) {
+									$('#ac_force').removeClass('hidden');
+								}
 							});
 						});
 						
