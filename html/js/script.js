@@ -290,7 +290,7 @@ function ajax(f,obj){
 						}
 
 						$('.eachsignature').on('click', function (e) {
-							('#contract-viewer').off('click');
+							$('#contract-viewer').off('click');
 							if($(this).hasClass('completed'))
 								return;
 							
