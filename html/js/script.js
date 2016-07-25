@@ -288,49 +288,49 @@ function ajax(f,obj){
 						}
 
 						$('.eachsignature').on('click', function (e) {
-							$('#sign-btn').remove();
 							if($(this).hasClass('completed'))
 								return;
 
 							var y = ((signablePoints[$(this).data('sign-point')].PageNumber-1) * pdfPageHeight) + (signablePoints[$(this).data('sign-point')].YCoordinate / 3);
-							$('#contract-viewer').scrollTop(y);
-
-							$('#sign-btn').remove();
-							$('#contract-viewer').append('<a id="sign-btn" class="img-cicle open-card-form"><span>SIGN</span></a>');
+							console.log(signablePoints[$(this).data('sign-point')]);
 
 							var id = $(this).data('sign-point');
-							$('#sign-btn').on('click', function() {
-								$('#signaturebuttons').children().eq(id).addClass('completed');
-								$('#contract-viewer').html('');
+							var n = 0;
+							renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id) + '&ShowSign=true', function() {
+								$('#contract-viewer').scrollTop(y);
+								if(n)
+									return;
+								n = 1;
 
-								var x = 0;
-								renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1) + '&ShowSign=true', function() {
-									$('#contract-viewer').scrollTop(y);
-									if(x)
-										return;
-									x = 1;
+								$('#contract-viewer').off('click');
+								$('#contract-viewer').on('click', function() {
+									$('#contract-viewer').off('click');
+									$('#signaturebuttons').children().eq(id).addClass('completed');
 
-									$('#contract-viewer').append('<a id="sign-btn" class="next-btn img-cicle open-card-form"><span>NEXT</span></a>');
+									var x = 0;
+									renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=' + (id + 1) + '&ShowNext=true', function() {
+										$('#contract-viewer').scrollTop(y);
+										if(x)
+											return;
+										x = 1;
 
-									if($('#signaturebuttons').children().not('.completed').length < 1) {
-										$('#sign-btn').remove();
-										return;
-									}
+										$('#contract-viewer').on('click', function() {
+											$('#contract-viewer').off('click');
+											$('#signaturebuttons').children().eq(id+1).click();
+										});
 
-									$('.next-btn').on('click', function() {
-										$('#sign-btn').remove();
-										$('#signaturebuttons').children().eq(id+1).click();
+										if($('#signaturebuttons').children().not('.completed').length < 1) {
+											$('#contract-viewer').off('click');
+											renderPdf("https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber + '?SignedPoints=9999');
+											$('#ac_force').removeClass('disabled');
+										}
 									});
 								});
-
-								if($('#signaturebuttons').children().not('.completed').length < 1) {
-									$('#sign-btn').remove();
-									$('#ac_force').removeClass('disabled');
-								}
 							});
 						});
 						
 						var renderPdf = function (contractURI, cb) {
+							$('#contract-viewer').html('');
 							PDFJS.getDocument(contractURI).then(function(pdf) {
 								console.log(pdf.numPages);
 								for(var n = 0; n < pdf.numPages; n++) {
