@@ -9,25 +9,29 @@ var ContractManager = {
     //function callback: The callback
     RequestContract: function (uri, id, data, callback) {
 
-        //Request file from /contracts/{uri}
-        $.ajax({
-            type: 'GET',
-            url: 'contracts/' + uri + '.html',
-            cache: false
-        }).done(function (contract) {
+        try {
+            //Request file from /contracts/{uri}
+            return $.ajax({
+                type: 'GET',
+                url: 'contracts/' + uri + '.html',
+                cache: false
+            }).done(function (contract) {
 
-            //Loop through data and replace the strings in contract
-            for (var str in data) {
-                if (!data.hasOwnProperty(str)) continue;
+                //Loop through data and replace the strings in contract
+                for (var str in data) {
+                    if (!data.hasOwnProperty(str)) continue;
 
-                //Replace template string with data
-                contract = contract.replace('{{' + str + '}}', data[str]);
-            }
+                    //Replace template string with data
+                    contract = contract.replace('{{' + str + '}}', data[str]);
+                }
 
-            //Insert contract into {id}
-            $(id).html(contract).promise().done(function(){
-                callback();
+                //Insert contract into {id}
+                return $(id).html(contract).promise().done(function(){
+                    callback(null, true);
+                });
             });
-        });
+        } catch(ex) {
+            callback(ex);
+        }
     }
 }

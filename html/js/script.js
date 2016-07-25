@@ -11,7 +11,8 @@ var user = {
 	'last_name': null,
 
 	'zip_code': null,
-	'monthly': 0
+	'monthly': 0,
+	'date': (new Date(Date.now())).toDateString()
 }
 
 $(document).ready(function(){
@@ -343,6 +344,7 @@ function ajax(f,obj){
 										down(0);
 									});
 								else {
+									$('.signmarker').removeClass('hidden');
 									location.hash = '#l';
 									location.hash = '#signmarker';
 									down(0);
