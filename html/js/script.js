@@ -337,7 +337,7 @@ function ajax(f,obj){
 							});
 
 							//Handle signmarker click
-							$('.signmarker').on('click', function (e) {
+							$('#contract-viewer').on('click', '.signmarker', function (e) {
 								$('.eachsignature.current').removeClass('current')
 									.addClass('completed');
 
@@ -346,7 +346,7 @@ function ajax(f,obj){
 							});
 
 							//Handle nextmarker click
-							$('.nextmarker').on('click', function (e) {
+							$('#contract-viewer').on('click', '.nextmarker', function (e) {
 								$('.eachsignature:not(".completed"):first').click();
 							});
 						});
