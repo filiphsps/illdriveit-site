@@ -206,6 +206,7 @@ function parse_data(block){
 	}else if(block.hasClass('block10')){
 		var sigapi = $('.sigPad').signaturePad();
 		var base64ImgWithPrefix = sigapi.getSignatureImage();
+		user['signature'] = base64ImgWithPrefix;
 		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
 	}else if(block.hasClass('block11')){
 		if(block.find('input[name=card_number]').val()==''){
@@ -339,12 +340,14 @@ function ajax(f,obj){
 								if($(this).data('uri'))
 									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function () {
 										$('.signmarker').removeClass('hidden');
+										$('#contract-viewer').scrollTop($('#contract-viewer').height())
 										location.hash = '#l';
 										location.hash = '#signmarker';
 										down(0);
 									});
 								else {
 									$('.signmarker').removeClass('hidden');
+									$('#contract-viewer').scrollTop($('#contract-viewer').height())
 									location.hash = '#l';
 									location.hash = '#signmarker';
 									down(0);
@@ -355,8 +358,10 @@ function ajax(f,obj){
 							$('#contract-viewer').on('click', '.signmarker', function (e) {
 								$('.eachsignature.current').removeClass('current')
 									.addClass('completed');
-
+								
 								$('.signmarker').addClass('hidden');
+								$('.signature img').attr('src', user['signature']);
+								$('.signature').removeClass('hidden');
 								$('.nextmarker').removeClass('hidden');
 							});
 
