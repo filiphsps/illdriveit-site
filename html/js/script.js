@@ -191,17 +191,28 @@ function parse_data(block){
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
 		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
+
+		user['first_name'] = drive_data.warrantyRequest.first_name;
+		user['last_name'] = drive_data.warrantyRequest.last_name;		
 		$('.listing_first_name').text(drive_data.warrantyRequest.first_name.toUpperCase());
 	}else if(block.hasClass('block7')){
 		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
 		drive_data.warrantyRequest.address2 = block.find('input[name=address2]').val();
 		drive_data.warrantyRequest.city = block.find('input[name=city]').val();
 		drive_data.warrantyRequest.state = block.find('input[name=state]').val();
-		user['state'] = drive_data.warrantyRequest.state.toUpperCase();
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+
+		user['state'] = drive_data.warrantyRequest.state.toUpperCase();
+		user['zip_code'] = drive_data.warrantyRequest.zip;
+		user['address'] = drive_data.warrantyRequest.address1;
+		user['address2'] = drive_data.warrantyRequest.address2;
+		user['city'] = drive_data.warrantyRequest.city;
 	}else if(block.hasClass('block8')){
 		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val();
 		drive_data.warrantyRequest.email = block.find('input[name=email]').val();
+
+		user['email'] = drive_data.warrantyRequest.email;
+		user['phone'] = drive_data.warrantyRequest.phone;
 	}else if(block.hasClass('block9')){
 		drive_data.paymentOption.downpaymentCard = {
 			cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
