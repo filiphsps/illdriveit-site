@@ -279,13 +279,19 @@ function ajax(f,obj){
 			});
 		break;
 		case 'payment':
+			var run = false;
 			$.ajax({
 			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
 				contentType: "application/json",
-				complete: function(data){
+				complete: function(data) {
+					//Fix bug
+					if(run)
+						return;
+					run = true;
+
 					$('.load').hide();
 					
 					//TODO: Move into separate function?
