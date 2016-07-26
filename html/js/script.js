@@ -273,6 +273,7 @@ function ajax(f,obj){
 						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
+						user['vin'] = drive_data.warrantyRequest.vin;
 					}
 				}
 			});
@@ -289,6 +290,8 @@ function ajax(f,obj){
 					
 					//TODO: Move into separate function?
 					var res = JSON.parse(data.responseText);
+					user.contract_id = res.ContractNumber;
+					$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber);
 					if(res.Success){
 						$('#signaturebuttons').html('');
 						if(user.state.length > 2)
@@ -403,6 +406,9 @@ function ajax(f,obj){
 					var res = data.responseJSON;
 					$('.listing_car_name').text(res.name);
 					$('.listing_car_model').text(res.model);
+
+					user['car_model'] = res.model;
+					user['car_name'] = res.name;
 				}
 			});
 		break;
