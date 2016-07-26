@@ -131,13 +131,6 @@ $(document).ready(function(){
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
-
-	$('#sign1').click(function(){
-		var contractUri = pdfUrl + '#page=5';
-		$('.block12 iframe').attr('src',contractUri);
-		$('.block12').show();
-	});
-
 });
 
 function down(speed){
