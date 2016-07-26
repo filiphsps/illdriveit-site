@@ -184,6 +184,9 @@ function parse_data(block){
 		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
 
 		user.monthly = get_cent(listing.monthlyPrice);
+		user.dwn = get_cent(listing.downpayment);
+		user.payments_nr = get_cent(listing.numberOfMonths);
+		user.payments_day = '21st';
 
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
@@ -294,6 +297,7 @@ function ajax(f,obj){
 						return;
 					run = true;
 
+					$('#ac_force').addClass('hidden');
 					$('.load').hide();
 					
 					//TODO: Move into separate function?
