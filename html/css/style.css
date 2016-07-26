@@ -3602,12 +3602,12 @@ a {
   margin-right: auto;
 }
 .eachsignature {
-  border: 10px solid #10153c;
-  border-radius: 50%;
-  float: left;
-  height: 135px;
-  margin-right: 20px;
-  width: 135px;
+	border: 7px solid #10153c;
+	border-radius: 50%;
+	float: left;
+	height: 145px;
+	margin-right: 10px;
+	width: 145px;
 }
 .eachsignature h5 {
   font-size: 18px;

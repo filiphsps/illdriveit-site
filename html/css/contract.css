@@ -22,7 +22,9 @@
     font-weight: 700;
 }
 .contract h2 {
-    margin: 25px 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin: 25px 0 !important;
     text-align: center;
     text-transform: uppercase;
     font-size: 16px !important;
@@ -40,6 +42,14 @@
 .contract u {
     font-weight: 700;
 }
+.contract .logo-cnt {
+    margin: 25px 0;
+    text-align: center;
+}
+.contract .logo-cnt img {
+    display: inline-block;
+    width: 100px;
+}
 .contract .table {
     padding: 15px;
     border: 1px solid #000;
@@ -51,7 +61,7 @@
     display: block;
 }
 .contract .signmarker {
-    width: 200px;
+    width: 300px;
     padding: 10px;
     transform: translateY(40px);
     border: 5px solid #60BA48;
@@ -60,6 +70,7 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all 250ms ease-out;
+    font-size: 22px;
 }
 .contract .signmarker:hover, .contract .nextmarker:hover {
     background: #60BA48;
@@ -70,27 +81,30 @@
 }
 .contract .nextmarker {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    left: 0; right: 0;
+    width: 90px;
+    height: 90px;
     padding: 10px;
-    margin: 0 0 0 205px;
-    transform: translateY(-15px);
+    margin: auto;
+    transform: translateY(-55px);
     border: 5px solid #60BA48;
     border-radius: 100%;
     color: #60BA48;
-    line-height: 50px;
+    line-height: 60px;
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 250ms ease-out;
+    font-size: 22px;
 }
 .contract .signarea {
-    width: 200px;
+    width: 300px;
     padding: 5px 15px;
     margin: 45px 0 0 0;
     border-top: 2px solid #000;
     text-align: center;
     text-transform: uppercase;
+    font-size: 20px;
 }
 .contract .signature img {
     transform: translateY(45px);
