@@ -332,7 +332,6 @@ function ajax(f,obj){
 								);
 							}
 
-							alert(user.state);
 							$('.eachsignature').on('click', function (e) {
 								if($(this).hasClass('completed'))
 									return;
