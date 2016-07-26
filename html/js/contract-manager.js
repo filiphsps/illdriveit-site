@@ -13,7 +13,7 @@ var ContractManager = {
             //Request file from /contracts/{uri}
             return $.ajax({
                 type: 'GET',
-                url: 'contracts/' + uri + '.html',
+                url: '../contracts/' + uri + '.html',
                 cache: false
             }).done(function (contract) {
 

@@ -316,7 +316,7 @@ function ajax(f,obj){
 					var res = JSON.parse(data.responseText);
 					user.contract_id = res.ContractNumber;
 					if($('#contractLink').attr('href').substr($('#contractLink').attr('href').length - 1) !== '0')
-						$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber + '?SignedPoints=0');
+						$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber + '?SignedPoints=999');
 					
 					if(res.Success){
 						$('#signaturebuttons').html('');
