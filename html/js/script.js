@@ -72,6 +72,9 @@ $(document).ready(function(){
 			user['address'] = drive_data.warrantyRequest.address1;
 			user['address2'] = drive_data.warrantyRequest.address2;
 			user['state'] = drive_data.warrantyRequest.state.toUpperCase();
+			user['city'] = drive_data.warrantyRequest.city;
+			user['mileage'] = drive_data.warrantyRequest.mileage;
+			user['vin'] = drive_data.warrantyRequest.vin;
 
 			var str = JSON.stringify(drive_data);
 			ajax('payment',str);
@@ -273,7 +276,6 @@ function ajax(f,obj){
 						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
-						user['vin'] = drive_data.warrantyRequest.vin;
 					}
 				}
 			});
@@ -297,7 +299,7 @@ function ajax(f,obj){
 					//TODO: Move into separate function?
 					var res = JSON.parse(data.responseText);
 					user.contract_id = res.ContractNumber;
-					$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber);
+					$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber + '?SignedPoints=0');
 					if(res.Success){
 						$('#signaturebuttons').html('');
 						if(user.state.length > 2)
