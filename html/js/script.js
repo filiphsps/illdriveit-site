@@ -197,6 +197,7 @@ function parse_data(block){
 		drive_data.warrantyRequest.address2 = block.find('input[name=address2]').val();
 		drive_data.warrantyRequest.city = block.find('input[name=city]').val();
 		drive_data.warrantyRequest.state = block.find('input[name=state]').val();
+		user['state'] = drive_data.warrantyRequest.state.toUpperCase();
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
 	}else if(block.hasClass('block8')){
 		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val();
