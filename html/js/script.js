@@ -308,8 +308,13 @@ function ajax(f,obj){
 					
 					if(res.Success){
 						$('#signaturebuttons').html('');
-						if(user.state.length > 2)
-							user.state = abbrState(user.state);
+
+						try {
+							if(user.state.length > 2)
+								user.state = abbrState(user.state);
+						} catch(ex) {
+							open_error('OH NO! WE CANNOT FIND THE STATE','CHECK IF HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
+						}
 
 						//Render MBPI
 						ContractManager.RequestContract('MBPI', '#contract-viewer', user, function () {
