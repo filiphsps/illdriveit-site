@@ -18,7 +18,6 @@ var user = {
 $(document).ready(function(){
 	/** BEGINS **/
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
-	$("input[name=mileage]").mask("000,000",{reverse: true});
 	$('.input-number').keyup(function(){
 		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
