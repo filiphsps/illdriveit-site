@@ -16,14 +16,19 @@ var user = {
 }
 
 $(document).ready(function(){
+	//Set payment date
+	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+               "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+	$('#payment-date').html(months[(new Date).getMonth()] + ' 21, ' + (new Date).getFullYear());
+
 	//Fix cc bug, handle input
 	$('.block9 input').on('focusout', function () {
 		var fn = $('.block9 input[name=first_name]'),
 			ln = $('.block9 input[name=last_name]'),
 			cc = $('.block9 input[name=card_number]'),
 			mnt = $('.block9 input[name=card_month]'),
-			cvv = $('.block9 input[name=card_year]'),
-			year = $('.block9 input[name=card_number]'),
+			cvv = $('.block9 input[name=card_ccv]'),
+			year = $('.block9 input[name=card_year]'),
 			terms = $('.block9 input[name=checkbox]').is(":checked");
 
 			if(mnt.val().length > 0 && mnt.val().length < 2)
