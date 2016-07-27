@@ -16,7 +16,25 @@ var user = {
 }
 
 $(document).ready(function(){
-	/** BEGINS **/
+	//Fix cc bug, handle input
+	$('.block9 input').on('focusout', function () {
+		var fn = $('.block9 input[name=first_name]'),
+			ln = $('.block9 input[name=last_name]'),
+			cc = $('.block9 input[name=card_number]'),
+			mnt = $('.block9 input[name=card_month]'),
+			cvv = $('.block9 input[name=card_year]'),
+			year = $('.block9 input[name=card_number]'),
+			terms = $('.block9 input[name=checkbox]').is(":checked");
+
+			if(mnt.val().length > 0 && mnt.val().length < 2)
+				mnt.val('0' + mnt.val());
+			
+			if(cc.val().length < 18 || fn.val().length > 0 || ln.val().length > 0 || !terms)
+				return $('.block9 .next').addClass('hide-button');
+			
+			$('.block9 .next').removeClass('hide-button');
+	});
+
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
 	$('.input-number').keyup(function(){
 		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
