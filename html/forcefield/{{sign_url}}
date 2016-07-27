@@ -1,0 +1,1 @@
+This is a fix for the 404 %7B%7Bsign_url%7D%7D issue that is caused by using a templating system for the contracts.
