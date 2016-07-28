@@ -37,7 +37,7 @@ $(document).ready(function(){
 			if(year.val().length > 0 && year.val().length < 4)
 				year.val('20' + year.val());
 
-			if(cc.val().length < 18 || fn.val().length < 0 || ln.val().length < 0 || !terms)
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms)
 				return $('.block9 .next').addClass('hide-button');
 			
 			$('.block9 .next').removeClass('hide-button');
