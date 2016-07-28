@@ -27,7 +27,7 @@ $(document).ready(function(){
 			ln = $('.block9 input[name=last_name]'),
 			cc = $('.block9 input[name=card_number]'),
 			mnt = $('.block9 input[name=card_month]'),
-			cvv = $('.block9 input[name=card_ccv]'),
+			cvv = $('.block9 input[name=card_cvv]'),
 			year = $('.block9 input[name=card_year]'),
 			terms = $('.block9 input[name=checkbox]').is(":checked");
 
@@ -37,7 +37,7 @@ $(document).ready(function(){
 			if(year.val().length > 0 && year.val().length < 4)
 				year.val('20' + year.val());
 
-			if(cc.val().length < 18 || fn.val().length > 0 || ln.val().length > 0 || !terms)
+			if(cc.val().length < 18 || fn.val().length < 0 || ln.val().length < 0 || !terms)
 				return $('.block9 .next').addClass('hide-button');
 			
 			$('.block9 .next').removeClass('hide-button');
