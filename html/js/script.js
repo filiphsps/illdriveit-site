@@ -164,6 +164,11 @@ function down(speed){
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
+		if($(this).parent().hasClass('card-info-block'))
+			return;
+		else if($(this).parent().hasClass('agreediv'))
+			return;
+
 		if(!$(this).val() || !(($(this).attr('minlength') && $(this).val().length>=$(this).attr('minlength')) || !$(this).attr('minlength')) ) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
