@@ -3947,7 +3947,6 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	.all-done.onlineonmobile > span { color: #61b546;  display: block;  font-size: 25px !important;  margin-top: 7px;}
 	.onlineonmobile.secondall-done { font-size: 25px !important;  line-height: 35px !important;}
 	.block13 .img-responsive { max-height: 180px;}
-	label.agreetermslabel{display:none !important;}
 	#mbpi.block12{height:auto !important;}
 	.contactpage h1 { font-size: 30px !important;  padding-left: 20px;  padding-right: 20px; line-height:35px !important;}
 	.contactpage h2 { font-size: 17px !important;  margin-bottom: 30px !important;  margin-top: 12px !important;}
