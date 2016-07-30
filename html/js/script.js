@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 	//The following is a really ugly work-around, thanks previous dev </3
 	//Basically fixes the check_input method by flipping it the f*** off..
-	$('.block9 input').on('focusout', function () {
+	$('.block9 input').on('focusout click', function () {
 		var fn = $('.block9 input[name=first_name]'),
 			ln = $('.block9 input[name=last_name]'),
 			cc = $('.block9 input[name=card_number]'),
