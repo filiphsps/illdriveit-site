@@ -83,6 +83,10 @@ $(document).ready(function(){
 
 	/** Actions **/
 	$('.next-action-block').click(function(){
+		//Handle completion of flow
+		if ($(this).hasClass('flow-completion'))
+			return handelFlowComplete();
+
 		var block = $(this).parents('.action-block');
 		next_block(block);
 
@@ -698,4 +702,20 @@ function abbrState (input, to) {
 			return(states[i][1]);
 		}
 	}    
+}
+
+//Handle completion of the form
+function handelFlowComplete() {
+	$.ajax({
+		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
+		type: "POST",
+		data: {
+			//TODO
+			user: user
+		},
+		dataType: "json",
+		success: function(data){
+			console.log(data);
+		}
+	});
 }
