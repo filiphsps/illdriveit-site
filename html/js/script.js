@@ -143,11 +143,11 @@ $(document).ready(function(){
 	$('.back-action-block').click(function(){
 		var block = $(this).parents('.action-block').prev('.action-block');
 
-		block.find('input').prop('disabled', false).val('');
-		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.find('input').prop('disabled', false)/*.val('')*/;
+		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 
-		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false).val('');
-		block.nextAll('.action-block').find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false)/*.val('')*/;
+		block.nextAll('.action-block').find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 
 		block.prev('.action-block').nextAll('.action-block').each(function(){
 			console.log($(this).attr('class'));
@@ -162,10 +162,10 @@ $(document).ready(function(){
 	});
 	$('.back-error-block').click(function(){
 		$('.error-block').slideUp(400);
-		$('.error-block input').prop('disabled', false).val('');
+		$('.error-block input').prop('disabled', false)/*.val('')*/;
 		var block = $('.block3');
-		block.find('input').prop('disabled', false).val('');
-		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.find('input').prop('disabled', false)/*.val('')*/;
+		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 	});
 	$('.next-error-block').click(function(){
 		var block = $(this).parents('.error-block');
@@ -514,7 +514,7 @@ function open_error(massage,massage2,notify){
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
 	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2==undefined?str:massage2));
-	$('.e-block2 input').prop('disabled', false).val('');
+	$('.e-block2 input').prop('disabled', false)/*.val('')*/;
 	if(notify) $('.e-block1 .notify-button').removeClass('hide-button');
 	else $('.e-block1 .notify-button').addClass('hide-button');
 	down(1000);
