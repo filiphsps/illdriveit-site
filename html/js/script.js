@@ -222,6 +222,7 @@ function parse_data(block){
 		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val().replace(/[^0-9]/g,''));
 	}else if(block.hasClass('block3')){
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+		$('.block7 input[name=zip]').val(drive_data.warrantyRequest.zip);
 	}else if(block.hasClass('block4')){
 		var listing = plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]][slider[2].values[slider[2].index]];
 		drive_data.planId = listing.planId;
@@ -334,7 +335,7 @@ function ajax(f,obj){
 				data: obj,
 				contentType: "application/json",
 				dataType : "json",
-				complete:function(data){
+				complete: function(data){
 					data = data.responseJSON;
 					console.log(data);
 
@@ -347,6 +348,9 @@ function ajax(f,obj){
 					}else if(!data.mileageValid){
 						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
+						if(typeof data.state !== undefined && data.sate)
+							$('.block7 input[name=state]').val(data.state);
+
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
 					}
 				}
