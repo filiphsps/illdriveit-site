@@ -709,7 +709,7 @@ function handelFlowComplete() {
 	return $.ajax({
 		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
 		type: "POST",
-		data: user,
+		data: JSON.stringify(user),
 		dataType: "json",
 		success: function(data) {
 			console.log(data);
