@@ -62,6 +62,11 @@ $(document).ready(function(){
 			}
 	});
 
+	//Handle clear button click
+	$('#clear-btn').on('click', function () {
+		$('.sigPad').signaturePad().clearCanvas();
+	});
+
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
 
 	//Really ugly way to make sure a number input only allows numbers
@@ -154,7 +159,7 @@ $(document).ready(function(){
 			if($(this).hasClass('block4')){
 				$( ".input-range" ).slider( "enable" );
 			}else if($(this).hasClass('block10')){
-				$('.sigPad').signaturePad().clearCanvas();
+				//$('.sigPad').signaturePad().clearCanvas();
 				$(this).find('.button-clear').removeClass('hide-button');
 				$(this).find('.sig').removeClass('disabled');
 			}

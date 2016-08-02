@@ -16,6 +16,36 @@
 body{
 	font-family: "Century Gothic";
 	color:#10153c;
+    -webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+#clear-btn {
+	padding: 0 0 25px 0;
+}
+@media (min-width: 990px) {
+	#clear-btn {
+		position: absolute;
+		bottom: 95px;
+		left: calc(50% - 100px);
+	}
+}
+@media (min-width: 1085px) {
+	#clear-btn {
+		position: absolute;
+		bottom: 73px;
+		left: calc(50% - 100px);
+	}
+}
+#clear-btn a {
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	color: #60BA46;
+	line-height: 50px;
+	font-size: 22px;
+	text-align: center;
+	text-transform: uppercase;
+	border: 5px solid #60BA46;
 }
 .fix-mage-benefit {
     width: 307px;
