@@ -348,7 +348,7 @@ function ajax(f,obj){
 					}else if(!data.mileageValid){
 						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
-						if(typeof data.state !== undefined && data.sate)
+						if(typeof data.state !== undefined && data.state)
 							$('.block7 input[name=state]').val(data.state);
 
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
