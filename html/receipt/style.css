@@ -55,6 +55,7 @@ header .logo {
 header .col {
     display: inline-block;
     width: calc(50% - 5px);
+    height: 85px;
     padding-top: 15px;
     text-align: left;
     font-size: 22px;
@@ -68,6 +69,7 @@ header .col p {
     width: calc(80% - 15px);
     padding-left: 15px;
     float: left;
+    font-weight: bold;
 }
 
 article {

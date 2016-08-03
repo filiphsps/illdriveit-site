@@ -6,23 +6,26 @@ $.ajax({
     success: function(res) {
         console.log(res);
 
-        if(res.status !== 200)
+        if(res.error)
             return $('main').html('<h1 class="error">Error!<br/>Cannot find the receipt #' + receipt_id + '<h1>');
 
         $('.name').text(res.first_name + ' ' + res.last_name);
-        $('.address').text(res.address);
+        $('.address').text(res.address1);
         $('.location').text(res.city + ', ' + res.state + ' ' + res.zip);
-        $('.vin').text(res.vin);
+        $('.make').text(res.make);
+        $('.model').text(res.model);
+        $('.mileage').text(res.mileage);
 
-        $('.years').text(res.years);
-        $('.months').text(res.months);
-        $('.miles').text(res.miles);
+        $('.years').text(res.coverage_years);
+        $('.months').text(res.number_of_months);
+        $('.miles').text(res.coverage_miles);
 
-        $('.payment-down').text('$' + res.down);
-        $('.payment-month').text('$' + res.month);
-        $('.cc1').text('0000');
-        $('.cc2').text('0000');
-        $('.total-sum').text('$' + res.total);
+        $('.payment-down').text('$' + res.downpayment);
+        $('.payment-month').text('$' + res.monthly_payment);
+        $('.cc1').text(res.downpayment_card + ' ' + res.downpayment_card_type);
+        $('.cc2').text(res.finance_payment_card + ' ' + res.finance_payment_card_type);
+
+        $('.total-sum').text('$' + (res.downpayment + (res.monthly_payment * res.number_of_months)));
     },
     error: function(err) {
         $('main').html('<h1 class="error">Error!<br/>Cannot find the receipt #' + receipt_id + '<h1>');
