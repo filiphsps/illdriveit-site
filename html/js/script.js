@@ -18,7 +18,7 @@ var user = {
 $(document).ready(function(){
 	//Set payment date
 	//This should be done in a more elegant way, perhaps a function
-	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
 	$('#payment-date').html(months[(new Date).getMonth()] + ' 21, ' + (new Date).getFullYear());
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 			if(mnt.val().length > 0 && mnt.val().length < 2)
 				mnt.val('0' + mnt.val());
-			
+
 			if(year.val().length > 0 && year.val().length < 4)
 				year.val('20' + year.val());
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
 				$('.block9 .next').addClass('hide-button');
 				return $('.block9 .next').addClass('hidden');
 			}
-			
+
 			$('.block9 .next').removeClass('hide-button');
 			$('.block9 .next').removeClass('hidden');
 	});
@@ -119,7 +119,7 @@ $(document).ready(function(){
 			ajax('verifyzip',str);
 
 		} else if(block.hasClass('block11')){
-			
+
 			//Save data to user object in-case it's changed since last time.
 			console.log(drive_data.warrantyRequest);
 			user['zip_code'] = drive_data.warrantyRequest.zip;
@@ -231,6 +231,7 @@ function parse_data(block){
 		drive_data.customerPrice = listing.cost;
 		drive_data.paymentOption = {
 									downpayment:listing.downpayment	,
+									monthly_payment: listing.monthlyPrice,
 									number_of_months:listing.numberOfMonths
 									};
 
@@ -255,7 +256,7 @@ function parse_data(block){
 		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
 
 		user['first_name'] = drive_data.warrantyRequest.first_name;
-		user['last_name'] = drive_data.warrantyRequest.last_name;		
+		user['last_name'] = drive_data.warrantyRequest.last_name;
 		$('.listing_first_name').text(drive_data.warrantyRequest.first_name.toUpperCase());
 	}else if(block.hasClass('block7')){
 		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
@@ -378,13 +379,13 @@ function ajax(f, obj){
 
 					$('#ac_force').addClass('hidden');
 					$('.load').hide();
-					
+
 					//TODO: Move into separate function?
 					var res = JSON.parse(data.responseText);
 					user.contract_id = res.ContractNumber;
 					if($('#contractLink').attr('href').substr($('#contractLink').attr('href').length - 1) !== '0')
 						$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber + '?SignedPoints=999');
-					
+
 					if(res.Success){
 						$('#signaturebuttons').html('');
 
@@ -436,7 +437,7 @@ function ajax(f, obj){
 							$('.eachsignature').on('click', function (e) {
 								if($(this).hasClass('completed'))
 									return;
-								
+
 								$(this).addClass('current');
 
 								//Jump to sign point
@@ -461,7 +462,7 @@ function ajax(f, obj){
 							$('#contract-viewer').on('click', '.signmarker', function (e) {
 								$('.eachsignature.current').removeClass('current')
 									.addClass('completed');
-								
+
 								$('.signmarker').addClass('hidden');
 								$('.signature img').attr('src', user['signature']);
 								$('.signature').removeClass('hidden');
@@ -479,7 +480,7 @@ function ajax(f, obj){
 								}
 							});
 						});
-						
+
 						//Show the view
 						$('.block12').show();
 
@@ -716,7 +717,7 @@ function abbrState (input, to) {
 		if(states[i][0] == input){
 			return(states[i][1]);
 		}
-	}    
+	}
 }
 
 //Handle completion of the form
