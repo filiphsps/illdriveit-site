@@ -241,7 +241,7 @@ function parse_data(block){
 		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.total-payment .amount').text('$' + get_cent(listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths)));
 		drive_data.warrantyRequest.coverage_years = listing.numberOfMonths;
-		drive_data.warrantyRequest.coverage_miles = listing.mileage;
+		drive_data.warrantyRequest.coverage_miles = parseInt(listing.mileage.replace('K', '000'));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
 		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
 
