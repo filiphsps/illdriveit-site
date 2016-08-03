@@ -14,18 +14,27 @@ $.ajax({
         $('.location').text(res.city + ', ' + res.state + ' ' + res.zip);
         $('.make').text(res.make);
         $('.model').text(res.model);
-        $('.mileage').text(res.mileage);
+        $('.mileage').text(res.mileage.toLocaleString('en-US'));
 
         $('.years').text(res.coverage_years);
         $('.months').text(res.number_of_months);
-        $('.miles').text(res.coverage_miles);
+        $('.miles').text(res.coverage_miles.toLocaleString('en-US'));
 
-        $('.payment-down').text('$' + res.downpayment);
-        $('.payment-month').text('$' + res.monthly_payment);
+        $('.payment-down').text(res.downpayment.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }));
+        $('.payment-month').text(res.monthly_payment.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }));
         $('.cc1').text(res.downpayment_card + ' ' + res.downpayment_card_type);
         $('.cc2').text(res.finance_payment_card + ' ' + res.finance_payment_card_type);
 
-        $('.total-sum').text('$' + (res.downpayment + (res.monthly_payment * res.number_of_months)));
+        $('.total-sum').text((res.downpayment + (res.monthly_payment * res.number_of_months)).toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }));
     },
     error: function(err) {
         $('main').html('<h1 class="error">Error!<br/>Cannot find the receipt #' + receipt_id + '<h1>');
