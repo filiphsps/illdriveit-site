@@ -121,6 +121,7 @@ $(document).ready(function(){
 		} else if(block.hasClass('block11')){
 			
 			//Save data to user object in-case it's changed since last time.
+			console.log(drive_data.warrantyRequest);
 			user['zip_code'] = drive_data.warrantyRequest.zip;
 			user['first_name'] = drive_data.warrantyRequest.first_name;
 			user['last_name'] = drive_data.warrantyRequest.last_name;
@@ -134,7 +135,7 @@ $(document).ready(function(){
 			user['vin'] = drive_data.warrantyRequest.vin;
 
 			var str = JSON.stringify(drive_data);
-			ajax('payment',str);
+			ajax('payment', str);
 		}
 	});
 	$('.open-card-form').click(function(){
@@ -239,6 +240,8 @@ function parse_data(block){
 		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
 		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
 		$('.total-payment .amount').text('$' + get_cent(listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths)));
+		drive_data.warrantyRequest.coverage_years = listing.numberOfMonths;
+		drive_data.warrantyRequest.coverage_miles = listing.mileage;
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
 		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
 
@@ -302,7 +305,7 @@ function parse_data(block){
 	}
 }
 
-function ajax(f,obj){
+function ajax(f, obj){
 	if(f=='verifyzip' || f=="payment"){
 		$('.load').show();
 		down(300);
@@ -494,7 +497,7 @@ function ajax(f,obj){
 				type: "GET",
 				data: obj,
 				dataType : "jsonp",
-				complete:function(data){
+				complete: function(data){
 					console.log(data);
 					$('.load').hide();
 
