@@ -405,11 +405,11 @@ function ajax(f, obj){
 					if(!data.zipValid){
 						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
 					}else if(!data.mileageValid && !data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS AND/OR UNDER 60K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.mileageValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 60,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
 						if (typeof data.state !== undefined && data.state)
 							$('.block7 input[name=state]').val(data.state);
@@ -584,7 +584,7 @@ function ajax(f, obj){
 	}
 }
 function open_error(massage,massage2,notify){
-	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT�S LIVE!";
+	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 10 YEARS AND 60K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT�S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
