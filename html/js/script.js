@@ -37,7 +37,7 @@ $(document).ready(function(){
 	//This should be done in a more elegant way, perhaps a function
 	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
-	$('.payment-date').html(months[((new Date).getMonth()+1)%12] + ' 21, ' + (new Date).getFullYear());
+	$('.payment-date').html(months[((new Date).getMonth()+1)%12] + ' ' + english_ordinal_suffix(new Date) + ', ' + (new Date).getFullYear());
 
 	//The following is a really ugly work-around, thanks previous dev </3
 	//Basically fixes the check_input method by flipping it the f*** off..
@@ -798,4 +798,8 @@ function handelFlowComplete() {
 			console.log(err);
 		}
 	});
+}
+
+function english_ordinal_suffix(dt) {
+	return dt.getDate()+(dt.getDate() % 10 == 1 && dt.getDate() != 11 ? 'st' : (dt.getDate() % 10 == 2 && dt.getDate() != 12 ? 'nd' : (dt.getDate() % 10 == 3 && dt.getDate() != 13 ? 'rd' : 'th'))); 
 }
