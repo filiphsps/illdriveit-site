@@ -3577,7 +3577,7 @@ input {
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
-  min-height: 824px;
+  min-height: calc(175vw);
 }
 #covers {
   margin: 0 0 30px;
