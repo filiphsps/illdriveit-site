@@ -1,10 +1,19 @@
-@import url(https://fonts.googleapis.com/css?family=Muli:300,400);
+@font-face {
+	font-family: 'Century Gothic';
+    font-weight: 300;
+	src: url('../fonts/centurygothic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Century Gothic';
+    font-weight: 400;
+	src: url('../fonts/centurygothicbold.ttf') format('truetype');
+}
 html, body {
     padding: 0;
     margin: 0;
     color: #0E173A;
     background: #444;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Century Gothic', sans-serif;
     font-weight: 100;
     text-align: center;
 }
