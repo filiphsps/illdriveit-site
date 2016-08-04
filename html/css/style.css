@@ -3137,8 +3137,9 @@ h5 {
 		#decision .pymtsec { font-size: 21px;}
 		#decision .pymtsec .payment .pymtcontent { font-size: 13px;  line-height: 17px;  margin-top: 4px;  max-width: 96px;}
 		#decision .pymtsec h4 { font-size: 16px;  margin-bottom: 0;}
-		#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2 , #thank.block10 p.title-block
-		#thankyou.block10 h2{ font-size: 22px !important;  margin-top: 25px;}
+		#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2 , #thank.block11 p.title-block
+
+		#thankyou.block11 h2{ font-size: 22px !important;  margin-top: 25px;}
 		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state { font-size: 27px !important;}
 		#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state{width:90%;}
 		#forcefield.block6 .roundinput { margin-bottom: 55px;}
@@ -3159,13 +3160,13 @@ h5 {
 		#thankyou .roundinput .city, #thankyou .roundinput .state,  #thankyou .roundinput .zipcode  { font-size: 11px !important;  padding-left: 6px !important;  padding-right: 6px !important;}
 		#thank.e-block1 p.title-block, #thank.e-block2 p.title-block, #thank.e-block3 p.title-block, #thank.e-block4 p.title-block{ font-size: 23px !important;  line-height: 30px !important;}
 		#thank.e-block3 .car-icon img { border: 12px solid #61b646;  margin-bottom: 30px;  max-width: 230px;}
-		#thank.block10 .allert-wrapper { padding-bottom: 0 !important;}
+		#thank.block11 .allert-wrapper { padding-bottom: 0 !important;}
 		.procesbar span { font-size: 20px;}
 		.range-values{height:43px;}
 		.input-range span{height:25px !important; width:25px !important;}
 		#thank p.title-block { font-size: 21px !important;}
-		#thank.block10.hide { display: none;}
-		#thank.block10 { display: table;}
+		#thank.block11.hide { display: none;}
+		#thank.block11 { display: table;}
 		#decision h3 .bottomcontent { text-indent: 12px;}
 		#decision h3 .topcontent { text-indent: -45px;}
 	}
@@ -3411,10 +3412,10 @@ input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#
 #address.block9 {
   margin-bottom: 20px;
 }
-.block11 .back {
+.block10 .back {
   float: left;
 }
-.block11 .next {
+.block10 .next {
   float: right;
 }
 .sig .pad {
@@ -3443,7 +3444,7 @@ input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#
 .sig:hover::before{
 	display:none;
 }
-.block10 .allert-wrapper {
+.block11 .allert-wrapper {
   padding-top: 0;
   width: 100%;
 }
@@ -3452,7 +3453,7 @@ input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#
   margin-top: 70px;
   text-align: center;
 }
-.block10 .col-md-8 {
+.block11 .col-md-8 {
   display: table;
   margin-bottom: -210px;
 }
@@ -3556,15 +3557,15 @@ input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#
   position: relative;
   z-index: 9999;
 }
-.block11 .card-info-block input:nth-child(2) {
+.block10 .card-info-block input:nth-child(2) {
   margin: 10px 30px !important;
 }
-.block11 .card-info-block input {
+.block10 .card-info-block input {
   float: left;
   margin: 10px 0 !important;
   width: 203px !important;
 }
-.block11 .clear.card-info-block {
+.block10 .clear.card-info-block {
   display: table;
   margin: 0 auto;
 }
@@ -3717,7 +3718,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
   margin-bottom: 20px;
   text-align: center;
 }
-#thankyou.block11 .agreediv {
+#thankyou.block10 .agreediv {
   display: table;
   margin-left: auto;
   margin-right: auto;
@@ -3743,8 +3744,8 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 .trainingpage a.img-circle span {line-height: 20px !important;}
 
 @media (min-width:768px){
-	#thankyou.block11 h2.blue-title { margin-bottom: 21px !important;  margin-top: 120px !important;}
-	#thankyou.block11{height:auto !important;}
+	#thankyou.block10 h2.blue-title { margin-bottom: 21px !important;  margin-top: 120px !important;}
+	#thankyou.block10{height:auto !important;}
 	.desktop2rows {  display: table;  margin-left: auto;  margin-right: auto;  width: 80%;}
 	.desktop2rows > input:first-child {  float: left;  width: 48% !important;}
 	.desktop2rows > input:last-child {  float: left !important;  margin-left: 4% !important;  width: 48% !important;}
@@ -3777,8 +3778,8 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	#thank .col-md-8 {max-width: 70%;}
 	#thankyou .col-md-8 {max-width: 60%;}
 	#address .roundinput input {width: 100%;}
-	.block11 .card-info-block input {width: 31% !important;}
-	.block11 .card-info-block input:nth-child(2) {margin: 10px 3.5% !important;}
+	.block10 .card-info-block input {width: 31% !important;}
+	.block10 .card-info-block input:nth-child(2) {margin: 10px 3.5% !important;}
 	#mbpi .col-md-8 {float: left;width: 60%;}
 	#mbpi .col-md-2 {float: left;width: 20%;}
 	.block12 a.next.submit {height: 132px;width: 132px;}
@@ -3801,7 +3802,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	.col-md-8.auto-center.clear.billing {margin-bottom: 0;}
 	#new-submit {width: 80%;}
 	#forcefield .roundinput input {width: 80%;}
-	.block10 .col-md-8 {margin-bottom: 0;}
+	.block11 .col-md-8 {margin-bottom: 0;}
 	#thankyou .col-md-8 {max-width: 80%;}
 	.agreeterm {margin-left: 0 !important;margin-top: 6px !important;}
 	.agreediv {text-align: left;}
@@ -3849,8 +3850,8 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	#mbpi.block12 a.img-circle {margin: 20px auto !important;float:none !important;}
 	.next .img-circle.submit.next img {margin-top: 0;max-width: 28px;}
 	.block12 iframe {height: 300px;overflow-y: scroll;}
-	body .block11 .card-info-block input {margin: 0 0 20px !important;width: 100% !important;}
-	.block11 .card-info-block input:nth-child(2) {margin: 0 0 20px !important;}
+	body .block10 .card-info-block input {margin: 0 0 20px !important;width: 100% !important;}
+	.block10 .card-info-block input:nth-child(2) {margin: 0 0 20px !important;}
 	
 	.title-termsconditions {font-size: 23px;}
 	
@@ -3897,7 +3898,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	.next a img, .back a img {max-width: 25px;}
 	#decision h3 {font-size: 28px;}
 	.border-decorate {height: 3px;margin-top: 70px;}
-	#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2, #thank.block10 p.title-block #thankyou.block10 h2 {font-size: 18px !important;line-height: unset !important;}
+	#forcefield.block6 h2, #address h2, #forcefield.block8 h2, #address.block9 h2, #thank.block11 p.title-block #thankyou.block11 h2 {font-size: 18px !important;line-height: unset !important;}
 	#address .roundinput .zipcode, #forcefield .roundinput input, #address .roundinput input, #address .roundinput .city, #address .roundinput .state {font-size: 18px !important;}
 	#address h2 {font-size: 18px !important;margin: 0 auto 20px !important;}
 	#address .billing h3 {font-size: 60px;margin-bottom: 20px;}
@@ -3936,11 +3937,11 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	#address.block7 h2 .bigger-onmobile{display: table;font-size: 28px;text-align: center;width: 100%; line-height:35px !important;}
 	#forcefield.block8 input {font-size: 28px !important;}
 	#address.block9 .fontsize-onmobile {display: table;font-size: 25px !important;text-align: center;width: 100%;}
-	#thank.block10 p span{font-size:24px !important;}
+	#thank.block11 p span{font-size:24px !important;}
 	#mbpi.block12 p span{font-size:24px !important;}
 	#mbpi.block13 p .span1font-mobile{font-size:35px !important;}
 	#mbpi.block13 p .span2font-mobile{font-size:25px !important;}
-	#thankyou.block11 .fontsize-onmob-thank{font-size:25px !important;}
+	#thankyou.block10 .fontsize-onmob-thank{font-size:25px !important;}
 	#new-submit input.half-size-one, #new-submit input.half-size-two {width: 48%;}
 	#new-submit .card-info-block input:nth-child(2) {margin: 0 3.5% !important;}
 	#new-submit .card-info-block input {width: 31% !important;}
@@ -3948,12 +3949,12 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	.sig {height: 150px;}
 	.sig.current::before {bottom: 15px;}
 	.small-sign-text {font-size: 12px;width: 100%;}
-	.block10 .col-md-8 {margin-bottom: -10px;}
-	#thank.block10 .clear .col-md-2 a, #thank.block10 .clear .col-md-3 a {height: 60px !important;width: 60px !important;}
-	#thank.block10 .clear .col-md-2, #thank.block10 .clear .col-md-3 {padding: 0 !important;}
-	#thank.block10 .clear .col-md-2 a img, #thank.block10 .clear .col-md-3 a img {margin: 0 auto !important;max-width: 17px;}
+	.block11 .col-md-8 {margin-bottom: -10px;}
+	#thank.block11 .clear .col-md-2 a, #thank.block11 .clear .col-md-3 a {height: 60px !important;width: 60px !important;}
+	#thank.block11 .clear .col-md-2, #thank.block11 .clear .col-md-3 {padding: 0 !important;}
+	#thank.block11 .clear .col-md-2 a img, #thank.block11 .clear .col-md-3 a img {margin: 0 auto !important;max-width: 17px;}
 	#thankyou .roundinput input[name="first_name"], #thankyou .roundinput input[name="last_name"] {width: 48%;}
-	#thankyou.block11 h2 {margin-bottom: 70px !important;margin-top: 0 !important;}
+	#thankyou.block10 h2 {margin-bottom: 70px !important;margin-top: 0 !important;}
 	#thankyou .roundinput .boderbox a {height: 129px;width: 127px;}
 	#thankyou .roundinput .boderbox a span {margin-top: 34px;}
 	
@@ -4022,7 +4023,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 }
 .mobilemonths b{font-weight:normal !important;}
 input{-webkit-appearance:none !important;}
-#thankyou.block11 #address .col-md-8.billing { position: relative;  z-index: 9999;}
+#thankyou.block10 #address .col-md-8.billing { position: relative;  z-index: 9999;}
 #mbpi.block13 .row div:first-child h2.all-done.noonmobile { margin-top: 110px !important;}
 @media (min-width:380px) and (max-width:480px){
 	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 35px !important;}
@@ -4050,10 +4051,10 @@ input{-webkit-appearance:none !important;}
 	.col-md-12.pymtsec.paymentinfosec1 div:last-child{margin-top:-20px !important;}
 	#decision .pymtsec{margin-bottom:35px !important;}
 	#forcefield.block6 h2.blue-title { line-height:35px !important; font-size: 30px !important; margin-top: 35px !important;}
-	#forcefield.block6 .roundinput input::-webkit-input-placeholder,#address.block7 input::-webkit-input-placeholder, #forcefield.block8 input::-webkit-input-placeholder, #address.block9 input::-webkit-input-placeholder, #thankyou.block11 #address input::-webkit-input-placeholder{color:#80807f !important;}
-	#forcefield.block6 .roundinput input::-moz-placeholder,#address.block7 input::-moz-placeholder, #forcefield.block8 input::-moz-placeholder, #address.block9 input::-moz-placeholder, #thankyou.block11 #address input::-moz-placeholder {color:#80807f !important;}
-	#forcefield.block6 .roundinput input:-moz-placeholder , #address.block7 input:-moz-placeholder, #forcefield.block8 input:-moz-placeholder, #address.block9 input:-moz-placeholder, #thankyou.block11 #address input:-moz-placeholder  {color:#80807f !important;}
-	#forcefield.block6 .roundinput input:-ms-input-placeholder , #address.block7 input:-ms-input-placeholder, #forcefield.block8 input:-ms-input-placeholder, #address.block9 input:-ms-input-placeholder, #thankyou.block11 #address input:-ms-input-placeholder  {color:#80807f !important;}
+	#forcefield.block6 .roundinput input::-webkit-input-placeholder,#address.block7 input::-webkit-input-placeholder, #forcefield.block8 input::-webkit-input-placeholder, #address.block9 input::-webkit-input-placeholder, #thankyou.block10 #address input::-webkit-input-placeholder{color:#80807f !important;}
+	#forcefield.block6 .roundinput input::-moz-placeholder,#address.block7 input::-moz-placeholder, #forcefield.block8 input::-moz-placeholder, #address.block9 input::-moz-placeholder, #thankyou.block10 #address input::-moz-placeholder {color:#80807f !important;}
+	#forcefield.block6 .roundinput input:-moz-placeholder , #address.block7 input:-moz-placeholder, #forcefield.block8 input:-moz-placeholder, #address.block9 input:-moz-placeholder, #thankyou.block10 #address input:-moz-placeholder  {color:#80807f !important;}
+	#forcefield.block6 .roundinput input:-ms-input-placeholder , #address.block7 input:-ms-input-placeholder, #forcefield.block8 input:-ms-input-placeholder, #address.block9 input:-ms-input-placeholder, #thankyou.block10 #address input:-ms-input-placeholder  {color:#80807f !important;}
 	#forcefield.block6 .roundinput input:first-child { margin-bottom: 62px !important;  margin-top: 25px !important;}
 	#forcefield.block6 .col-md-8.roundinput { margin-bottom: 88px;}
 	#address.block7 h2 { margin-top: 38px !important;}
@@ -4078,31 +4079,31 @@ input{-webkit-appearance:none !important;}
 	#thank p.title-block { font-size: 24px !important;  line-height: 35px !important;}
 	.sig.current::before{font-size:41px !important; border-bottom:10px solid #60ba46 !important;}
 	.small-sign-text{font-size:13px !important;}
-	#thank.block10 .clear .col-md-2 a, #thank.block10 .clear .col-md-3 a { height: 80px !important;  width: 80px !important;}
-	#thank.block10 .clear .col-md-2 a img, #thank.block10 .clear .col-md-3 a img { margin: 5px auto !important;  max-width: 25px;}
-	#thankyou.block11 h2.blue-title { font-size: 25px !important;  line-height: 35px !important;  margin-top: 40px !important;}
+	#thank.block11 .clear .col-md-2 a, #thank.block11 .clear .col-md-3 a { height: 80px !important;  width: 80px !important;}
+	#thank.block11 .clear .col-md-2 a img, #thank.block11 .clear .col-md-3 a img { margin: 5px auto !important;  max-width: 25px;}
+	#thankyou.block10 h2.blue-title { font-size: 25px !important;  line-height: 35px !important;  margin-top: 40px !important;}
 	#thankyou .roundinput .boderbox a span { margin-top: 24px !important; font-size:45px !important;}
-	#thankyou.block11 .back { display: table !important;  float: none !important;  margin-left: auto !important;  margin-right: auto !important;}
+	#thankyou.block10 .back { display: table !important;  float: none !important;  margin-left: auto !important;  margin-right: auto !important;}
 	#thankyou .roundinput .boderbox a{margin-left:10px !important; margin-right:10px !important;}
 	.block12 a.next.submit { height: 135px !important;  width: 135px !important;}
 	.next .img-circle.submit.next img {  margin-top: 6px !important;  max-width: 42px !important;}
 	.next a.next.submit span { font-size: 16px !important;  line-height: 19px !important;}
 	#mbpi.block12 h2.blue-title { font-size: 24px !important;  line-height: 35px !important;}
 	.block12 iframe { height: 200px;  margin: 0 auto !important;    width: 360px !important;    overflow: auto !important;    max-width: 360px !important;}
-	#thankyou.block11 h2.blue-title{margin-bottom: 0 !important;}
+	#thankyou.block10 h2.blue-title{margin-bottom: 0 !important;}
 	#address .billing h3{font-size:50px !important; margin-bottom:15px !important;}
 	.startingrecursive { font-size: 21px !important;  margin-bottom: 15px;}
-	#thankyou.block11 #address input[name="first_name"], #thankyou.block11 #address input[name="last_name"] { font-size: 24px !important;}
-	#thankyou.block11 #address input[name="card_number"] { font-size: 29px !important;}
+	#thankyou.block10 #address input[name="first_name"], #thankyou.block10 #address input[name="last_name"] { font-size: 24px !important;}
+	#thankyou.block10 #address input[name="card_number"] { font-size: 29px !important;}
 	#thankyou #address .card-info-block input{font-size:17px !important;}
-	#thankyou.block11 .agreediv { display: none;}
+	#thankyou.block10 .agreediv { display: none;}
 	.agreediv > a{font-size:10px !important;}
-	#thankyou.block11 #address { min-height: 710px;}
-	#thankyou.block11 { height:auto !important;}
-	#thankyou.block11 #address .back{float:left !important;}
+	#thankyou.block10 #address { min-height: 710px;}
+	#thankyou.block10 { height:auto !important;}
+	#thankyou.block10 #address .back{float:left !important;}
 	.mobilechoosebtns { min-height: 710px; padding-top:45px !important;}
-	#thankyou.block11 #address { padding-top: 50px !important;}
-	#thankyou.block11 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
+	#thankyou.block10 #address { padding-top: 50px !important;}
+	#thankyou.block10 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
 }
 @media (max-width:380px){
 	#mileage .roundinput input, #zipcode .roundinput input { margin-bottom: 32px !important;  margin-top: 32px !important;}
@@ -4112,8 +4113,8 @@ input{-webkit-appearance:none !important;}
 	#forcefield.block8 input { font-size: 25px !important;}
 	.agreediv > a{font-size:10px !important;}	
 	.mobilechoosebtns { min-height: 640px; padding-top:45px !important;}
-	#thankyou.block11 #address { padding-top: 50px !important;}
-	#thankyou.block11 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
+	#thankyou.block10 #address { padding-top: 50px !important;}
+	#thankyou.block10 .mobilechoosebtns h2 {  margin-bottom: 60px !important;  margin-top: 20px !important;}
 	body .locationspage .img-circle,body .trainingpage .img-circle.img-responsive, body .inspectionspage .img-circle.img-responsive { border-width: 10px !important;  margin-bottom: 16px !important;  margin-top: 10px !important;  max-width: 160px !important;}
 	#warranty p{margin-bottom:15px !important;}
 	.contactpage a.talk{margin-top:0 !important;}

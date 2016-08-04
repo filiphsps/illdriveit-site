@@ -1,3 +1,20 @@
+// WARNING!
+// This file is filled with ugly workarounds, hacks &
+// left-overs from the previous developer who did a
+// teriffic job at making the code unmaintainable.
+// 
+// Do NOT look directly at it without glasses,
+// do NOT feed it past midnight,
+// do NOT let it sleep on the couch.
+//
+// And for all the coders out there, I'm terribly sorry
+// for putting you through this, if I were you, I would
+// close this view-source tab and never look back.
+//
+// I don't even believe in a God, but dear lord
+// please bring mercy to those who dares to look past
+// this wall of text.
+
 //Disable console.log
 //console.log = function() {};
 
@@ -24,7 +41,7 @@ $(document).ready(function(){
 
 	//The following is a really ugly work-around, thanks previous dev </3
 	//Basically fixes the check_input method by flipping it the f*** off..
-	$('.block9 input').on('focusout click', function () {
+	$('.block9 input').on('focusout click', function (e) {
 		var fn = $('.block9 input[name=first_name]'),
 			ln = $('.block9 input[name=last_name]'),
 			cc = $('.block9 input[name=card_number]'),
@@ -45,9 +62,36 @@ $(document).ready(function(){
 			}
 
 			$('.block9 .next').removeClass('hide-button');
+			$('.block11 .next').removeClass('hide-button');
 			$('.block9 .next').removeClass('hidden');
+			$('.block11 .next').removeClass('hidden');
 	});
-	$('.block9 input').on('keyup', function () {
+	$('.block10 input').on('focusout click', function (e) {
+		var fn = $('.block10 input[name=first_name]'),
+			ln = $('.block10 input[name=last_name]'),
+			cc = $('.block10 input[name=card_number]'),
+			mnt = $('.block10 input[name=card_month]'),
+			cvv = $('.block10 input[name=card_cvv]'),
+			year = $('.block10 input[name=card_year]'),
+			terms = $('.block10 input[name=checkbox]').is(":checked");
+
+			if(mnt.val().length > 0 && mnt.val().length < 2)
+				mnt.val('0' + mnt.val());
+
+			if(year.val().length > 0 && year.val().length < 4)
+				year.val('20' + year.val());
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
+				$('.block10 .next').addClass('hide-button');
+				return $('.block10 .next').addClass('hidden');
+			}
+
+			$('.block10 .next').removeClass('hide-button');
+			$('.block10 .next').removeClass('hide-button');
+			$('.block10 .next').removeClass('hidden');
+			$('.block10 .next').removeClass('hidden');
+	});
+	$('.block9 input').on('keyup', function (e) {
 		var fn = $('.block9 input[name=first_name]'),
 			ln = $('.block9 input[name=last_name]'),
 			cc = $('.block9 input[name=card_number]'),
@@ -56,9 +100,23 @@ $(document).ready(function(){
 			year = $('.block9 input[name=card_year]'),
 			terms = $('.block9 input[name=checkbox]').is(":checked");
 
-			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms || cvv.val().length < 3) {
 				$('.block9 .next').addClass('hide-button');
 				return $('.block9 .next').addClass('hidden');
+			}
+	});
+	$('.block10 input').on('keyup', function (e) {
+		var fn = $('.block10 input[name=first_name]'),
+			ln = $('.block10 input[name=last_name]'),
+			cc = $('.block10 input[name=card_number]'),
+			mnt = $('.block10 input[name=card_month]'),
+			cvv = $('.block10 input[name=card_cvv]'),
+			year = $('.block10 input[name=card_year]'),
+			terms = $('.block10 input[name=checkbox]').is(":checked");
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms || cvv.val().length < 3) {
+				$('.block10 .next').addClass('hide-button');
+				return $('.block10 .next').addClass('hidden');
 			}
 	});
 
@@ -95,18 +153,15 @@ $(document).ready(function(){
 		var block = $(this).parents('.action-block');
 		next_block(block);
 
-		if(block.hasClass('block10') && drive_data.paymentOption.number_of_months==0){
-			block = block.next('.action-block');
+		if (block.hasClass('block9')) {
 			parse_data(block);
-			block.hide();
-			var str = JSON.stringify(drive_data);
-			console.log(str);
-			ajax('payment',str);
-		}else if(block.hasClass('block4')){
+		} else if(block.hasClass('block4')){
 			$(".input-range" ).slider("disable");
-		}else if(block.hasClass('block10')){
+		}else if(block.hasClass('block11')){
 			block.find('.button-clear').addClass('hide-button');
 			block.find('.sig').addClass('disabled');
+		}else if (block.hasClass('block10')) {
+			$('.block11').removeClass('hide');
 		}
 	});
 	$('.next-custom-block').click(function(){
@@ -119,7 +174,6 @@ $(document).ready(function(){
 			ajax('verifyzip',str);
 
 		} else if(block.hasClass('block11')){
-
 			//Save data to user object in-case it's changed since last time.
 			console.log(drive_data.warrantyRequest);
 			user['zip_code'] = drive_data.warrantyRequest.zip;
@@ -159,7 +213,7 @@ $(document).ready(function(){
 			console.log($(this).attr('class'));
 			if($(this).hasClass('block4')){
 				$( ".input-range" ).slider( "enable" );
-			}else if($(this).hasClass('block10')){
+			}else if($(this).hasClass('block11')){
 				//$('.sigPad').signaturePad().clearCanvas();
 				$(this).find('.button-clear').removeClass('hide-button');
 				$(this).find('.sig').removeClass('disabled');
@@ -287,12 +341,13 @@ function parse_data(block){
 			expiration_year: block.find('input[name=card_year]').val(),
 			cvv: block.find('input[name=card_cvv]').val()
 		}
-	}else if(block.hasClass('block10')){
+		drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
+	}else if(block.hasClass('block11')){
 		var sigapi = $('.sigPad').signaturePad();
 		var base64ImgWithPrefix = sigapi.getSignatureImage();
 		user['signature'] = base64ImgWithPrefix;
 		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
-	}else if(block.hasClass('block11')){
+	}else if(block.hasClass('block10')){
 		if(block.find('input[name=card_number]').val()==''){
 			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
 		}else{
@@ -367,6 +422,7 @@ function ajax(f, obj){
 			});
 		break;
 		case 'payment':
+			console.log(obj);
 			var run = false;
 			$.ajax({
 			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
@@ -489,7 +545,7 @@ function ajax(f, obj){
 
 						//Scroll down
 						down(1000);
-					}else{
+					} else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
 					}
 				}
@@ -541,6 +597,11 @@ function open_error(massage,massage2,notify){
 function next_block(block,next){
 	block.find('input').prop('disabled', true);
 	block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
+
+	if (block.hasClass('block9') && drive_data.paymentOption.number_of_months == 0) {
+		$('.block10 .img-circle.next-action-block.visible-true').click();
+		return down(500);
+	}
 
 	parse_data(block);
 
