@@ -20,7 +20,7 @@ $(document).ready(function(){
 	//This should be done in a more elegant way, perhaps a function
 	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
-	$('#payment-date').html(months[(new Date).getMonth()] + ' 21, ' + (new Date).getFullYear());
+	$('.payment-date').html(months[((new Date).getMonth()+1)%12] + ' 21, ' + (new Date).getFullYear());
 
 	//The following is a really ugly work-around, thanks previous dev </3
 	//Basically fixes the check_input method by flipping it the f*** off..
