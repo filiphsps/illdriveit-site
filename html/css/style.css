@@ -3577,7 +3577,11 @@ input {
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
-  min-height: calc(175vw);
+}
+@media (max-height: 745px) {
+	.section-screen-height {
+		min-height: calc(175vw);
+	}
 }
 #covers {
   margin: 0 0 30px;
