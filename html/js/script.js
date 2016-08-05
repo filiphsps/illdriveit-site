@@ -37,7 +37,10 @@ $(document).ready(function(){
 	//This should be done in a more elegant way, perhaps a function
 	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
-	$('.payment-date').html(months[((new Date).getMonth()+1)%12] + ' ' + english_ordinal_suffix(new Date) + ', ' + (new Date).getFullYear());
+	var date = new Date;
+	var month = (date.getMonth()+1)%12;
+	var year = (date.getFullYear() + (month == 0 ? 1 : 0));
+	$('.payment-date').text(months[month] + ' ' + english_ordinal_suffix(date) + ', ' + year);
 
 	//The following is a really ugly work-around, thanks previous dev </3
 	//Basically fixes the check_input method by flipping it the f*** off..
