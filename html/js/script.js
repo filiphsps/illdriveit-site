@@ -38,7 +38,7 @@ $(document).ready(function(){
 	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
 	var date = new Date;
-    var month = date.getMonth() + 5;
+    var month = date.getMonth() + 1;
     var year = (date.getFullYear() + (month > 11 ? 1 : 0));
 	$('.payment-date').text(months[month%12] + ' ' + english_ordinal_suffix(date) + ', ' + year);
 
