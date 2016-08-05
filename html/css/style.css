@@ -3578,9 +3578,9 @@ input {
   padding: 0 !important;
   width: 100% !important;
 }
-@media (max-height: 745px) {
+@media (max-width: 400px) {
 	.section-screen-height {
-		min-height: calc(175vw);
+		min-height: calc(600px);
 	}
 }
 
