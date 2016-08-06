@@ -780,12 +780,12 @@
 							<input placeholder="LAST NAME" name="last_name" type="text" class="right half-size-two">
 						</div>
 						<div class="clear">
-							<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
+							<input type="tel" pattern="[0-9\-]+" name="card_number" placeholder="ENTER CARD NUMBER">
 						</div>
 						<div class="clear card-info-block">
-							<input type="text" name="card_month" class="city input-number left" placeholder="EXP MONTH" minlength="2" maxlength="2">
-							<input type="text" name="card_year" class="state input-number left" placeholder="EXP YEAR" minlength="4" maxlength="4">
-							<input type="text" name="card_cvv" class="zipcode input-number left" placeholder="CVV #" minlength="3" maxlength="3">
+							<input type="number" pattern="\d*" name="card_month" class="city input-number left" placeholder="EXP MONTH" minlength="2" maxlength="2">
+							<input type="number" pattern="\d*" name="card_year" class="state input-number left" placeholder="EXP YEAR" minlength="4" maxlength="4">
+							<input type="number" pattern="\d*" name="card_cvv" class="zipcode input-number left" placeholder="CVV #" minlength="3" maxlength="3">
 						</div>
 
 						<div class="agreediv">
@@ -863,13 +863,13 @@
 							</div>
 
 							<div class="clear">
-								<input type="text" name="card_number" placeholder="ENTER CARD NUMBER">
+								<input type="tel" pattern="[0-9\-]+" name="card_number" placeholder="ENTER CARD NUMBER">
 							</div>
 
 							<div class="clear card-info-block">
-								<input type="text" name="card_month" class="city input-number left" placeholder="EXP MONTH" minlength="2" maxlength="2">
-								<input type="text" name="card_year" class="state input-number left" placeholder="EXP YEAR" minlength="4" maxlength="4">
-								<input type="text" name="card_cvv" class="zipcode input-number left" placeholder="CVV #" minlength="3" maxlength="3">
+								<input type="number" pattern="\d*" name="card_month" class="city input-number left" placeholder="EXP MONTH" minlength="2" maxlength="2">
+								<input type="number" pattern="\d*" name="card_year" class="state input-number left" placeholder="EXP YEAR" minlength="4" maxlength="4">
+								<input type="number" pattern="\d*" name="card_cvv" class="zipcode input-number left" placeholder="CVV #" minlength="3" maxlength="3">
 							</div>
 							<div class="agreediv">
 								<input id="agreeterms" type="checkbox" name="checkbox" value="check" class="agreeterm" />
