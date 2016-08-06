@@ -126,6 +126,7 @@ $(document).ready(function(){
 	//Handle clear button click
 	$('#clear-btn').on('click', function () {
 		$('.sigPad').signaturePad().clearCanvas();
+		$('.sig').removeClass('no-before');
 	});
 
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
@@ -143,6 +144,7 @@ $(document).ready(function(){
 		lineTop:200,
 		onDrawEnd:function(){
 			setTimeout(function(){check_input($('.sigPad').parents('.action-block'))},0);
+			$('.sig').addClass('no-before');
 			//TODO: Remove "sign here" label.
 		}
 	});

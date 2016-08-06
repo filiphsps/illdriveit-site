@@ -3441,6 +3441,9 @@ input#txtList::-webkit-input-placeholder, input#txtList:-moz-placeholder, input#
   width: 410px;
   z-index: 99999;
 }
+.sig.no-before::before{
+	display:none !important;
+}
 .sig:hover::before{
 	display:none;
 }
