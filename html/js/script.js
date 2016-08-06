@@ -130,6 +130,7 @@ $(document).ready(function(){
 	});
 
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
+	$("input[name=phone]").mask('(000) 000-0000');
 
 	//Really ugly way to make sure a number input only allows numbers
 	$('.input-number').keyup(function(){
@@ -333,7 +334,7 @@ function parse_data(block){
 		user['address2'] = drive_data.warrantyRequest.address2;
 		user['city'] = drive_data.warrantyRequest.city;
 	}else if(block.hasClass('block8')){
-		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val();
+		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val().replace(/[^0-9\.]+/g, '');
 		drive_data.warrantyRequest.email = block.find('input[name=email]').val();
 
 		user['email'] = drive_data.warrantyRequest.email;
