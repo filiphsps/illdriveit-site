@@ -4102,7 +4102,6 @@ input{-webkit-appearance:none !important;}
 	#thankyou.block10 #address input[name="first_name"], #thankyou.block10 #address input[name="last_name"] { font-size: 24px !important;}
 	#thankyou.block10 #address input[name="card_number"] { font-size: 29px !important;}
 	#thankyou #address .card-info-block input{font-size:17px !important;}
-	#thankyou.block10 .agreediv { display: none;}
 	.agreediv > a{font-size:10px !important;}
 	#thankyou.block10 #address { min-height: 710px;}
 	#thankyou.block10 { height:auto !important;}

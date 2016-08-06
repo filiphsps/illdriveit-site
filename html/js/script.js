@@ -642,9 +642,9 @@ function update_calculate(json){
 	slider[1].values = get_keys(plans[slider[0].values[0]]);
 	slider[2].values = get_keys(plans[slider[0].values[0]][slider[1].values[0]]);
 
-	update_range_values('#input-range1',slider[0].values);
-	update_range_values('#input-range2',slider[1].values);
-	update_range_values('#input-range3',slider[2].values);
+	update_range_values('#input-range1', slider[0].values);
+	update_range_values('#input-range2', slider[1].values);
+	update_range_values('#input-range3', slider[2].values);
 	parse_data($('.block4'));
 
 	$( "#input-range1" ).slider({
@@ -686,7 +686,7 @@ function update_calculate(json){
 		}
 	});
 }
-function update_range_values(slider,arr){
+function update_range_values(slider, arr){
 	if(arr != undefined){
 		$(slider).prev('.range-values').html('');
 		for (var i = 0; i < arr.length; i++){
