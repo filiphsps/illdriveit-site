@@ -12,10 +12,10 @@
 }
 body{
 	font-family: "Century Gothic";
+	overflow-x: hidden;
 	color:#10153c;
     -webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
 }
 
 #clear-btn {
