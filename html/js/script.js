@@ -1,20 +1,143 @@
-/** GENERAL VARIABLES **/
+// WARNING!
+// This file is filled with ugly workarounds, hacks &
+// left-overs from the previous developer who did a
+// teriffic job at making the code unmaintainable.
+// 
+// Do NOT look directly at it without glasses,
+// do NOT feed it past midnight,
+// do NOT let it sleep on the couch.
+//
+// And for all the coders out there, I'm terribly sorry
+// for putting you through this, if I were you, I would
+// close this view-source tab and never look back.
+//
+// I don't even believe in a God, but dear lord
+// please bring mercy to those who dares to look past
+// this wall of text.
 
-// 5FRYD4H43GB017942
-var
-drive_data = {},
-slider = [{},{},{}],
-plans = {};
+//Disable console.log
+//console.log = function() {};
 
-/**/
+var	drive_data = {},
+	slider = [{},{},{}],
+	plans = {},
+	pdfUrl;
+
+var user = {
+	'first_name': null,
+	'last_name': null,
+
+	'zip_code': null,
+	'monthly': 0,
+	'date': (new Date(Date.now())).toDateString()
+}
+
 $(document).ready(function(){
-	/** BEGINS **/
+	//Set payment date
+	//This should be done in a more elegant way, perhaps a function
+	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+               "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+	var date = new Date;
+    var month = date.getMonth() + 1;
+    var year = (date.getFullYear() + (month > 11 ? 1 : 0));
+	$('.payment-date').text(months[month%12] + ' ' + english_ordinal_suffix(date) + ', ' + year);
+
+	//The following is a really ugly work-around, thanks previous dev </3
+	//Basically fixes the check_input method by flipping it the f*** off..
+	$('.block9 input').on('focusout click', function (e) {
+		var fn = $('.block9 input[name=first_name]'),
+			ln = $('.block9 input[name=last_name]'),
+			cc = $('.block9 input[name=card_number]'),
+			mnt = $('.block9 input[name=card_month]'),
+			cvv = $('.block9 input[name=card_cvv]'),
+			year = $('.block9 input[name=card_year]'),
+			terms = $('.block9 input[name=checkbox]').is(":checked");
+
+			if(mnt.val().length > 0 && mnt.val().length < 2)
+				mnt.val('0' + mnt.val());
+
+			if(year.val().length > 1 && year.val().length < 3)
+				year.val('20' + year.val());
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
+				$('.block9 .next').addClass('hide-button');
+				return $('.block9 .next').addClass('hidden');
+			}
+
+			$('.block9 .next').removeClass('hide-button');
+			$('.block11 .next').removeClass('hide-button');
+			$('.block9 .next').removeClass('hidden');
+			$('.block11 .next').removeClass('hidden');
+	});
+	$('.block10 input').on('focusout click', function (e) {
+		var fn = $('.block10 input[name=first_name]'),
+			ln = $('.block10 input[name=last_name]'),
+			cc = $('.block10 input[name=card_number]'),
+			mnt = $('.block10 input[name=card_month]'),
+			cvv = $('.block10 input[name=card_cvv]'),
+			year = $('.block10 input[name=card_year]'),
+			terms = $('.block10 input[name=checkbox]').is(":checked");
+
+			if(mnt.val().length > 0 && mnt.val().length < 2)
+				mnt.val('0' + mnt.val());
+
+			if(year.val().length > 1 && year.val().length < 3)
+				year.val('20' + year.val());
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
+				$('.block10 .next').addClass('hide-button');
+				return $('.block10 .next').addClass('hidden');
+			}
+
+			$('.block10 .next').removeClass('hide-button');
+			$('.block10 .next').removeClass('hide-button');
+			$('.block10 .next').removeClass('hidden');
+			$('.block10 .next').removeClass('hidden');
+	});
+	$('.block9 input').on('keyup', function (e) {
+		var fn = $('.block9 input[name=first_name]'),
+			ln = $('.block9 input[name=last_name]'),
+			cc = $('.block9 input[name=card_number]'),
+			mnt = $('.block9 input[name=card_month]'),
+			cvv = $('.block9 input[name=card_cvv]'),
+			year = $('.block9 input[name=card_year]'),
+			terms = $('.block9 input[name=checkbox]').is(":checked");
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms || cvv.val().length < 3) {
+				$('.block9 .next').addClass('hide-button');
+				return $('.block9 .next').addClass('hidden');
+			}
+	});
+	$('.block10 input').on('keyup', function (e) {
+		var fn = $('.block10 input[name=first_name]'),
+			ln = $('.block10 input[name=last_name]'),
+			cc = $('.block10 input[name=card_number]'),
+			mnt = $('.block10 input[name=card_month]'),
+			cvv = $('.block10 input[name=card_cvv]'),
+			year = $('.block10 input[name=card_year]'),
+			terms = $('.block10 input[name=checkbox]').is(":checked");
+
+			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms || cvv.val().length < 3) {
+				$('.block10 .next').addClass('hide-button');
+				return $('.block10 .next').addClass('hidden');
+			}
+	});
+
+	//Handle clear button click
+	$('#clear-btn').on('click', function () {
+		$('.sigPad').signaturePad().clearCanvas();
+		$('.sig').removeClass('no-before');
+	});
+
 	$("input[name=card_number]").mask("9999-9999-9999-9999");//{placeholder:'XXXX-XXXX-XXXX-XXXX'}
-	$("input[name=mileage]").mask("000,000",{reverse: true});
+	$("input[name=phone]").mask('(000) 000-0000');
+
+	//Really ugly way to make sure a number input only allows numbers
 	$('.input-number').keyup(function(){
 		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 	});
+
 	$('.sigPad').signaturePad({
 		drawOnly:true,
 		bgColour:'white',
@@ -22,25 +145,29 @@ $(document).ready(function(){
 		lineTop:200,
 		onDrawEnd:function(){
 			setTimeout(function(){check_input($('.sigPad').parents('.action-block'))},0);
+			$('.sig').addClass('no-before');
+			//TODO: Remove "sign here" label.
 		}
 	});
+
 	/** Actions **/
 	$('.next-action-block').click(function(){
+		//Handle completion of flow
+		if ($(this).hasClass('flow-completion'))
+			handelFlowComplete();
+
 		var block = $(this).parents('.action-block');
 		next_block(block);
 
-		if(block.hasClass('block10') && drive_data.paymentOption.number_of_months==0){
-			block = block.next('.action-block');
+		if (block.hasClass('block9')) {
 			parse_data(block);
-			block.hide();
-			var str = 'data='+JSON.stringify(drive_data);
-			console.log(str);
-			ajax('payment',str);
-		}else if(block.hasClass('block4')){
+		} else if(block.hasClass('block4')){
 			$(".input-range" ).slider("disable");
-		}else if(block.hasClass('block10')){
+		}else if(block.hasClass('block11')){
 			block.find('.button-clear').addClass('hide-button');
 			block.find('.sig').addClass('disabled');
+		}else if (block.hasClass('block10')) {
+			$('.block11').removeClass('hide');
 		}
 	});
 	$('.next-custom-block').click(function(){
@@ -49,13 +176,26 @@ $(document).ready(function(){
 		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
 		parse_data(block);
 		if(block.hasClass('block3')){
-			var str = 'data={"zip":"'+drive_data.warrantyRequest.zip+'","mileage":'+drive_data.warrantyRequest.mileage+',"vin":"'+drive_data.warrantyRequest.vin+'"}';
-			console.log(str);
+			var str = JSON.stringify({zip:drive_data.warrantyRequest.zip, mileage:drive_data.warrantyRequest.mileage, vin:drive_data.warrantyRequest.vin});
 			ajax('verifyzip',str);
-		}else if(block.hasClass('block11')){
-			var str = 'data='+JSON.stringify(drive_data);
-			console.log(str);
-			ajax('payment',str);
+
+		} else if(block.hasClass('block11')){
+			//Save data to user object in-case it's changed since last time.
+			console.log(drive_data.warrantyRequest);
+			user['zip_code'] = drive_data.warrantyRequest.zip;
+			user['first_name'] = drive_data.warrantyRequest.first_name;
+			user['last_name'] = drive_data.warrantyRequest.last_name;
+			user['email'] = drive_data.warrantyRequest.email;
+			user['phone'] = drive_data.warrantyRequest.phone;
+			user['address'] = drive_data.warrantyRequest.address1;
+			user['address2'] = drive_data.warrantyRequest.address2;
+			user['state'] = drive_data.warrantyRequest.state.toUpperCase();
+			user['city'] = drive_data.warrantyRequest.city;
+			user['mileage'] = drive_data.warrantyRequest.mileage;
+			user['vin'] = drive_data.warrantyRequest.vin;
+
+			var str = JSON.stringify(drive_data);
+			ajax('payment', str);
 		}
 	});
 	$('.open-card-form').click(function(){
@@ -64,22 +204,23 @@ $(document).ready(function(){
 		block.find('.choose-panel').hide();
 		down(100);
 	});
+
 	/** Action back **/
 	$('.back-action-block').click(function(){
 		var block = $(this).parents('.action-block').prev('.action-block');
 
-		block.find('input').prop('disabled', false).val('');
-		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.find('input').prop('disabled', false)/*.val('')*/;
+		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 
-		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false).val('');
-		block.nextAll('.action-block').find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false)/*.val('')*/;
+		block.nextAll('.action-block').find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 
 		block.prev('.action-block').nextAll('.action-block').each(function(){
 			console.log($(this).attr('class'));
 			if($(this).hasClass('block4')){
 				$( ".input-range" ).slider( "enable" );
-			}else if($(this).hasClass('block10')){
-				$('.sigPad').signaturePad().clearCanvas();
+			}else if($(this).hasClass('block11')){
+				//$('.sigPad').signaturePad().clearCanvas();
 				$(this).find('.button-clear').removeClass('hide-button');
 				$(this).find('.sig').removeClass('disabled');
 			}
@@ -87,16 +228,16 @@ $(document).ready(function(){
 	});
 	$('.back-error-block').click(function(){
 		$('.error-block').slideUp(400);
-		$('.error-block input').prop('disabled', false).val('');
+		$('.error-block input').prop('disabled', false)/*.val('')*/;
 		var block = $('.block3');
-		block.find('input').prop('disabled', false).val('');
-		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('hide-button').removeClass('disabled');
+		block.find('input').prop('disabled', false)/*.val('')*/;
+		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 	});
 	$('.next-error-block').click(function(){
 		var block = $(this).parents('.error-block');
 		next_block(block,block.next('.error-block'));
 		if(block.hasClass('e-block2')){
-			var str = 'data={"vin":"'+drive_data.warrantyRequest.vin+'","email": "'+drive_data.warrantyRequest.notifyemail+'"}';
+			var str = JSON.stringify({vin:drive_data.warrantyRequest.vin, email:drive_data.warrantyRequest.notifyemail});
 			console.log(str);
 			ajax('emailtonotify',str);
 		}
@@ -105,10 +246,10 @@ $(document).ready(function(){
 		var block = $(this).parents('.action-block');
 		block.find('.next-action-block').addClass('hide-button');
 	});
+
 	/* check inputs */
 	$('.action-block input').change(function(){ check_input($(this).parents('.action-block')); });
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
-
 });
 
 function down(speed){
@@ -116,6 +257,12 @@ function down(speed){
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
+		//Handle CC and Agree
+		if($(this).parent().hasClass('card-info-block'))
+			return;
+		else if($(this).parent().hasClass('agreediv'))
+			return;
+
 		if(!$(this).val() || !(($(this).attr('minlength') && $(this).val().length>=$(this).attr('minlength')) || !$(this).attr('minlength')) ) $(this).addClass('input-error');
 		else $(this).removeClass('input-error');
 	});
@@ -125,6 +272,7 @@ function check_input(block){
 		block.find('.next-action-block , .next-custom-block').removeClass('hide-button').removeClass('hide');
 	}
 }
+
 function parse_data(block){
 	if(block.hasClass('block1')){
 		drive_data.warrantyRequest = {
@@ -135,6 +283,7 @@ function parse_data(block){
 		drive_data.warrantyRequest.mileage = parseInt(block.find('input[name=mileage]').val().replace(/[^0-9]/g,''));
 	}else if(block.hasClass('block3')){
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+		$('.block7 input[name=zip]').val(drive_data.warrantyRequest.zip);
 	}else if(block.hasClass('block4')){
 		var listing = plans[slider[0].values[slider[0].index]][slider[1].values[slider[1].index]][slider[2].values[slider[2].index]];
 		drive_data.planId = listing.planId;
@@ -142,20 +291,35 @@ function parse_data(block){
 		drive_data.customerPrice = listing.cost;
 		drive_data.paymentOption = {
 									downpayment:listing.downpayment	,
+									monthly_payment: listing.monthlyPrice,
 									number_of_months:listing.numberOfMonths
 									};
 
 		$('.listing_year').text(listing.year);
 		$('.listing_mileage').text(listing.mileage);
 		$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
-		$('.listing_downpayment').text('$'+get_cent(listing.downpayment));
-		$('.listing_monthlyprice').text('$'+get_cent(listing.monthlyPrice));
+		$('.listing_downpayment').text('$'+ Math.round(get_cent(listing.downpayment)));
+		$('.listing_monthlyprice').text('$'+ Math.round(get_cent(listing.monthlyPrice)));
+		$('.total-payment .amount').text((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths)).toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }));
+		drive_data.warrantyRequest.coverage_years = listing.numberOfMonths;
+		drive_data.warrantyRequest.coverage_miles = parseInt(listing.mileage.replace('K', '000'));
 		$('.listing_numberofmonths').text(listing.numberOfMonths);
 		$('.listing_payment_word').text(listing.numberOfMonths?"DOWN":'');
+
+		user.monthly = get_cent(listing.monthlyPrice);
+		user.dwn = get_cent(listing.downpayment);
+		user.payments_nr = get_cent(listing.numberOfMonths);
+		user.payments_day = '21st';
 
 	}else if(block.hasClass('block6')){
 		drive_data.warrantyRequest.first_name = block.find('input[name=first_name]').val();
 		drive_data.warrantyRequest.last_name = block.find('input[name=last_name]').val();
+
+		user['first_name'] = drive_data.warrantyRequest.first_name;
+		user['last_name'] = drive_data.warrantyRequest.last_name;
 		$('.listing_first_name').text(drive_data.warrantyRequest.first_name.toUpperCase());
 	}else if(block.hasClass('block7')){
 		drive_data.warrantyRequest.address1 = block.find('input[name=address1]').val();
@@ -163,9 +327,18 @@ function parse_data(block){
 		drive_data.warrantyRequest.city = block.find('input[name=city]').val();
 		drive_data.warrantyRequest.state = block.find('input[name=state]').val();
 		drive_data.warrantyRequest.zip = block.find('input[name=zip]').val();
+
+		user['state'] = drive_data.warrantyRequest.state.toUpperCase();
+		user['zip_code'] = drive_data.warrantyRequest.zip;
+		user['address'] = drive_data.warrantyRequest.address1;
+		user['address2'] = drive_data.warrantyRequest.address2;
+		user['city'] = drive_data.warrantyRequest.city;
 	}else if(block.hasClass('block8')){
-		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val();
+		drive_data.warrantyRequest.phone = block.find('input[name=phone]').val().replace(/[^0-9\.]+/g, '');
 		drive_data.warrantyRequest.email = block.find('input[name=email]').val();
+
+		user['email'] = drive_data.warrantyRequest.email;
+		user['phone'] = drive_data.warrantyRequest.phone;
 	}else if(block.hasClass('block9')){
 		drive_data.paymentOption.downpaymentCard = {
 			cardholder_name: block.find('input[name=first_name]').val()+' '+block.find('input[name=last_name]').val(),
@@ -174,11 +347,13 @@ function parse_data(block){
 			expiration_year: block.find('input[name=card_year]').val(),
 			cvv: block.find('input[name=card_cvv]').val()
 		}
-	}else if(block.hasClass('block10')){
+		drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
+	}else if(block.hasClass('block11')){
 		var sigapi = $('.sigPad').signaturePad();
 		var base64ImgWithPrefix = sigapi.getSignatureImage();
+		user['signature'] = base64ImgWithPrefix;
 		drive_data.warrantyRequest.signature = base64ImgWithPrefix.split(',')[1];
-	}else if(block.hasClass('block11')){
+	}else if(block.hasClass('block10')){
 		if(block.find('input[name=card_number]').val()==''){
 			drive_data.paymentOption.financeCard = drive_data.paymentOption.downpaymentCard;
 		}else{
@@ -195,7 +370,7 @@ function parse_data(block){
 	}
 }
 
-function ajax(f,obj){
+function ajax(f, obj){
 	if(f=='verifyzip' || f=="payment"){
 		$('.load').show();
 		down(300);
@@ -204,10 +379,10 @@ function ajax(f,obj){
 	switch(f){
 		case 'plans':
 			$.ajax({
-				url:'https://high-quality.tech/illdriveit/warranty/plans',
+				url:'https://illdrive.it/api/warranty/plans',
 				type: "GET",
 				data: obj,
-				dataType : "jsonp",
+				dataType : "json",
 				success:function(data){
 					console.log(data);
 					$('.load').hide();
@@ -223,49 +398,166 @@ function ajax(f,obj){
 			});
 		break;
 		case 'verifyzip':
-			console.log('zip ajax');
 			$.ajax({
-	        	url:'http://stest.te.ua/verifyzip.php',
-				type: "GET",
+	        	url:'https://illdrive.it/api/warranty/verifyzip',
+				type: "POST",
 				data: obj,
 				contentType: "application/json",
-				dataType : "jsonp",
-				complete:function(data){
+				dataType : "json",
+				complete: function(data){
 					data = data.responseJSON;
 					console.log(data);
 
 					if(!data.zipValid){
 						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
 					}else if(!data.mileageValid && !data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS AND/OR UNDER 36K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS AND/OR UNDER 60K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 3 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else if(!data.mileageValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 36,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						open_error('OH NO! ONLY VEHICLES UNDER 60,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 					}else{
+						if (typeof data.state !== undefined && data.state)
+							$('.block7 input[name=state]').val(data.state);
+						if (typeof data.city !== undefined && data.city)
+							$('.block7 input[name=city]').val(data.city);
+
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
 					}
 				}
 			});
 		break;
 		case 'payment':
+			console.log(obj);
+			var run = false;
 			$.ajax({
-			    url:'http://stest.te.ua/purchase.php',
+			    url:'https://illdrive.it/api/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
-				complete:function(data){
-					console.log(data);
-					$('.load').hide();
-					down(1000);
+				contentType: "application/json",
+				complete: function(data) {
+					//Fix bug
+					if(run)
+						return;
+					run = true;
 
+					$('#ac_force').addClass('hidden');
+					$('.load').hide();
+
+					//TODO: Move into separate function?
 					var res = JSON.parse(data.responseText);
+					user.contract_id = res.ContractNumber;
+					if($('#contractLink').attr('href').substr($('#contractLink').attr('href').length - 1) !== '0')
+						$('#contractLink').attr('href', $('#contractLink').attr('href') + res.ContractNumber + '?SignedPoints=999');
+
 					if(res.Success){
-						var contractURI = "https://high-quality.tech/illdriveit/warranty/contract/"+ res.ContractNumber;
-						$('.block12 iframe').attr('src',contractURI);
-						// $('.block12 iframe').attr('src','data:application/pdf;base64,'+res.GeneratedContracts[0].ContractDocument);
+						$('#signaturebuttons').html('');
+
+						try {
+							if(user.state.length > 2)
+								user.state = abbrState(user.state);
+						} catch(ex) {
+							open_error('OH NO! WE CANNOT FIND THE STATE','CHECK IF HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
+						}
+
+						//Render MBPI
+						ContractManager.RequestContract('MBPI', '#contract-viewer', user, function () {
+
+							//Generate buttons
+							$('#signaturebuttons').append(
+								'<div class="eachsignature">' +
+									'<span class="checkicon"></span>' +
+									'<h5>Start<br/>here</h5>' +
+								'</div>'
+							);
+							if(user.state)
+								ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
+									if(!exists)
+										return;
+									
+									$('#signaturebuttons').append(
+										'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+											'<span class="checkicon"></span>' +
+											'<h5>' + user.state + '<br/>Disclosure</h5>' +
+										'</div>'
+									);
+								});
+							
+							if(user.monthly) {
+								$('#signaturebuttons').append(
+									'<div data-uri="FINC_AGR" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Financing<br/>Agreement</h5>' +
+									'</div>'
+								);
+								$('#signaturebuttons').append(
+									'<div data-uri="DWN_PAY_APP" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Down<br/>Payment<br/>Approval</h5>' +
+									'</div>'
+								);
+								$('#signaturebuttons').append(
+									'<div data-uri="MON_PAY_APP" class="eachsignature">' +
+										'<span class="checkicon"></span>' +
+										'<h5>Monthly<br/>Payment<br/>Approval</h5>' +
+									'</div>'
+								);
+							}
+
+							$('body').on('click', '.eachsignature', function (e) {
+								if($(this).hasClass('completed'))
+									return;
+
+								$(this).addClass('current');
+
+								//Jump to sign point
+								if($(this).data('uri'))
+									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function () {
+										$('.signmarker').removeClass('hidden');
+										$('#contract-viewer').scrollTop($('#contract-viewer').height())
+										location.hash = '#l';
+										location.hash = '#signmarker';
+										down(0);
+									});
+								else {
+									$('.signmarker').removeClass('hidden');
+									$('#contract-viewer').scrollTop($('#contract-viewer').height())
+									location.hash = '#l';
+									location.hash = '#signmarker';
+									down(0);
+								}
+							});
+
+							//Handle signmarker click
+							$('#contract-viewer').on('click', '.signmarker', function (e) {
+								$('.eachsignature.current').removeClass('current')
+									.addClass('completed');
+
+								$('.signmarker').addClass('hidden');
+								$('.signature img').attr('src', user['signature']);
+								$('.signature').removeClass('hidden');
+								$('.nextmarker').removeClass('hidden');
+							});
+
+							//Handle nextmarker click
+							$('#contract-viewer').on('click', '.nextmarker', function (e) {
+								$('.nextmarker').addClass('hidden');
+								$('.eachsignature:not(".completed"):first').click();
+
+								//Handle completion of all signing
+								if($('#signaturebuttons').children().not('.completed').length < 1) {
+									$('#ac_force').removeClass('hidden');
+								}
+							});
+						});
+
+						//Show the view
 						$('.block12').show();
-					}else{
+
+						//Scroll down
+						down(1000);
+					} else{
 						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
 					}
 				}
@@ -273,26 +565,29 @@ function ajax(f,obj){
 		break;
 		case 'vehiclename':
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/vehiclename',
+			    url:'https://illdrive.it/api/warranty/vehiclename',
 				type: "GET",
 				data: obj,
 				dataType : "jsonp",
-				complete:function(data){
+				complete: function(data){
 					console.log(data);
 					$('.load').hide();
 
 					var res = data.responseJSON;
 					$('.listing_car_name').text(res.name);
 					$('.listing_car_model').text(res.model);
+
+					user['car_model'] = res.model;
+					user['car_name'] = res.name;
 				}
 			});
 		break;
 		case 'emailtonotify':
 			$.ajax({
-                url:'http://stest.te.ua/emailtonotify.php',
+                url:'https://illdrive.it/api/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
-				dataType : "jsonp",
+				dataType : "json",
 				success:function(data){
 					console.log(data);
 				}
@@ -301,12 +596,12 @@ function ajax(f,obj){
 	}
 }
 function open_error(massage,massage2,notify){
-	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 3 YEARS AND 36K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT’S LIVE!";
+	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 10 YEARS AND 60K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT�S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
 	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2==undefined?str:massage2));
-	$('.e-block2 input').prop('disabled', false).val('');
+	$('.e-block2 input').prop('disabled', false)/*.val('')*/;
 	if(notify) $('.e-block1 .notify-button').removeClass('hide-button');
 	else $('.e-block1 .notify-button').addClass('hide-button');
 	down(1000);
@@ -314,6 +609,11 @@ function open_error(massage,massage2,notify){
 function next_block(block,next){
 	block.find('input').prop('disabled', true);
 	block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
+
+	if (block.hasClass('block9') && drive_data.paymentOption.number_of_months == 0) {
+		$('.block10 .img-circle.next-action-block.visible-true').click();
+		return down(500);
+	}
 
 	parse_data(block);
 
@@ -351,9 +651,9 @@ function update_calculate(json){
 	slider[1].values = get_keys(plans[slider[0].values[0]]);
 	slider[2].values = get_keys(plans[slider[0].values[0]][slider[1].values[0]]);
 
-	update_range_values('#input-range1',slider[0].values);
-	update_range_values('#input-range2',slider[1].values);
-	update_range_values('#input-range3',slider[2].values);
+	update_range_values('#input-range1', slider[0].values);
+	update_range_values('#input-range2', slider[1].values);
+	update_range_values('#input-range3', slider[2].values);
 	parse_data($('.block4'));
 
 	$( "#input-range1" ).slider({
@@ -395,7 +695,7 @@ function update_calculate(json){
 		}
 	});
 }
-function update_range_values(slider,arr){
+function update_range_values(slider, arr){
 	if(arr != undefined){
 		$(slider).prev('.range-values').html('');
 		for (var i = 0; i < arr.length; i++){
@@ -424,10 +724,94 @@ function select_range_values(range,value){
 	var index = calc_index(value,range.find('span').length)+1;
 	range.find('span:nth-child('+index+')').addClass('selected').siblings().removeClass('selected');
 }
+
 function get_cent(num){
 	if(!((num ^ 0)===num)){
 		return num.toFixed(2);
 	}else{
 		return num;
 	}
+}
+
+//From https://gist.github.com/CalebGrove/c285a9510948b633aa47
+function abbrState (input, to) {
+    var states = [
+        ['Arizona', 'AZ'],
+        ['Alabama', 'AL'],
+        ['Alaska', 'AK'],
+        ['Arizona', 'AZ'],
+        ['Arkansas', 'AR'],
+        ['California', 'CA'],
+        ['Colorado', 'CO'],
+        ['Connecticut', 'CT'],
+        ['Delaware', 'DE'],
+        ['Florida', 'FL'],
+        ['Georgia', 'GA'],
+        ['Hawaii', 'HI'],
+        ['Idaho', 'ID'],
+        ['Illinois', 'IL'],
+        ['Indiana', 'IN'],
+        ['Iowa', 'IA'],
+        ['Kansas', 'KS'],
+        ['Kentucky', 'KY'],
+        ['Louisiana', 'LA'],
+        ['Maine', 'ME'],
+        ['Maryland', 'MD'],
+        ['Massachusetts', 'MA'],
+        ['Michigan', 'MI'],
+        ['Minnesota', 'MN'],
+        ['Mississippi', 'MS'],
+        ['Missouri', 'MO'],
+        ['Montana', 'MT'],
+        ['Nebraska', 'NE'],
+        ['Nevada', 'NV'],
+        ['New Hampshire', 'NH'],
+        ['New Jersey', 'NJ'],
+        ['New Mexico', 'NM'],
+        ['New York', 'NY'],
+        ['North Carolina', 'NC'],
+        ['North Dakota', 'ND'],
+        ['Ohio', 'OH'],
+        ['Oklahoma', 'OK'],
+        ['Oregon', 'OR'],
+        ['Pennsylvania', 'PA'],
+        ['Rhode Island', 'RI'],
+        ['South Carolina', 'SC'],
+        ['South Dakota', 'SD'],
+        ['Tennessee', 'TN'],
+        ['Texas', 'TX'],
+        ['Utah', 'UT'],
+        ['Vermont', 'VT'],
+        ['Virginia', 'VA'],
+        ['Washington', 'WA'],
+        ['West Virginia', 'WV'],
+        ['Wisconsin', 'WI'],
+        ['Wyoming', 'WY'],
+    ];
+	input = input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	for(i = 0; i < states.length; i++){
+		if(states[i][0] == input){
+			return(states[i][1]);
+		}
+	}
+}
+
+//Handle completion of the form
+function handelFlowComplete() {
+	return $.ajax({
+		url:'https://illdrive.it/api/warranty/flow/completed',
+		type: "POST",
+		data: user,
+		dataType: "json",
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	});
+}
+
+function english_ordinal_suffix(dt) {
+	return dt.getDate()+(dt.getDate() % 10 == 1 && dt.getDate() != 11 ? 'st' : (dt.getDate() % 10 == 2 && dt.getDate() != 12 ? 'nd' : (dt.getDate() % 10 == 3 && dt.getDate() != 13 ? 'rd' : 'th'))); 
 }

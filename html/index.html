@@ -8,7 +8,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-
 	</head>
 	<body>
 		<header>
@@ -38,7 +37,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="warranty.html">
+								<a href="forcefield/">
 									<div>
 										<img class="img-responsive" src="images/warrantyitem.png" alt="Ill drive">
 									</div>
@@ -100,7 +99,7 @@
 						START DRIVING <strong>TODAY</strong>
 					</div>
 					<div class="topright-bullet bullet">
-						<a href="warranty.html">
+						<a href="forcefield/">
 							<img src="images/icongraf2.png" />
 							<span class="mobiledesc">FORCEFIELD</span>
 						</a>
@@ -173,7 +172,7 @@
 					</a>
 				</div>
 				<div class="col-md-2 content-bottom-img contentmain-img">
-					<a class="img-circle" href="warranty.html">
+					<a class="img-circle" href="forcefield/">
 						<img class="img-responsive" src="images/icongraf2.png">
 					</a>
 				</div>
@@ -228,5 +227,21 @@
 		</section> -->
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+		$(document).ready(function(){
+	$('.stripemenu').on('click', function(){
+		$(this).next('ul').slideToggle();
+	});
+	
+	var clickHandler = "click";
+	if('ontouchstart' in document.documentElement){
+		clickHandler = "touchstart";
+	}
+	$(".hovereffect").bind(clickHandler,function(){
+		$(this).toggleClass('showhover');
+	});
+	
+});
+		</script>
 	</body>
 </html>

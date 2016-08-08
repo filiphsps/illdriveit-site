@@ -1,0 +1,58 @@
+<div class="contract">
+    <article>
+        <h1>SERVICE CONTRACT FINANCE AND ASSIGNMENT AGREEMENT </h1>
+
+        <div class="table">
+            <div class="col-1">
+                <span><b>Contract NR:</b> {{contract_id}}</span>
+            </div>
+            <div class="col-1">
+                <span><b>BUYER:</b> {{first_name}} {{last_name}}</span>
+                <span><b>ADDRESS:</b> {{address}}</span>
+                <span><b>CITY:</b>{{city}}</span>
+                <span><b>STATE:</b>{{state}}</span>
+                <span><b>ZIP:</b>{{zip_code}}</span>
+                <span><b>PHONE:</b>{{phone}}</span>
+            </div>
+        </div>
+
+        <p>
+            BUYER has on this date purchased from the undersigned Seller a Service Contract and to secure full payment of all the indebtedness
+            of Buyer hereunder, and assigns to Seller any return premiums from the insurance thereon and any refunds arising from
+            cancellation of said Service Contract. <br/>
+
+            <h3>Your Payment Schedule Will Be:</h3>
+            Number of payments: {{payments_nr}}<br/>
+            Amount of payments: {{monthly}}$<br/>
+            When payments are due: The 21st each month.
+
+            <h3>Late Charge</h3>
+            If a payment is not paid in full within 10 days after it is due, you will pay a late charge equal to the lesser of
+            5% of the late payment or $5.00, but not less than $1.00.
+
+            <h3>Prepayment</h3>
+            If you pay off early, you may be entitled to a refund of part of the finance charge.
+            See the remainder of this agreement, including the reverse side, for more information about nonpayment, default, any
+            required repayment in full before the scheduled date, prepayment refunds and penalties. <br/>
+
+            Buyer promises to pay the total of payments in installments as
+            disclosed above and acknowledges receipt of an exact copy of
+            this agreement. <br/><br/>
+
+            NOTICE TO BUYER: (1) Do not sign this agreement before you read it or if it contains any blank spaces. (2) You are entitled to an
+            exact copy of the agreement you sign. (3) Under the law you have the right to pay off in advance the full amount due and under
+            certain circumstances obtain a partial refund of the finance charge. Such refund shall be an amount equal to the unearned finance
+            charge determined in accordance with the "Rule of 78's".
+            NOTICE: Any holder of this agreement is subject to all claims and defenses which the Debtor could assert against the seller of goods or
+            services obtained pursuant hereto or with the proceeds hereof. Recovery hereunder of the Debtor shall not exceed amount paid by the
+            Debtor hereunder.
+            This Service Contract Finance and Assignment Agreement has been Assigned to BMO Harris Bank, N.A. as collateral.
+            The terms on the front and reverse side hereof, including Federal Truth-In-Lending Disclosures, are part of this Agreement
+        </p>
+        
+        <div class="signature hidden"><img src="{{sign_url}}"/></div>
+        <div id="signmarker" class="signmarker hidden">Click here to sign</div>
+        <div class="nextmarker hidden">Next</div>
+        <div class="signarea">Purchaser’s Signature</div>
+    </article>
+</div>
