@@ -379,7 +379,7 @@ function ajax(f, obj){
 	switch(f){
 		case 'plans':
 			$.ajax({
-				url:'https://high-quality.tech/illdriveit/warranty/plans',
+				url:'https://illdrive.it/api/warranty/plans',
 				type: "GET",
 				data: obj,
 				dataType : "json",
@@ -399,7 +399,7 @@ function ajax(f, obj){
 		break;
 		case 'verifyzip':
 			$.ajax({
-	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
+	        	url:'https://illdrive.it/api/warranty/verifyzip',
 				type: "POST",
 				data: obj,
 				contentType: "application/json",
@@ -431,7 +431,7 @@ function ajax(f, obj){
 			console.log(obj);
 			var run = false;
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
+			    url:'https://illdrive.it/api/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
@@ -565,7 +565,7 @@ function ajax(f, obj){
 		break;
 		case 'vehiclename':
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/vehiclename',
+			    url:'https://illdrive.it/api/warranty/vehiclename',
 				type: "GET",
 				data: obj,
 				dataType : "jsonp",
@@ -584,7 +584,7 @@ function ajax(f, obj){
 		break;
 		case 'emailtonotify':
 			$.ajax({
-                url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
+                url:'https://illdrive.it/api/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
 				dataType : "json",
@@ -799,7 +799,7 @@ function abbrState (input, to) {
 //Handle completion of the form
 function handelFlowComplete() {
 	return $.ajax({
-		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
+		url:'https://illdrive.it/api/warranty/flow/completed',
 		type: "POST",
 		data: user,
 		dataType: "json",
