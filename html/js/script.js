@@ -505,7 +505,7 @@ function ajax(f, obj){
 								);
 							}
 
-							$('.eachsignature').on('click', function (e) {
+							$('body').on('click', '.eachsignature', function (e) {
 								if($(this).hasClass('completed'))
 									return;
 
