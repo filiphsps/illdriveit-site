@@ -56,7 +56,7 @@ $(document).ready(function(){
 			if(mnt.val().length > 0 && mnt.val().length < 2)
 				mnt.val('0' + mnt.val());
 
-			if(year.val().length > 0 && year.val().length < 4)
+			if(year.val().length > 0 && year.val().length < 3)
 				year.val('20' + year.val());
 
 			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			if(mnt.val().length > 0 && mnt.val().length < 2)
 				mnt.val('0' + mnt.val());
 
-			if(year.val().length > 0 && year.val().length < 4)
+			if(year.val().length > 0 && year.val().length < 3)
 				year.val('20' + year.val());
 
 			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
@@ -472,12 +472,18 @@ function ajax(f, obj){
 								'</div>'
 							);
 							if(user.state)
-								$('#signaturebuttons').append(
-									'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
-										'<span class="checkicon"></span>' +
-										'<h5>' + user.state + '<br/>Disclosure</h5>' +
-									'</div>'
-								);
+								ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
+									if(!exists)
+										return;
+									
+									$('#signaturebuttons').append(
+										'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+											'<span class="checkicon"></span>' +
+											'<h5>' + user.state + '<br/>Disclosure</h5>' +
+										'</div>'
+									);
+								});
+							
 							if(user.monthly) {
 								$('#signaturebuttons').append(
 									'<div data-uri="FINC_AGR" class="eachsignature">' +

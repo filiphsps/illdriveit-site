@@ -33,5 +33,21 @@ var ContractManager = {
         } catch(ex) {
             callback(ex);
         }
+    },
+
+    ExistsContract: function (uri, callback) {
+        try {
+            return $.ajax({
+                type: 'GET',
+                url: '../contracts/' + uri + '.html',
+                cache: false
+            }).done(function () {
+                callback(true);
+            }).fail(function () {
+                callback(false);
+            });
+        } catch(ex) {
+            callback(false);
+        }
     }
 }
