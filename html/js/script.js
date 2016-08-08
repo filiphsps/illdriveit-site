@@ -56,7 +56,7 @@ $(document).ready(function(){
 			if(mnt.val().length > 0 && mnt.val().length < 2)
 				mnt.val('0' + mnt.val());
 
-			if(year.val().length > 0 && year.val().length < 3)
+			if(year.val().length > 1 && year.val().length < 3)
 				year.val('20' + year.val());
 
 			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			if(mnt.val().length > 0 && mnt.val().length < 2)
 				mnt.val('0' + mnt.val());
 
-			if(year.val().length > 0 && year.val().length < 3)
+			if(year.val().length > 1 && year.val().length < 3)
 				year.val('20' + year.val());
 
 			if(cc.val().length < 19 || fn.val().length < 0 || ln.val().length < 0 || !terms) {
