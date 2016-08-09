@@ -505,7 +505,7 @@ function ajax(f, obj){
 								);
 							}
 
-							$('body').on('click', '.eachsignature', function (e) {
+							$('body').on('click touchstart', '.eachsignature', function (e) {
 								if($(this).hasClass('completed'))
 									return;
 
