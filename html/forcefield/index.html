@@ -410,7 +410,7 @@
 				</figure>
 			</div>
 			<div class="col-md-12 input">
-				<input class="full-width-fill" type="text" name="vin" required placeholder="ENTER VIN NUMBER" >
+				<input class="full-width-fill" type="text" name="vin" required placeholder="ENTER VIN NUMBER" minlength="17">
 			</div>
 			<div class="col-md-12 next next-action-block hide-button">
 				<a  class="img-circle">
@@ -1239,10 +1239,9 @@ $(document).ready(function(){
             var heightwind = $(window).height();
         	var widthwind = $(window).width();
         	$(".section-screen-height").css("height",heightwind);
-        	$(".section-screen-height.section-height-header").css("height",heightwind - 75);
+        	$(".section-screen-height.section-height-header").css("height", heightwind - 75);
         	$(".vertical-align-screen-height").css("width",widthwind);
         	$('#warranty').height($(window).height() - $('header').outerHeight() -$('#forcefield #covers').outerHeight());
-
         }
     });
 });
