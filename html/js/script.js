@@ -471,10 +471,10 @@ function ajax(f, obj){
 									'<h5>Start<br/>here</h5>' +
 								'</div>'
 							);
-							if(user.state)
-								ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
-									if(!exists)
-										return;
+							//if(user.state)
+							//	ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
+							//		if(!exists)
+							//			return;
 									
 									$('#signaturebuttons').append(
 										'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
@@ -482,7 +482,7 @@ function ajax(f, obj){
 											'<h5>' + user.state + '<br/>Disclosure</h5>' +
 										'</div>'
 									);
-								});
+							//	});
 							
 							if(user.monthly) {
 								$('#signaturebuttons').append(
@@ -505,7 +505,7 @@ function ajax(f, obj){
 								);
 							}
 
-							$('body').on('click touchstart', '.eachsignature', function (e) {
+							$('.eachsignature').on('click touchstart', function (e) {
 								if($(this).hasClass('completed'))
 									return;
 
