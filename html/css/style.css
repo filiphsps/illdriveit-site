@@ -4041,7 +4041,7 @@ input{-webkit-appearance:none !important;}
 	.range-values span.selected {top: 0 !important;}
 	.input-range{margin-top:10px !important;}
 	body .yearsandmiles span { font-size: 30px !important;}
-	.rightcontent span.years, .rightcontent span.milagetit { font-size: 17px !important;  font-family: "CenturyGothicBold"; line-height:16px !important; padding-top:4px !important;}
+	.rightcontent span.years, .rightcontent span.milagetit { font-size: 13px !important;  font-family: "CenturyGothicBold"; line-height:14px !important; padding-top:4px !important;}
 	.mobilemonths { font-size: 12px !important;}
 	#listing.block4 .leftcontent.yearsandmiles { margin-bottom: 20px !important;}
 	#decision h3 {font-size: 43px !important;}
