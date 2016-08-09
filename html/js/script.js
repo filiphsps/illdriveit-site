@@ -530,7 +530,7 @@ function ajax(f, obj){
 							});
 
 							//Handle signmarker click
-							$('#contract-viewer').on('click', '.signmarker', function (e) {
+							$('#contract-viewer').on('click touchstart', '.signmarker', function (e) {
 								$('.eachsignature.current').removeClass('current')
 									.addClass('completed');
 
@@ -541,7 +541,7 @@ function ajax(f, obj){
 							});
 
 							//Handle nextmarker click
-							$('#contract-viewer').on('click', '.nextmarker', function (e) {
+							$('#contract-viewer').on('click touchstart', '.nextmarker', function (e) {
 								$('.nextmarker').addClass('hidden');
 								$('.eachsignature:not(".completed"):first').click();
 

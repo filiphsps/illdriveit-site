@@ -3673,6 +3673,7 @@ a {
 	height: 145px;
 	margin-right: 10px;
 	width: 145px;
+	cursor: pointer;
 }
 .eachsignature h5 {
   font-size: 18px;
