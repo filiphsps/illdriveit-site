@@ -471,18 +471,14 @@ function ajax(f, obj){
 									'<h5>Start<br/>here</h5>' +
 								'</div>'
 							);
-							//if(user.state)
-							//	ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
-							//		if(!exists)
-							//			return;
-									
-									$('#signaturebuttons').append(
-										'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
-											'<span class="checkicon"></span>' +
-											'<h5>' + user.state + '<br/>Disclosure</h5>' +
-										'</div>'
-									);
-							//	});
+
+							
+							$('#signaturebuttons').append(
+								'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+									'<span class="checkicon"></span>' +
+									'<h5>' + user.state + '<br/>Disclosure</h5>' +
+								'</div>'
+							);
 							
 							if(user.monthly) {
 								$('#signaturebuttons').append(
