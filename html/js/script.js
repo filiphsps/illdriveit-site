@@ -298,9 +298,9 @@ function parse_data(block){
 		$('.listing_year').text(listing.year);
 		$('.listing_mileage').text(listing.mileage);
 		$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
-		$('.listing_downpayment').text('$'+ Math.round(get_cent(listing.downpayment)));
-		$('.listing_monthlyprice').text('$'+ Math.round(get_cent(listing.monthlyPrice)));
-		$('.total-payment .amount').text((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths)).toLocaleString('en-US', {
+		$('.listing_downpayment').text('$'+ get_cent(listing.downpayment));
+		$('.listing_monthlyprice').text('$'+ get_cent(listing.monthlyPrice));
+		$('.total-payment .amount').text(Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))).toLocaleString('en-US', {
             style: 'currency',
             currency: 'USD'
         }));
@@ -472,7 +472,7 @@ function ajax(f, obj){
 								'</div>'
 							);
 
-							
+
 							$('#signaturebuttons').append(
 								'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
 									'<span class="checkicon"></span>' +

@@ -3863,7 +3863,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	
 	.title-termsconditions {font-size: 23px;}
 	
-	body .plus-onlydesktop h3 span.yearsdat,body .plus-onlydesktop h3 span.milagetxt {font-size: 37px !important;}
+	body .plus-onlydesktop h3 span.yearsdat,body .plus-onlydesktop h3 span.milagetxt {font-size: 32px !important;}
 }
 @media (max-width:768px){
 	.homepagemobile h2{margin-top:0 !important;}
