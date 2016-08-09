@@ -123,6 +123,14 @@ $(document).ready(function(){
 			}
 	});
 
+	//Handle enter btn
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			$(".next-action-block").not(".disabled, .hide-button, .hidden").click();
+			$(".next-custom-block").not(".disabled, .hide-button, .hidden").click();
+		}
+	});
+
 	//Handle clear button click
 	$('#clear-btn').on('click', function () {
 		$('.sigPad').signaturePad().clearCanvas();
