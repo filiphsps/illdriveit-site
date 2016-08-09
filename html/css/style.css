@@ -4034,7 +4034,7 @@ input{-webkit-appearance:none !important;}
 #thankyou.block10 #address .col-md-8.billing { position: relative;  z-index: 9999;}
 #mbpi.block13 .row div:first-child h2.all-done.noonmobile { margin-top: 110px !important;}
 @media (min-width:380px) and (max-width:480px){
-	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 35px !important;}
+	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 30px !important;}
 	.rightcontent span.years, .rightcontent span.milagetit { font-size: 13px !important;  line-height: 15px !important;  padding-top: 5px !important;}
 	#listing.block4 h2.blue-title {font-size: 30px !important; margin-top:25px !important;}
 	.procesbar span {font-size: 25px !important;  line-height: 8px !important;}
