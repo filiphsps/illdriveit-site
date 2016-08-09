@@ -63,6 +63,7 @@ body{
 	.total-payment {
 		font-size: 30px;
 		padding-top: 25px;
+		bottom: 0;
 	}
 }
 @media (max-width: 575px) {
