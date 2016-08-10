@@ -29,6 +29,8 @@ var ContractManager = {
                 return $(id).html(contract).promise().done(function(){
                     callback(null, true);
                 });
+            }).fail(function ( u1, u2, err) {
+                callback(err);
             });
         } catch(ex) {
             callback(ex);

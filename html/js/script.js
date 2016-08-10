@@ -126,8 +126,8 @@ $(document).ready(function(){
 	//Handle enter btn
 	$(document).keypress(function(e) {
 		if(e.which == 13) {
-			$(".next-action-block").not(".disabled, .hide-button, .hidden").click();
-			$(".next-custom-block").not(".disabled, .hide-button, .hidden").click();
+			//$(".next-action-block").not(".disabled, .hide-button, .hidden").click();
+			//$(".next-custom-block").not(".disabled, .hide-button, .hidden").click();
 		}
 	});
 
@@ -517,7 +517,18 @@ function ajax(f, obj){
 
 								//Jump to sign point
 								if($(this).data('uri'))
-									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function () {
+									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function (err, res) {
+										if (err) {
+											$('.eachsignature.current').removeClass('current').addClass('completed');
+											$('.eachsignature:not(".completed"):first').click();
+
+											//Handle completion of all signing
+											if($('#signaturebuttons').children().not('.completed').length < 1) {
+												$('#ac_force').removeClass('hidden');
+											}
+											return;
+										}
+
 										$('.signmarker').removeClass('hidden');
 										$('#contract-viewer').scrollTop($('#contract-viewer').height())
 										location.hash = '#l';
