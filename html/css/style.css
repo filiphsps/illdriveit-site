@@ -12,10 +12,10 @@
 }
 body{
 	font-family: "Century Gothic";
+	overflow-x: hidden;
 	color:#10153c;
     -webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
 }
 
 #clear-btn {
@@ -63,6 +63,7 @@ body{
 	.total-payment {
 		font-size: 30px;
 		padding-top: 25px;
+		bottom: 0;
 	}
 }
 @media (max-width: 575px) {
@@ -1266,10 +1267,6 @@ a.img-circle>img{
 }
 .leftcontent hr {
 	border-top: 10px solid #60BA46;
-}
-#listing.block4 .clear {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
 }
 
 .rightcontent span.yearsdat, .rightcontent span.milagetxt {
@@ -3673,6 +3670,7 @@ a {
 	height: 145px;
 	margin-right: 10px;
 	width: 145px;
+	cursor: pointer;
 }
 .eachsignature h5 {
   font-size: 18px;
@@ -3865,7 +3863,7 @@ input#agreeterms:checked + label:before, input#agreeterms2:checked + label:befor
 	
 	.title-termsconditions {font-size: 23px;}
 	
-	body .plus-onlydesktop h3 span.yearsdat,body .plus-onlydesktop h3 span.milagetxt {font-size: 37px !important;}
+	body .plus-onlydesktop h3 span.yearsdat,body .plus-onlydesktop h3 span.milagetxt {font-size: 32px !important;}
 }
 @media (max-width:768px){
 	.homepagemobile h2{margin-top:0 !important;}
@@ -4036,14 +4034,14 @@ input{-webkit-appearance:none !important;}
 #thankyou.block10 #address .col-md-8.billing { position: relative;  z-index: 9999;}
 #mbpi.block13 .row div:first-child h2.all-done.noonmobile { margin-top: 110px !important;}
 @media (min-width:380px) and (max-width:480px){
-	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 35px !important;}
+	.rightcontent span.yearsdat, .rightcontent span.milagetxt { font-size: 30px !important;}
 	.rightcontent span.years, .rightcontent span.milagetit { font-size: 13px !important;  line-height: 15px !important;  padding-top: 5px !important;}
 	#listing.block4 h2.blue-title {font-size: 30px !important; margin-top:25px !important;}
 	.procesbar span {font-size: 25px !important;  line-height: 8px !important;}
 	.range-values span.selected {top: 0 !important;}
 	.input-range{margin-top:10px !important;}
 	body .yearsandmiles span { font-size: 30px !important;}
-	.rightcontent span.years, .rightcontent span.milagetit { font-size: 17px !important;  font-family: "CenturyGothicBold"; line-height:16px !important; padding-top:4px !important;}
+	.rightcontent span.years, .rightcontent span.milagetit { font-size: 13px !important;  font-family: "CenturyGothicBold"; line-height:14px !important; padding-top:4px !important;}
 	.mobilemonths { font-size: 12px !important;}
 	#listing.block4 .leftcontent.yearsandmiles { margin-bottom: 20px !important;}
 	#decision h3 {font-size: 43px !important;}

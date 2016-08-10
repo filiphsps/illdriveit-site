@@ -123,6 +123,14 @@ $(document).ready(function(){
 			}
 	});
 
+	//Handle enter btn
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			//$(".next-action-block").not(".disabled, .hide-button, .hidden").click();
+			//$(".next-custom-block").not(".disabled, .hide-button, .hidden").click();
+		}
+	});
+
 	//Handle clear button click
 	$('#clear-btn').on('click', function () {
 		$('.sigPad').signaturePad().clearCanvas();
@@ -298,9 +306,9 @@ function parse_data(block){
 		$('.listing_year').text(listing.year);
 		$('.listing_mileage').text(listing.mileage);
 		$('.listing_mileage_full').text(listing.mileage.substring(0,listing.mileage.length-1)+',000');
-		$('.listing_downpayment').text('$'+ Math.round(get_cent(listing.downpayment)));
-		$('.listing_monthlyprice').text('$'+ Math.round(get_cent(listing.monthlyPrice)));
-		$('.total-payment .amount').text((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths)).toLocaleString('en-US', {
+		$('.listing_downpayment').text('$'+ get_cent(listing.downpayment));
+		$('.listing_monthlyprice').text('$'+ get_cent(listing.monthlyPrice));
+		$('.total-payment .amount').text(Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))).toLocaleString('en-US', {
             style: 'currency',
             currency: 'USD'
         }));
@@ -471,18 +479,14 @@ function ajax(f, obj){
 									'<h5>Start<br/>here</h5>' +
 								'</div>'
 							);
-							if(user.state)
-								ContractManager.ExistsContract('disclosure/' + user.state, function(exists) {
-									if(!exists)
-										return;
-									
-									$('#signaturebuttons').append(
-										'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
-											'<span class="checkicon"></span>' +
-											'<h5>' + user.state + '<br/>Disclosure</h5>' +
-										'</div>'
-									);
-								});
+
+
+							$('#signaturebuttons').append(
+								'<div data-uri="disclosure/' + user.state + '" class="eachsignature">' +
+									'<span class="checkicon"></span>' +
+									'<h5>' + user.state + '<br/>Disclosure</h5>' +
+								'</div>'
+							);
 							
 							if(user.monthly) {
 								$('#signaturebuttons').append(
@@ -505,7 +509,7 @@ function ajax(f, obj){
 								);
 							}
 
-							$('body').on('click', '.eachsignature', function (e) {
+							$('.eachsignature').on('click touchstart', function (e) {
 								if($(this).hasClass('completed'))
 									return;
 
@@ -513,7 +517,18 @@ function ajax(f, obj){
 
 								//Jump to sign point
 								if($(this).data('uri'))
-									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function () {
+									ContractManager.RequestContract($(this).data('uri'), '#contract-viewer', user, function (err, res) {
+										if (err) {
+											$('.eachsignature.current').removeClass('current').addClass('completed');
+											$('.eachsignature:not(".completed"):first').click();
+
+											//Handle completion of all signing
+											if($('#signaturebuttons').children().not('.completed').length < 1) {
+												$('#ac_force').removeClass('hidden');
+											}
+											return;
+										}
+
 										$('.signmarker').removeClass('hidden');
 										$('#contract-viewer').scrollTop($('#contract-viewer').height())
 										location.hash = '#l';
@@ -530,7 +545,7 @@ function ajax(f, obj){
 							});
 
 							//Handle signmarker click
-							$('#contract-viewer').on('click', '.signmarker', function (e) {
+							$('#contract-viewer').on('click touchstart', '.signmarker', function (e) {
 								$('.eachsignature.current').removeClass('current')
 									.addClass('completed');
 
@@ -541,7 +556,7 @@ function ajax(f, obj){
 							});
 
 							//Handle nextmarker click
-							$('#contract-viewer').on('click', '.nextmarker', function (e) {
+							$('#contract-viewer').on('click touchstart', '.nextmarker', function (e) {
 								$('.nextmarker').addClass('hidden');
 								$('.eachsignature:not(".completed"):first').click();
 
