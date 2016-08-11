@@ -1037,7 +1037,7 @@
         </section>
 
         <section id="thank" class="hide action-block block11 section-screen-height">
-            <div class="vertical-align-screen-height">
+            <div class="vertical-align-screen-height container-fluid">
                 <form action="" class="sigPad">
                     <p class="title-block center title-signature">
                         <span>GOT IT! CAN WE HAVE YOUR AUTOGRAPH?!</span> WE WILL USE THIS SIGNATURE TO HELP YOU FILL OUT THE CONTRACT ON THE NEXT PAGE!
@@ -1083,46 +1083,49 @@
                     <div class="row">
                         <div class="col-md-12 blue-title">
                             <h2 class="blue-title">
-                        <span>AWESOME! LET’S TAKE A LOOK</span> AT THE CONTRACT!
-                    </h2>
+                                <span>AWESOME! LET’S TAKE A LOOK</span> AT THE CONTRACT!
+                            </h2>
+                    </div>
+                    <div class="col-md-12 multiplesignatures">
+                        <h3>CLICK THE BUTTONS BELOW TO SIGN YOUR CONTRACT</h3>
+                        <div id='signaturebuttons' class="signaturebuttons"></div>
+                    </div>
+
+                    <div class="controls clear">
+                        <div class="col-md-2 left back back-action-block">
+                            <a class="img-circle">
+                                <img src="../images/back.png">
+                                <span>Back</span>
+                            </a>
                         </div>
-                        <div class="col-md-12 multiplesignatures">
-                            <h3>CLICK THE BUTTONS BELOW TO SIGN YOUR CONTRACT</h3>
-                            <div id='signaturebuttons' class="signaturebuttons"></div>
+
+                        <div class="col-md-8">
+                            <style>
+                                #contract-viewer {
+                                    width: 100%;
+                                    max-width: calc(100vw - 30px);
+                                    height: 500px;
+                                    max-height: 50vh;
+                                    overflow: hidden;
+                                    overflow-y: scroll;
+                                }
+                                .eachsignature.current h5 {
+                                    color: #54bb46 !important;
+                                }
+                                #ac_force.hidden {
+                                    display: block !important;
+                                    visibility: hidden;
+                                }
+                            </style>
+                            <div id="contract-viewer"></div>
                         </div>
-                        <div class="controls">
-                            <div class="col-md-2 back back-action-block">
-                                <a class="img-circle">
-                                    <img src="../images/back.png">
-                                    <span>Back</span>
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <style>
-                                    #contract-viewer {
-                                        width: 100%;
-                                        max-width: calc(100vw - 30px);
-                                        height: 500px;
-                                        max-height: 50vh;
-                                        overflow: hidden;
-                                        overflow-y: scroll;
-                                    }
-                                    .eachsignature.current h5 {
-                                        color: #54bb46 !important;
-                                    }
-                                    #ac_force.hidden {
-                                        display: block !important;
-                                        visibility: hidden;
-                                    }
-                                </style>
-                                <div id="contract-viewer"></div>
-                            </div>
-                            <div class="col-md-2 next">
-                                <a id="ac_force" class="img-circle submit next next-action-block visible-true hidden flow-completion">
-                                    <img src="../images/logo.png">
-                                    <span>ACTIVATE</br>FORCEFIELD</span>
-                                </a>
-                            </div>
+
+                        <div class="next right">
+                            <a id="ac_force" class="img-circle submit next next-action-block visible-true hidden flow-completion">
+                                <img src="../images/logo.png">
+                                <span>ACTIVATE</br>FORCEFIELD</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -58,6 +58,9 @@
     padding: 0; margin: 0;
 }
 
+/* Modules
+===================================== */
+
 /* Animations
 ===================================== */
 @keyframes slide-fade-out-left {
@@ -100,6 +103,17 @@
         background: #10153c;
 
         animation: slide-fade-out-left 750ms forwards ease-in-out;
-        animation-delay: 5000ms;
+        animation-delay: 10000ms;
+    }
+
+    .block12 .back .img-circle {
+        position: absolute;
+        bottom: -20px;
+    }
+}
+@media only screen and (max-width: 634px) {
+    .block12 .back .img-circle {
+        position: absolute;
+        bottom: -40px; left: 0;
     }
 }
