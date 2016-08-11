@@ -1499,17 +1499,6 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: 40px;
     margin-bottom: 50px;
 }
-#address .roundinput input {
-    display: block;
-    border: solid 8px #10153C;
-    height: auto;
-    width: 80%;
-    text-align: center;
-    font-size: 40px;
-    font-weight: normal;
-    margin: 10px auto 20px;
-    color: #10153C;
-}
 #address input::-webkit-input-placeholder {
     color: #10153C;
 }
@@ -1531,11 +1520,11 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 100px;
     margin-bottom: 80px;
 }
-#new-submit {
+.submit-block {
     width: 650px;
     margin: 0 auto;
 }
-#new-submit input {
+.submit-block input {
     display: block;
     border: solid 8px #10153C;
     height: auto;
@@ -1546,15 +1535,15 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 10px auto 20px;
     color: #10153C;
 }
-#new-submit input.half-size-one,
-#new-submit input.half-size-two {
+.submit-block input.half-size-one,
+.submit-block input.half-size-two {
     width: 312px;
 }
-#new-submit .card-info-block input {
+.submit-block .card-info-block input {
     width: 203px;
     margin: 10px 0 20px 20px;
 }
-#new-submit .card-info-block input:first-child {
+.submit-block .card-info-block input:first-child {
     margin: 10px 0 20px 0;
 }
 @media(max-width:650px) {
@@ -1563,15 +1552,15 @@ input[type=range]:focus::-ms-fill-upper {
         font-size: 60px;
         margin-bottom: 30px;
     }
-    #new-submit {
+    .submit-block {
         width: 90%;
         margin: 0 auto;
     }
-    #new-submit input.half-size-one,
-    #new-submit input.half-size-two {
+    .submit-block input.half-size-one,
+    .submit-block input.half-size-two {
         width: 100%;
     }
-    #new-submit .card-info-block input {
+    .submit-block .card-info-block input {
         width: 100%;
         margin: 10px 0 20px 0;
     }
@@ -1987,7 +1976,7 @@ input[type=range]:focus::-ms-fill-upper {
     text-align: center;
     margin: 0 auto;
     width: calc(100vw - 60px);
-    max-width: 920px;
+    max-width: 1020px;
 }
 .controls .back {
     position: relative;
@@ -3114,9 +3103,7 @@ h5 {
     .input .full-width-fill {
         padding: 10px;
     }
-    #address .roundinput.billing input,
-    #forcefield .roundinput input,
-    #address .roundinput input {
+    #forcefield .roundinput input {
         font-size: 20px;
         width: 100%;
         padding: 10px;
@@ -3128,7 +3115,6 @@ h5 {
     }
     #address .roundinput .zipcode,
     #forcefield .roundinput input,
-    #address .roundinput input,
     #address .roundinput .city,
     #address .roundinput .state {
         float: left;
@@ -3804,10 +3790,7 @@ h5 {
         line-height: 50px;
     }
     #address .roundinput .zipcode,
-    #forcefield .roundinput input,
-    #address .roundinput input,
-    #address .roundinput .city,
-    #address .roundinput .state {
+    #forcefield .roundinput input {
         border-left: 0 none;
         border-right: 0 none;
         border-top: 0 none;
@@ -3884,7 +3867,7 @@ h5 {
         margin-bottom: 40px;
         margin-top: 0;
     }
-    #new-submit input {
+    .submit-block input {
         border: 4px solid #10153c;
         border-right: 0 !important;
         border-left: 0 !important;
@@ -3953,19 +3936,19 @@ h5 {
         margin-right: auto;
         width: 86% !important;
     }
-    #address .card-info-block input:last-child {
+    .card-info-block input:last-child {
         margin-right: 0 !important;
     }
-    #address .card-info-block input {
+    .card-info-block input {
         font-size: 20px !important;
         margin-right: 5% !important;
         width: 30% !important;
     }
-    #address input.half-size-one {
+    input.half-size-one {
         margin-right: 4% !important;
     }
-    #address input.half-size-one,
-    #address input.half-size-two {
+    input.half-size-one,
+    input.half-size-two {
         float: left;
         width: 48%;
         font-size: 27px;
@@ -3976,18 +3959,6 @@ h5 {
     #address .form-info input,
     .input-block.notify input {
         font-size: 28px;
-    }
-    #thankyou .roundinput .city,
-    #thankyou .roundinput .state {
-        float: left !important;
-        font-size: 20px !important;
-        margin-right: 5% !important;
-        width: 30% !important;
-    }
-    #thankyou .roundinput .zipcode {
-        float: left !important;
-        font-size: 20px !important;
-        width: 30% !important;
     }
     #thankyou .roundinput input[name="first_name"],
     #thankyou .roundinput input[name="last_name"] {
@@ -4306,21 +4277,21 @@ h5 {
     #address .billing h3 {
         font-size: 48px;
     }
-    #new-submit {
+    .submit-block {
         width: 100%;
     }
-    #address.block9 .container-fluid {
+    #address .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    #address input.half-size-one,
-    #address input.half-size-two {
+    input.half-size-one,
+    input.half-size-two {
         font-size: 20px;
     }
-    #address .card-info-block input {
+    .card-info-block input {
         font-size: 14px;
     }
-    #new-submit input {
+    .submit-block input {
         font-size: 24px;
     }
     .controls .button-clear, .controls .button-clear .img-circle {
@@ -4348,13 +4319,6 @@ h5 {
     }
     #thankyou .roundinput input[name="card_number"] {
         font-size: 21px !important;
-    }
-    #thankyou .roundinput .city,
-    #thankyou .roundinput .state,
-    #thankyou .roundinput .zipcode {
-        font-size: 11px !important;
-        padding-left: 6px !important;
-        padding-right: 6px !important;
     }
     #thank.e-block1 p.title-block,
     #thank.e-block2 p.title-block,
@@ -4678,7 +4642,7 @@ input#txtList:-ms-input-placeholder {
     display: table;
     margin-bottom: -190px;
 }
-#address.block9 .next.submit a {
+#address .next.submit a {
     border: 10px solid #0e173a;
     float: unset;
     height: 145px;
@@ -4704,7 +4668,7 @@ input#txtList:-ms-input-placeholder {
     font-weight: bold;
     cursor: pointer;
 }
-#address.block9 {
+#address {
     margin-bottom: 20px;
 }
 .block10 .back {
@@ -5170,18 +5134,18 @@ input#agreeterms2:checked + label:before {
     #address .form-info .colum-field input:nth-child(2) {
         margin: 0 3.5%;
     }
-    #new-submit {
+    .submit-block {
         width: 60%;
     }
-    #new-submit input.half-size-one,
-    #new-submit input.half-size-two {
+    .submit-block input.half-size-one,
+    .submit-block input.half-size-two {
         width: 48%;
     }
-    #new-submit .card-info-block input {
+    .submit-block .card-info-block input {
         margin: 10px 0 20px;
         width: 31%;
     }
-    #new-submit .card-info-block input:nth-child(2) {
+    .submit-block .card-info-block input:nth-child(2) {
         margin: 10px 3.5%;
     }
     .title-signature {
@@ -5196,9 +5160,6 @@ input#agreeterms2:checked + label:before {
     }
     #thankyou .col-md-8 {
         max-width: 60%;
-    }
-    #address .roundinput input {
-        width: 100%;
     }
     .block10 .card-info-block input {
         width: 31% !important;
@@ -5274,7 +5235,7 @@ input#agreeterms2:checked + label:before {
     .col-md-8.auto-center.clear.billing {
         margin-bottom: 0;
     }
-    #new-submit {
+    .submit-block {
         width: 80%;
     }
     #forcefield .roundinput input {
@@ -5284,7 +5245,7 @@ input#agreeterms2:checked + label:before {
         margin-bottom: 0;
     }
     #thankyou .col-md-8 {
-        max-width: 80%;
+        max-width: 100%;
     }
     .agreeterm {
         margin-left: 0 !important;
@@ -5401,15 +5362,15 @@ input#agreeterms2:checked + label:before {
         margin: 0 0 25px !important;
         width: 100% !important;
     }
-    #new-submit input.half-size-one,
-    #new-submit input.half-size-two {
+    .submit-block input.half-size-one,
+    .submit-block input.half-size-two {
         width: 100%;
     }
-    #new-submit .card-info-block input {
+    .submit-block .card-info-block input {
         margin: 0 0 25px !important;
         width: 100% !important;
     }
-    #address.block9 .next.submit a {
+    #address .next.submit a {
         height: 123px;
         width: 123px;
     }
@@ -5445,14 +5406,6 @@ input#agreeterms2:checked + label:before {
     #thankyou .roundinput input[name="last_name"] {
         width: 100%;
     }
-    #thankyou .roundinput .city,
-    #thankyou .roundinput .state {
-        margin: 0 0 20px !important;
-        width: 100% !important;
-    }
-    #thankyou .roundinput .zipcode {
-        width: 100% !important;
-    }
     #mbpi .col-md-2 {
         width: 100%;
     }
@@ -5472,13 +5425,6 @@ input#agreeterms2:checked + label:before {
     .block12 iframe {
         height: 300px;
         overflow-y: scroll;
-    }
-    body .block10 .card-info-block input {
-        margin: 0 0 20px !important;
-        width: 100% !important;
-    }
-    .block10 .card-info-block input:nth-child(2) {
-        margin: 0 0 20px !important;
     }
     .title-termsconditions {
         font-size: 23px;
@@ -5650,7 +5596,7 @@ input#agreeterms2:checked + label:before {
     #forcefield.block6 h2,
     #address h2,
     #forcefield.block8 h2,
-    #address.block9 h2,
+    #address h2,
     #thank.block11 p.title-block #thankyou.block11 h2 {
         font-size: 18px !important;
         line-height: unset !important;
@@ -5670,10 +5616,10 @@ input#agreeterms2:checked + label:before {
         font-size: 60px;
         margin-bottom: 20px;
     }
-    #address .card-info-block input {
+    .card-info-block input {
         font-size: 15px !important;
     }
-    #address.block9 .next.submit a {
+    #address .next.submit a {
         border-width: 6px;
         height: 80px;
         width: 80px;
@@ -5684,10 +5630,10 @@ input#agreeterms2:checked + label:before {
     .agreediv {
         font-size: 10px;
     }
-    #new-submit input {
+    .submit-block input {
         margin: 0 auto 10px;
     }
-    #new-submit .card-info-block input {
+    .submit-block .card-info-block input {
         margin: 0 0 10px !important;
     }
     .block12 iframe {
@@ -5812,7 +5758,7 @@ input#agreeterms2:checked + label:before {
     #forcefield.block8 input {
         font-size: 28px !important;
     }
-    #address.block9 .fontsize-onmobile {
+    #address .fontsize-onmobile {
         display: table;
         font-size: 25px !important;
         text-align: center;
@@ -5833,17 +5779,17 @@ input#agreeterms2:checked + label:before {
     #thankyou.block10 .fontsize-onmob-thank {
         font-size: 25px !important;
     }
-    #new-submit input.half-size-one,
-    #new-submit input.half-size-two {
+    .submit-block input.half-size-one,
+    .submit-block input.half-size-two {
         width: 48%;
     }
-    #new-submit .card-info-block input:nth-child(2) {
+    .submit-block .card-info-block input:nth-child(2) {
         margin: 0 3.5% !important;
     }
-    #new-submit .card-info-block input {
+    .submit-block .card-info-block input {
         width: 31% !important;
     }
-    #new-submit input[name="card_number"] {
+    .submit-block input[name="card_number"] {
         font-size: 22px !important;
     }
     .sig {
@@ -5916,18 +5862,6 @@ input#agreeterms2:checked + label:before {
     .sig canvas {
         transform: none !important;
     }
-    #thankyou #address .card-info-block input:nth-child(2) {
-        margin: 0 3.5% !important;
-    }
-    #thankyou #address .card-info-block input {
-        font-size: 13px !important;
-        padding: 10px 0 !important;
-        width: 31% !important;
-    }
-    #thankyou #address .col-md-8 > input {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
     #address .roundinput.billing h3 {
         margin-bottom: 25px;
     }
@@ -5980,8 +5914,8 @@ input#agreeterms2:checked + label:before {
     #address.block7 .form-info input {
         font-size: 25px !important;
     }
-    #address input.half-size-one,
-    #address input.half-size-two {
+    input.half-size-one,
+    input.half-size-two {
         font-size: 20px !important;
     }
     .block12 iframe {
@@ -6164,6 +6098,9 @@ input {
 #mbpi.block13 .row div:first-child h2.all-done.noonmobile {
     margin-top: 110px !important;
 }
+input[name="card_number"] {
+    width: 100% !important;
+}
 @media (min-width: 380px) and (max-width: 480px) {
     .rightcontent span.yearsdat,
     .rightcontent span.milagetxt {
@@ -6267,7 +6204,7 @@ input {
     #forcefield.block6 .roundinput input::-webkit-input-placeholder,
     #address.block7 input::-webkit-input-placeholder,
     #forcefield.block8 input::-webkit-input-placeholder,
-    #address.block9 input::-webkit-input-placeholder,
+    #address input::-webkit-input-placeholder,
     #thankyou.block10 #address input::-webkit-input-placeholder {
         color: #80807f !important;
     }
@@ -6334,27 +6271,27 @@ input {
         margin-bottom: 35px !important;
         margin-top: 13px !important;
     }
-    #address input.half-size-one,
-    #address input.half-size-two {
+    input.half-size-one,
+    input.half-size-two {
         font-size: 25px !important;
     }
-    #new-submit input[name="card_number"] {
+    .submit-block input[name="card_number"] {
         font-size: 28px !important;
         text-align: center;
     }
-    #address .card-info-block input {
+    .card-info-block input {
         font-size: 18px !important;
     }
-    #address.block9 .agreediv {
+    #address .agreediv {
         margin-bottom: 8px !important;
         margin-top: 15px;
     }
-    #address.block9 h2.blue-title {
+    #address h2.blue-title {
         font-size: 30px !important;
         margin-top: 38px !important;
         line-height: 35px !important;
     }
-    #new-submit {
+    .submit-block {
         width: 92% !important;
     }
     .agreeterm {
@@ -6448,9 +6385,6 @@ input {
     }
     #thankyou.block10 #address input[name="card_number"] {
         font-size: 29px !important;
-    }
-    #thankyou #address .card-info-block input {
-        font-size: 17px !important;
     }
     .agreediv > a {
         font-size: 10px !important;
