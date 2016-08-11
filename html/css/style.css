@@ -1976,7 +1976,7 @@ input[type=range]:focus::-ms-fill-upper {
     text-align: center;
     margin: 0 auto;
     width: calc(100vw - 60px);
-    max-width: 1020px;
+    max-width: 1220px;
 }
 .controls .back {
     position: relative;
@@ -4826,18 +4826,6 @@ input#txtList:-ms-input-placeholder {
 .new-card-from.hide {
     position: relative;
     z-index: 9999;
-}
-.block10 .card-info-block input:nth-child(2) {
-    margin: 10px 30px !important;
-}
-.block10 .card-info-block input {
-    float: left;
-    margin: 10px 0 !important;
-    width: 203px !important;
-}
-.block10 .clear.card-info-block {
-    display: table;
-    margin: 0 auto;
 }
 input {
     background: transparent;

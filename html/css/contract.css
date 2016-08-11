@@ -10,6 +10,7 @@
     position: relative;
 }
 .contract article {
+    position: relative;
     padding: 15px;
     margin:  0 0 15px 0;
     border: 5px solid;
@@ -106,7 +107,11 @@
     text-transform: uppercase;
     font-size: 20px;
 }
+.contract .signature {
+    height: 100px;
+}
 .contract .signature img {
-    transform: translateY(45px);
+    position: absolute;
+    bottom: 65px; left: 0;
     max-width: 200px;
 }
