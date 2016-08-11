@@ -5,6 +5,7 @@
     background: #10153c;
     border-color: #10153c;
     color: #fff;
+    box-shadow: 0px 0px 70px 5px rgba(0,0,0,0.46);
 }
 .button:hover {
     background: #60b646;
@@ -26,7 +27,7 @@
     font-size: 18px;
     background: #10153c;
 
-    animation: slide-out-left 750ms forwards ease-in-out;
+    animation: slide-fade-out-left 750ms forwards ease-in-out;
     animation-delay: 5000ms;
 }
 .button:hover .banner {
@@ -59,8 +60,8 @@
 }
 
 /* Animations
-*/
-@keyframes slide-out-left {
+===================================== */
+@keyframes slide-fade-out-left {
     20% {
         opacity: 1;
     }
