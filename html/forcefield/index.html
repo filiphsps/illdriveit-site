@@ -1353,8 +1353,8 @@
     $(document).ready(function () {
         var heightwind = $(window).height();
         var widthwind = $(window).width();
-        $(".section-screen-height").css("height", heightwind);
-        $(".section-screen-height.section-height-header").css("height", heightwind - 75);
+        //$(".section-screen-height").css("height", heightwind);
+        //$(".section-screen-height.section-height-header").css("height", heightwind - 75);
         $(".vertical-align-screen-height").css("width", widthwind);
         $('#warranty').height($(window).height() - $('header').outerHeight() - $('#forcefield #covers').outerHeight());
 
@@ -1362,10 +1362,10 @@
         $(window).resize(function () {
             if ($(window).width() != windowWidth) {
                 windowWidth = $(window).width();
-                var heightwind = $(window).height();
+                //var heightwind = $(window).height();
                 var widthwind = $(window).width();
-                $(".section-screen-height").css("height", heightwind);
-                $(".section-screen-height.section-height-header").css("height", heightwind - 75);
+                //$(".section-screen-height").css("height", heightwind);
+                //$(".section-screen-height.section-height-header").css("height", heightwind - 75);
                 $(".vertical-align-screen-height").css("width", widthwind);
                 $('#warranty').height($(window).height() - $('header').outerHeight() - $('#forcefield #covers').outerHeight());
             }

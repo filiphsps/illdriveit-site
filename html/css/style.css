@@ -47,10 +47,7 @@ body {
     border: 5px solid #60BA46;
 }
 .total-payment {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100vw;
+    width: 100%;
     color: #0E173A;
     font-size: 55px;
     font-weight: 700;
@@ -62,14 +59,12 @@ body {
 @media (max-width: 790px) {
     .total-payment {
         font-size: 30px;
-        padding-top: 25px;
         bottom: 0;
     }
 }
 @media (max-width: 575px) {
     .total-payment {
         font-size: 25px;
-        padding-top: 125px;
     }
 }
 .fix-mage-benefit {
@@ -1917,7 +1912,7 @@ input[type=range]:focus::-ms-fill-upper {
     }
 }
 .action-block {
-    /*display: block !important;*/
+    padding-bottom: 25px;
 }
 .hide-button:not(.visible-true) {
     visibility: hidden;
@@ -1991,16 +1986,9 @@ input[type=range]:focus::-ms-fill-upper {
 .controls {
     text-align: center;
     margin: 0 auto;
-    width: 600px;
+    width: calc(100vw - 60px);
+    max-width: 920px;
 }
-// #address .roundinput.billing input.half-size-one{
-// 	width: 39%;
-//     margin: 0 0 0 84px;
-// }
-// #address .roundinput.billing input.half-size-two{
-// 	width: 39%;
-//     margin: 0 84px 20px 0;
-// }
 .controls .back {
     position: relative;
     display: block;
@@ -4892,8 +4880,9 @@ input {
 }
 .section-screen-height {
     clear: both !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
     width: 100% !important;
 }
 @media (max-width: 400px) {
