@@ -796,8 +796,8 @@
                     <div class="row">
 
                         <div class="col-md-8 auto-center clear roundinput">
-                            <input type="text" name="first_name" placeholder="YOUR FIRST NAME">
-                            <input type="text" name="last_name" placeholder="YOUR LAST NAME">
+                            <input class="input-letters" type="text" name="first_name" placeholder="YOUR FIRST NAME" pattern="[A-Za-z]+">
+                            <input class="input-letters" type="text" name="last_name" placeholder="YOUR LAST NAME" pattern="[A-Za-z]+">
                         </div>
 
                         <div class="controls clear">
@@ -834,6 +834,7 @@
                             <div class="form-info">
                                 <input type="text" name="address1" placeholder="YOUR STREET ADDRESS" maxlength="50" class="form-info-street">
                                 <input type="text" name="address2" placeholder="ADDRESS CONTINUED" maxlength="50" class="form-info-address" notrequired>
+
                                 <div class="colum-field clear">
                                     <input type="text" name="city" class="city" placeholder="CITY">
                                     <input type="text" name="state" class="state" placeholder="STATE" minlength="2" maxlength="2">
@@ -875,7 +876,7 @@
 
                         <div class="col-md-8 auto-center roundinput">
                             <input type="tel" name="phone" placeholder="PHONE NUMBER" minlength="14" maxlength="14">
-                            <input type="email" name="email" placeholder="EMAIL ADDRESS">
+                            <input type="email" name="email" placeholder="EMAIL ADDRESS" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         </div>
 
                         <div class="controls clear">
@@ -913,8 +914,8 @@
                             <h3 class="listing_downpayment">$155.00</h3>
                             <div id="new-submit" class="submit-block">
                                 <div class="clear">
-                                    <input placeholder="FIRST NAME" name="first_name" type="text" class="left half-size-one">
-                                    <input placeholder="LAST NAME" name="last_name" type="text" class="right half-size-two">
+                                    <input placeholder="FIRST NAME" name="first_name" type="text" class="input-letters left half-size-one" pattern="[A-Za-z]+">
+                                    <input placeholder="LAST NAME" name="last_name" type="text" class="input-letters right half-size-two" pattern="[A-Za-z]+">
                                 </div>
                                 <div class="clear">
                                     <input type="tel" pattern="[0-9\-]+" name="card_number" placeholder="ENTER CARD NUMBER">
@@ -993,8 +994,8 @@
 
                                 <div id="new-submit" class="submit-block">
                                     <div class="clear">
-                                        <input placeholder="FIRST NAME" name="first_name" type="text" class="left half-size-one">
-                                        <input placeholder="LAST NAME" name="last_name" type="text" class="right half-size-two">
+                                        <input placeholder="FIRST NAME" name="first_name" type="text" class="input-letters left half-size-one" pattern="[A-Za-z]+">
+                                        <input placeholder="LAST NAME" name="last_name" type="text" class="input-letters right half-size-two" pattern="[A-Za-z]+">
                                     </div>
                                     <div class="clear">
                                         <input type="tel" pattern="[0-9\-]+" name="card_number" placeholder="ENTER CARD NUMBER">

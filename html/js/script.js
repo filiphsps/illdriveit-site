@@ -142,6 +142,12 @@ $(document).ready(function(){
 		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 	});
+	$('.input-letters').on('keyup', function(e) {
+		var val = $(this).val();
+		if (val.match(/[^a-zA-Z]/g)) {
+			$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+		}
+	});
 
 	$('.sigPad').signaturePad({
 		drawOnly:true,
