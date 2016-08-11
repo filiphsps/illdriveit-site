@@ -12,6 +12,7 @@
     color: #fff;
 }
 .button .banner {
+    z-index: -1;
     position: absolute;
     bottom: 15px;
     width: 115px;
@@ -24,6 +25,9 @@
     line-height: 40px;
     font-size: 18px;
     background: #10153c;
+
+    animation: slide-out-left 750ms forwards ease-in-out;
+    animation-delay: 5000ms;
 }
 .button:hover .banner {
     background: #60b646;
@@ -39,6 +43,7 @@
     border-color: #10153c;
 }
 .round-img-button img {
+    z-index: 999;
     display: block;
     width: 50%;
     margin: 18px auto;
@@ -51,4 +56,19 @@
     position: fixed;
     bottom: 15px; left: 15px;
     padding: 0; margin: 0;
+}
+
+/* Animations
+*/
+@keyframes slide-out-left {
+    20% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
 }
