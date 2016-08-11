@@ -257,8 +257,13 @@ $(document).ready(function(){
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 });
 
-function down(speed){
-	$('html,body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
+function down (speed){
+	$('html, body').animate({ 
+		scrollTop: $(document).height()-$(window).height()
+	},
+		speed, 
+		'easeInOutCubic'
+	);
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){

@@ -16,6 +16,14 @@
 *   LIGHT SECONDARY COLOUR: N/A
 */
 
+/* Base
+===================================== */
+html, body {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+}
+
 /* Buttons
 ===================================== */
 .button {
@@ -78,6 +86,18 @@
 
 /* Modules
 ===================================== */
+footer {
+    width: 100%;
+    min-height: 60px;
+    text-align: center;
+}
+footer .copyrights {
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 5px 0;
+    color: #444;
+}
 
 /* Animations
 ===================================== */
