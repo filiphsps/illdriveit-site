@@ -1,3 +1,21 @@
+/*
+*   Rebuilding of the illdrive.it stylesheet
+*   ========================================
+*   There's not a whole lot that can be done before
+*   migrating to a build system with SCSS, TypeScript
+*   etc, but this at least allow us to add new "modules"
+*   in a controlled way.
+*
+*   This is still a lot more hacky than I'd like it to be,
+*   at least it's readable and easy to navigate.
+*
+*
+*   MAIN COLOUR: #10153c
+*   SECONDARY COLOUR: #60b646
+*   LIGHT MAIN COLOUR: N/A
+*   LIGHT SECONDARY COLOUR: N/A
+*/
+
 /* Buttons
 ===================================== */
 .button {
