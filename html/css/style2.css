@@ -1,0 +1,54 @@
+/* Buttons
+===================================== */
+.button {
+    text-transform: uppercase;
+    background: #10153c;
+    border-color: #10153c;
+    color: #fff;
+}
+.button:hover {
+    background: #60b646;
+    border-color: #60b646;
+    color: #fff;
+}
+.button .banner {
+    position: absolute;
+    bottom: 15px;
+    width: 115px;
+    height: 40px;
+    margin: 0 0 0 55px;
+    padding: 0 15px 0 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 18px;
+    background: #10153c;
+}
+.button:hover .banner {
+    background: #60b646;
+}
+.round-img-button {
+    position: relative;
+    display: block;
+    height: 80px;
+    width: 80px;
+    padding: 0; margin: 0;
+    border: 5px solid;
+    border-radius: 50%;
+    border-color: #10153c;
+}
+.round-img-button img {
+    display: block;
+    width: 50%;
+    margin: 18px auto;
+}
+
+/* Containers
+===================================== */
+.call-box {
+    z-index: 9999;
+    position: fixed;
+    bottom: 15px; left: 15px;
+    padding: 0; margin: 0;
+}
