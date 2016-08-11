@@ -1,11 +1,12 @@
 /* Buttons
 ===================================== */
 .button {
+    height: 80px;
+    width: 80px;
     text-transform: uppercase;
     background: #10153c;
     border-color: #10153c;
     color: #fff;
-    box-shadow: 0px 0px 70px 5px rgba(0,0,0,0.46);
 }
 .button:hover {
     background: #60b646;
@@ -36,8 +37,6 @@
 .round-img-button {
     position: relative;
     display: block;
-    height: 80px;
-    width: 80px;
     padding: 0; margin: 0;
     border: 5px solid;
     border-radius: 50%;
@@ -71,5 +70,36 @@
     100% {
         opacity: 0;
         transform: translateX(-50px);
+    }
+}
+
+/* Responsive
+===================================== */
+@media only screen and (max-width: 767px) {
+    .call-box {
+        left: 5px; bottom: 5px;
+        margin: 0 auto;
+    }
+    .call-box .button {
+        height: 40px;
+        width: 40px;
+        margin: 0 auto;
+    }
+    .call-box .round-img-button img {
+        width: 60%;
+        margin: 6px auto;
+    }
+    .call-box .button .banner {
+        bottom: -5px;
+        width: 92px;
+        height: 20px;
+        margin: 0 0 0 15px;
+        padding: 0 15px 0 0;
+        line-height: 20px;
+        font-size: 12px;
+        background: #10153c;
+
+        animation: slide-fade-out-left 750ms forwards ease-in-out;
+        animation-delay: 5000ms;
     }
 }
