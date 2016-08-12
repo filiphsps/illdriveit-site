@@ -1,0 +1,156 @@
+/*
+*   Rebuilding of the illdrive.it stylesheet
+*   ========================================
+*   There's not a whole lot that can be done before
+*   migrating to a build system with SCSS, TypeScript
+*   etc, but this at least allow us to add new "modules"
+*   in a controlled way.
+*
+*   This is still a lot more hacky than I'd like it to be,
+*   at least it's readable and easy to navigate.
+*
+*
+*   MAIN COLOUR: #10153c
+*   SECONDARY COLOUR: #60b646
+*   LIGHT MAIN COLOUR: N/A
+*   LIGHT SECONDARY COLOUR: N/A
+*/
+
+/* Base
+===================================== */
+html, body {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Buttons
+===================================== */
+.button {
+    height: 80px;
+    width: 80px;
+    text-transform: uppercase;
+    background: #10153c;
+    border-color: #10153c;
+    color: #fff;
+}
+.button:hover {
+    background: #60b646;
+    border-color: #60b646;
+    color: #fff;
+}
+.button .banner {
+    z-index: -1;
+    position: absolute;
+    bottom: 15px;
+    width: 115px;
+    height: 40px;
+    margin: 0 0 0 55px;
+    padding: 0 15px 0 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 18px;
+    background: #10153c;
+
+    animation: slide-fade-out-left 750ms forwards ease-in-out;
+    animation-delay: 5000ms;
+}
+.button:hover .banner {
+    background: #60b646;
+}
+.round-img-button {
+    position: relative;
+    display: block;
+    padding: 0; margin: 0;
+    border: 5px solid;
+    border-radius: 50%;
+    border-color: #10153c;
+}
+.round-img-button img {
+    z-index: 999;
+    display: block;
+    width: 50%;
+    margin: 18px auto;
+}
+
+/* Containers
+===================================== */
+.call-box {
+    z-index: 9999;
+    position: fixed;
+    bottom: 15px; left: 15px;
+    padding: 0; margin: 0;
+}
+
+/* Modules
+===================================== */
+footer {
+    width: 100%;
+    min-height: 60px;
+    text-align: center;
+}
+footer .copyrights {
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 5px 0;
+    color: #444;
+}
+
+/* Animations
+===================================== */
+@keyframes slide-fade-out-left {
+    20% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+/* Responsive
+===================================== */
+@media only screen and (max-width: 767px) {
+    .call-box {
+        left: 5px; bottom: 5px;
+        margin: 0 auto;
+    }
+    .call-box .button {
+        height: 40px;
+        width: 40px;
+        margin: 0 auto;
+    }
+    .call-box .round-img-button img {
+        width: 60%;
+        margin: 6px auto;
+    }
+    .call-box .button .banner {
+        bottom: 5px;
+        width: 92px;
+        height: 20px;
+        margin: 0 0 0 15px;
+        padding: 0 15px 0 0;
+        line-height: 20px;
+        font-size: 12px;
+        background: #10153c;
+
+        animation: slide-fade-out-left 750ms forwards ease-in-out;
+        animation-delay: 10000ms;
+    }
+
+    .block12 .back .img-circle {
+        position: absolute;
+        bottom: -20px;
+    }
+}
+@media only screen and (max-width: 634px) {
+    .block12 .back .img-circle {
+        position: absolute;
+        bottom: -40px; left: 0;
+    }
+}

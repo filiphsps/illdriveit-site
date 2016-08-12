@@ -7,7 +7,7 @@
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css"><link rel="stylesheet" type="text/css" href="css/style2.css">
 		<link rel="icon" 
 			type="image/png" 
 			href="https://www.illdrive.it/images/logo.png"/>
@@ -157,94 +157,27 @@
 				</div>
 			</div>
 		</div>
-<!-- 		<section id="home">
-			<div class="container-fluid">
-				<div class="col-lg-4 col-md-4 col-xs-12 col-sm-12  pull-right welcom">
-					<h1><span>HELLO!</span>
-					<img class="img-responsive hello" src="images/wavingman.gif"></h1>
-					<h2>WELCOME TO ILLDRIVE.IT</h2>
-				</div>
-				<div class="col-md-2">&nbsp;</div>
-				<div class="col-md-3 content contentmain">
-					EVERYTHING YOU NEED TO
-					START DRIVING TODAY
-				</div>
-				<div class="col-md-2 content-img contentmain-img">
-					<a class="img-circle" href="inspections/">
-						<img class="img-responsive launcpad" src="images/launcpad.png">
-					</a>
-				</div>
-				<div class="col-md-2 content-bottom-img contentmain-img">
-					<a class="img-circle" href="forcefield/">
-						<img class="img-responsive" src="images/icongraf2.png">
-					</a>
-				</div>
-				<div class="col-md-3 content-bottom contentmain">
-					YOUR FORCEFIELD - LIKE A
-					WARRANTY ON STEROIDS
-				</div>
-				<div class="col-md-3 content-left contentmain">
-					CHECK OUT OUR NEW
-					LOCATIONS
-				</div>
-				<div class="col-md-2 content-left-img contentmain-img">
-					<a class="img-circle" href="locations/">
-						<img class="img-responsive" src="images/icongraf6.png">
-					</a>
-				</div>
-				<div class="col-md-2 content-center-img contentmain-img">
-					<div class="img-circle img-responsive">
-						<span>illdrive</span>
-						<span>.it</span>
-					</div>
-				</div>
-				<div class="col-md-2 content-forth-img contentmain-img">
-					<a class="img-circle" href="#">
-						<img class="img-responsive" src="images/icongraf3.png">
-					</a>
-				</div>
-				<div class="col-md-3 content-forth contentmain">
-					DRIVER TOOLS <br>
-					COMING SUMMER 2016
-				</div>
-				<div class="col-md-3 content-fifth contentmain">
-					DRIVER TRAINING
-					COMING SUMMER 2016
-				</div>
-				<div class="col-md-2 content-fifth-img contentmain-img">
-					<a class="img-circle" href="training/">
-						<img class="img-responsive" src="images/icongraf5.png">
-					</a>
-				</div>
-				<div class="col-md-2 content-six-img contentmain-img">
-					<a class="img-circle" href="#">
-						<img class="img-responsive" src="images/icongraf4.png">
-					</a>
-				</div>
-				<div class="col-md-3 content-six contentmain">
-					RIDESHARE PLACEMENT
-					COMING FALL 2016
-				</div>
 
-			</div>
-		</section> -->
+		<footer>
+			<span class="copyrights">&copy; 2016 illdrive.it, <a href="/terms">Terms Of Serice</a></span>
+		</footer>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script>
 		$(document).ready(function(){
-	$('.stripemenu').on('click', function(){
-		$(this).next('ul').slideToggle();
-	});
-	
-	var clickHandler = "click";
-	if('ontouchstart' in document.documentElement){
-		clickHandler = "touchstart";
-	}
-	$(".hovereffect").bind(clickHandler,function(){
-		$(this).toggleClass('showhover');
-	});
-	
-});
+			$('.stripemenu').on('click', function(){
+				$(this).next('ul').slideToggle();
+			});
+			
+			var clickHandler = "click";
+			if('ontouchstart' in document.documentElement){
+				clickHandler = "touchstart";
+			}
+			$(".hovereffect").bind(clickHandler,function(){
+				$(this).toggleClass('showhover');
+			});
+		});
 		</script>
 	</body>
 </html>

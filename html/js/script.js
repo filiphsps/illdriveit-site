@@ -15,9 +15,6 @@
 // please bring mercy to those who dares to look past
 // this wall of text.
 
-//Disable console.log
-//console.log = function() {};
-
 var	drive_data = {},
 	slider = [{},{},{}],
 	plans = {},
@@ -145,6 +142,12 @@ $(document).ready(function(){
 		if($(this).val().replace(/[^0-9]/g,'')!=$(this).val())
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 	});
+	$('.input-letters').on('keyup', function(e) {
+		var val = $(this).val();
+		if (val.match(/[^a-zA-Z]/g)) {
+			$(this).val(val.replace(/[^a-zA-Z]/g, ''));
+		}
+	});
 
 	$('.sigPad').signaturePad({
 		drawOnly:true,
@@ -260,8 +263,13 @@ $(document).ready(function(){
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 });
 
-function down(speed){
-	$('html,body').animate({scrollTop: $(document).height()-$(window).height()}, speed);
+function down (speed){
+	$('html, body').animate({ 
+		scrollTop: $(document).height()-$(window).height()
+	},
+		speed, 
+		'easeInOutCubic'
+	);
 }
 function check_input(block){
 	$.each(block.find('input:not([notrequired])'),function(){
@@ -436,7 +444,6 @@ function ajax(f, obj){
 			});
 		break;
 		case 'payment':
-			console.log(obj);
 			var run = false;
 			$.ajax({
 			    url:'https://illdrive.it/api/warranty/purchase',
@@ -830,3 +837,29 @@ function handelFlowComplete() {
 function english_ordinal_suffix(dt) {
 	return dt.getDate()+(dt.getDate() % 10 == 1 && dt.getDate() != 11 ? 'st' : (dt.getDate() % 10 == 2 && dt.getDate() != 12 ? 'nd' : (dt.getDate() % 10 == 3 && dt.getDate() != 13 ? 'rd' : 'th'))); 
 }
+
+(function(illdriveit, $, undefined) {
+    if (!window.console) window.console = {};
+    if (!window.console.log) window.console.log = function(){};
+
+    //Private var
+    var console_log = console.log;  
+
+    //Public methods
+	illdriveit.Logging = function logging(enable) {
+		if (enable)
+			console.log = console_log;
+		else
+			console.log = function() {};
+	}
+
+}(window.illdriveit = window.illdriveit || {}, jQuery));
+
+//Disable console.log
+try {
+	console.clear();
+	console.log('%cHowdy Developer!%c Run illdriveit.Logging(true) to enable loggin\' :)', 'color: green', 'color: black');
+	console.log('Also, you should totally buy my album... If I had one for sale that is.');
+	console.log('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
+	illdriveit.Logging(false);
+} catch (ex) {}
