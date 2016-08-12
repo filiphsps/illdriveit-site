@@ -393,16 +393,22 @@ body {
     background: transparent;
 }
 .navbar-toggle {
-    background-color: #000;
     top: 40px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .navbar-toggle .icon-bar {
-    background: #fff;
+    background: #000;
     width: 30px;
-    height: 5px;
-    border-radius: 0px;
+    height: 4px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+@media (max-width: 767px) {
+    .navbar-collapse {
+        background: #ecf0f1;
+    }
 }
 #home .container-fluid,
 #warranty .container-fluid {

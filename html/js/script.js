@@ -220,7 +220,8 @@ $(document).ready(function(){
 	$('.back-action-block').click(function(){
 		var block = $(this).parents('.action-block').prev('.action-block');
 
-		block.find('input').prop('disabled', false)/*.val('')*/;
+		block.find('input').removeAttr("disabled");
+		$('.submit-block input').removeAttr("disabled");
 		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
 
 		block.nextAll('.action-block').slideUp(500).find('input').prop('disabled', false)/*.val('')*/;
@@ -242,7 +243,8 @@ $(document).ready(function(){
 		$('.error-block input').prop('disabled', false)/*.val('')*/;
 		var block = $('.block3');
 		block.find('input').prop('disabled', false)/*.val('')*/;
-		block.find('.next-action-block , .next-custom-block, .next-error-block')/*.addClass('hide-button')*/.removeClass('disabled');
+		block.find('.next-action-block , .next-custom-block, .next-error-block').removeClass('disabled');
+		$('.sigPad .next-custom-block').removeClass('disabled');
 	});
 	$('.next-error-block').click(function(){
 		var block = $(this).parents('.error-block');
