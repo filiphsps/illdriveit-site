@@ -409,6 +409,9 @@ body {
     .navbar-collapse {
         background: #ecf0f1;
     }
+    .display-table.section-height-header[style] {
+        min-height: auto;
+    }
 }
 #home .container-fluid,
 #warranty .container-fluid {
