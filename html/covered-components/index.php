@@ -6,25 +6,15 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="css/bootstrap.min.css">		
-		<link rel="stylesheet" type="text/css" href="css/style.css"><link rel="stylesheet" type="text/css" href="css/style2.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">		
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" type="text/css" href="../css/style2.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<link rel="icon" 
-			type="image/png" 
-			href="https://www.illdrive.it/images/logo.png"/>
+		<link rel="icon" type="image/png" href="https://www.illdrive.it/images/logo.png"/>
 	</head>
 	<body>
-		<header>
-			<nav class="navbar">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand topnav" href="index.html">
-							<img class="img-responsive logo" src="images/logo.png" alt="Ill drive">
-						</a>
-					</div>
-				</div>
-			</nav>
-		</header>
+		<?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
+
 		<section id="coveredcomponents">
 			<div class="container-fluid">
 					<div class="col-md-12 col-sm-12 col-xs-12 searchcontainer">
@@ -1784,7 +1774,7 @@
 						</div>
 					</div>
 					<div class="backtosearch" style="display:none;">
-						<img src="images/back.png">
+						<img src="../images/back.png">
 						<span>Back</span>
 					</div>
 					<div class="searchagain" style="display:none;">SEARCH AGAIN</div>					
@@ -1813,7 +1803,7 @@
 					</script>
 			</div>
 		</section>
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		
+		<?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php');?>
 	</body>
 </html>

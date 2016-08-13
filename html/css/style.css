@@ -4479,9 +4479,6 @@ input#txtList:-ms-input-placeholder {
     color: #000;
     opacity: 1;
 }
-#coveredcomponents h1 {
-    margin-top: -101px;
-}
 .results.viewresults {
     min-height: 170px;
 }

@@ -15,72 +15,7 @@
             href="https://www.illdrive.it/images/logo.png"/>
     </head>
     <body>
-        <header>
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand topnav" href="../">
-                            <img class="img-responsive logo" src="../images/logo.png" alt="Ill drive">
-                        </a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right text-center">
-                            <li>
-                                <a href="../inspections/">
-                                    <div>
-                                        <img class="img-responsive fix-icon" src="../images/launcpad.png" alt="Ill drive">
-                                    </div>
-
-                                    <span>LAUNCH PAD</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../forcefield/">
-                                    <div>
-                                        <img class="img-responsive" src="../images/warrantyitem.png" alt="Ill drive">
-                                    </div>
-
-                                    <span>FORCEFIELD</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../training/">
-                                    <div>
-                                        <img class="img-responsive" src="../images/trainingitem.png" alt="Ill drive">
-                                    </div>
-
-                                    <span>TRAINING</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../locations/">
-                                    <div>
-                                        <img class="img-responsive" src="../images/locationsitem.png" alt="Ill drive">
-                                    </div>
-
-                                    <span>LOCATIONS</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../contact/">
-                                    <div>
-                                        <img class="img-responsive" src="../images/aboutitem.png" alt="Ill drive">
-                                    </div>
-                                    <span>ABOUT US</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
 
         <section class="clear" id="covers">
             <div id="terms" class="container-fluid">
@@ -165,19 +100,6 @@
 			</div>
 		</section>
 
-        <!-- TODO: Move into footer.php -->
-        <footer>
-            <!-- Floating "call" box -->
-            <div class="call-box">
-                <a class="button round-img-button" href="tel:+18003257484">
-                    <div class="banner">Call us</div>
-                    <img src="../images/phone.png">
-                </a>
-            </div>
-            <span class="copyrights">&copy; 2016 illdrive.it, <a href="https://www.illdrive.it/terms/">Terms Of Serice</a></span>
-        </footer>
-        
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+        <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php');?>
     </body>
 </html>
