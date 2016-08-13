@@ -265,6 +265,15 @@ $(document).ready(function(){
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 });
 
+$('a[href*=#]').on('click', function(event){     
+    event.preventDefault();
+    $('html,body').animate({
+		scrollTop:$(this.hash).offset().top
+	},
+		500,
+		'easeInOutCubic'
+	);
+});
 function down (speed){
 	$('html, body').animate({ 
 		scrollTop: $(document).height()-$(window).height()
