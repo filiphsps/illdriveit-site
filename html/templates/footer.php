@@ -6,11 +6,11 @@
         <div class="banner">
             Call us
         </div>
-        <img src="/images/phone.png"></a>
+        <img src="/assets/img/phone.png"></a>
     </div>
 
     <span class="copyrights">&copy; 2016 illdrive.it, <a href="https://www.illdrive.it/terms/">Terms Of Serice</a></span>
 </footer>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>

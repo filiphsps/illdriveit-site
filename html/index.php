@@ -4,10 +4,10 @@
 		<title>HOME - illdrive.it</title>
 		<meta charset="UTF-8">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
-		<link href="css/bootstrap.min.css" rel="stylesheet"/>
-		<link href="css/style.css" rel="stylesheet" type="text/css"/>
-		<link href="css/style2.css" rel="stylesheet" type="text/css"/>
-		<link href="https://www.illdrive.it/images/logo.png" rel="icon" type="image/png"/>
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/style2.css" rel="stylesheet" type="text/css"/>
+		<link href="https://www.illdrive.it/assets/img/logo.png" rel="icon" type="image/png"/>
 	</head>
 	<body>
 		<?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
@@ -17,7 +17,7 @@
 				<div class="homepagemobile">
 					<h1>
 						<span>HELLO!</span>
-						<img src="images/wavingman.gif">
+						<img src="assets/img/wavingman.gif">
 					</h1>
 					<h2>WELCOME TO ILLDRIVE.IT</h2>
 				</div>
@@ -28,8 +28,10 @@
 					</div>
 
 					<div class="top-bullet bullet">
-						<a href="inspections/"><img class="launchpad-icon" src="images/launcpad.png"> <span class="mobiledesc">LAUNCH
-						PAD</span></a>
+						<a href="inspections/">
+							<img class="launchpad-icon" src="assets/img/launcpad.png">
+							<span class="mobiledesc">LAUNCH PAD</span>
+						</a>
 					</div>
 
 					<div class="top-description graphdescription2">
@@ -38,7 +40,7 @@
 
 					<div class="topright-bullet bullet">
 						<a href="forcefield/">
-						<img src="images/icongraf2.png">
+						<img src="assets/img/icongraf2.png">
 						<span class="mobiledesc">FORCEFIELD</span></a>
 					</div>
 
@@ -49,10 +51,9 @@
 
 					<div class="bottomright-bullet bullet">
 						<div class="hovereffect">
-							<img src="images/icongraf3.png"> <span class="mobiledesc">DRIVER<br>
-							TOOLS</span> <span class="hovertxt">COMING<br>
-							SUMMER<br>
-							2016!</span>
+							<img src="assets/img/icongraf3.png">
+							<span class="mobiledesc">DRIVER<br>TOOLS</span>
+							<span class="hovertxt">COMING<br>SUMMER<br>2016!</span>
 						</div>
 					</div>
 
@@ -63,7 +64,7 @@
 
 					<div class="bottom-bullet bullet">
 						<div class="hovereffect">
-							<img src="images/icongraf4.png">
+							<img src="assets/img/icongraf4.png">
 							<span class="mobiledesc">START<br> DRIVING</span>
 							<span class="hovertxt">COMING<br> SUMMER<br> 2016!</span>
 						</div>
@@ -76,7 +77,7 @@
 
 					<div class="bottomleft-bullet bullet">
 						<a href="training/">
-							<img src="images/icongraf5.png">
+							<img src="assets/img/icongraf5.png">
 							<span class="mobiledesc">TRAINING</span>
 						</a>
 					</div>
@@ -88,7 +89,7 @@
 
 					<div class="topleft-bullet bullet">
 						<a href="locations/">
-							<img src="images/icongraf6.png">
+							<img src="assets/img/icongraf6.png">
 							<span class="mobiledesc">LOCATIONS</span>
 						</a>
 					</div>
