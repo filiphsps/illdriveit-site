@@ -10,12 +10,12 @@
         <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
         <meta http-equiv="pragma" content="no-cache" />
 
-        <link rel="stylesheet" href="../css/normalize.css">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/style2.css">
-        <link rel="stylesheet" type="text/css" href="../css/contract.css">
-        <link rel="icon" type="image/png" href="https://www.illdrive.it/images/logo.png" />
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/contract.css">
+        <link rel="icon" type="image/png" href="https://www.illdrive.it/assets/img/logo.png" />
     </head>
     <body>
         <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
@@ -26,15 +26,15 @@
                     <div class="col-md-8 col-sm-12 col-xs-12">
                         <h1 class="text-center">VEHICLE FORCEFIELD</h1>
                         <h2 class="text-center">BECAUSE WARRANTIES ARE BORING</h2>
-                        <img class="img-responsive img-circle onlymobile" src="../images/warranty-image.png">
+                        <img class="img-responsive img-circle onlymobile" src="../assets/img/warranty-image.png">
                         <p class="text-center">SHIELD YOUR CAR FROM BREAK-DOWNS WITH FACTORY LEVEL BUMPER-TO-BUMPER PROTECTION THAT IS DESIGNED FOR EVERYONE, INCLUDING UBER AND LYFT DRIVERS.</p>
                         <a href="#acive-block-link" class="img-circle">
-                            <img src="../images/hearticon.png">
+                            <img src="../assets/img/hearticon.png">
                             <span class="want-it">I WANT IT</span>
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12 pull-right rightimg nomobile">
-                        <img class="img-responsive img-circle" src="../images/warranty-image.png">
+                        <img class="img-responsive img-circle" src="../assets/img/warranty-image.png">
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <div class="row hidemobile">
                         <div class="col-md-1">&nbsp;</div>
                         <div class="col-md-2">
-                            <img class="img-responsive center-block" width="150" src="../images/logo.png">
+                            <img class="img-responsive center-block" width="150" src="../assets/img/logo.png">
                         </div>
                         <div class="col-md-1">&nbsp;</div>
                     </div>
@@ -65,84 +65,84 @@
                     <div class="row force-inner ontablet-icons">
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ENGINE.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ENGINE.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ENGINE</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/pump.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/pump.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TRANSMISSION</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/HEADGASKET.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/HEADGASKET.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>GASKETS</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/nav.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/nav.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>NAV </br>SYSTEM</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/DRIVETRAIN.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/DRIVETRAIN.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>DRIVETRAIN</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ECU.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ECU.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ECU</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/STEERING.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/STEERING.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>STEERING</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/RADIATOR.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/RADIATOR.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>RADIATOR</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/TURBO.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/TURBO.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TURBO</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ALTERNATOR.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ALTERNATOR.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ALTERNATOR</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ACuNIT.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ACuNIT.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>A/C<br>UNIT</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/TIMING.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/TIMING.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TIMING<br>BELT</h3>
@@ -152,98 +152,98 @@
                     <div class="row force-inner display-none-tablet">
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ENGINE.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ENGINE.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ENGINE</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/pump.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/pump.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TRANSMISSION</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/HEADGASKET.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/HEADGASKET.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>HEAD<br>GASKET</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ALTERNATOR.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ALTERNATOR.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ALTERNATOR</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ACuNIT.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ACuNIT.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>A/C<br>UNIT</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/nav.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/nav.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>NAV SYSTEM</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/DRIVETRAIN.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/DRIVETRAIN.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>DRIVETRAIN</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/ECU.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/ECU.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>ECU</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/SUNROOF.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/SUNROOF.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>SUNROOF</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/WATER PUMP.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/WATER PUMP.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>WATER<br>PUMP</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/STEERING.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/STEERING.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>STEERING</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/RADIATOR.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/RADIATOR.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>RADIATOR</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/TURBO.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/TURBO.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TURBO</h3>
                         </div>
                         <div class="text-center">
                             <figure>
-                                <div><img src="../images/TIMING.png" alt="" class="img-responsive">
+                                <div><img src="../assets/img/TIMING.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
                             <h3>TIMING<br>BELT</h3>
@@ -270,7 +270,7 @@
                     <div class="row benefit-mobile">
                         <div class="benefit text-center">
                             <figure>
-                                <div><img src="../images/30k.png" alt="">
+                                <div><img src="../assets/img/30k.png" alt="">
                                 </div>
                             </figure>
                             <h2>
@@ -280,7 +280,7 @@
                         </div>
                         <div class="benefit text-center">
                             <figure>
-                                <div><img src="../images/0intrst.png" alt="">
+                                <div><img src="../assets/img/0intrst.png" alt="">
                                 </div>
                             </figure>
                             <h2>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="benefit text-center">
                             <figure>
-                                <div><img class="fix-mage-benefit" src="../images/100$.png" alt="">
+                                <div><img class="fix-mage-benefit" src="../assets/img/100$.png" alt="">
                                 </div>
                             </figure>
                             <h2>
@@ -300,7 +300,7 @@
                         </div>
                         <div class="benefit text-center">
                             <figure class="beni-fix">
-                                <div><img src="../images/macknic.png" alt="">
+                                <div><img src="../assets/img/macknic.png" alt="">
                                 </div>
                             </figure>
                             <h2>
@@ -310,7 +310,7 @@
                         </div>
                         <div class="benefit text-center">
                             <figure>
-                                <div><img src="../images/uber.png" alt="">
+                                <div><img src="../assets/img/uber.png" alt="">
                             </figure>
                             <h2>
                         THE <b>FIRST</b> PLAN THAT</br>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/2487.png" alt="">
+                                    <div><img src="../assets/img/2487.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -329,7 +329,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure class="beni-fix">
-                                    <div><img src="../images/car-with-key.png" alt="">
+                                    <div><img src="../assets/img/car-with-key.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -339,7 +339,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/hand.png" alt="">
+                                    <div><img src="../assets/img/hand.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -353,7 +353,7 @@
                         <div class="row benefit-desktop">
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/30k.png" alt="">
+                                    <div><img src="../assets/img/30k.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -364,7 +364,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/0intrst.png" alt="">
+                                    <div><img src="../assets/img/0intrst.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -375,7 +375,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img class="fix-mage-benefit" src="../images/100$.png" alt="">
+                                    <div><img class="fix-mage-benefit" src="../assets/img/100$.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -386,7 +386,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure class="beni-fix">
-                                    <div><img src="../images/macknic.png" alt="">
+                                    <div><img src="../assets/img/macknic.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -397,7 +397,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure class="beni-fix">
-                                    <div><img src="../images/car-with-key.png" alt="">
+                                    <div><img src="../assets/img/car-with-key.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -408,7 +408,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/2487.png" alt="">
+                                    <div><img src="../assets/img/2487.png" alt="">
                                     </div>
                                 </figure>
                                 <h2>
@@ -419,7 +419,7 @@
                             </div>
                             <div class="benefit text-center">
                                 <figure>
-                                    <div><img src="../images/uber.png" alt="">
+                                    <div><img src="../assets/img/uber.png" alt="">
                                 </figure>
                                 <h2>
                         THE <b>FIRST</b> PLAN THAT<br>
@@ -429,7 +429,7 @@
                                 </div>
                                 <div class="benefit text-center">
                                     <figure>
-                                        <div><img src="../images/hand.png" alt="">
+                                        <div><img src="../assets/img/hand.png" alt="">
                                         </div>
                                     </figure>
                                     <h2>
@@ -454,7 +454,7 @@
                                     <h1>ACTIVATE</h1>
                                 </div>
                                 <div class="col-md-2">
-                                    <figure><img src="../images/logo.png" alt="" class="img-responsive">
+                                    <figure><img src="../assets/img/logo.png" alt="" class="img-responsive">
                                     </figure>
                                 </div>
                                 <div class="col-md-5 text-left">
@@ -473,8 +473,8 @@
                         </div>
                         <div class="col-md-12 vinnum">
                             <figure>
-                                <img src="../images/vin.png" alt="" class="img-responsive ondesktop">
-                                <img src="../images/vin-mobile.png" style="display:none;" alt="" class="img-responsive onmobile">
+                                <img src="../assets/img/vin.png" alt="" class="img-responsive ondesktop">
+                                <img src="../assets/img/vin-mobile.png" style="display:none;" alt="" class="img-responsive onmobile">
                             </figure>
                         </div>
                         <div class="col-md-12 input">
@@ -482,7 +482,7 @@
                         </div>
                         <div class="col-md-12 next next-action-block hide-button">
                             <a class="img-circle">
-                                <img src="../images/next.png">
+                                <img src="../assets/img/next.png">
                                 <span>Next</span>
                             </a>
                         </div>
@@ -511,13 +511,13 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
                             <div class="col-md-2 next right next-action-block hide-button">
                                 <a class="img-circle">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -546,13 +546,13 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
                             <div class="col-md-2 next right next-custom-block hide-button">
                                 <a class="img-circle">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -641,13 +641,13 @@
                     <div class="controls clear">
                         <div class="col-md-2 pull-left back back-action-block">
                             <a class="img-circle">
-                                <img src="../images/back.png">
+                                <img src="../assets/img/back.png">
                                 <span>Back</span>
                             </a>
                         </div>
                         <div class="col-md-2 pull-right next next-action-block visible-true">
                             <a class="img-circle">
-                                <img src="../images/next.png">
+                                <img src="../assets/img/next.png">
                                 <span>Next</span>
                             </a>
                         </div>
@@ -699,14 +699,14 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
 
                             <div class="col-md-2 next right next-action-block visible-true">
                                 <a class="img-circle visible-true">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -736,13 +736,13 @@
                         <div class="controls clear">
                             <div class="back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
                             <div class="next right next-action-block hide-button">
                                 <a class="img-circle right">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -778,14 +778,14 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
 
                             <div class="col-md-2 next right next-action-block hide-button">
                                 <a class="img-circle">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -815,13 +815,13 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
                             <div class="col-md-2 next right next-action-block hide-button">
                                 <a class="img-circle">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -870,13 +870,13 @@
                         <div class="controls clear">
                             <div class="col-md-2 back left back-action-block">
                                 <a class="img-circle">
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                     <span>Back</span>
                                 </a>
                             </div>
                             <div class="col-md-2 next right next-action-block hide-button hidden">
                                 <a class="img-circle">
-                                    <img src="../images/next.png">
+                                    <img src="../assets/img/next.png">
                                     <span>Next</span>
                                 </a>
                             </div>
@@ -910,7 +910,7 @@
                             <div class="controls clear">
                                 <div class="col-md-2 back left back-action-block">
                                     <a class="img-circle">
-                                        <img src="../images/back.png">
+                                        <img src="../assets/img/back.png">
                                         <span>Back</span>
                                     </a>
                                 </div>
@@ -951,13 +951,13 @@
                                 <div class="col-md-12 align-center">
                                     <div class="back inline-block back-action-block">
                                         <a class="img-circle">
-                                            <img src="../images/back.png">
+                                            <img src="../assets/img/back.png">
                                             <span>Back</span>
                                         </a>
                                     </div>
                                     <div class="next inline-block next-action-block hide">
                                         <a class="img-circle">
-                                            <img src="../images/next.png">
+                                            <img src="../assets/img/next.png">
                                             <span>Next</span>
                                         </a>
                                     </div>
@@ -991,7 +991,7 @@
                     <div class="controls">
                         <div class="back left back-action-block">
                             <a class="img-circle button-back">
-                                <img src="../images/back.png">
+                                <img src="../assets/img/back.png">
                                 <span>Back</span>
                             </a>
                         </div>
@@ -1002,7 +1002,7 @@
                         </div>
                         <div class="next submit right next-custom-block hide-button">
                             <a class="img-circle button-next">
-                                <img src="../images/next.png">
+                                <img src="../assets/img/next.png">
                                 <span>Next</span>
                             </a>
                         </div>
@@ -1028,7 +1028,7 @@
                     <div class="controls clear">
                         <div class="col-md-2 left back back-action-block">
                             <a class="img-circle">
-                                <img src="../images/back.png">
+                                <img src="../assets/img/back.png">
                                 <span>Back</span>
                             </a>
                         </div>
@@ -1056,7 +1056,7 @@
 
                         <div class="next right">
                             <a id="ac_force" class="img-circle submit next next-action-block visible-true hidden flow-completion">
-                                <img src="../images/logo.png">
+                                <img src="../assets/img/logo.png">
                                 <span>ACTIVATE</br>FORCEFIELD</span>
                             </a>
                         </div>
@@ -1080,7 +1080,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <img src="../images/logo.png" class="img-responsive center-block" alt="">
+                            <img src="../assets/img/logo.png" class="img-responsive center-block" alt="">
                         </div>
                         <div class="col-md-12">
                             <h2 class="all-done noonmobile">
@@ -1103,7 +1103,7 @@
         </section>
 
         <div class="load hide">
-            <img src="../images/load.gif" alt="">
+            <img src="../assets/img/load.gif" alt="">
         </div>
 
         <section id="thank" class="hide error-block e-block1 section-screen-height">
@@ -1114,7 +1114,7 @@
                     </p>
                     <div class="center">
                         <div class="erorr-man">
-                            <img src="../images/notify-man.png" alt="">
+                            <img src="../assets/img/notify-man.png" alt="">
                         </div>
                     </div>
 
@@ -1132,7 +1132,7 @@
                             <a>
 
                                 <div>
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                 </div>
                                 <span>Back</span>
 
@@ -1151,7 +1151,7 @@
                         <div class="notify-button right next-error-block">
                             <a>
                                 <div>
-                                    <img src="../images/notify.png">
+                                    <img src="../assets/img/notify.png">
                                 </div>
 
                                 <span>
@@ -1183,7 +1183,7 @@
                             <a>
 
                                 <div>
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                 </div>
                                 <span>Back</span>
 
@@ -1192,7 +1192,7 @@
                         <div class="notify-button right next-error-block">
                             <a>
                                 <div>
-                                    <img src="../images/notify.png">
+                                    <img src="../assets/img/notify.png">
                                 </div>
 
                                 <span>
@@ -1217,13 +1217,13 @@
                     </p>
                     <div class="center car-icon">
                         <div>
-                            <img class="img-border" src="../images/warranty-image.png">
+                            <img class="img-border" src="../assets/img/warranty-image.png">
                         </div>
                     </div>
                     <div class="alert-footer clear">
                         <div class="back-notify left back-error-block">
                             <a>
-                                <img src="../images/back.png">
+                                <img src="../assets/img/back.png">
                                 <br>
                                 <span>Back</span>
                             </a>
@@ -1242,7 +1242,7 @@
                     </p>
                     <div class="center">
                         <div class="erorr-man">
-                            <img src="../images/notify-man.png" alt="">
+                            <img src="../assets/img/notify-man.png" alt="">
                         </div>
                     </div>
 
@@ -1259,7 +1259,7 @@
                             <a>
 
                                 <div>
-                                    <img src="../images/back.png">
+                                    <img src="../assets/img/back.png">
                                 </div>
                                 <span>Back</span>
 
@@ -1281,15 +1281,15 @@
         
         <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php');?>
 
-        <script src="../js/polyfill.toLocaleString.js"></script>
+        <script src="../assets/js/polyfill.toLocaleString.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="../js/jquery-ui.min.js"></script>
-        <script src="../js/maskedinput.js"></script>
-        <script src="../js/jquery.signaturepad.js"></script>
-        <script src="../js/rangeSlider.js"></script>
-        <script src="../js/script.js"></script>
+        <script src="../assets/js/jquery-ui.min.js"></script>
+        <script src="../assets/js/maskedinput.js"></script>
+        <script src="../assets/js/jquery.signaturepad.js"></script>
+        <script src="../assets/js/rangeSlider.js"></script>
+        <script src="../assets/js/script.js"></script>
 
-        <script src="../js/contract-manager.js"></script>
+        <script src="../assets/js/contract-manager.js"></script>
 
     </body>
 </html>

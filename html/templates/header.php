@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand topnav" href="/">
-                    <img alt="Home" class="img-responsive logo" src="/images/logo.png">
+                    <img alt="Home" class="img-responsive logo" src="/assets/img/logo.png">
                 </a>
             </div>
 
@@ -19,7 +19,7 @@
                     <li>
                         <a href="/inspections/" title="Inspections">
                             <div>
-                                <img alt="Inspections" class="img-responsive fix-icon" src="/images/launcpad.png">
+                                <img alt="Inspections" class="img-responsive fix-icon" src="/assets/img/launcpad.png">
                             </div>
                             <span>LAUNCH PAD</span>
                         </a>
@@ -28,7 +28,7 @@
                     <li>
                         <a href="/forcefield/" title="Forcefield">
                             <div>
-                                <img alt="Forcefield" class="img-responsive" src="/images/warrantyitem.png">
+                                <img alt="Forcefield" class="img-responsive" src="/assets/img/warrantyitem.png">
                             </div>
                             <span>FORCEFIELD</span>
                         </a>
@@ -37,7 +37,7 @@
                     <li>
                         <a href="/training/" title="Training">
                             <div>
-                                <img alt="Training" class="img-responsive" src="/images/trainingitem.png">
+                                <img alt="Training" class="img-responsive" src="/assets/img/trainingitem.png">
                             </div>
                             <span>TRAINING</span>
                         </a>
@@ -46,7 +46,7 @@
                     <li>
                         <a href="/locations/" title="Locations">
                             <div>
-                                <img alt="Locations" class="img-responsive" src="/images/locationsitem.png">
+                                <img alt="Locations" class="img-responsive" src="/assets/img/locationsitem.png">
                             </div>
                             <span>LOCATIONS</span>
                         </a>
@@ -55,7 +55,7 @@
                     <li>
                         <a href="/contact/" title="Contact">
                             <div>
-                                <img alt="Contact" class="img-responsive" src="/images/aboutitem.png">
+                                <img alt="Contact" class="img-responsive" src="/assets/img/aboutitem.png">
                             </div>
                             <span>ABOUT US</span>
                         </a>

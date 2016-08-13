@@ -4,10 +4,10 @@
 		<title>CONTACT - illdrive.it</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="../css/bootstrap.min.css">		
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-		<link rel="stylesheet" type="text/css" href="../css/style2.css">
-		<link rel="icon" type="image/png" href="https://www.illdrive.it/images/logo.png"/>
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css">		
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
+		<link rel="icon" type="image/png" href="https://www.illdrive.it/assets/img/logo.png"/>
 	</head>
 	<body>
 		<?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
