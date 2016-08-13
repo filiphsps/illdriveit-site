@@ -412,6 +412,11 @@ body {
     .display-table.section-height-header[style] {
         min-height: auto;
     }
+    .nav > li {
+        display: inline-block;
+        width: 32%;
+        min-width: 135px;
+    }
 }
 #home .container-fluid,
 #warranty .container-fluid {
