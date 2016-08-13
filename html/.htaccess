@@ -1,0 +1,2 @@
+AllowOverride All
+ErrorDocument 404 /error-pages/404.php
