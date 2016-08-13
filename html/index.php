@@ -103,8 +103,6 @@
 
 		<?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php');?>
 		
-		<script src="js/jquery.js"></script> 
-		<script src="js/bootstrap.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				$('.stripemenu').on('click', function(){
