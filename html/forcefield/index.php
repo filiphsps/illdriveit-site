@@ -27,7 +27,13 @@
                         <h1 class="text-center">VEHICLE FORCEFIELD</h1>
                         <h2 class="text-center">BECAUSE WARRANTIES ARE BORING</h2>
                         <img class="img-responsive img-circle onlymobile" src="../assets/img/warranty-image.png">
-                        <p class="text-center">SHIELD YOUR CAR FROM BREAK-DOWNS WITH FACTORY LEVEL BUMPER-TO-BUMPER PROTECTION THAT IS DESIGNED FOR EVERYONE, INCLUDING UBER AND LYFT DRIVERS.</p>
+                        <p class="text-center">
+                            SHIELD YOUR CAR FROM BREAK-DOWNS WITH FACTORY LEVEL BUMPER-TO-BUMPER PROTECTION THAT IS DESIGNED FOR
+                            <span class="referral-tagline">EVERYONE, INCLUDING UBER AND LYFT</span> DRIVERS.
+                        </p>
+
+                        <img class="referral-logo"/>
+
                         <a href="#acive-block-link" class="img-circle">
                             <img src="../assets/img/hearticon.png">
                             <span class="want-it">I WANT IT</span>
@@ -461,6 +467,8 @@
                                     <h1>FORCEFIELD</h1>
                                 </div>
                             </div>
+
+                            <!--h2 id="discount" class="col-md-12 center"><b class="color-green">13% off via UBER</b></h2-->
                         </div>
                         <div id="acive-block-link" class="col-md-1">&nbsp;</div>
                         <div class="col-md-12">
@@ -1289,7 +1297,8 @@
         <script src="../assets/js/rangeSlider.js"></script>
         <script src="../assets/js/script.js"></script>
 
-        <script src="../assets/js/contract-manager.js"></script>
+        <script src="../assets/js/modules/contracts.js"></script>
+        <script src="../assets/js/modules/referral.js"></script>
 
     </body>
 </html>

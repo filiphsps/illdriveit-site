@@ -1,14 +1,13 @@
-//@file contract-manager.js
+//@file contracts.js
 //Handles general contract getting
 var ContractManager = {
 
-    //ContractManager.RequestContract(strin, string, object, function)
+    //ContractManager.RequestContract(string, string, object, function)
     //string uri: the path to the .html contract
     //string id: the selector for the element the contract should be loaded into
     //object data: 
     //function callback: The callback
     RequestContract: function (uri, id, data, callback) {
-
         try {
             //Request file from /contracts/{uri}
             return $.ajax({
@@ -37,6 +36,9 @@ var ContractManager = {
         }
     },
 
+    //ContractManager.ExistsContract(string, function)
+    //string uri: the path to the .html contract
+    //function callback: The callback
     ExistsContract: function (uri, callback) {
         try {
             return $.ajax({

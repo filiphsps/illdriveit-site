@@ -26,10 +26,29 @@ var user = {
 
 	'zip_code': null,
 	'monthly': 0,
-	'date': (new Date(Date.now())).toDateString()
+	'date': (new Date(Date.now())).toDateString(),
+
+	'referrer': null
 }
 
 $(document).ready(function(){
+	//Get referrer
+	user.referrer = getParameterByName('ref');
+
+	//Handle referrer scenarios
+	if (user.referrer) {
+		ReferralManager.GetValues(user.referrer, function (err, values) {
+			if (err)
+				return console.log('[ReferralManager] Err: ' + err);
+			
+			console.log(values);
+			$('.referral-logo').attr('src', values.logo);
+			$('.referral-tagline').html('<b>' + values.name + '</b>');
+		});
+	} else {
+		$('.referral-logo').remove();
+	}
+
 	//Set payment date
 	//This should be done in a more elegant way, perhaps a function
 	var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
@@ -849,6 +868,17 @@ function english_ordinal_suffix(dt) {
 	return dt.getDate()+(dt.getDate() % 10 == 1 && dt.getDate() != 11 ? 'st' : (dt.getDate() % 10 == 2 && dt.getDate() != 12 ? 'nd' : (dt.getDate() % 10 == 3 && dt.getDate() != 13 ? 'rd' : 'th'))); 
 }
 
+//http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 (function(illdriveit, $, undefined) {
     if (!window.console) window.console = {};
     if (!window.console.log) window.console.log = function(){};
@@ -858,6 +888,8 @@ function english_ordinal_suffix(dt) {
 
     //Public methods
 	illdriveit.Logging = function logging(enable) {
+		localStorage.setItem('logging', enable);
+
 		if (enable)
 			console.log = console_log;
 		else
@@ -867,10 +899,11 @@ function english_ordinal_suffix(dt) {
 }(window.illdriveit = window.illdriveit || {}, jQuery));
 
 //Disable console.log
-try {
-	console.clear();
-	console.log('%cHowdy Developer!%c Run illdriveit.Logging(true) to enable loggin\' :)', 'color: green', 'color: black');
-	console.log('Also, you should totally buy my album... If I had one for sale that is.');
-	console.log('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
-	illdriveit.Logging(false);
-} catch (ex) {}
+if (localStorage.getItem('logging') !== "true")
+	try {
+		console.clear();
+		console.log('%cHowdy Developer!%c Run illdriveit.Logging(true) to enable loggin\' :)', 'color: green', 'color: black');
+		console.log('Also, you should totally buy my album... If I had one for sale that is.');
+		console.log('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
+		illdriveit.Logging(false);
+	} catch (ex) {}
