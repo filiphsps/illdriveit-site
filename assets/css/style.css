@@ -918,6 +918,7 @@ a.img-circle>img {} .launcpad {
     font-size: 30px;
     line-height: 40px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 #benefits .benefit img {
     margin: 0 auto;

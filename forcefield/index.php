@@ -316,11 +316,11 @@
                         </div>
                         <div class="benefit text-center">
                             <figure>
-                                <div><img src="../assets/img/uber.png" alt="">
+                                <div><img class="referral-logo-covers" src="../assets/img/uber.png" alt="">
                             </figure>
                             <h2>
                         THE <b>FIRST</b> PLAN THAT</br>
-                        COVERS RIDESHARE DRIVERS
+                        COVERS <span class="referral-tagline">RIDESHARE</span> DRIVERS
                     </h2>
                             </div>
                             <div class="benefit text-center">
