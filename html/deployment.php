@@ -8,7 +8,7 @@
 	 */
 	// The commands
 	$commands = array(
-		'cd /var/www-apache && git pull',
+		'cd /var/www && git pull',
 	);
 	// Run the commands for output
 	$output = '';

@@ -1,7 +1,7 @@
 var receipt_id = window.location.hash.substring(1);
 
 $.ajax({
-    url:'https://high-quality.tech/illdriveit/warranty/receipt/' + receipt_id,
+    url:'https://illdrive.it/api/warranty/receipt/' + receipt_id,
     type: "GET",
     success: function(res) {
         console.log(res);
