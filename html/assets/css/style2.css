@@ -27,11 +27,11 @@ input[type="text"],
 input[type="button"],
 input[type="submit"] {
      -webkit-appearance: none;
-     border-radius: 0;
+     border-radius: 0px;
 }
 .center {
     text-align: center;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 /* Color
@@ -61,8 +61,8 @@ input[type="submit"] {
     bottom: 15px;
     width: 115px;
     height: 40px;
-    margin: 0 0 0 55px;
-    padding: 0 15px 0 0;
+    margin: 0px 0px 0px 55px;
+    padding: 0px 15px 0px 0px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: right;
@@ -79,7 +79,7 @@ input[type="submit"] {
 .round-img-button {
     position: relative;
     display: block;
-    padding: 0; margin: 0;
+    padding: 0px; margin: 0px;
     border: 5px solid;
     border-radius: 50%;
     border-color: #10153c;
@@ -97,7 +97,7 @@ input[type="submit"] {
     z-index: 9999;
     position: fixed;
     bottom: 15px; left: 15px;
-    padding: 0; margin: 0;
+    padding: 0px; margin: 0px;
 }
 
 /* Modules
@@ -110,8 +110,8 @@ footer {
 footer .copyrights {
     display: block;
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 5px 0;
+    bottom: 0px; left: 0px; right: 0px;
+    padding: 5px 0px;
     color: #444;
 }
 
@@ -142,12 +142,12 @@ img.referral-logo {
 @media only screen and (max-width: 767px) {
     .call-box {
         left: 5px; bottom: 5px;
-        margin: 0 auto;
+        margin: 0px auto;
     }
     .call-box .button {
         height: 40px;
         width: 40px;
-        margin: 0 auto;
+        margin: 0px auto;
     }
     .call-box .round-img-button img {
         width: 60%;
@@ -157,8 +157,8 @@ img.referral-logo {
         bottom: 5px;
         width: 92px;
         height: 20px;
-        margin: 0 0 0 15px;
-        padding: 0 15px 0 0;
+        margin: 0px 0px 0px 15px;
+        padding: 0px 15px 0px 0px;
         line-height: 20px;
         font-size: 12px;
         background: #10153c;
@@ -175,6 +175,6 @@ img.referral-logo {
 @media only screen and (max-width: 634px) {
     .block12 .back .img-circle {
         position: absolute;
-        bottom: -40px; left: 0;
+        bottom: -40px; left: 0px;
     }
 }
