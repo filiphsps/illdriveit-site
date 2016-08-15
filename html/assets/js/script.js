@@ -39,10 +39,12 @@ $(document).ready(function(){
 	if (user.referrer) {
 		ReferralManager.GetValues(user.referrer, function (err, values) {
 			if (err)
-				return console.log('[ReferralManager] Err: ' + err);
+				return console.error('[ReferralManager] Err: ' + err);
+			else if (!values)
+				return console.error('[ReferralManager] Err: ' + 'UNKNOWN_REF');
 			
-			console.log(values);
 			$('.referral-logo').attr('src', values.logo);
+			$('.referral-logo-covers').attr('src', values.logo);
 			$('.referral-tagline').html('<b>' + values.name + '</b>');
 		});
 	} else {
