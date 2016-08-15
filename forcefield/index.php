@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>VEHICLE FORCEFIELD - illdrive.it</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="cache-control" content="max-age=0" />
-        <meta http-equiv="cache-control" content="no-cache" />
-        <meta http-equiv="expires" content="0" />
-        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-        <meta http-equiv="pragma" content="no-cache" />
+    <?php
+		$title = 'VEHICLE FORCEFIELD';
+		include($_SERVER['DOCUMENT_ROOT'] . '/templates/head.php');
+	?>
 
-        <link rel="stylesheet" href="../assets/css/normalize.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/contract.css">
-        <link rel="icon" type="image/png" href="https://www.illdrive.it/assets/img/logo.png" />
-    </head>
     <body>
         <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
 
