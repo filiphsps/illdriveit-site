@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TERMS AND CONDITIONS - illdrive.it</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="../assets/css/style2.css"/>
-        <link rel="stylesheet" type="text/css" href="../assets/css/contract.css">
-        <link rel="icon" 
-            type="image/png" 
-            href="https://www.illdrive.it/assets/img/logo.png"/>
-    </head>
+    <?php
+		$title = 'Terms And Conditions';
+		include($_SERVER['DOCUMENT_ROOT'] . '/templates/head.php');
+	?>
+
     <body>
         <?php include($_SERVER['DOCUMENT_ROOT'] . '/templates/header.php');?>
 
