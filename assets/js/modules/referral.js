@@ -29,12 +29,12 @@ var ReferralManager = {
             },
             getaround: {
                 name: 'Getaround',
-                logo: 'http://hustlecon.com/assets/getaround_logo.jpg',
+                logo: 'https://hustlecon.com/assets/getaround_logo.jpg',
                 discount: 0
             },
             hopskipdrive: {
                 name: 'HopSkipDrive',
-                logo: 'http://static1.squarespace.com/static/54bc0cc4e4b071c8f286c9e2/t/54bc0ff6e4b0ff95699049e5/1471051922007/?format=1500w',
+                logo: 'https://static1.squarespace.com/static/54bc0cc4e4b071c8f286c9e2/t/54bc0ff6e4b0ff95699049e5/1471051922007/?format=1500w',
                 discount: 0
             },
         };
