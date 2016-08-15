@@ -883,7 +883,7 @@ function getParameterByName(name, url) {
 
 (function(illdriveit, $, undefined) {
     if (!window.console) window.console = {};
-    if (!window.console.log) window.console.log = function(){};
+    if (!consoleLog) consoleLog = function(){};
 
     //Private var
     var console_log = console.log;  
@@ -895,7 +895,7 @@ function getParameterByName(name, url) {
 		if (enable)
 			console.log = console_log;
 		else
-			console.log = function() {};
+			console.log = Rollbar.debug;
 	}
 
 }(window.illdriveit = window.illdriveit || {}, jQuery));
@@ -904,8 +904,8 @@ function getParameterByName(name, url) {
 if (localStorage.getItem('logging') !== "true")
 	try {
 		console.clear();
-		console.log('%cHowdy Developer!%c Run illdriveit.Logging(true) to enable loggin\' :)', 'color: green', 'color: black');
-		console.log('Also, you should totally buy my album... If I had one for sale that is.');
-		console.log('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
+		consoleLog('%cHowdy Developer!%c Run illdriveit.Logging(true) to enable loggin\' :)', 'color: green', 'color: black');
+		consoleLog('Also, you should totally buy my album... If I had one for sale that is.');
+		consoleLog('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
 		illdriveit.Logging(false);
 	} catch (ex) {}
