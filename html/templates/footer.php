@@ -9,7 +9,7 @@
         <img src="/assets/img/phone.png"></a>
     </div>
 
-    <span class="copyrights">&copy; 2016 illdrive.it, <a href="https://www.illdrive.it/terms/">Terms Of Serice</a></span>
+    <span class="copyrights">&copy; 2016 illdrive.it, <a href="https://www.illdrive.it/terms/">Terms Of Service</a></span>
 </footer>
 
 <script src="/assets/js/jquery.js"></script>
