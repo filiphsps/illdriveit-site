@@ -493,6 +493,9 @@ function ajax(f, obj){
 					$('.load').hide();
 
 					//TODO: Move into separate function?
+					if (!res)
+						return open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
+
 					var res = JSON.parse(data.responseText);
 					user.contract_id = res.ContractNumber;
 					if($('#contractLink').attr('href').substr($('#contractLink').attr('href').length - 1) !== '0')
