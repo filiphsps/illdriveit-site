@@ -485,6 +485,7 @@ function ajax(f, obj){
 				data: obj,
 				dataType : "json",
 				contentType: "application/json",
+				processData: false,
 				complete: function(data) {
 					//Fix bug
 					if(run)
