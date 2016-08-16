@@ -208,7 +208,7 @@ $(document).ready(function(){
 		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
 		parse_data(block);
 		if(block.hasClass('block3')){
-			var str = JSON.stringify({zip:drive_data.warrantyRequest.zip, mileage:drive_data.warrantyRequest.mileage, vin:drive_data.warrantyRequest.vin});
+			var str = JSON.stringify({zip:drive_data.warrantyRequest.zip, mileage:drive_data.warrantyRequest.mileage, vin:drive_data.warrantyRequest.vin.toUpperCase()});
 			ajax('verifyzip',str);
 
 		} else if(block.hasClass('block11')){
@@ -286,15 +286,19 @@ $(document).ready(function(){
 	$('.action-block input').keyup(function(e){	check_input($(this).parents('.action-block')); });
 });
 
-$('a[href*=#]').on('click', function(event){     
+$('a[href*=#]').on('click', function (event) {     
     event.preventDefault();
-    $('html,body').animate({
-		scrollTop:$(this.hash).offset().top
-	},
-		500,
-		'easeInOutCubic'
-	);
+
+	try {
+		$('html,body').animate({
+			scrollTop: $(this.hash).offset().top
+		},
+			500,
+			'easeInOutCubic'
+		);
+	} catch (ex) {}
 });
+
 function down (speed){
 	$('html, body').animate({
 		scrollTop: $(document).height()-$(window).height()
@@ -324,7 +328,7 @@ function check_input(block){
 function parse_data(block){
 	if(block.hasClass('block1')){
 		drive_data.warrantyRequest = {
-			vin:block.find('input[name=vin]').val()
+			vin: block.find('input[name=vin]').val().toUpperCase()
 		};
 		ajax('vehiclename','vin='+drive_data.warrantyRequest.vin);
 	}else if(block.hasClass('block2')){
