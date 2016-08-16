@@ -17,7 +17,6 @@
 var consoleLog = console.log;
 console = Rollbar;
 console.log = function(msg) {
-    Rollbar.debug(msg);
     consoleLog(msg);
 };
 </script>
