@@ -501,7 +501,7 @@ function ajax(f, obj){
 
 					//TODO: Move into separate function?
 					if (!res)
-						return open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED <br class="space">THE CORRECT INFORMATION?');
+						return open_error(ERROR_MESSAGES['invalid_credit_card'].title, ERROR_MESSAGES['invalid_credit_card'].subtitle, true);
 
 					var res = JSON.parse(data.responseText);
 					user.contract_id = res.ContractNumber;
@@ -515,7 +515,7 @@ function ajax(f, obj){
 							if(user.state.length > 2)
 								user.state = abbrState(user.state);
 						} catch(ex) {
-							open_error('OH NO! WE CANNOT FIND THE STATE','CHECK IF HAVE YOU ENTERED<br class="space">THE CORRECT INFORMATION');
+							return open_error(ERROR_MESSAGES['invalid_credit_card'].title, ERROR_MESSAGES['invalid_credit_card'].subtitle, true);
 						}
 
 						//Render MBPI
@@ -622,7 +622,7 @@ function ajax(f, obj){
 						//Scroll down
 						down(1000);
 					} else{
-						open_error('OH NO! WE HAVE TROUBLE WITH YOUR CARD','CHECK HAVE YOU ENTERED <br class="space">THE CORRECT INFORMATION?');
+						return open_error(ERROR_MESSAGES['invalid_credit_card'].title, ERROR_MESSAGES['invalid_credit_card'].subtitle, true);
 					}
 				}
 			});
@@ -660,12 +660,12 @@ function ajax(f, obj){
 		break;
 	}
 }
-function open_error(massage,massage2,notify){
+function open_error(massage, massage2, notify){
 	var str = "WE ARE WORKING ON A WARRANTY FOR <br class='space'> CARS OVER 10 YEARS AND 60K MILES <br class='space'> CLICK HERE TO BE NOTIFIED ONCE IT�S LIVE!";
 	$('.load').hide();
 	$('.e-block1').show();
 	$('.e-block1 .title-block').text(massage);
-	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2==undefined?str:massage2));
+	$('.e-block1 .about-us-bottom p, .block_error1 .hide-link-about p').html((massage2 == undefined ? str : massage2));
 	$('.e-block2 input').prop('disabled', false)/*.val('')*/;
 	if(notify) $('.e-block1 .notify-button').removeClass('hide-button');
 	else $('.e-block1 .notify-button').addClass('hide-button');
@@ -920,3 +920,11 @@ if (localStorage.getItem('logging') !== "true")
 		consoleLog('//not Filiph Sandström, but I\'ve heard that guy\'s awesome.');
 		illdriveit.Logging(false);
 	} catch (ex) {}
+
+
+var ERROR_MESSAGES = {
+	'invalid_credit_card': {
+		'subtitle': 'OH NO! WE HAVE TROUBLE WITH YOUR CARD',
+		'title': 'Click the green back button to make sure you\'ve entered the right information. If you\'re still having problems, call us at 800-325-7484',
+	}
+}

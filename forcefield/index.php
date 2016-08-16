@@ -565,7 +565,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="blue-title">
-                        <span>PERFECT!</span> HERE’S THE DEAL!
+                        <span>PERFECT!</span> CHOOSE YOUR COVERAGE!
                     </h2>
                         </div>
                     </div>

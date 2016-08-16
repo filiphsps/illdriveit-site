@@ -19,7 +19,7 @@
 					<h2 class="text-center">TRYING TO CHANGE THE WORLD</h2>					
 					<p class="text-center">AFTER COMPLETING OVER 100,000 INSPECTIONS AND TALKING TO THOUSANDS OF NEW AND EXPERIENCED DRIVERS, WE LEARNED HOW IMPORTANT IT IS TO HAVE SOMEONE HELP YOU NAVIGATE THROUGH THIS RIDESHARE WORLD. 
 					</br></br>LET US KNOW HOW WE CAN POINT YOU IN THE RIGHT DIRECTION.</p>
-					<a href="mailto:Sheezan@illdrive.it" class="talk img-circle">
+					<a href="mailto:Surge@illdrive.it" class="talk img-circle">
 					<span>LET'S </br>TALK!</span>
 					</a>
 				</div>
