@@ -431,6 +431,7 @@ function ajax(f, obj){
 				type: "GET",
 				data: obj,
 				dataType : "json",
+				processData: false,
 				success:function(data){
 					console.log(data);
 					$('.load').hide();
@@ -452,6 +453,7 @@ function ajax(f, obj){
 				data: obj,
 				contentType: "application/json",
 				dataType : "json",
+				processData: false,
 				complete: function(data){
 					data = data.responseJSON;
 					console.log(data);
@@ -626,6 +628,7 @@ function ajax(f, obj){
 				type: "GET",
 				data: obj,
 				dataType : "jsonp",
+				processData: false,
 				complete: function(data){
 					console.log(data);
 					$('.load').hide();
