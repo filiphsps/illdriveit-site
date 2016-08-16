@@ -963,7 +963,7 @@ if (localStorage.getItem('logging') !== "true")
 
 var ERROR_MESSAGES = {
 	'invalid_credit_card': {
-		'subtitle': 'OH NO! WE HAVE TROUBLE WITH YOUR CARD',
-		'title': 'Click the green back button to make sure you\'ve entered the right information. If you\'re still having problems, call us at 800-325-7484',
+		'title': 'OH NO! WE HAVE TROUBLE WITH YOUR CARD',
+		'subtitle': 'Click the green back button to make sure you\'ve entered the right information. If you\'re still having problems, call us at 800-325-7484',
 	}
 }
