@@ -11,8 +11,10 @@
         <?php echo strtoupper($title) ?> - illdrive.it
     </title>
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">		
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/contract.css">
     <link rel="icon" type="image/png" href="https://www.illdrive.it/assets/img/logo.png"/>
 </head>
