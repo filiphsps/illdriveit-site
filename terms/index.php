@@ -15,7 +15,7 @@
         </section>
 
         <section id="thank">
-            <div class="alert-wrapper">
+            <div class="alert-wrapper container-fluid">
                 <div class="terms-content">
                     <b>1. GENERAL INTRODUCTION:</b> By using or otherwise accessing illdrive.it, you agree to be bound by the following terms and conditions (“Terms”) and our privacy agreement. If you have any questions or concerns about illdrive.it or these Terms, you can simply contact us by any of the means set out in the "ABOUT US" page on this website. If you do not agree with these Terms, stop using illdrive.it immediately.
                     </br></br>
@@ -42,7 +42,7 @@
         </section>
 
         <section id="thank">
-			<div class="alert-wrapper">
+			<div class="alert-wrapper container-fluid">
 				<div class="terms-content">
 					<p>I AUTHORIZE ILLDRIVE.IT/MBP FINANCE TO WITHDRAW PAYMENT FOR THE AMOUNT INDICATED FROM MY CREDIT OR DEBIT CARD ACCOUNT.
                     IF I HAVE CHOSEN TO USE THIS ACCOUNT FOR MY MONTHLY PAYMENT, THEN ADDITIONAL PAYMENTS WILL BE WITHDRAWN ON OR AFTER 30 DAYS FROM THIS DATE.
@@ -77,7 +77,7 @@
         </section>
 
         <section id="thank">
-			<div class="alert-wrapper">
+			<div class="alert-wrapper container-fluid">
 				<div class="terms-content">
 					<p>BY PROVIDING YOUR SIGNATURE, YOU ARE SIGNING THIS CONTRACT ELECTRONICALLY.
                     YOU AGREE YOUR ELECTRONIC SIGNATURE ABOVE IS THE LEGAL EQUIVALENT OF YOUR MANUAL/HANDWRITTEN SIGNATURE ON THIS AGREEMENT.</p>
