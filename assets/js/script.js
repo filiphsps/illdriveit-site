@@ -287,6 +287,9 @@ $(document).ready(function(){
 });
 
 $('a[href*=#]').on('click', function (event) {     
+	if ($(this).attr('href').indexOf('/') !== -1)
+		return;
+
     event.preventDefault();
 
 	try {

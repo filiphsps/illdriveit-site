@@ -858,7 +858,7 @@
                                 <div class="agreediv">
                                     <input id="agreeterms2" type="checkbox" name="checkbox" value="check" class="agreeterm" />
                                     <label for="agreeterms2" class="agreetermslabel" name="agreeterms" /></label>
-                                    I AGREE TO THE TERMS AND CONDITIONS OF THIS CREDIT CARD AUTHORIZATION. TERMS AND CONDITIONS CAN BE SEEN <a target="_blank" href="https://www.illdrive.it/terms/#credit_card">HERE.</a>
+                                    I AGREE TO THE TERMS AND CONDITIONS OF THIS CREDIT CARD AUTHORIZATION. TERMS AND CONDITIONS CAN BE SEEN <a href="https://www.illdrive.it/terms/#credit_card" target="_blank">HERE.</a>
                                 </div>
                             </div>
                         </div>
