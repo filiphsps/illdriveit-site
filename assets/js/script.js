@@ -480,7 +480,7 @@ function ajax(f, obj){
 		case 'payment':
 			var run = false;
 			$.ajax({
-			    url:'https://api.illdrive.it/warranty/purchase',
+			    url:'https://api.illdrive.it/api/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
