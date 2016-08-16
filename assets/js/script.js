@@ -464,24 +464,29 @@ function ajax(f, obj){
 				dataType : "json",
 				processData: false,
 				complete: function(data) {
-					data = data.responseJSON;
-					console.log(data);
+					try {
+						data = data.responseJSON;
 
-					if(!data.zipValid){
-						open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
-					}else if(!data.mileageValid && !data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS AND/OR UNDER 60K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
-					}else if(!data.yearValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
-					}else if(!data.mileageValid){
-						open_error('OH NO! ONLY VEHICLES UNDER 60,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
-					}else{
-						if (typeof data.state !== undefined && data.state)
-							$('.block7 input[name=state]').val(data.state);
-						if (typeof data.city !== undefined && data.city)
-							$('.block7 input[name=city]').val(data.city);
+						if(!data.zipValid){
+							open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
+						}else if(!data.mileageValid && !data.yearValid){
+							open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS AND/OR UNDER 60K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						}else if(!data.yearValid){
+							open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS OLD ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						}else if(!data.mileageValid){
+							open_error('OH NO! ONLY VEHICLES UNDER 60,000 MILES ARE ELIGIBLE FOR THE FORCEFIELD', undefined, true);
+						}else{
+							if (typeof data.state !== undefined && data.state)
+								$('.block7 input[name=state]').val(data.state);
+							if (typeof data.city !== undefined && data.city)
+								$('.block7 input[name=city]').val(data.city);
 
-						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
+							ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
+						}
+					} catch (ex) {
+						notie.alert(3, 'Something happened, retrying..', 2.5);
+						console.error(ex);
+						ajax(f, obj);
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
