@@ -579,8 +579,8 @@
                         <span class="plusesign">+</span><br>
                         <div class="mobilerightyear">
                             <span class="milagetxt listing_monthlyprice">$78</span><br>
-                                            <span class="milagetit">PER MONTH<br>
-                                            <span class="mobilemonths">(<span class="listing_numberofmonths">18</span> MONTHS)</span></span>
+                            <span class="milagetit">PER MONTH<br>
+                            <span class="mobilemonths">(<span class="listing_numberofmonths">18</span> MONTHS)</span></span>
                         </div>
                     </h3>
                         </div>
@@ -1283,6 +1283,7 @@
         <script src="../assets/js/maskedinput.js"></script>
         <script src="../assets/js/jquery.signaturepad.js"></script>
         <script src="../assets/js/rangeSlider.js"></script>
+        <script src="../assets/js/notie.js"></script>
         <script src="../assets/js/script.js"></script>
 
         <script src="../assets/js/modules/contracts.js"></script>

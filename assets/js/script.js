@@ -436,7 +436,7 @@ function ajax(f, obj){
 				data: obj,
 				dataType : "json",
 				processData: false,
-				success:function(data){
+				success: function(data){
 					console.log(data);
 					$('.load').hide();
 
@@ -447,6 +447,11 @@ function ajax(f, obj){
 						$('.block4').show();
 						down(1000);
 					}
+				},
+				error: function (jqXHR, txtSts, err) {
+					notie.alert(3, 'Something happened, retrying..', 2.5);
+					console.error(err);
+					ajax(f, obj);
 				}
 			});
 		break;
@@ -458,7 +463,7 @@ function ajax(f, obj){
 				contentType: "application/json",
 				dataType : "json",
 				processData: false,
-				complete: function(data){
+				complete: function(data) {
 					data = data.responseJSON;
 					console.log(data);
 
@@ -478,6 +483,11 @@ function ajax(f, obj){
 
 						ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
 					}
+				},
+				error: function (jqXHR, txtSts, err) {
+					notie.alert(3, 'Something happened, retrying..', 2.5);
+					console.error(err);
+					ajax(f, obj);
 				}
 			});
 		break;
@@ -624,6 +634,11 @@ function ajax(f, obj){
 					} else{
 						return open_error(ERROR_MESSAGES['invalid_credit_card'].title, ERROR_MESSAGES['invalid_credit_card'].subtitle, true);
 					}
+				},
+				error: function (jqXHR, txtSts, err) {
+					notie.alert(3, 'Something happened, retrying..', 2.5);
+					console.error(err);
+					ajax(f, obj);
 				}
 			});
 		break;
@@ -644,6 +659,11 @@ function ajax(f, obj){
 
 					user['car_model'] = res.model;
 					user['car_name'] = res.name;
+				},
+				error: function (jqXHR, txtSts, err) {
+					notie.alert(3, 'Something happened, retrying..', 2.5);
+					console.error(err);
+					ajax(f, obj);
 				}
 			});
 		break;
@@ -655,6 +675,11 @@ function ajax(f, obj){
 				dataType : "json",
 				success:function(data){
 					console.log(data);
+				},
+				error: function (jqXHR, txtSts, err) {
+					notie.alert(3, 'Something happened, retrying..', 2.5);
+					console.error(err);
+					ajax(f, obj);
 				}
 			});
 		break;
