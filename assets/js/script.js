@@ -647,18 +647,23 @@ function ajax(f, obj){
 			    url:'https://api.illdrive.it/api/warranty/vehiclename',
 				type: "GET",
 				data: obj,
-				dataType : "jsonp",
+				dataType : "json",
 				processData: false,
 				complete: function(data){
-					console.log(data);
-					$('.load').hide();
+					try {
+						$('.load').hide();
 
-					var res = data.responseJSON;
-					$('.listing_car_name').text(res.name);
-					$('.listing_car_model').text(res.model);
+						var res = data.responseJSON;
+						$('.listing_car_name').text(res.name);
+						$('.listing_car_model').text(res.model);
 
-					user['car_model'] = res.model;
-					user['car_name'] = res.name;
+						user['car_model'] = res.model;
+						user['car_name'] = res.name;
+					} catch (ex) {
+						notie.alert(3, 'Something happened, retrying..', 2.5);
+						console.error(ex);
+						ajax(f, obj);
+					}
 				},
 				error: function (jqXHR, txtSts, err) {
 					notie.alert(3, 'Something happened, retrying..', 2.5);
