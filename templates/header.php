@@ -18,7 +18,8 @@
 	try {
 		console = Rollbar;
 		console.log = function(msg) {
-			consoleLog(msg);
+            if (typeof msg === 'string')
+			    consoleLog(msg);
 		};
 	} catch (ex) {
 		console.error(ex);
