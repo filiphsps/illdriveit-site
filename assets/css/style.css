@@ -412,10 +412,10 @@ body {
 .nav > li:hover, .logo:hover {
     transform: translateY(-15px);
 }
-.img-circle, .ui-slider-handle {
+a.img-circle, .ui-slider-handle {
     transition: transform 250ms;
 }
-.img-circle:hover, .ui-slider-handle:hover {
+a.img-circle:hover, .ui-slider-handle:hover {
     transform: scale(1.3);
     cursor: pointer;
 }
