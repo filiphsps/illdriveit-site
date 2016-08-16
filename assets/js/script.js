@@ -2,7 +2,7 @@
 // This file is filled with ugly workarounds, hacks &
 // left-overs from the previous developer who did a
 // teriffic job at making the code unmaintainable.
-// 
+//
 // Do NOT look directly at it without glasses,
 // do NOT feed it past midnight,
 // do NOT let it sleep on the couch.
@@ -303,10 +303,10 @@ $('a[href*=#]').on('click', function (event) {
 });
 
 function down (speed){
-	$('html, body').animate({ 
+	$('html, body').animate({
 		scrollTop: $(document).height()-$(window).height()
 	},
-		speed, 
+		speed,
 		'easeInOutCubic'
 	);
 }
@@ -435,7 +435,7 @@ function ajax(f, obj){
 	switch(f){
 		case 'plans':
 			$.ajax({
-				url:'https://high-quality.tech/illdriveit/warranty/plans',
+				url:'https://api.illdrive.it/api/warranty/plans',
 				type: "GET",
 				data: obj,
 				dataType : "json",
@@ -461,7 +461,7 @@ function ajax(f, obj){
 		break;
 		case 'verifyzip':
 			$.ajax({
-	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
+	        	url:'https://api.illdrive.it/api/warranty/verifyzip',
 				type: "POST",
 				data: obj,
 				contentType: "application/json",
@@ -503,7 +503,7 @@ function ajax(f, obj){
 		case 'payment':
 			var run = false;
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
+			    url:'https://api.illdrive.it/api/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
@@ -555,7 +555,7 @@ function ajax(f, obj){
 									'<h5>' + user.state + '<br/>Disclosure</h5>' +
 								'</div>'
 							);
-							
+
 							if(user.monthly) {
 								$('#signaturebuttons').append(
 									'<div data-uri="FINC_AGR" class="eachsignature">' +
@@ -683,7 +683,7 @@ function ajax(f, obj){
 		break;
 		case 'emailtonotify':
 			$.ajax({
-                url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
+                url:'https://api.illdrive.it/api/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
 				dataType : "json",
@@ -903,7 +903,7 @@ function abbrState (input, to) {
 //Handle completion of the form
 function handelFlowComplete() {
 	return $.ajax({
-		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
+		url:'https://api.illdrive.it/api/warranty/flow/completed',
 		type: "POST",
 		data: user,
 		dataType: "json",
@@ -936,7 +936,7 @@ function getParameterByName(name, url) {
     if (!consoleLog) consoleLog = function(){};
 
     //Private var
-    var console_log = console.log;  
+    var console_log = console.log;
 
     //Public methods
 	illdriveit.Logging = function logging(enable) {

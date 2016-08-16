@@ -1087,7 +1087,7 @@
                     </h2>
                         </div>
                         <div class="col-md-12 multiplesignatures">
-                            <h3 style="text-align:center">TO VIEW THE FULL CONTRACT CLICK <a id="contractLink" target="_blank" href="https://high-quality.tech/illdriveit/warranty/contract/">HERE</a></h3>
+                            <h3 style="text-align:center">TO VIEW THE FULL CONTRACT CLICK <a id="contractLink" target="_blank" href="https://api.illdrive.it/api/warranty/contract/">HERE</a></h3>
                         </div>
 
 
