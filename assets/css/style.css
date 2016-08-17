@@ -2475,7 +2475,7 @@ h5 {
     right: 46px;
     text-align: center;
     top: 62px;
-    width: 347px;
+    width: 257px;
 }
 .homerelative {
     position: relative;
@@ -2498,8 +2498,18 @@ h5 {
     max-width: 56px;
 }
 .homepagemobile h2 {
-    font-size: 26px;
-    line-height: 35px;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+}
+@media (min-width: 1300px) {
+    .homepagemobile {
+        width: 347px;
+    }
+    .homepagemobile h2 {
+        font-size: 22px;
+        line-height: 28px;
+    }
 }
 .mobiledesc {
     display: none;
@@ -2850,13 +2860,14 @@ h5 {
         font-size: 40px;
     }
     .homepagemobile h2 {
-        font-size: 19px;
+        font-size: 22px !important;
     }
     .homepagemobile img {
         max-width: 50px;
     }
     .homepagemobile {
-        right: -30px;
+        right: -60px;
+        width: 250px;
     }
     .showhover .hovertxt {
         font-size: 19px;
@@ -2950,8 +2961,7 @@ h5 {
         width: 440px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 22px;
-        margin-top: 180px;
+        margin-top: 215px;
     }
     .topright-bullet.bullet,
     .bottomright-bullet.bullet {
