@@ -2479,6 +2479,7 @@ h5 {
 }
 .homerelative {
     position: relative;
+    padding-bottom: 65px;
 }
 .homepagemobile h1 {
     display: table;
