@@ -97,7 +97,7 @@
                                 <div><img src="../assets/img/nav.png" alt="" class="img-responsive">
                                 </div>
                             </figure>
-                            <h3>NAV </br>SYSTEM</h3>
+                            <h3>NAV <br/>SYSTEM</h3>
                         </div>
                         <div class="text-center">
                             <figure>
@@ -282,7 +282,7 @@
                                 </div>
                             </figure>
                             <h2>
-                        DRIVE UP TO 30K</br>
+                        DRIVE UP TO 30K<br/>
                         MILES PER YEAR
                     </h2>
                         </div>
@@ -292,7 +292,7 @@
                                 </div>
                             </figure>
                             <h2>
-                        INTEREST-FREE</br>
+                        INTEREST-FREE<br/>
                         FINANCING
                     </h2>
                         </div>
@@ -302,7 +302,7 @@
                                 </div>
                             </figure>
                             <h2>
-                        NEVER PAY MORE</br>
+                        NEVER PAY MORE<br/>
                         FOR COVERED REPAIRS
                     </h2>
                         </div>
@@ -312,7 +312,7 @@
                                 </div>
                             </figure>
                             <h2>
-                        PICK YOUR</br>
+                        PICK YOUR<br/>
                         MECHANIC
                     </h2>
                         </div>
@@ -321,7 +321,7 @@
                                 <div><img class="referral-logo-covers" src="../assets/img/uber.png" alt="">
                             </figure>
                             <h2>
-                        THE <b>FIRST</b> PLAN THAT</br>
+                        THE <b>FIRST</b> PLAN THAT<br/>
                         COVERS <span class="referral-tagline">RIDESHARE</span> DRIVERS
                     </h2>
                             </div>
@@ -331,7 +331,7 @@
                                     </div>
                                 </figure>
                                 <h2>
-                        ROADSIDE</br>
+                        ROADSIDE<br/>
                         ASSISTANCE
                     </h2>
                             </div>
@@ -341,7 +341,7 @@
                                     </div>
                                 </figure>
                                 <h2>
-                        RENTAL CAR</br>
+                        RENTAL CAR<br/>
                         COVERAGE
                     </h2>
                             </div>
@@ -351,7 +351,7 @@
                                     </div>
                                 </figure>
                                 <h2>
-                        TRANSFERS IF YOU</br>
+                        TRANSFERS IF YOU<br/>
                         SELL YOUR CAR
                     </h2>
                             </div>
@@ -398,9 +398,9 @@
                                     </div>
                                 </figure>
                                 <h2>
-                        PICK <b>ANY</b> APPROVED</br>
-                        DEALERSHIP OR REPAIR</br>
-                        SHOP TO FIX YOUR CAR</br>
+                        PICK <b>ANY</b> APPROVED<br/>
+                        DEALERSHIP OR REPAIR<br/>
+                        SHOP TO FIX YOUR CAR<br/>
                     </h2>
                             </div>
                             <div class="benefit text-center">
@@ -507,7 +507,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="blue-title">
-                        AWESOME! YOU HAVE A <span class="listing_car_name">VEHICLE</span>!</br>
+                        AWESOME! YOU HAVE A <span class="listing_car_name">VEHICLE</span>!<br/>
                         HOW MANY MILES DOES YOUR <span class="listing_car_model">VEHICLE</span> HAVE?
                     </h2>
                         </div>
@@ -672,7 +672,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="blue-title ">
-                        GREAT DECISION! <span class="mobilesingle">ARE THESE THE</br>
+                        GREAT DECISION! <span class="mobilesingle">ARE THESE THE<br/>
                         TERMS YOU WOULD LIKE?</span>
                         </span>
                     </h2>
@@ -700,7 +700,7 @@
                             </div>
                             <div class="col-md-12 pymtsec paymentinfosec">
                                 <h4>
-                            *<span class="listing_numberofmonths">18</span> PAYMENTS</br>
+                            *<span class="listing_numberofmonths">18</span> PAYMENTS<br/>
                             @ 0% INTEREST
                         </h4>
                             </div>
@@ -904,7 +904,7 @@
                         <div class="mobilechoosebtns">
                             <div class="col-md-12">
                                 <h2 class="blue-title">
-                            <span class="fontsize-onmob-thank">THANK YOU!</span> WOULD YOU LIKE TO USE THE <br> SAME CARD FOR YOUR MONTHLY PAYMENTS </br>STARTING <strong class="payment-date"></strong>?
+                            <span class="fontsize-onmob-thank">THANK YOU!</span> WOULD YOU LIKE TO USE THE <br> SAME CARD FOR YOUR MONTHLY PAYMENTS <br/>STARTING <strong class="payment-date"></strong>?
                         </h2>
                             </div>
                             <div class="col-md-12 col-sm-12 roundinput choose-panel">
@@ -1067,7 +1067,7 @@
                         <div class="next right">
                             <a id="ac_force" class="img-circle submit next next-action-block visible-true hidden flow-completion">
                                 <img src="../assets/img/logo.png">
-                                <span>ACTIVATE</br>FORCEFIELD</span>
+                                <span>ACTIVATE<br/>FORCEFIELD</span>
                             </a>
                         </div>
                     </div>
@@ -1097,7 +1097,7 @@
                         YOU SHOULD RECEIVE AN EMAIL SHORTLY WITH A <br>COPY OF YOUR FORCEFIELD CONTRACT!
                     </h2>
                             <h2 style="display:none;" class="onlineonmobile secondall-done">
-                        YOU WILL RECEIVE AN</br> EMAIL SHORTLY WITH</br> A COPY OF YOUR</br> FORCEFIELD CONTRACT!
+                        YOU WILL RECEIVE AN<br/> EMAIL SHORTLY WITH<br/> A COPY OF YOUR<br/> FORCEFIELD CONTRACT!
                     </h2>
                         </div>
                         <div class="col-md-12 multiplesignatures">
