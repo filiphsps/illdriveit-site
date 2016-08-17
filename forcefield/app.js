@@ -32,6 +32,9 @@ var user = {
 }
 
 $(document).ready(function(){
+	//Track view
+	fbq('track', 'ViewContent');
+
 	//Get referrer
 	user.referrer = getParameterByName('ref');
 
@@ -515,6 +518,12 @@ function ajax(f, obj){
 						return;
 					run = true;
 
+					//Track purchase
+					fbq('track', 'Purchase', {
+						'value': Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))),
+						'currency': 'USD'
+					});
+
 					$('#ac_force').addClass('hidden');
 					$('.load').hide();
 
@@ -660,6 +669,9 @@ function ajax(f, obj){
 				processData: false,
 				complete: function(data) {
 					try {
+						//Track InitiateCheckout
+						fbq('track', 'InitiateCheckout');
+
 						$('.load').hide();
 
 						var res = data.responseJSON;
@@ -715,6 +727,9 @@ function next_block(block,next){
 	block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
 
 	if (block.hasClass('block9') && drive_data.paymentOption.number_of_months == 0) {
+		//Track payment info
+		fbq('track', 'AddPaymentInfo');
+
 		$('.block10 .img-circle.next-action-block.visible-true').click();
 		return down(500);
 	}
@@ -902,6 +917,9 @@ function abbrState (input, to) {
 
 //Handle completion of the form
 function handelFlowComplete() {
+	//Track completed
+	fbq('track', 'CompleteRegistration');
+
 	return $.ajax({
 		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
 		type: "POST",

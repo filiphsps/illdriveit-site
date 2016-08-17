@@ -1298,7 +1298,7 @@
         <script src="../assets/js/jquery.signaturepad.js"></script>
         <script src="../assets/js/rangeSlider.js"></script>
         <script src="../assets/js/notie.js"></script>
-        <script src="../assets/js/script.js"></script>
+        <script src="app.js"></script>
 
         <script src="../assets/js/modules/contracts.js"></script>
         <script src="../assets/js/modules/referral.js"></script>
