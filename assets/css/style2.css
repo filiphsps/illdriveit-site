@@ -104,14 +104,13 @@ input[type="submit"] {
 ===================================== */
 footer {
     width: 100%;
-    min-height: 60px;
     text-align: center;
 }
 footer .copyrights {
     display: block;
-    position: absolute;
-    bottom: 0px; left: 0px; right: 0px;
+    max-width: 1060px;
     padding: 5px 0px;
+    margin: 0px auto;
     color: #444;
 }
 
@@ -140,6 +139,9 @@ img.referral-logo {
 /* Responsive
 ===================================== */
 @media only screen and (max-width: 767px) {
+    .no-mobile {
+        display: none;
+    }
     .call-box {
         left: 5px; bottom: 5px;
         margin: 0px auto;

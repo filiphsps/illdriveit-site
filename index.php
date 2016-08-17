@@ -15,7 +15,8 @@
 						<span>HELLO!</span>
 						<img src="assets/img/wavingman.gif">
 					</h1>
-					<h2>WELCOME TO ILLDRIVE.IT</h2>
+					<h2>WELCOME TO ILLDRIVE.IT<!--,<br/>
+					Your Launchpad for the Sharing Economy&trade;--></h2>
 				</div>
 
 				<div class="homepagegraphic">
