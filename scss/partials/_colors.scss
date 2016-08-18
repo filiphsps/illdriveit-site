@@ -1,0 +1,25 @@
+/* Color
+===================================== */
+
+$colours: (
+    'apple': #60b646,
+	'black': #000,
+    'bunting': #10153c,
+    'white': #fff,
+);
+
+
+@each $color in $colours {
+    $name: nth($color, 1);
+    $hex: nth($color, 2);
+
+	.colour-#{$name} {
+		color: #{$hex}
+	}
+	.colour-#{$name}-background {
+		background-color: #{$hex}
+	}
+	.colour-#{$name}-border {
+		border-color: #{$hex}
+	}
+}
