@@ -2,13 +2,18 @@
 ===================================== */
 
 //Modules and Variables
+@import "vendor/normalize";
 @import "partials/base";
 
 //Partials
+@import "partials/align";
 @import "partials/buttons";
 @import "partials/colors";
+@import "partials/footer";
 @import "partials/header";
+@import "partials/header-banner";
 @import "partials/section-banner";
+@import "partials/text";
 
 //Libraries
 @import "vendor/notie";

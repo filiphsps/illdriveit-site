@@ -43,5 +43,13 @@ h1,h2,h3,h4,h5,h6 {
     color: #000;
 }
 
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+     -webkit-appearance: none;
+     border-radius: 0px;
+}
+
 //Include all modules
 @import "modules/all";
