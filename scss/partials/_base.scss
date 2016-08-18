@@ -18,6 +18,13 @@ $base-secondary-color: #60b646;
 
 //Width
 $base-max-width: 1285px;
+$base-max-mobile-small: 320px;
+$base-max-mobile-medium: 375px;
+$base-max-mobile-large: 425px;
+$base-max-tablet: 768px;
+$base-max-laptop: 1024px;
+$base-max-laptop-large: 1440px;
+$base-max-4k: 2560;
 
 html, body {
     position: relative;
