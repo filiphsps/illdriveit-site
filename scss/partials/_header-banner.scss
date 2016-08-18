@@ -5,7 +5,7 @@
 
     .content {
         display: inline-block;
-        width: 70%;
+        width: 65%;
         text-align: center;
         text-transform: uppercase;
 
@@ -36,10 +36,10 @@
     }
     .icon {
         position: absolute;
-        top: calc(50% - 10vw);
+        right: 50px;
+        top: calc(12%);
         display: inline-block;        
-        width: 10vw;
-        height: 10vw;
+        width: 18%;
         padding: 45px;
         border-radius: 100%;
         border-width: 15px;
