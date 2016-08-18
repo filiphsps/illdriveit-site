@@ -1,0 +1,11 @@
+.section-banner {
+    padding: 20px 0px;
+    background: #F0EFEE;
+    text-align: right;
+    text-transform: uppercase;
+
+    h2 {
+        max-width: $base-max-width;
+        font-size: 48px;
+    }
+}

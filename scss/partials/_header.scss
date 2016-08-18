@@ -1,0 +1,38 @@
+header {
+    max-width: 1285px;
+    height: 105px;
+    margin: 0px auto;
+    padding: 15px 0px;
+
+    .icon {
+        display: block;
+        height: 105px;
+        margin: 0px auto;
+    }
+
+    .logo {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        text-align: center;
+        text-transform: uppercase;
+
+        a {
+            display: inline-block;
+            padding: 0px 0px 0px 35px;
+            font-size: 22px;
+            font-weight: $light;
+            transition: transform 100ms;
+
+            .icon {
+                height: 56px;
+            }
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+    }
+}

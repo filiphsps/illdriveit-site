@@ -7,7 +7,7 @@ $regular: 400;
 $bold: 600;
 
 //Base font
-$base-font-family: sans-serif;
+$base-font-family: 'Segoe UI', sans-serif;
 $base-font-weight: $regular;
 $base-font-size: 14px;
 $base-line-height: 18px;
@@ -16,10 +16,24 @@ $base-line-height: 18px;
 $base-main-color: #10153c;
 $base-secondary-color: #60b646;
 
+//Width
+$base-max-width: 1285px;
+
 html, body {
     position: relative;
     min-height: 100vh;
+    padding: 0px; margin: 0px;
     overflow-x: hidden;
+    font-family: $base-font-family;
+}
+
+a,
+p,
+h1,h2,h3,h4,h5,h6 {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    color: #000;
 }
 
 //Include all modules

@@ -27,9 +27,9 @@ gulp.task('scss', function () {
 
 gulp.task('views', function buildHTML() {
     return gulp
-        .src('./views/*.pug')
+        .src('./views/**/index.pug')
         .pipe(pug({
-            // Your options in here. 
+            //TODO
         }))
         .pipe(gulp.dest(output))
         .pipe(browserSync.reload({
