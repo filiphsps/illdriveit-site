@@ -16,7 +16,7 @@
         ?>
             <span>
                 <br/>
-                This website and all materials used for marketing that refer you to this site use the terms “Warranty”, “Extended Warranty”, “Vehicle Service Contract”, and “Extended Service Protection Plans” as equivalents for marketing purposes only. illdrive.it is offering vehicle service contracts on our website that are administered by MBPI Inc and underwritten by AmTrust Insurance Inc. Only automobile manufacturers can offer extended car warranties. All sales are subject to the terms located within the vehicle service contract and are also bound to the laws and regulations of the state the contract is sold. Please refer to the vehicle service contract for details.
+                This website and all materials used for marketing that refer you to this site use the terms “Warranty”, “Extended Warranty”, “Vehicle Service Contract”, and “Extended Service Protection Plans” as equivalents for marketing purposes only. Only automobile manufacturers can offer extended car warranties. All sales are subject to the terms located within the vehicle service contract and are also bound to the laws and regulations of the state the contract is sold. Please refer to the vehicle service contract for details.
             </span>
         <?php
             endif;
