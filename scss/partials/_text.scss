@@ -10,3 +10,13 @@ h1 {
 h2 {
     color: $base-secondary-color;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+.capitalize {
+    text-transform: capitalize;
+}

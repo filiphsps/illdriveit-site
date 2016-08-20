@@ -4,9 +4,13 @@ block head
 include ../templates/head.pug
 include ../templates/header.pug
 
-div.header-banner
+div.header-banner.max-width-container
     div.content
         h1 Vehicle Forcefield
+
+        div.icon.color-apple-border
+            img(src='/assets/img/icons/logo.png')
+
         h2 Because Warranties Are Boring
         p SHIELD YOUR CAR FROM BREAK-DOWNS WITH FACTORY LEVEL BUMPER-TO-BUMPER PROTECTION THAT IS DESIGNED FOR EVERYONE, INCLUDING UBER AND LYFT DRIVERS.
         
@@ -16,16 +20,13 @@ div.header-banner
             img(src='/assets/img/icons/logo.png')
             span.text I Want It now
 
-    div.icon.color-apple-border
-        img(src='/assets/img/icons/logo.png')
-
 div.section-banner
-    h2 What it covers
+    h2.max-width-container What it covers
 section
     h1 YOUR VERY OWN FORCEFIELD
     h2 TO PROTECT YOU AGAINST BREAKDOWNS
 
 div.section-banner.left
-    h2 ADDITIONAL BENEFITS
+    h2.max-width-container ADDITIONAL BENEFITS
 
 include ../templates/footer.pug

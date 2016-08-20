@@ -51,5 +51,14 @@ input[type="submit"] {
      border-radius: 0px;
 }
 
+.max-width-container {
+    max-width: $base-max-width;
+    padding: 0px 25px;
+
+    @media only screen and (max-width: $base-max-laptop) {
+        padding: 0px 10px;
+    }
+}
+
 //Include all modules
 @import "modules/all";

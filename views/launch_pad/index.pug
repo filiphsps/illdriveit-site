@@ -1,0 +1,46 @@
+block head
+    - var pageTitle = 'Launch Pad'
+
+include ../templates/head.pug
+include ../templates/header.pug
+
+div.launch_pad-view
+    div.header-banner.max-width-container
+        div.content
+            h1 Launch Pad
+
+            div.icon.color-apple-border
+                img(src='/assets/img/icons/launch_pad.png')
+
+            h2 YOU ARE CLEARED FOR TAKEOFF
+            p.uppercase WE HANDLE EVERYTHING YOU NEED TO START DRIVING FOR THE RIDESHARE INDUSTRY, INCLUDING INSPECTIONS, REQUIRED CITY TESTING, AND MORE. 
+
+            a.button.color-bunting-border.center(href='#start')
+                img(src='/assets/img/icons/logo.png')            
+                span.text Start
+
+    div.section-banner(id='start')
+        h2.max-width-container WHO WOULD YOU LIKE TO DRIVE FOR?
+    section.six-button-grid.max-width-container.center
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='uber' title='Uber')
+            img(src='/assets/img/icons/logo.png')
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='lyft' title='Lyft')
+            img(src='/assets/img/icons/logo.png')
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='doordash' title='Doordash')
+            img(src='/assets/img/icons/logo.png')
+
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='wingz' title='Wingz')
+            img(src='/assets/img/icons/logo.png')
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='hopskipdrive' title='HopSkipDrive')
+            img(src='/assets/img/icons/logo.png')
+        a.button.image-only.color-bunting-border(href='#ref-name' data-ref='getaround' title='Getaround')
+            img(src='/assets/img/icons/logo.png')
+
+    div.section-banner.left
+        h2.max-width-container
+            | WHY DRIVE FOR 
+            span.uppercase(id='ref-name') uber
+            | ?
+    section.six-
+
+include ../templates/footer.pug

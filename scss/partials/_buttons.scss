@@ -24,4 +24,42 @@
         font-size: 22px;
         font-weight: $regular;
     }
+
+    &.text-only {
+
+    }
+    &.image-only {
+
+        img {
+            width: 110px;
+        }
+    }
+
+    @media only screen and (max-width: $base-max-laptop) {
+        border-width: 5px;
+    }
+}
+
+.six-button-grid {
+    max-width: 1020px;
+    text-align: center;
+
+    .button {
+        display: inline-block;
+        height: calc(25vw - 50px);
+        min-height: 75px;
+        max-height: 200px;        
+        width: calc(25vw - 50px);
+        min-width: 75px;
+        max-width: 200px;
+        margin: 50px;
+
+        img {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: $base-max-laptop) {
+            margin: 25px 15px;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 .header-banner {
     position: relative;
+    display: inline-block;
     max-width: $base-max-width;
     margin: 75px auto;
 
@@ -32,6 +33,17 @@
 
         @media only screen and (max-width: $base-max-laptop) {
             width: 100%;
+
+            h1 {
+                font-size: 52px;
+            }
+            h2 {
+                font-size: 38px;
+            }
+            p {
+                font-size: 22px;
+                line-height: 28px;
+            }
         }
     }
     .icon {
@@ -48,6 +60,17 @@
         img {
             height: 100%;
             width: 100%;
+        }
+
+        @media only screen and (max-width: $base-max-laptop) {
+            position: relative;
+            display: block;
+            right: 0px; left: 0px; top: 0px;
+            width: 50%;
+            max-width: 150px;
+            margin: 15px auto;
+            padding: 10px;
+            border-width: 5px;
         }
     }
 }
