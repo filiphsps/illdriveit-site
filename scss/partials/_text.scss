@@ -9,6 +9,7 @@ h1 {
 }
 h2 {
     color: $base-secondary-color;
+    font-size: 32px;    
 }
 
 .uppercase {
@@ -19,4 +20,8 @@ h2 {
 }
 .capitalize {
     text-transform: capitalize;
+}
+
+.large-font {
+    font-size: 72px;
 }

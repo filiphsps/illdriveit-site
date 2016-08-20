@@ -1,0 +1,10 @@
+.grid-3 {
+    display: block;
+    margin: 25px auto;
+
+    div, button, a {
+        display: inline-block;
+        max-width: 30%;
+        margin: 25px;
+    }
+}
