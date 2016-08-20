@@ -73,4 +73,8 @@
             border-width: 5px;
         }
     }
+
+    @media only screen and (max-width: $base-max-laptop) {
+        margin: 25px auto;
+    }
 }

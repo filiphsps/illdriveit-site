@@ -24,6 +24,10 @@
     span.text {
         font-size: 22px;
         font-weight: $regular;
+
+        @media only screen and (max-width: $base-max-laptop) {
+            font-size: 15px;
+        }
     }
 
     &.text-only {
