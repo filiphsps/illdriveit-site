@@ -25,6 +25,11 @@ gulp.task('scss', function () {
         }));
 });
 
+gulp.task('typescript', function () {
+    /* TODO */
+    return gulp;
+});
+
 gulp.task('views', function buildHTML() {
     return gulp
         .src('./views/**/index.pug')
@@ -44,8 +49,9 @@ gulp.task('assets', function () {
     .pipe(gulp.dest(output + 'assets/fonts'));
 });
 
-gulp.task('watch', ['serve'], function() {
+gulp.task('watch', ['scss', 'typescript', 'assets', 'serve'], function() {
     gulp.watch('./scss/**/*.scss', ['scss', 'assets']);
+    gulp.watch('./ts/**/*.ts', ['typescript', 'assets']);
     gulp.watch('./views/**/*.pug', ['views', 'assets'])
 });
 gulp.task('serve', function() {

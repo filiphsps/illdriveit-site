@@ -13,22 +13,23 @@ footer
 
 script(src='https://code.jquery.com/jquery-3.1.0.js')
 script.
-    var menuHeight = $('header nav').height();
-    $('.toggle-menu').click();
+    $(document).ready(function () {
+        var menuHeight = $('header nav').height();
+        $('header nav').height(0);
+        $('header nav').addClass('closed');
+        console.log(menuHeight);
 
-    $('.toggle-menu').click(function() {
-        if (!$('header nav').hasClass('closed'))
-            $('header nav').animate({
-                height: 0
-            }, {
-                completed: function() {
-                    $('header nav').toggleClass('closed');
-                }
-            });
-        else {
-            $('header nav').toggleClass('closed');
-            $('header nav').animate({
-                height: menuHeight
-            });
-        }
+        $('.toggle-menu').click(function() {
+            if (!$('header nav').hasClass('closed')) {
+                $('header nav').addClass('closed');
+                $('header nav').animate({
+                    height: 0
+                });
+            } else {
+                $('header nav').removeClass('closed');
+                $('header nav').animate({
+                    height: menuHeight
+                });
+            }
+        });
     });
