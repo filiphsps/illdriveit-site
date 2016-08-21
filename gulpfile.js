@@ -43,10 +43,8 @@ gulp.task('views', function buildHTML() {
 });
 
 gulp.task('assets', function () {
-    gulp.src(['img/**/*'])
-    .pipe(gulp.dest(output + 'assets/img'));
-    gulp.src(['fonts/**/*'])
-    .pipe(gulp.dest(output + 'assets/fonts'));
+    gulp.src(['static/**/*'])
+    .pipe(gulp.dest(output + 'assets'));
 });
 
 gulp.task('watch', ['scss', 'typescript', 'assets', 'serve'], function() {
