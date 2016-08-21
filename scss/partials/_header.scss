@@ -1,0 +1,86 @@
+header {
+    z-index: 999;
+    max-width: $base-max-width;
+    height: 105px;
+    margin: 0px auto;
+    padding: 15px 45px;
+
+    .icon {
+        display: block;
+        height: 105px;
+        margin: 0px auto;
+    }
+
+    .logo {
+        float: left;
+        padding: 0px 0px 0px 10px;
+    }
+
+    nav {
+        float: right;
+        padding: 0px 10px 0px 0px;
+        text-align: center;
+        text-transform: uppercase;
+
+        a {
+            display: inline-block;
+            padding: 0px 0px 0px 35px;
+            font-size: 22px;
+            font-weight: $light;
+            transition: transform 100ms;
+
+            .icon {
+                height: 66px;
+                padding: 0px 0px 8px 0px;
+            }
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+        @media only screen and (max-width: $base-max-laptop) {
+            width: 100vw;
+            padding: 5px 0px;
+            transition: max-height 1s;  
+            background: #ecf0f1;
+            overflow: hidden;
+            
+            a {
+                display: inline-block;
+                padding: 5px 10px;
+                text-align: center;
+            }
+
+            &.closed {
+                //max-height: 0;
+                //padding: 0;
+            }
+        }
+    }
+
+    .toggle-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: $base-max-laptop) {
+        height: auto;
+        padding: 0px;
+
+        .logo {
+            margin: 10px 25px;
+            height: 65px;
+            
+            .icon {
+                height: 65px;
+            }
+        }
+
+        .toggle-menu {
+            display: block;
+            float: right;
+            height: 30px;
+            margin: 28px 25px;
+        }
+    }
+}

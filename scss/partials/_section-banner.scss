@@ -1,0 +1,21 @@
+.section-banner {
+    padding: 25px 0px;
+    background: #F0EFEE;
+    text-align: right;
+    text-transform: uppercase;
+
+    h2 {
+        max-width: $base-max-width;
+        margin: 0px auto;
+        font-size: 48px;
+        font-weight: $light;
+        color: $base-main-color;
+
+        @media only screen and (max-width: $base-max-laptop) {
+            font-size: 32px;
+        }
+    }
+    &.left {
+        text-align: left;
+    }
+}

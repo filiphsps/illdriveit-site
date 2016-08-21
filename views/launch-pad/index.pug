@@ -1,0 +1,70 @@
+block head
+    - var pageTitle = 'Launch Pad'
+
+doctype html
+html
+    include ../templates/head.pug
+    include ../templates/header.pug
+
+    div.launch_pad-view
+        div.header-banner.max-width-container
+            div.content
+                h1 Launch Pad
+
+                div.icon.color-apple-border
+                    img(src='/assets/img/icons/launch_pad.png')
+
+                h2 YOU ARE CLEARED FOR TAKEOFF
+                p.uppercase WE HANDLE EVERYTHING YOU NEED TO START DRIVING FOR THE RIDESHARE INDUSTRY, INCLUDING INSPECTIONS, REQUIRED CITY TESTING, AND MORE. 
+
+                a.button.color-bunting-border.center(href='#start')
+                    img(src='/assets/img/icons/logo.png')            
+                    span.text Start
+
+        div.section-banner(id='start')
+            h2.max-width-container WHO WOULD YOU LIKE TO DRIVE FOR?
+        section.six-button-grid.max-width-container.center(id='services')
+
+
+        div.section-banner.left
+            h2.max-width-container
+                | WHY DRIVE FOR 
+                span.uppercase(id='ref-name') uber
+                | ?
+        section.max-width-container.center
+            div.grid-3
+                div.stat
+                    h2.color-bunting.large-font $13.75
+                    p.uppercase Avg. income per trip*
+                div.stat
+                    h2.color-bunting.large-font $2.7k
+                    p.uppercase Avg. monthly income*
+                div.stat
+                    h2.color-bunting.large-font $35k
+                    p.uppercase Avg. annual income*
+            
+            div.grid-3
+                div.stat
+                    img(src='/assets/img/icons/logo.png')
+                    p.uppercase Pick your own hours
+                div.stat
+                    img(src='/assets/img/icons/logo.png')
+                    p.uppercase Get paid weekly
+                div.stat
+                    img(src='/assets/img/icons/logo.png')
+                    p.uppercase Be your own boss
+
+            div.grid-3
+                a.button.color-bunting-border.center(href='#start')
+                    img(src='/assets/img/icons/logo.png')
+                    span.text Change service
+
+                a.button.color-bunting-border.center(href='/forcefield?ref=' id='start-driving')
+                    img(src='/assets/img/icons/logo.png')
+                    span.text Start DRIVING
+
+                a.button.color-bunting-border.center(href='/income-calculator')
+                    img(src='/assets/img/icons/logo.png')
+                    span.text Calculate Income          
+
+    include ../templates/footer.pug

@@ -1,0 +1,64 @@
+/* Base
+===================================== */
+
+//Font Weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+
+//Base font
+$base-font-family: 'Century Gothic', 'Segoe UI', sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 14px;
+$base-line-height: 18px;
+
+//Colors
+$base-main-color: #10153c;
+$base-secondary-color: #60b646;
+
+//Width
+$base-max-width: 1285px;
+$base-max-mobile-small: 320px;
+$base-max-mobile-medium: 375px;
+$base-max-mobile-large: 425px;
+$base-max-tablet: 768px;
+$base-max-laptop: 1024px;
+$base-max-laptop-large: 1440px;
+$base-max-4k: 2560;
+
+html, body {
+    position: relative;
+    min-height: 100vh;
+    padding: 0px; margin: 0px;
+    overflow-x: hidden;
+    font-family: $base-font-family;
+}
+
+a,
+p,
+h1,h2,h3,h4,h5,h6 {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    color: #000;
+}
+
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+     -webkit-appearance: none;
+     border-radius: 0px;
+}
+
+.max-width-container {
+    max-width: $base-max-width;
+    padding: 0px 25px;
+
+    @media only screen and (max-width: $base-max-laptop) {
+        padding: 0px 10px;
+    }
+}
+
+//Include all modules
+@import "modules/all";
