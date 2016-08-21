@@ -6,7 +6,25 @@ declare var $: any;
 namespace illdriveit {
     export module App {
         export function initialize () {
-            
+
+            /*$('a[href*=#]').on('click', function (event) {
+                if ($(this).attr('href').indexOf('/') !== -1)
+                    return;
+
+                event.preventDefault();
+
+                try {
+                    $('html,body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    },
+                        500,
+                        'easeInOutCubic'
+                    );
+                } catch (ex) {
+                    console.log(ex);
+                }
+            });*/
+
             $('.toggle-menu').click(function() {
                 if (!$('header nav').hasClass('closed')) {
                     $('header nav').addClass('closed');
@@ -26,7 +44,7 @@ namespace illdriveit {
             });
 
             pagex('/income-calculator', () => {
-                //LaunchPad.initialize();
+                //IncomeCalculator.initialize();
             });
 
             pagex('/launch-pad', () => {

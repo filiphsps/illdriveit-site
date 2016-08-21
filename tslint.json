@@ -1,13 +1,11 @@
 {
   "rules": {
     "class-name": true,
-    "curly": true,
     "eofline": false,
     "forin": true,
     "indent": [true, 4],
     "label-position": true,
     "label-undefined": true,
-    "max-line-length": [true, 140],
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [true,
