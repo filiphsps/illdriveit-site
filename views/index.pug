@@ -1,7 +1,9 @@
 block head
     - var pageTitle = 'Home'
 
-include ./templates/head.pug
-include ./templates/header.pug
+doctype html
+html
+    include ./templates/head.pug
+    include ./templates/header.pug
 
-include ./templates/footer.pug
+    include ./templates/footer.pug

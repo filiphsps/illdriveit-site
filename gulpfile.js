@@ -3,7 +3,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    pug = require('gulp-pug');
+    pug = require('gulp-pug'),
+    tsc = require('gulp-typescript'),
+    tscProj = tsc.createProject('tsconfig.json'),
+    //tslint = require('gulp-tslint'),
     browserSync = require('browser-sync').create(),
 
     output = './www/';
@@ -26,8 +29,17 @@ gulp.task('scss', function () {
 });
 
 gulp.task('typescript', function () {
-    /* TODO */
-    return gulp;
+    var sourceTsFiles = ['./ts/**/*.ts', './typings/'];
+    var tsResult = gulp.src(sourceTsFiles)
+                       .pipe(sourcemaps.init())
+                       .pipe(tsc(tscProj));
+
+        tsResult.dts
+            .pipe(gulp.dest(output + 'js'));
+
+        return tsResult.js
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest(output + 'js'));
 });
 
 gulp.task('views', function buildHTML() {
@@ -49,7 +61,7 @@ gulp.task('assets', function () {
 
 gulp.task('watch', ['scss', 'typescript', 'assets', 'serve'], function() {
     gulp.watch('./scss/**/*.scss', ['scss', 'assets']);
-    gulp.watch('./ts/**/*.ts', ['typescript', 'assets']);
+    gulp.watch('./ts/**/*.*', ['typescript', 'assets']);
     gulp.watch('./views/**/*.pug', ['views', 'assets'])
 });
 gulp.task('serve', function() {

@@ -1,6 +1,6 @@
 .header-banner {
     position: relative;
-    display: inline-block;
+    display: block;
     max-width: $base-max-width;
     margin: 75px auto;
 
@@ -75,6 +75,7 @@
     }
 
     @media only screen and (max-width: $base-max-laptop) {
+        display: inline-block;
         margin: 25px auto;
     }
 }

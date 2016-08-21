@@ -36,7 +36,7 @@
 
                         <img class="referral-logo"/>
 
-                        <a href="#acive-block-link" class="img-circle">
+                        <a href="#covers" class="img-circle">
                             <img src="../assets/img/hearticon.png">
                             <span class="want-it">I WANT IT</span>
                         </a>
