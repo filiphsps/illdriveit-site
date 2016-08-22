@@ -443,13 +443,24 @@ function ajax(f, obj){
 				data: obj,
 				dataType : "json",
 				processData: false,
-				success: function(data){
-					console.log(data);
+				success: function(data) {
 					$('.load').hide();
 
 					if(data.result=='error'){
 						open_error(data.error);
-					}else{
+						ga('send', {
+							hitType: 'event',
+							eventCategory: 'PLANSError',
+							eventAction: 'enter',
+					  		eventLabel: drive_data.warrantyRequest.vin
+						});
+					} else {
+						ga('send', {
+							hitType: 'event',
+							eventCategory: 'PLANSSuccess',
+							eventAction: 'enter',
+					  		eventLabel: drive_data.warrantyRequest.vin
+						});
 						update_calculate(data);
 						$('.block4').show();
 						down(1000);
@@ -475,7 +486,13 @@ function ajax(f, obj){
 						data = data.responseJSON;
 
 						if(!data.zipValid){
-							open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!",true);
+							open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!", true);
+							ga('send', {
+								hitType: 'event',
+								eventCategory: 'ZIPInvalid',
+								eventAction: 'enter',
+						  		eventLabel: drive_data.warrantyRequest.vin
+							});
 						} else if(!data.mileageValid && !data.yearValid){
 							open_error('OH NO! ONLY VEHICLES UNDER 10 YEARS AND/OR UNDER 60K MILES ELIGIBLE FOR THE FORCEFIELD', undefined, true);
 						} else if(!data.yearValid){
@@ -487,7 +504,13 @@ function ajax(f, obj){
 								$('.block7 input[name=state]').val(data.state);
 							if (typeof data.city !== undefined && data.city)
 								$('.block7 input[name=city]').val(data.city);
-
+							
+							ga('send', {
+								hitType: 'event',
+								eventCategory: 'ZIPSuccess',
+								eventAction: 'enter',
+						  		eventLabel: drive_data.warrantyRequest.vin
+							});
 							ajax('plans','vin='+drive_data.warrantyRequest.vin+'&mileage='+drive_data.warrantyRequest.mileage);
 						}
 					} catch (ex) {
@@ -522,6 +545,12 @@ function ajax(f, obj){
 					fbq('track', 'Purchase', {
 						'value': Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))),
 						'currency': 'USD'
+					});
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PURCHASESuccess',
+						eventAction: 'enter',
+				  		eventLabel: drive_data.warrantyRequest.vin
 					});
 					ga('ecommerce:addTransaction', {
 					  'id': res.ContractNumber,
@@ -679,10 +708,10 @@ function ajax(f, obj){
 						//Track InitiateCheckout
 						fbq('track', 'InitiateCheckout');
 						ga('send', {
-						  hitType: 'event',
-						  eventCategory: 'VIN',
-						  eventAction: 'enter',
-						  eventLabel: drive_data.warrantyRequest.vin
+						  	hitType: 'event',
+						  	eventCategory: 'VIN',
+						  	eventAction: 'enter',
+						  	eventLabel: drive_data.warrantyRequest.vin
 						});
 
 						$('.load').hide();
@@ -690,6 +719,14 @@ function ajax(f, obj){
 						var res = data.responseJSON;
 						$('.listing_car_name').text(res.name);
 						$('.listing_car_model').text(res.model);
+
+						if (red.name !== 'VEHICLE')
+							ga('send', {
+								hitType: 'event',
+								eventCategory: 'VINSuccess',
+								eventAction: 'enter',
+						  		eventLabel: drive_data.warrantyRequest.vin
+							});
 
 						user['car_model'] = res.model;
 						user['car_name'] = res.name;
