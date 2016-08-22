@@ -62,7 +62,7 @@ var illdriveit;
                     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Uber_logo.svg/512px-Uber_logo.svg.png',
                     discount: 0,
                     data: {
-                        income_trip: 13.57,
+                        income_trip: 20.00,
                     }
                 },
                 lyft: {
@@ -70,7 +70,7 @@ var illdriveit;
                     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lyft_logo.svg/199px-Lyft_logo.svg.png',
                     discount: 0,
                     data: {
-                        income_trip: 12.92,
+                        income_trip: 20.00,
                     }
                 },
                 doordash: {
@@ -108,11 +108,11 @@ var illdriveit;
                         style: 'currency',
                         currency: 'USD'
                     }));
-                    $('.income-month').text((providers[ref].data.income_trip * 200).toLocaleString('en-US', {
+                    $('.income-month').text((providers[ref].data.income_trip * 160).toLocaleString('en-US', {
                         style: 'currency',
                         currency: 'USD'
                     }).replace(',', '.').replace('.00', '').slice(0, -2) + 'k');
-                    $('.income-annual').text(((providers[ref].data.income_trip * 200) * 12).toLocaleString('en-US', {
+                    $('.income-annual').text(((providers[ref].data.income_trip * 160) * 12).toLocaleString('en-US', {
                         style: 'currency',
                         currency: 'USD'
                     }).slice(0, -7) + 'k');
