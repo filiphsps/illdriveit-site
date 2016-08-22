@@ -1,7 +1,7 @@
 'use stric';
 declare var pagex: any;
 declare var $: any;
- var menuHeight = $('header nav').height();
+var menuHeight = $('header nav').height();
 
 namespace illdriveit {
     export module App {
