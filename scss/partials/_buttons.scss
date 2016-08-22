@@ -23,7 +23,8 @@
     }
 
     img, .text {
-        display: block;
+        display: inline-block;
+        vertical-align: top;
     }
 
     img {

@@ -31,7 +31,7 @@ namespace illdriveit {
                     discount: 0,
                     
                     data: {
-                        income_trip: 13.57,
+                        income_trip: 0,
                     }
                 },
 
@@ -41,7 +41,7 @@ namespace illdriveit {
                     discount: 0,
                     
                     data: {
-                        income_trip: 13.57,
+                        income_trip: 0,
                     }
                 },
 
@@ -51,7 +51,7 @@ namespace illdriveit {
                     discount: 0,
                     
                     data: {
-                        income_trip: 13.57,
+                        income_trip: 0,
                     }
                 },
 
@@ -61,7 +61,7 @@ namespace illdriveit {
                     discount: 0,
                     
                     data: {
-                        income_trip: 13.57,
+                        income_trip: 0,
                     }
                 },
             });
