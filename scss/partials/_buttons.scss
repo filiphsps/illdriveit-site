@@ -1,7 +1,13 @@
 .button {
-    display: block;
-    height: 110px;
-    width: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    max-height: 30vw;
+    width: 140px;
+    max-width: 30vw;
     padding: 10px;
     color: #000;
     border-radius: 100%;
@@ -16,12 +22,18 @@
         border-color: $base-secondary-color;
     }
 
+    img, .text {
+        display: inline-block;
+        vertical-align: top;
+    }
+
     img {
-        display: block;
         width: 60px;
         margin: 0px auto;
     }
     span.text {
+        flex-grow: 1;
+        min-width: 100%;
         font-size: 22px;
         font-weight: $regular;
 

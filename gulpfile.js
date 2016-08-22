@@ -60,9 +60,12 @@ gulp.task('assets', function () {
 });
 
 gulp.task('watch', ['scss', 'typescript', 'assets', 'serve'], function() {
-    gulp.watch('./scss/**/*.scss', ['scss', 'assets']);
-    gulp.watch('./ts/**/*.*', ['typescript', 'assets']);
+    gulp.watch('./scss/**/*.scss', ['scss', 'assets'])
+        .on('error', function() {});
+    gulp.watch('./ts/**/*.*', ['typescript', 'assets'])
+        .on('error', function() {});
     gulp.watch('./views/**/*.pug', ['views', 'assets'])
+        .on('error', function() {});
 });
 gulp.task('serve', function() {
     browserSync.init({

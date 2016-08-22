@@ -523,6 +523,13 @@ function ajax(f, obj){
 						'value': Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))),
 						'currency': 'USD'
 					});
+					ga('ecommerce:addTransaction', {
+					  'id': res.ContractNumber,
+					  'affiliation': 'Forcefield',
+					  'revenue': Math.round((listing.downpayment + (listing.monthlyPrice * listing.numberOfMonths))),
+					  'tax': 0
+					});
+					ga('ecommerce:send');
 
 					$('#ac_force').addClass('hidden');
 					$('.load').hide();
@@ -671,6 +678,12 @@ function ajax(f, obj){
 					try {
 						//Track InitiateCheckout
 						fbq('track', 'InitiateCheckout');
+						ga('send', {
+						  hitType: 'event',
+						  eventCategory: 'VIN',
+						  eventAction: 'enter',
+						  eventLabel: drive_data.warrantyRequest.vin
+						});
 
 						$('.load').hide();
 

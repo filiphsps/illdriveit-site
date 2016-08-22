@@ -50,6 +50,10 @@ namespace illdriveit {
             pagex('/launch-pad', () => {
                 illdriveit.LaunchPad.initialize();
             });
+
+            pagex('/forcefield', () => {
+                //Forcefield.initialize();
+            });
         }
     }
 }

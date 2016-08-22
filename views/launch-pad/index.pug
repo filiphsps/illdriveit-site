@@ -18,53 +18,63 @@ html
                 p.uppercase WE HANDLE EVERYTHING YOU NEED TO START DRIVING FOR THE RIDESHARE INDUSTRY, INCLUDING INSPECTIONS, REQUIRED CITY TESTING, AND MORE. 
 
                 a.button.color-bunting-border.center(href='#start')
-                    img(src='/assets/img/icons/logo.png')            
+                    img(src='/assets/img/icons/car.png')        
                     span.text Start
 
         div.section-banner(id='start')
             h2.max-width-container WHO WOULD YOU LIKE TO DRIVE FOR?
         section.six-button-grid.max-width-container.center(id='services')
 
+        
+        div.center(id='ref-data', style='display: none')
+            div.section-banner.left
+                h2.max-width-container
+                    | WHY DRIVE FOR 
+                    span.uppercase(id='ref-name') uber
+                    | ?
+            section.max-width-container.center
+                div.grid-3
+                    div.stat
+                        h2.color-bunting.large-font.income-trip
+                        p.uppercase Avg. income per trip*
+                    div.stat
+                        h2.color-bunting.large-font.income-month
+                        p.uppercase Avg. monthly income*
+                    div.stat
+                        h2.color-bunting.large-font.income-annual
+                        p.uppercase Avg. annual income*
+                
+                div.grid-3
+                    div.stat
+                        img(src='/assets/img/icons/logo.png')
+                        p.uppercase Pick your own hours
+                    div.stat
+                        img(src='/assets/img/icons/logo.png')
+                        p.uppercase Get paid weekly
+                    div.stat
+                        img(src='/assets/img/icons/logo.png')
+                        p.uppercase Be your own boss
 
-        div.section-banner.left
-            h2.max-width-container
-                | WHY DRIVE FOR 
-                span.uppercase(id='ref-name') uber
-                | ?
-        section.max-width-container.center
-            div.grid-3
-                div.stat
-                    h2.color-bunting.large-font $13.75
-                    p.uppercase Avg. income per trip*
-                div.stat
-                    h2.color-bunting.large-font $2.7k
-                    p.uppercase Avg. monthly income*
-                div.stat
-                    h2.color-bunting.large-font $35k
-                    p.uppercase Avg. annual income*
-            
-            div.grid-3
-                div.stat
-                    img(src='/assets/img/icons/logo.png')
-                    p.uppercase Pick your own hours
-                div.stat
-                    img(src='/assets/img/icons/logo.png')
-                    p.uppercase Get paid weekly
-                div.stat
-                    img(src='/assets/img/icons/logo.png')
-                    p.uppercase Be your own boss
+                div.grid-3
+                    a.button.color-bunting-border.center(href='#start')
+                        img(src='/assets/img/icons/back.png')
+                        span.text Change service
 
-            div.grid-3
-                a.button.color-bunting-border.center(href='#start')
-                    img(src='/assets/img/icons/logo.png')
-                    span.text Change service
+                    a.button.color-apple-border.center(href='/forcefield?ref=' id='start-driving')
+                        img(src='/assets/img/icons/car.png')
+                        span.text Start DRIVING
 
-                a.button.color-bunting-border.center(href='/forcefield?ref=' id='start-driving')
-                    img(src='/assets/img/icons/logo.png')
-                    span.text Start DRIVING
-
-                a.button.color-bunting-border.center(href='/income-calculator')
-                    img(src='/assets/img/icons/logo.png')
-                    span.text Calculate Income          
-
+                    a.button.color-bunting-border.center(href='/income-calculator')
+                        img(src='/assets/img/icons/logo.png')
+                        span.text Calculate Income          
+                p.center.uppercase
+                    | *GROSS EARNINGS ARE BASED ON THE NATIONAL AVERAGE OF 20 CITIES NATIONWIDE FROM DATA OBTAINED 
+                    a(href='')
+                        b HERE
+                    |.
+                    | THIS IS JUST AN APPROXIMATION AND 
+                    b NOT 
+                    | A GUARANTEE OF EARNINGS.
+                    | MONTHLY AND ANNUAL INCOME ARE BASED ON 50 RIDES PER WEEK.
+    
     include ../templates/footer.pug
