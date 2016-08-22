@@ -1,27 +1,37 @@
 .grid-3 {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    -webkit-box-align: center;
+    justify-content: center;
     margin: 25px auto;
 
     div, button, a {
-        display: inline-block;
         max-width: 30%;
         margin: 25px;
         text-align: center;
 
         @media only screen and (max-width: $base-max-laptop) {
-            display: block;
             min-width: auto;
             max-width: 100%;
             margin: 25px auto;
 
             &.button {
-                display: inline-block;
                 width: calc(20vw - 5px);
                 min-width: 95px;
                 height: calc(20vw - 5px);
                 min-height: 95px;
                 margin: 0px 5px;
             }
+        }
+    }
+
+    div {
+        flex-basis: 25%;
+
+        @media only screen and (max-width: $base-max-laptop) {
+            min-width: 100%;
         }
     }
 }
