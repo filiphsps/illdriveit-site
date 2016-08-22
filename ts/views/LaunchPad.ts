@@ -31,11 +31,11 @@ namespace illdriveit {
                     discount: 0,
                     
                     data: {
-                        income_trip: 0,
+                        income_trip: 13.57,
                     }
                 },
 
-                wingz: {
+                /*wingz: {
                     name: 'Wingz',
                     logo: 'https://workablehr.s3.amazonaws.com/uploads/account/logo/42373/large_Picture1.png',
                     discount: 0,
@@ -63,7 +63,7 @@ namespace illdriveit {
                     data: {
                         income_trip: 0,
                     }
-                },
+                },*/
             });
         }
     }
