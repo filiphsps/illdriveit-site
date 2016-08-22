@@ -720,7 +720,7 @@ function ajax(f, obj){
 						$('.listing_car_name').text(res.name);
 						$('.listing_car_model').text(res.model);
 
-						if (red.name !== 'VEHICLE')
+						if (res.name !== 'VEHICLE')
 							ga('send', {
 								hitType: 'event',
 								eventCategory: 'VINSuccess',
