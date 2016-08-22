@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right text-center">
                     <li>
-                        <a href="/launch-pad/" title="Launch Pad">
+                        <a href="/inspections/" title="Launch Pad">
                             <div>
                                 <img alt="Launch Pad" class="img-responsive fix-icon" src="/assets/img/launcpad.png">
                             </div>
