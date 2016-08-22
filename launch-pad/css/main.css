@@ -867,7 +867,7 @@ header .toggle-menu {
 
 @media only screen and (max-width: 1024px) {
   .header-banner .content {
-    width: calc(100vw - 50px);
+    width: calc(100vw - 35px);
   }
   .header-banner .content h1 {
     font-size: 52px;
