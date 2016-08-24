@@ -488,7 +488,7 @@
                             </figure>
                         </div>
                         <div class="col-md-12 input">
-                            <input class="full-width-fill" type="text" name="vin" required placeholder="ENTER VIN NUMBER" minlength="17">
+                            <input class="full-width-fill" type="text" name="vin" required placeholder="ENTER VIN NUMBER" minlength="17" maxlength="17"/>
                         </div>
                         <div class="col-md-12 next next-action-block hide-button">
                             <a class="img-circle">

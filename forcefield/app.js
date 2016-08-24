@@ -495,7 +495,9 @@ function ajax(f, obj){
 					try {
 						data = data.responseJSON;
 
-						if(!data.zipValid){
+						if ($('.listing_car_name').text() === 'VEHICLE') {
+							open_error('OH NO! YOUR VIN IS INVALID', 'IT LOOKS LIKE YOU HAVE ENTERED AN INCORRECT VIN', false);
+						} else if(!data.zipValid){
 							open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!", true);
 							ga('send', {
 								hitType: 'event',
