@@ -18,7 +18,8 @@
 var	drive_data = {},
 	slider = [{},{},{}],
 	plans = {},
-	pdfUrl;
+	pdfUrl,
+	ajaxCooldown = 5;
 
 var user = {
 	'first_name': null,
@@ -187,6 +188,7 @@ $(document).ready(function(){
 
 	/** Actions **/
 	$('.next-action-block').click(function(){
+		ajaxCooldown = 5;
 		//Handle completion of flow
 		if ($(this).hasClass('flow-completion'))
 			handelFlowComplete();
@@ -206,6 +208,7 @@ $(document).ready(function(){
 		}
 	});
 	$('.next-custom-block').click(function(){
+		ajaxCooldown = 5;
 		var block = $(this).parents('.action-block');
 		block.find('input').prop('disabled', true);
 		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
@@ -465,8 +468,14 @@ function ajax(f, obj){
 						$('.block4').show();
 						down(1000);
 					}
+
+					ajaxCooldown = 5;
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -482,6 +491,7 @@ function ajax(f, obj){
 				dataType : "json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					try {
 						data = data.responseJSON;
 
@@ -520,6 +530,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -536,6 +550,7 @@ function ajax(f, obj){
 				contentType: "application/json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					//Fix bug
 					if(run)
 						return;
@@ -690,6 +705,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -704,6 +723,7 @@ function ajax(f, obj){
 				dataType : "json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					try {
 						//Track InitiateCheckout
 						fbq('track', 'InitiateCheckout');
@@ -737,6 +757,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -750,9 +774,14 @@ function ajax(f, obj){
 				data:obj,
 				dataType : "json",
 				success:function(data){
+					ajaxCooldown = 5;
 					console.log(data);
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
