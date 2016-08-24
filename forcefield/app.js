@@ -717,7 +717,7 @@ function ajax(f, obj){
 		break;
 		case 'vehiclename':
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/vehiclename',
+			    url:'https://api.illdrive.it/api/warranty/vehiclename',
 				type: "GET",
 				data: obj,
 				dataType : "json",
