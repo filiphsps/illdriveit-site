@@ -438,7 +438,7 @@ function ajax(f, obj){
 		down(300);
 	}
 
-	switch(f){
+	switch (f) {
 		case 'plans':
 			$.ajax({
 				url:'https://api.illdrive.it/api/warranty/plans',
