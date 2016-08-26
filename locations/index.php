@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>DRIVER TRAINING - illdrive.it</title>
+		<title>LOCATIONS - illdrive.it</title>
 		<meta charset="UTF-8">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -19,13 +19,13 @@
 		<section id="warranty">
 			<div class="container-fluid locationspage">
 					<div class="col-md-8 col-sm-12 col-xs-12">
-						<h1 class="text-center">SUPPORTED STATES</h1>
-						<h2 class="text-center">THEY'RE SIMPLY MARKED IN GREEN</h2>	
+						<h1 class="text-center">CHECK US OUT!</h1>
+						<h2 class="text-center">We're everywhere...almost!</h2>	
 					<div class="col-md-4 col-sm-12 col-xs-12 pull-right rightimg mobileonly" style="display:none;">
 						<img class="img-responsive img-circle" src="../assets/img/locations-image.png">
 					</div>
 						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-							<img src="map.svg">
+							<img src="map.svg" style="max-width:100vw"/>
 						</div>
 						
 					</div>
