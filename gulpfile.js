@@ -23,9 +23,7 @@ gulp.task('scss', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(output + 'css'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
+        .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 gulp.task('typescript', function () {
@@ -69,9 +67,7 @@ gulp.task('watch', ['scss', 'typescript', 'assets', 'serve'], function() {
 });
 gulp.task('serve', function() {
     browserSync.init({
-        server: {
-            baseDir: 'www'
-        },
+        server: output
     })
 })
 
