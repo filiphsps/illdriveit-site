@@ -18,7 +18,8 @@
 var	drive_data = {},
 	slider = [{},{},{}],
 	plans = {},
-	pdfUrl;
+	pdfUrl,
+	ajaxCooldown = 5;
 
 var user = {
 	'first_name': null,
@@ -187,6 +188,7 @@ $(document).ready(function(){
 
 	/** Actions **/
 	$('.next-action-block').click(function(){
+		ajaxCooldown = 5;
 		//Handle completion of flow
 		if ($(this).hasClass('flow-completion'))
 			handelFlowComplete();
@@ -206,6 +208,7 @@ $(document).ready(function(){
 		}
 	});
 	$('.next-custom-block').click(function(){
+		ajaxCooldown = 5;
 		var block = $(this).parents('.action-block');
 		block.find('input').prop('disabled', true);
 		block.find('.next-action-block , .next-custom-block, .next-error-block').addClass('disabled');
@@ -435,10 +438,10 @@ function ajax(f, obj){
 		down(300);
 	}
 
-	switch(f){
+	switch (f) {
 		case 'plans':
 			$.ajax({
-				url:'https://high-quality.tech/illdriveit/warranty/plans',
+				url:'https://api.illdrive.it/api/warranty/plans',
 				type: "GET",
 				data: obj,
 				dataType : "json",
@@ -465,8 +468,14 @@ function ajax(f, obj){
 						$('.block4').show();
 						down(1000);
 					}
+
+					ajaxCooldown = 5;
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -475,17 +484,20 @@ function ajax(f, obj){
 		break;
 		case 'verifyzip':
 			$.ajax({
-	        	url:'https://high-quality.tech/illdriveit/warranty/verifyzip',
+	        	url:'https://api.illdrive.it/api/warranty/verifyzip',
 				type: "POST",
 				data: obj,
 				contentType: "application/json",
 				dataType : "json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					try {
 						data = data.responseJSON;
 
-						if(!data.zipValid){
+						if ($('.listing_car_name').text() === 'VEHICLE') {
+							open_error('OH NO! YOUR VIN IS INVALID', 'IT LOOKS LIKE YOU HAVE ENTERED AN INCORRECT VIN', false);
+						} else if(!data.zipValid){
 							open_error("OH NO! YOUR STATE ISN'T ELIGIBLE FOR THE FORCEFIELD YET!","WE ARE WORKING HARD TO ADD IT TO OUR PROGRAM. CLICK HERE TO BE NOTIFIED WHEN IT'S READY!", true);
 							ga('send', {
 								hitType: 'event',
@@ -520,6 +532,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -529,13 +545,14 @@ function ajax(f, obj){
 		case 'payment':
 			var run = false;
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/purchase',
+			    url:'https://api.illdrive.it/api/warranty/purchase',
 				type: "POST",
 				data: obj,
 				dataType : "json",
 				contentType: "application/json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					//Fix bug
 					if(run)
 						return;
@@ -690,6 +707,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -698,12 +719,13 @@ function ajax(f, obj){
 		break;
 		case 'vehiclename':
 			$.ajax({
-			    url:'https://high-quality.tech/illdriveit/warranty/vehiclename',
+			    url:'https://api.illdrive.it/api/warranty/vehiclename',
 				type: "GET",
 				data: obj,
 				dataType : "json",
 				processData: false,
 				complete: function(data) {
+					ajaxCooldown = 5;
 					try {
 						//Track InitiateCheckout
 						fbq('track', 'InitiateCheckout');
@@ -737,6 +759,10 @@ function ajax(f, obj){
 					}
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -745,14 +771,19 @@ function ajax(f, obj){
 		break;
 		case 'emailtonotify':
 			$.ajax({
-                url:'https://high-quality.tech/illdriveit/warranty/emailtonotify',
+                url:'https://api.illdrive.it/api/warranty/emailtonotify',
 				type: "POST",
 				data:obj,
 				dataType : "json",
 				success:function(data){
+					ajaxCooldown = 5;
 					console.log(data);
 				},
 				error: function (jqXHR, txtSts, err) {
+					if(!ajaxCooldown)
+						return open_error('Something is wrong on our end!', 'It looks like something went wrong on out end :()', false);
+					
+					ajaxCooldown--;
 					notie.alert(3, 'Something happened, retrying..', 2.5);
 					console.error(err);
 					ajax(f, obj);
@@ -971,7 +1002,7 @@ function handelFlowComplete() {
 	fbq('track', 'CompleteRegistration');
 
 	return $.ajax({
-		url:'https://high-quality.tech/illdriveit/warranty/flow/completed',
+		url:'https://api.illdrive.it/api/warranty/flow/completed',
 		type: "POST",
 		data: user,
 		dataType: "json",
